@@ -9,13 +9,16 @@ const App = () => {
 <>
 <BrowserRouter>
 <MyContext.Provider>
-  <div className='w-[25%]'>
+  <div className='flex  justify-between'>
+
+  <div className='w-[20%]'>
 
 <Sidebar />
   </div>
-  <div className='w-[75%]'>
+  <div className='w-[80%] '>
 
 <Header/> 
+  </div>
   </div>
 <Routes>
 <Route path="/" excat element={<Dashboard />} />

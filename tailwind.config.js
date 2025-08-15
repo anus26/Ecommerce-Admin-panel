@@ -9,6 +9,8 @@ export default {
     colors:{
   primary:"#465fff",
   light:"#ecf3ff",
+  green:"#039855",
+  dark:"#d1fadf",
   
 },
 
