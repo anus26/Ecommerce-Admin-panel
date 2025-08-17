@@ -14,7 +14,7 @@ const menuItems=[
 ]
   return (
 <>
-<section>
+<section className="dashboard bg-gray-50 min-h-screen w-full " >
 <div className='bg-gray-50 m-10 flex gap-10'>
   {/* 1 */}
 <div className='border  w-72  bg-white rounded-2xl h-52'>
@@ -45,39 +45,17 @@ const menuItems=[
 
 </div>
 {/* 3 */}
-<div className='w-96 h-52'>
-  <div className='bg-white  border  '>
-{/* top */}
-    <div className='flex justify-between m-4 '>
-   <h1 className='text-xl font-semibold'>Mothly Target</h1>
-   <div className='relative  mr-0  ml-0'>
-<PiDotsThreeVertical  onClick={()=>setOpen(!open)} />
-{open && (
-<div className='absolute bg-white w-32 h-20 right-0 top-0 m-4 border rounded-xl ml-0'>
 
-  
-  {menuItems.map((item)=>(
-    <div  key={item.id} className='m-2 font-lg '>
-      {item.id}
-      </div>
-      
-    ))}
-    </div>
-)}
 
-   </div>
-   <div></div>
-    </div>
-{/* second */}
-<div>
-  <h1>Target you've set for each month</h1>
-  <div className='chart'>
-<Apexchart/>
-  </div>
-</div>
-  </div>
+<div className='Apexchart w-96 h-52  border rounded-lg'>
+
+
+
+<Apexchart />
+
 
 </div>
+
 
 </div>
 
