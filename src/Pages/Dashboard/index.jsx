@@ -4,8 +4,10 @@ import Header from '../../Components/Header'
 import { FiUsers } from "react-icons/fi"
 import { IoIosArrowRoundUp } from "react-icons/io";
 import { PiDotsThreeVertical } from "react-icons/pi";
+import Apexchart from '../../Components/Apexchart';
 const  Dashboard = () => {
   const [open,setOpen]=useState(false)
+  
 const menuItems=[
   { id:'Viewmore'},
   {id:'Delte'}
@@ -45,8 +47,8 @@ const menuItems=[
 {/* 3 */}
 <div className='w-96 h-52'>
   <div className='bg-white  border  '>
+{/* top */}
     <div className='flex justify-between m-4 '>
-
    <h1 className='text-xl font-semibold'>Mothly Target</h1>
    <div className='relative  mr-0  ml-0'>
 <PiDotsThreeVertical  onClick={()=>setOpen(!open)} />
@@ -62,8 +64,17 @@ const menuItems=[
     ))}
     </div>
 )}
+
    </div>
+   <div></div>
     </div>
+{/* second */}
+<div>
+  <h1>Target you've set for each month</h1>
+  <div className='chart'>
+<Apexchart/>
+  </div>
+</div>
   </div>
 
 </div>
