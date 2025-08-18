@@ -107,6 +107,7 @@ const ApexChart = () => {
       +10% You earn $3287 today, it's higher than last month. Keep up your good work!
     </h1>
   </div>
+
 </div>
 
 {/* Bottom Part - Slate Background */}

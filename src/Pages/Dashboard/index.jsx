@@ -5,6 +5,7 @@ import { FiUsers } from "react-icons/fi"
 import { IoIosArrowRoundUp } from "react-icons/io";
 import { PiDotsThreeVertical } from "react-icons/pi";
 import Apexchart from '../../Components/Apexchart';
+import Monthly from '../../Components/Monthly';
 const  Dashboard = () => {
   const [open,setOpen]=useState(false)
   
@@ -44,6 +45,7 @@ const menuItems=[
 </div>
 
 </div>
+ 
 {/* 3 */}
 
 
@@ -58,7 +60,9 @@ const menuItems=[
 
 
 </div>
-
+  <div>
+  <Monthly/>
+  </div>
 
   
 </section>
