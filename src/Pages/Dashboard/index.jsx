@@ -60,7 +60,7 @@ const menuItems=[
 
 
 </div>
-  <div>
+  <div className='border w-[50%] bg-white'>
   <Monthly/>
   </div>
 

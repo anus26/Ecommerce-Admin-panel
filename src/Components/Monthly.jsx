@@ -1,45 +1,73 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Chart from "react-apexcharts";
 import dayjs from 'dayjs';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear'
+import { PiDotsThreeVertical } from "react-icons/pi";
+dayjs.extend(quarterOfYear)
 const Monthly = () => {
+    const [open,setOpen]=useState(false)
+    const menuItems=[
+    {id:'Viewmore'},
+    {id:'Delete'}
+  ]
+
 const   options = {
           chart: {
           type: 'bar',
-          height: 380
+          height: 200
         },
-        xaxis: {
-          type: 'category',
-        //   labels: {
-        //     formatter: function(val) {
-        //       return "Q" + dayjs(val).quarter()
-        //     }
-        //   },
-          group: {
-            style: {
-              fontSize: '10px',
-              fontWeight: 700
+        plotOptions:{
+bar:{
+    borderRadius:5,
+    borderRadiusApplication:'end',
+    horizontal:false,
+    columnWidth:'25%',
+    color:"blue"
+
+}
+        },
+        dataLabels:{
+            enabled:false
+        },
+      
+            xaxis: {
+                type: 'category',
+                labels: {
+                    formatter: function(val) {
+                        return  dayjs(val).format('MMM ')
+                    }
+                },
+     
+                group: {
+                    style: {
+                        fontSize: '10px',
+                        fontWeight: 700
+                    },
+                    groups: [
+                        { title:'', cols: 12 },
+                       
+                    ]
+                }
             },
-            groups: [
-              { title: '2019', cols: 4 },
-              { title: '2020', cols: 4 }
-            ]
+        
+             tooltip: {
+                y:{
+                    formatter : function (val){
+                        return `Sales :${val}`
+                    }
+                },
+          x: {
+            formatter: function(val) {
+              return  dayjs(val).format('MMM ')
+            }  
           }
         },
-        title: {
-            text: 'Grouped Labels on the X-axis',
-        },
-        // tooltip: {
-        //   x: {
-        //     formatter: function(val) {
-        //       return "Q" + dayjs(val).quarter() + " " + dayjs(val).format("YYYY")
-        //     }  
-        //   }
-        // },
+         
         };
 
        const      series= [{
           name: "sales",
-          data: [{
+data: [{
             x: '2019/01/01',
             y: 400
           }, {
@@ -72,12 +100,24 @@ const   options = {
     
   return (
 <>
-<div>
-    <div>
+<div className=''>
+    <div className='flex justify-between m-5'>
 <h1>Monthly Sales</h1>
+  <div className="relative">
+      <PiDotsThreeVertical onClick={() => setOpen(!open)} />
+      {open && (
+        <div className="absolute bg-white w-32 h-20 right-0 top-0 m-4 border rounded-xl">
+          {menuItems.map((item) => (
+            <div key={item.id} className="m-2 font-lg">
+              {item.id}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
         </div>
         <div>
-       <Chart options={options} series={series} type='bar' height={350} width={500} />
+       <Chart options={options} series={series} type='bar' height={190} width={500}  />
     </div>
 </div>
 </>
