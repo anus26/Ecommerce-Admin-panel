@@ -57,10 +57,9 @@ const menuItems=[
 
 
 </div>
-
-
 </div>
-  <div className='border w-[50%] bg-white'>
+{/* Monthly */}
+  <div className='border w-[50%] bg-white m-10 rounded-xl  mt-1'>
   <Monthly/>
   </div>
 

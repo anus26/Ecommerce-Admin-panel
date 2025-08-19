@@ -22,7 +22,7 @@ bar:{
     borderRadiusApplication:'end',
     horizontal:false,
     columnWidth:'25%',
-    color:"blue"
+   
 
 }
         },
@@ -75,19 +75,19 @@ data: [{
             y: 430
           }, {
             x: '2019/07/01',
-            y: 448
+            y: 648
           }, {
             x: '2019/10/01',
             y: 470
           }, {
             x: '2020/01/01',
-            y: 540
+            y: 840
           }, {
             x: '2020/04/01',
-            y: 580
+            y: 280
           }, {
             x: '2020/07/01',
-            y: 690
+            y: 390
           }, {
             x: '2020/10/01',
             y: 690
@@ -102,7 +102,7 @@ data: [{
 <>
 <div className=''>
     <div className='flex justify-between m-5'>
-<h1>Monthly Sales</h1>
+<h1 className='font-semibold text-xl'>Monthly Sales</h1>
   <div className="relative">
       <PiDotsThreeVertical onClick={() => setOpen(!open)} />
       {open && (
