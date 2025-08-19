@@ -6,6 +6,7 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 import { PiDotsThreeVertical } from "react-icons/pi";
 import Apexchart from '../../Components/Apexchart';
 import Monthly from '../../Components/Monthly';
+import Static from '../../Components/Static';
 const  Dashboard = () => {
   const [open,setOpen]=useState(false)
   
@@ -61,6 +62,9 @@ const menuItems=[
 {/* Monthly */}
   <div className='border w-[50%] bg-white m-10 rounded-xl  mt-1'>
   <Monthly/>
+  </div>
+  <div>
+    <Static/>
   </div>
 
   
