@@ -7,6 +7,7 @@ import { PiDotsThreeVertical } from "react-icons/pi";
 import Apexchart from '../../Components/Apexchart';
 import Monthly from '../../Components/Monthly';
 import Static from '../../Components/Static';
+import Global from '../../Components/Global';
 const  Dashboard = () => {
   const [open,setOpen]=useState(false)
   
@@ -67,7 +68,8 @@ const menuItems=[
     <Static/>
   </div>
 
-  
+
+  <Global/>
 </section>
 </>
   )
