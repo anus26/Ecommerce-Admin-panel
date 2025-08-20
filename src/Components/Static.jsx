@@ -102,37 +102,39 @@ const getSeries = () => {
 
   return (
    <>
-   <div>
- 
-    <div className='flex justify-between  '>
-    <h1>Statistics </h1>
-    <div className='flex'>
-  <div className='flex gap-4 border bg-gray-200 p-2' onClick={()=>handleclick(move,move1,move2)}>
+   <div className='border bg-white '>
 
-     <button className={`border px-2 p-1 rounded-lg ${active ==="overview"?'bg-white  text-black':""}`} onClick={()=>setActive("overview")} >
-      Overview
+
+
+    <div className='flex  justify-between m-6  '>
+    <h1 className='font-semibold text-xl'>Statistics </h1>
+
+    <div className='flex'>
+  <div className='flex  gap-4 border bg-gray-200 p-2' >
+    {['overview','sales','Revenu'].map((btn)=>(
+
+      
+      
+      <button key={btn} className={`border px-2 p-1 rounded-lg ${active ===btn?'bg-white  text-black':""}`} onClick={()=>setActive(btn)} >
+ {btn.charAt(0).toUpperCase()+btn.slice(1)}
      </button>
-   <button className={`border px-2 p-1 rounded-lg ${active ==="sales"?'bg-white  text-black':""}`} onClick={()=>setActive("sales")} >
-      Sales
-     </button>
- <button className={`border px-2 p-1 rounded-lg ${active ==="Revenu"?'bg-white  text-black':""}`} onClick={()=>setActive("Revenu")}>
-      Revenu
-     </button>
+    ))}
+
   </div>
  <div className='relative'>
-<button  onClick={handlecalender} >
-  <SlCalender size={20}/>
+<button   className='p-2 rounded-lg  bg-gray-100 hover:bg-gray-200' >
+  <SlCalender size={20}/> <p className='text-center text-sm text-gray-500 mt-2'>Selected: {dayjs(date).format("DD MMM YYYY")}</p>
 
 </button>
 { open &&(
-  <div className='absolute border bg-white p-2 rounded-lg m-2'>
+  <div className='absolute border right-0 mt-2 z-50 shadow-lg bg-white p-2 rounded-lg m-2'>
 
 <Calendar  
 onChange={setDate}
 value={date}
 className='rounded-lg'
 />
-<p>Selected: {dayjs(date).format("DD MMM YYYY")}</p>
+
 </div>
 )
 
@@ -142,6 +144,8 @@ className='rounded-lg'
     <div>
    </div>
     </div>
+    <p className='m-5' > Target you’ve set for each month</p>
+    
         <Chart options={options} series={getSeries()} type="area"   height={350}/>
     </div>
    </>
