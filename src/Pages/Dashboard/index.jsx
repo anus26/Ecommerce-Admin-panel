@@ -68,8 +68,11 @@ const menuItems=[
     <Static/>
   </div>
 
-
+<div>
   <Global/>
+
+</div>
+<br /> <br />
 </section>
 </>
   )
