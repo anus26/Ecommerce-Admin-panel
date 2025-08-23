@@ -8,6 +8,7 @@ import Apexchart from '../../Components/Apexchart';
 import Monthly from '../../Components/Monthly';
 import Static from '../../Components/Static';
 import Global from '../../Components/Global';
+import Orders from '../../Components/Orders';
 const  Dashboard = () => {
   const [open,setOpen]=useState(false)
   
@@ -68,9 +69,11 @@ const menuItems=[
     <Static/>
   </div>
 
-<div>
+<div className='flex '>
   <Global/>
 
+
+  <Orders/>
 </div>
 <br /> <br />
 </section>

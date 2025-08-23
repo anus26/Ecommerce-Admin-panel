@@ -122,7 +122,7 @@ const getSeries = () => {
 
   </div>
  <div className='relative'>
-<button   className='p-2 rounded-lg  bg-gray-100 hover:bg-gray-200' >
+<button onClick={handlecalender}   className='p-2 rounded-lg  bg-gray-100 hover:bg-gray-200' >
   <SlCalender size={20}/> <p className='text-center text-sm text-gray-500 mt-2'>Selected: {dayjs(date).format("DD MMM YYYY")}</p>
 
 </button>
