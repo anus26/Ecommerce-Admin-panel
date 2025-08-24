@@ -7,14 +7,14 @@ const Signin = () => {
   const [open , setOpen]=useState(false)
   return (
     <>
-<section>
+<section className='flex '>
   <div className='w-[50%]'>
-    <div className='m-20'>
+    <div className='m-28'>
       <h1 className=' font-semibold text-4xl '>Sign In </h1>
-      <p>Enter your email and password to sign in</p>
+      <p className='mt-3'>Enter your email and password to sign in</p>
       <div className='flex mt-10 gap-5   '>
-        <butto className="bg-gray1 border flex gap-3 text-center justify-center items-center w-[36%] h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><FcGoogle className='text-2xl'/> Sign in With Goolge</butto>
-        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center w-[36%] h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><RiTwitterXLine className='text-2xl' />Sign in  with X </button>
+        <butto className="bg-gray1 border flex gap-3 text-center justify-center items-center w-[40%] h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><FcGoogle className='text-2xl'/> Sign in With Goolge</butto>
+        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center w-[40%] h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><RiTwitterXLine className='text-2xl' />Sign in  with X </button>
 
       </div>
 
@@ -28,23 +28,45 @@ const Signin = () => {
   <form >
    <div>
     <h1 className='font-semibold flex'>Email <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
-    <input type="email" placeholder='info@gmail.com'  className='border w-[72%] p-2 border-gray rounded-lg'/>
+    <input type="email" placeholder='info@gmail.com'  className='border w-[100%] hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
    </div> 
    <div className='mt-5 '>
     <h1 className='font-semibold flex'>Password <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
-    <input type={open?"text":"password"} placeholder='Enter your password'  className='relative border w-[72%] p-2 border-gray rounded-lg '   />
+    <input type={open?"text":"password"} placeholder='Enter your password'  className='relative border w-[100%]  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg '   />
   <span onClick={()=>setOpen(!open)} className='absolute ml-[-2%] z-10 text-center  mt-3'>
       {open &&
       <BsEyeSlash /> ||   <BsEye />
     
     }
   </span>
+  <div className='mt-4 flex justify-between'>
+    <div>
+
+<input type="checkbox"  /> keep me logged in
+    </div>
+<p className='text-primary  font-semibold'>Forget password?</p>
+  </div>
    </div> 
+   <button className='flex justify-center  items-center text-center border mt-10 w-[100%] h-[12%] p-3 rounded-lg bg-primary text-white duration-300 transition-all hover:bg-hower'>
+    Sign In
+   </button>
+   <p className='mt-5'>Don't have any accoout? <span className='text-primary font-semibold'>Sign Up</span></p>
+
   </form>
+
 </div>
+
 
     </div>
   </div>
+<div className='w-[50%]'>
+<div className=" h-screen bg-[url('./images/background-image-1053439_1280.jpg')] 
+                ">
+  <h1 className="text-white text-3xl font-bold">Admin Panel</h1>
+</div>
+
+</div>
+
 </section>
     </>
   )

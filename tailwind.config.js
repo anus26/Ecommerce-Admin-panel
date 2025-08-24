@@ -12,7 +12,8 @@ export default {
   green:"#039855",
   dark:"#d1fadf",
   gray:"#e4e7ec",
-  gray1:"#f2f4f7"
+  gray1:"#f2f4f7",
+  hower:"#3641f5"
   
 },
 
