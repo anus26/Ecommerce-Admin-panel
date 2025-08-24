@@ -11,6 +11,8 @@ import { MdOutlineTask } from "react-icons/md";
 import { SiFormspree } from "react-icons/si";
 import { SiInstructables } from "react-icons/si";
 import { RiPageSeparator } from "react-icons/ri";
+import { SiWebauthn } from "react-icons/si";
+import './Style.css'
 const Sidebar = () => {
     const [open ,setOpen]=useState(false)
     const [open2 ,setOpen2]=useState(false)
@@ -19,6 +21,7 @@ const Sidebar = () => {
     const [open5 ,setOpen5]=useState(false)
     const [open6 ,setOpen6]=useState(false)
     const [open7 ,setOpen7]=useState(false)
+    const [authentication,setAuthentication]=useState(false)
 
     const [activemenu ,setActiveMenu ]=useState(null)
     const handleopen=()=>{
@@ -48,22 +51,26 @@ const Sidebar = () => {
                        const handleopen7=()=>{
         setOpen7(prev=>!prev)
         setActiveMenu("pages")
+    }
+    const handleauth=()=>{
+      setAuthentication(prev=>!prev)
+      setActiveMenu('authentication')
     } 
     
 
   return (
 <>
 <section>
-    <div className='sidebar  bg-white   border-r-4 min-h-screen '>
+    <div className='sidebar  bg-white   border-r-4 h-screen flex flex-col '>
         {/* header */}
-<div>
+<div className='sticky  top-0 bg-white z-10'>
     <h1 className='m-5 font-semibold text-2xl flex gap-1 items-center '><img src="./images/control-panel.png" alt="dashboard"  className='w-10'/>Ecommerce Admin</h1>
-</div>
 {/* border */}
 <div className='border-b-2'></div>
+</div>
 {/* menu */}
-    <div className='mt-2 m-3'>
-        <h1 className='text-gray-400'>MENU</h1>
+    <div className=' flex-1 overflow-y-auto  scroll-hidden'>
+        <h1 className='text-gray-400 '>MENU</h1>
         {/* dashboard */}
         <div className='m-5'>
 
@@ -303,6 +310,37 @@ const Sidebar = () => {
     <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Create Invoice</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Transactions</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Singel Transactions</h1>
+
+          </div>
+        )}
+        </div>
+        {/* other */}
+        <h1>Ohter</h1>
+        {/* authenticationn */}
+                   <div className='m-5'>
+
+       <div
+  className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
+    ${activemenu === 'authentication' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+  `}
+  onClick={handleauth}
+>
+
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><SiWebauthn /></span> Authentication
+    
+         </h1>
+           <span className='text-2xl ' >{authentication?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+</div>
+{/* drowdown */}
+   { authentication && (
+       <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
+
+            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Sign in </h1>
+    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Sign up</h1>
+         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Resent Password</h1>
+         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Two way Verificatio</h1>
+
+
 
           </div>
         )}
