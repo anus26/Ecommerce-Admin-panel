@@ -4,6 +4,7 @@ import Dashboard from './Pages/Dashboard'
 import Layouts from './Components/Layouts'
 import Home from './Pages/Home'
 import Signin from './Pages/Authentication/Signin'
+import Signup from './Pages/Authentication/Signup'
 
 export const MyContext = createContext()
 
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="home" element={<Home />} />
           </Route>
             <Route path="signin" element={<Signin />} />
+               <Route path="signup" element={<Signup />} />
         </Routes>
       </MyContext.Provider>
     </BrowserRouter>
