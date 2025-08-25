@@ -5,6 +5,9 @@ import Layouts from './Components/Layouts'
 import Home from './Pages/Home'
 import Signin from './Pages/Authentication/Signin'
 import Signup from './Pages/Authentication/Signup'
+import Verification from './Pages/Authentication/Verification'
+import Reset from './Pages/Authentication/Reset'
+
 
 export const MyContext = createContext()
 
@@ -22,6 +25,9 @@ const App = () => {
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />
+
+                  <Route path="verification" element={<Verification />} />
+                  <Route path="reset" element={<Reset />} />
         </Routes>
       </MyContext.Provider>
     </BrowserRouter>
