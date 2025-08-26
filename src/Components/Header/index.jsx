@@ -12,19 +12,19 @@ const Header = () => {
       <div className='flex  gap-5'>
 
       <div>
-        <button className='w-12 border-2 h-12  rounded-lg  '>
+        <button className='w-12 border-2 h-12 border-gray rounded-lg  '>
             <FaBarsStaggered className='m-2 ' />
         </button>
       </div> 
-      <div className='border-2 w-96  h-12 rounded-lg flex  gap-2  '>
+      <div className='border-2 border-gray w-96  h-12 rounded-lg flex  gap-2  '>
 
       <CiSearch  className='flex items-start m-2 text-2xl '/>
       <input type="text"  placeholder='Search or Type Command....' className= ' outline-none w-96'/>
       </div>
       </div>
       <div className='gap-2 flex'>
-        <button className='border-2 rounded-full p-3'><IoMoonOutline className='text-2xl' /></button>
-         <button className='border-2 rounded-full p-3'><CiBellOn  className='text-2xl' /></button>
+        <button className='border-2 border-gray rounded-full p-3'><IoMoonOutline className='text-2xl' /></button>
+         <button className='border-2 border-gray rounded-full p-3'><CiBellOn  className='text-2xl' /></button>
       </div>
     </div>
     

@@ -43,21 +43,21 @@ const Orders = () => {
 
   return (
     <>
-      <div className='bg-white border rounded-xl w-[70%] m-5'>
+      <div className='bg-white border border-gray rounded-xl w-[70%] m-5'>
         {/* Header */}
         <div className='flex justify-between m-4'>
           <h1 className='font-semibold text-xl'>Recent Orders</h1>
           <div className='flex gap-3'>
-            <button className='flex border w-24 h-12 items-center font-semibold hover:bg-gray-100 text-md outline-none rounded-xl gap-1 justify-center bg-white duration-300 transition-all'>
+            <button className='flex border border-gray w-24 h-12 items-center font-semibold hover:bg-gray1 text-md outline-none rounded-xl gap-1 justify-center bg-white duration-300 transition-all'>
               <AiOutlineFilter /> Filter
             </button>
-            <button className='border w-24 h-12 items-center font-semibold hover:bg-gray-100 text-md outline-none rounded-xl gap-1 justify-center bg-white duration-300 transition-all'>
+            <button className='border  border-gray w-24 h-12 items-center font-semibold hover:bg-gray1 text-md outline-none rounded-xl gap-1 justify-center bg-white duration-300 transition-all'>
               See all
             </button>
           </div>
         </div>
 
-        <div className='border-b m-5'></div>
+        <div className='border-b border-gray m-5'></div>
 
         {/* Table Headings */}
         <div className='flex justify-between m-7 font-semibold text-gray-600'>
@@ -67,7 +67,7 @@ const Orders = () => {
           <h1 className='w-[20%]'>Status</h1>
         </div>
 
-        <div className='border-b m-7'></div>
+        <div className='border-b m-7 border-gray'></div>
 
         {/* Table Rows */}
         <div>
@@ -92,7 +92,7 @@ const Orders = () => {
               <p
                 className={`w-[20%] font-semibold  ${
                   item.status === "Delivered"
-                    ? "text-green-700 bg-green "
+                    ? "text-green-700 text-green "
                     : "text-yellow-600"
                 }`}
               >

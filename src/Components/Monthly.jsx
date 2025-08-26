@@ -106,7 +106,7 @@ data: [{
   <div className="relative">
       <PiDotsThreeVertical onClick={() => setOpen(!open)} />
       {open && (
-        <div className="absolute bg-white w-32 h-20 right-0 top-0 m-4 border rounded-xl">
+        <div className="absolute bg-white w-32 h-20 right-0 top-0 m-4 border border-gray rounded-xl">
           {menuItems.map((item) => (
             <div key={item.id} className="m-2 font-lg">
               {item.id}

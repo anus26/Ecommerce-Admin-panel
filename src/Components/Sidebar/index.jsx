@@ -4,15 +4,17 @@ import { IoIosArrowDown } from "react-icons/io";
 import { ImPacman } from 'react-icons/im';
 import { IoIosArrowUp } from "react-icons/io";
 import { TbPhoneIncoming } from "react-icons/tb";
-import { SiHomeassistantcommunitystore } from "react-icons/si";
-import { FaRegCalendarAlt } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdOutlineTask } from "react-icons/md";
 import { SiFormspree } from "react-icons/si";
 import { SiInstructables } from "react-icons/si";
 import { RiPageSeparator } from "react-icons/ri";
 import { SiWebauthn } from "react-icons/si";
+import { FiShoppingCart } from "react-icons/fi";
+import { BsCalendar2Check } from "react-icons/bs";
 import './Style.css'
+import { CiFolderOn } from 'react-icons/ci';
 const Sidebar = () => {
     const [open ,setOpen]=useState(false)
     const [open2 ,setOpen2]=useState(false)
@@ -61,16 +63,16 @@ const Sidebar = () => {
   return (
 <>
 <section>
-    <div className='sidebar  bg-white   border-r-4 h-screen flex flex-col '>
+    <div className='sidebar  bg-white   border-r-4 border-gray h-screen flex flex-col '>
         {/* header */}
 <div className='sticky  top-0 bg-white z-10'>
     <h1 className='m-5 font-semibold text-2xl flex gap-1 items-center '><img src="./images/control-panel.png" alt="dashboard"  className='w-10'/>Ecommerce Admin</h1>
 {/* border */}
-<div className='border-b-2'></div>
+<div className='border-b-2 border-gray'></div>
 </div>
 {/* menu */}
     <div className=' flex-1 overflow-y-auto  scroll-hidden'>
-        <h1 className='text-gray-400 '>MENU</h1>
+        <h1 className='text-gray '>MENU</h1>
         {/* dashboard */}
         <div className='m-5'>
 
@@ -81,10 +83,10 @@ const Sidebar = () => {
   onClick={handleopen}
 >
 
-        <h1 className='flex gap-1 text-md items-center'><span className='text-3xl '><PiSquaresFourLight /></span> Dashboard
+        <h1 className='flex gap-1 text-md items-center'><span className='text-3xl '><PiSquaresFourLight   className='text-line'/></span> Dashboard
     
          </h1>
-           <span className='text-2xl ' >{open?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{open?<IoIosArrowUp className='text-line' />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
    { open && (
@@ -109,10 +111,10 @@ const Sidebar = () => {
   onClick={handleopen2}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><TbPhoneIncoming /></span> AI Assitant<span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2'>NEW</span>
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><TbPhoneIncoming  className='text-line'/></span> AI Assitant<span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2'>NEW</span>
     
          </h1>
-           <span className='text-2xl ' >{open2?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{open2?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
    { open2 && (
@@ -135,10 +137,10 @@ const Sidebar = () => {
   onClick={handleopen3}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><SiHomeassistantcommunitystore /></span>  E-commerce<span className='text-green  bg-dark p-1.5 text-sm rounded-full '>NEW</span>
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><FiShoppingCart className='text-line' /></span>  E-commerce<span className='text-green  bg-dark p-1.5 text-sm rounded-full '>NEW</span>
     
          </h1>
-           <span className='text-2xl ' >{open3?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{open3?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
    { open3 && (
@@ -166,7 +168,7 @@ const Sidebar = () => {
     
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><FaRegCalendarAlt /></span> Calendar
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><BsCalendar2Check className='text-line'/></span> Calendar
     
          </h1>
          
@@ -182,7 +184,7 @@ const Sidebar = () => {
     
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><CgProfile /></span> User Profile
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><CgProfile  className='text-line' /></span> User Profile
     
          </h1>
          
@@ -198,10 +200,10 @@ const Sidebar = () => {
   onClick={handleopen4}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><MdOutlineTask /></span>  Tasks
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><MdOutlineTask  className='text-line'/></span>  Tasks
     
          </h1>
-           <span className='text-2xl ' >{open4?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{open4?<IoIosArrowUp className='text-line' />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
    { open4 && (
@@ -229,11 +231,11 @@ const Sidebar = () => {
   onClick={handleopen5}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><SiFormspree />
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><CiFolderOn className='text-line' />
 </span>  Forms
     
          </h1>
-           <span className='text-2xl ' >{open5?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{open5?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line'  />}</span>
 </div>
 {/* drowdown */}
    { open5 && (
@@ -262,10 +264,10 @@ const Sidebar = () => {
   onClick={handleopen6}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><SiInstructables /></span>  Tables
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><SiInstructables  className='text-line'/></span>  Tables
     
          </h1>
-           <span className='text-2xl ' >{open6?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{open6?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
    { open6 && (
@@ -293,10 +295,10 @@ const Sidebar = () => {
   onClick={handleopen7}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><RiPageSeparator /></span> Pages
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><RiPageSeparator  className='text-line'/></span> Pages
     
          </h1>
-           <span className='text-2xl ' >{open7?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{open7?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown  className='text-line' />}</span>
 </div>
 {/* drowdown */}
    { open7 && (
@@ -326,10 +328,10 @@ const Sidebar = () => {
   onClick={handleauth}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><SiWebauthn /></span> Authentication
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><SiWebauthn  className='text-line' /></span> Authentication
     
          </h1>
-           <span className='text-2xl ' >{authentication?<IoIosArrowUp  />:<IoIosArrowDown />}</span>
+           <span className='text-2xl ' >{authentication?<IoIosArrowUp  className='text-line'  />:<IoIosArrowDown  className='text-line' />}</span>
 </div>
 {/* drowdown */}
    { authentication && (

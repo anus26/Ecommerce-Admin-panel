@@ -102,7 +102,7 @@ const getSeries = () => {
 
   return (
    <>
-   <div className='border bg-white '>
+   <div className='border border-gray bg-white  rounded-xl'>
 
 
 
@@ -110,19 +110,19 @@ const getSeries = () => {
     <h1 className='font-semibold text-xl'>Statistics </h1>
 
     <div className='flex'>
-  <div className='flex  gap-4 border bg-gray-200 p-2' >
+  <div className='flex  gap-4 border border-gray p-2' >
     {['overview','sales','Revenu'].map((btn)=>(
 
       
       
-      <button key={btn} className={`border px-2 p-1 rounded-lg ${active ===btn?'bg-white  text-black':""}`} onClick={()=>setActive(btn)} >
+      <button key={btn} className={`border border-gray px-2 p-1 rounded-lg ${active ===btn?'bg-white  text-black':""}`} onClick={()=>setActive(btn)} >
  {btn.charAt(0).toUpperCase()+btn.slice(1)}
      </button>
     ))}
 
   </div>
  <div className='relative'>
-<button onClick={handlecalender}   className='p-2 rounded-lg  bg-gray-100 hover:bg-gray-200' >
+<button onClick={handlecalender}   className='p-2 rounded-lg  bg-gray hover:bg-gray1' >
   <SlCalender size={20}/> <p className='text-center text-sm text-gray-500 mt-2'>Selected: {dayjs(date).format("DD MMM YYYY")}</p>
 
 </button>
