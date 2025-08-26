@@ -259,7 +259,7 @@ const Sidebar = () => {
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'tables' ? 'bg-light hover:bg-white text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'tables' ? 'bg-light hover:bg-yellow-50 text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
   `}
   onClick={handleopen6}
 >
