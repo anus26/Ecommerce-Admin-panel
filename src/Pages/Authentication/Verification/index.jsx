@@ -1,15 +1,48 @@
 import React, { useState } from 'react'
-import { FcGoogle } from "react-icons/fc";
-import { RiTwitterXLine } from "react-icons/ri";
-import { BsEye } from "react-icons/bs";
-import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import './Style.css'
+import axios from 'axios';
 const Verification = () => {
-  const [open , setOpen]=useState(false)
+   const [email, setEmail] = useState("");
+  const [otp , setOtp]=useState(new Array(6).fill(""))
+
+
+
+
+  const handleotpchange=(e,index)=>{
+    const  value=e.target.value.replace(/[^0-9]/g, "")
+    if (value) {
+      const newOtp=[...otp]
+      newOtp[index]=value
+      setOtp(newOtp)
+      
+    }
+  if (index < 5) {
+    document.getElementById(`otp-${index+1}`).focus()
+    
+  }
+  }
+  const handleSubmit=async(e)=>{
+    e.preventDefault()
+      const finalOtp = otp.join("");
+    try {
+      const res=await axios.post("http://localhost:5000/api/v1/user/verif",
+        {
+          email,
+       otp:finalOtp
+      },
+      { withCredentials:true}
+    )
+      console.log("OTP Verify",res.data);
+      
+    } catch (error) {
+      console.error("OTP Expired:",error.res?.data || error.message);
+      
+    }
+  }
   return (
     <>
-<section className='flex h-screen outline-none overflow-hidden '>
+<section className='flex h-screen '>
   <div className='w-[50%]'>
     <div className='m-28'>
     <h1 className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</h1>
@@ -24,22 +57,28 @@ const Verification = () => {
 </div>
 
 <div> 
-  <form >
+  <form onSubmit={handleSubmit}>
  <h1 className='font-semibold'>Type your 6 digits security code</h1>
+ <input type="email" placeholder='email' onChange={(e)=>setEmail(e.target.value)}   />
  <div className='flex gap-7'>
-  <input type="text"  className='w-16 border h-12 rounded-lg border-gray outline-none text-center hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] duration-300 transition-all'/>
-   <input type="text"  className='w-16 border h-12 rounded-lg border-gray outline-none text-center hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] duration-300 transition-all'/>
-  <input type="text"  className='w-16 border h-12 rounded-lg border-gray outline-none text-center hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] duration-300 transition-all'/>
-     <input type="text"  className='w-16 border h-12 rounded-lg border-gray outline-none text-center hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] duration-300 transition-all'/>
-  <input type="text"  className='w-16 border h-12 rounded-lg border-gray outline-none text-center hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] duration-300 transition-all'/> 
-    <input type="text"  className='w-16 border h-12 rounded-lg border-gray outline-none text-center hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] duration-300 transition-all'/>
+  {otp.map((digit,i)=>(
+    <input 
+    type="text" 
+    key={i}
+    maxLength={1}
+    value={digit}
+    onChange={(e)=>handleotpchange(e,i)}
+    className='w-16 border h-12 rounded-lg border-gray outline-none text-center hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] duration-300 transition-all'
+    />
+  ))}
+
 
 
 
  </div>
 
   
-   <button className='flex font-semibold justify-center  items-center text-center border mt-10 w-[100%] h-[12%] p-3 rounded-lg bg-primary text-white duration-300 transition-all hover:bg-hower'>
+   <button type='submit' className='flex font-semibold justify-center  items-center text-center border mt-10 w-[100%] h-[12%] p-3 rounded-lg bg-primary text-white duration-300 transition-all hover:bg-hower'>
   Verify My Account
    </button>
    <h1 className='mt-5'>Didn't get the code? <span className='text-primary'>Resend</span></h1>
