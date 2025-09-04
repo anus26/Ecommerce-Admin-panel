@@ -24,8 +24,9 @@ try {
   
   const res=await axios.post('http://localhost:5000/api/v1/user/signup',formData,{
  withCredentials:true})
+ localStorage.setItem('user',JSON.stringify(res.data.user))
 
-  console.log('Signup successfully', res.data);
+  console.log('Signup successfully', res.data.user);
   
 } catch (error) {
     console.error("Signup Error:", error.response?.data || error.message);

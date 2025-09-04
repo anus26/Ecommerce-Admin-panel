@@ -26,9 +26,10 @@ const Verification = () => {
     e.preventDefault()
       const finalOtp = otp.join("");
     try {
+      const user=JSON.parse(localStorage.getItem("user"))
       const res=await axios.post("http://localhost:5000/api/v1/user/verif",
         {
-          email,
+        email:user.email,
        otp:finalOtp
       },
       { withCredentials:true}
@@ -40,6 +41,24 @@ const Verification = () => {
       
     }
   }
+
+
+    const handle=async(e)=>{
+      e.preventDefault()
+      try {
+        const user=JSON.parse(localStorage.getItem("user"))
+        console.log(user);
+        const res=await axios.post(`http://localhost:5000/api/v1/user/forget`,{email:user.email},{
+          withCredentials:true
+        })
+        
+  console.log("OTP Send Successfully",res.data);
+  
+      } catch (error) {
+        console.error("OTP Error:",error.res?.data || error.messages);
+        
+      }
+    }
   return (
     <>
 <section className='flex h-screen '>
@@ -59,7 +78,7 @@ const Verification = () => {
 <div> 
   <form onSubmit={handleSubmit}>
  <h1 className='font-semibold'>Type your 6 digits security code</h1>
- <input type="email" placeholder='email' onChange={(e)=>setEmail(e.target.value)}   />
+ {/* <input type="email" placeholder='email' onChange={(e)=>setEmail(e.target.value)}   /> */}
  <div className='flex gap-7'>
   {otp.map((digit,i)=>(
     <input 
@@ -81,9 +100,9 @@ const Verification = () => {
    <button type='submit' className='flex font-semibold justify-center  items-center text-center border mt-10 w-[100%] h-[12%] p-3 rounded-lg bg-primary text-white duration-300 transition-all hover:bg-hower'>
   Verify My Account
    </button>
-   <h1 className='mt-5'>Didn't get the code? <span className='text-primary'>Resend</span></h1>
 
   </form>
+   <button onClick={handle} className='mt-5'>Didn't get the code? <span className='text-primary'>Resend</span></button>
 
 </div>
 
