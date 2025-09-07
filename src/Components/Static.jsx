@@ -5,12 +5,14 @@ import Calendar from 'react-calendar'
 import { SlCalender } from "react-icons/sl";
 import 'react-calendar/dist/Calendar.css'
 import axios from 'axios';
+import { FaSalesforce } from 'react-icons/fa';
+import { useEffect } from 'react';
 // dayjs.extend(quarterOfYear)
 const Static = () => {
 const [active ,setActive]=useState("overview")
 const [open ,setOpen]=useState(false)
 const [date,setDate]= useState(new Date())
-
+const [datamonth,setDataMonth]=useState([])
 // calender
 const handlecalender=()=>{
   
@@ -20,15 +22,15 @@ const handlecalender=()=>{
 
 
  
-// button
-  const handleclick=async()=>{
-    const res=await axios.get("http://localhost:5000/api/v1/get")
+
+  const fetch=async()=>{
+        const res=await axios.get("http://localhost:5000/api/v1/get")
     console.log("Succussfully",res.data);
-    
-    setMove()
-    console.log('move');
-    
+    setDataMonth(res.data.months)
   }
+  useEffect(()=>{
+    fetch()
+},[])
     const  options = {
    
           chart: {
@@ -42,11 +44,8 @@ const handlecalender=()=>{
           curve: 'smooth'
         },
         xaxis: {
-          type: 'datetime',
-          labels:{
-            formatter:function(val,timestamp){
-              return dayjs(timestamp).format('MMM')
-            }
+          type: 'category',
+         
           },
               //  group: {
               //       style: {
@@ -58,11 +57,11 @@ const handlecalender=()=>{
                        
               //       ]
               //   }
-        },
+       
         tooltip: {
           x: {
-            formatter: function(val,timestamp){
-                   return dayjs(val,timestamp).format('MMM')
+            formatter: function(val){
+              return val
             }
           },
         },
@@ -71,30 +70,18 @@ const handlecalender=()=>{
 const allSeries = [
   {
     name: 'Sales',
-    data: [
-      { x: '2019/01/01', y: 400 },
-      { x: '2019/04/01', y: 430 },
-      { x: '2019/07/01', y: 648 },
-      { x: '2019/10/01', y: 470 },
-      { x: '2020/01/01', y: 840 },
-      { x: '2020/04/01', y: 280 },
-      { x: '2020/07/01', y: 390 },
-      { x: '2020/10/01', y: 690 }
-    ]
+   data:datamonth.map((item)=>({
+  x:item.month,
+  y:item.sale,
+  })),
   },
   {
     name: 'Revenu',
-    data: [
-      { x: '2019/01/01', y: 400 },
-      { x: '2019/04/01', y: 430 },
-      { x: '2019/07/01', y: 648 },
-      { x: '2019/10/01', y: 470 },
-      { x: '2020/01/01', y: 840 },
-      { x: '2020/04/01', y: 580 },
-      { x: '2020/07/01', y: 690 },
-      { x: '2020/10/01', y: 390 }
-    ]
-  }
+    data:datamonth.map((item)=>({
+  x:item.month,
+ y: item.Revenu  // safe access
+  })),
+},
 ];
 
 // 👇 Dynamically filter series based on active state
@@ -127,6 +114,7 @@ const getSeries = () => {
 
   </div>
  <div className='relative'>
+
 <button onClick={handlecalender}   className='p-2 rounded-lg  bg-gray hover:bg-gray1' >
   <SlCalender size={20}/> <p className='text-center text-sm text-gray-500 mt-2'>Selected: {dayjs(date).format("DD MMM YYYY")}</p>
 
