@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Sidebar'
 import Header from '../../Components/Header'
 import { FiUsers } from "react-icons/fi"
@@ -9,9 +9,24 @@ import Monthly from '../../Components/Monthly';
 import Static from '../../Components/Static';
 import Global from '../../Components/Global';
 import Orders from '../../Components/Orders';
+import axios from 'axios';
 const  Dashboard = () => {
   const [open,setOpen]=useState(false)
-  
+  const [coustomers,setCoustomer]=useState([])
+
+  const handle=async()=>{
+    try {
+      const res=await axios.get("http://localhost:5000/api/v1/coust/get")
+      console.log("Data", res.data.coustomer);
+      setCoustomer(res.data.coustomer)
+    } catch (error) {
+      console.error(error.Message);
+     
+    }
+  }
+  useEffect(()=>{
+handle()
+  },[])
 const menuItems=[
   { id:'Viewmore'},
   {id:'Delte'}
@@ -28,7 +43,12 @@ const menuItems=[
 </div>
 <h1 className='text-gray-400 font-bold m-4'>Customers</h1>
 <div className='flex justify-between m-3'>
-  <span className='text-3xl font-bold'>3,782</span>
+{coustomers.map((item,index)=>(
+  <div key={item._id ||index}>
+<span className='text-3xl font-bold'>{item.Total}</span>
+
+  </div>
+))}
   <button className='flex border rounded-full w-20 text-center items-center p-1 h-8 bg-dark text-green '><IoIosArrowRoundUp className='w-12 h-6' /><span>11.01%</span></button>
 
 </div>

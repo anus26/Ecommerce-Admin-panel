@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import Calendar from 'react-calendar'
 import { SlCalender } from "react-icons/sl";
 import 'react-calendar/dist/Calendar.css'
+import axios from 'axios';
 // dayjs.extend(quarterOfYear)
 const Static = () => {
 const [active ,setActive]=useState("overview")
@@ -12,6 +13,7 @@ const [date,setDate]= useState(new Date())
 
 // calender
 const handlecalender=()=>{
+  
   setOpen(!open)
 }
 
@@ -19,7 +21,10 @@ const handlecalender=()=>{
 
  
 // button
-  const handleclick=()=>{
+  const handleclick=async()=>{
+    const res=await axios.get("http://localhost:5000/api/v1/get")
+    console.log("Succussfully",res.data);
+    
     setMove()
     console.log('move');
     
