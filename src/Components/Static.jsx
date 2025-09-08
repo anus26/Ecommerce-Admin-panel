@@ -40,6 +40,7 @@ const handlecalender=()=>{
         dataLabels: {
           enabled: false
         },
+          colors: ['#008FFB', '#00E396'],
         stroke: {
           curve: 'smooth'
         },
@@ -69,17 +70,17 @@ const handlecalender=()=>{
 // 👇 Replace your series with this
 const allSeries = [
   {
-    name: 'Sales',
+    name: 'Sale',
    data:datamonth.map((item)=>({
   x:item.month,
-  y:item.sale,
+  y:Number(item.sale) || 0,
   })),
   },
   {
     name: 'Revenu',
     data:datamonth.map((item)=>({
   x:item.month,
- y: item.Revenu  // safe access
+ y: Number(item.Revenu) || 0,    // safe access
   })),
 },
 ];
@@ -87,10 +88,11 @@ const allSeries = [
 // 👇 Dynamically filter series based on active state
 const getSeries = () => {
   if (active === "overview") return allSeries;
-  if (active === "sales") return [allSeries[0]];
+  if (active === "sale") return [allSeries[0]];
   if (active === "Revenu") return [allSeries[1]];
   return allSeries;
 };
+console.log("Chart Series", allSeries)
 
   return (
    <>
@@ -103,7 +105,7 @@ const getSeries = () => {
 
     <div className='flex'>
   <div className='flex  gap-4 border border-gray p-2' >
-    {['overview','sales','Revenu'].map((btn)=>(
+    {['overview','sale','Revenu'].map((btn)=>(
 
       
       
