@@ -20,7 +20,7 @@ const Product = () => {
       type="text"
       placeholder="Enter Product Name"
       className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
-                 border-gray-300 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
+                 border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
     />
   </div>
 
@@ -30,7 +30,7 @@ const Product = () => {
     <label className="font-semibold text-md mb-2">Category</label>
     <select
       className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
-                 border-gray-300 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
+                 border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
     >
       <option value="">Select Category</option>
       <option value="laptop">Laptop</option>
@@ -42,7 +42,7 @@ const Product = () => {
 
 
           
-
+<br />
             {/* Right Side */}
        <div  className='flex gap-6 '>
        <div className="flex flex-col w-1/2">
@@ -61,7 +61,7 @@ const Product = () => {
                 <div className='flex flex-col w-1/2'>
 
 
-              <label className="font-semibold text-md">Status</label>
+              <label className="font-semibold text-md">Color</label>
               <select
                 className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
                 border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
@@ -74,8 +74,71 @@ const Product = () => {
           
             
                     </div>
+
                   
                          </div>
+                         <br />
+                    <div className='flex gap-6'>
+                        <div className='flex flex-col w-1/2'>
+
+
+              <label className="font-semibold text-md">Weight(kg)</label>
+              <select
+                className="border w-[80%] h-12 p-2 rounded-lg outline-none transition-all duration-300 
+                border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
+                >
+                <option value="">Select Status</option>
+                <option value="available">Available</option>
+                <option value="outofstock">Out of Stock</option>
+                <option value="comingsoon">Coming Soon</option>
+              </select>
+          
+            
+                    </div>  
+                     <div className='flex flex-col w-1/2'>
+
+
+              <label className="font-semibold text-md">Length(cm)</label>
+              <select
+                className="border w-[80%] h-12 p-2 rounded-lg outline-none transition-all duration-300 
+                border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
+                >
+                <option value="">Select Status</option>
+                <option value="available">Available</option>
+                <option value="outofstock">Out of Stock</option>
+                <option value="comingsoon">Coming Soon</option>
+              </select>
+          
+            
+                    </div>
+                     <div className='flex flex-col w-1/2'>
+
+
+              <label className="font-semibold text-md">Width(cm)</label>
+              <select
+                className="border w-[80%] h-12 p-2 rounded-lg outline-none transition-all duration-300 
+                border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
+                >
+                <option value="">Select Status</option>
+                <option value="available">Available</option>
+                <option value="outofstock">Out of Stock</option>
+                <option value="comingsoon">Coming Soon</option>
+              </select>
+          
+            
+                    </div>
+                    </div>
+                    <br />
+
+                    <div>
+                          <label className="font-semibold text-md mb-2 flex items-start">Description</label>
+    <input
+      type="text"
+      placeholder="Enter Product Name"
+      className="border w-full h-52 p-2 rounded-lg outline-none transition-all duration-300 
+                 border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
+    />
+                    </div>
 
             
 
