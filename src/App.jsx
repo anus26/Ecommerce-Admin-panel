@@ -7,6 +7,7 @@ import Signin from './Pages/Authentication/Signin'
 import Signup from './Pages/Authentication/Signup'
 import Verification from './Pages/Authentication/Verification'
 import Reset from './Pages/Authentication/Reset'
+import Product from './Components/Products'
 
 
 export const MyContext = createContext()
@@ -22,6 +23,7 @@ const App = () => {
             <Route index element={<Dashboard />} />
             {/* Other pages */}
             <Route path="home" element={<Home />} />
+            <Route path='Product' element={<Product/>}/>
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />

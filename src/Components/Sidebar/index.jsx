@@ -15,6 +15,8 @@ import { FiShoppingCart } from "react-icons/fi";
 import { BsCalendar2Check } from "react-icons/bs";
 import './Style.css'
 import { CiFolderOn } from 'react-icons/ci';
+import Product from '../Products';
+import { Link } from 'react-router-dom';
 const Sidebar = () => {
     const [open ,setOpen]=useState(false)
     const [open2 ,setOpen2]=useState(false)
@@ -146,8 +148,8 @@ const Sidebar = () => {
    { open3 && (
        <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
 
-            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Products</h1>
-    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Add Product</h1>
+            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Product</h1>
+    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to="/Product"  >New Product</Link></h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Billing</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Invoices</h1>
             <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Single Invoices</h1>
