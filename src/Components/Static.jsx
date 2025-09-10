@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import Chart from "react-apexcharts";
 import dayjs from 'dayjs';
 import Calendar from 'react-calendar'
@@ -6,34 +6,35 @@ import { SlCalender } from "react-icons/sl";
 import 'react-calendar/dist/Calendar.css'
 import axios from 'axios';
 import { FaSalesforce } from 'react-icons/fa';
-import { useEffect } from 'react';
+
 // dayjs.extend(quarterOfYear)
 const Static = () => {
 const [active ,setActive]=useState("overview")
 const [open ,setOpen]=useState(false)
 const [date,setDate]= useState(new Date())
 const [datamonth,setDataMonth]=useState([])
+const  [onemonth ,setOneMonth]=useState([])
 // calender
-const handlecalender=()=>{
-  
-  setOpen(!open)
-}
 
-
-
- 
-
-  const fetch=async()=>{
-        const res=await axios.get("http://localhost:5000/api/v1/get")
+const fetch=async()=>{
+    const res=await axios.get("http://localhost:5000/api/v1/get")
     console.log("Succussfully",res.data);
     setDataMonth(res.data.months)
   }
   useEffect(()=>{
     fetch()
-},[])
-    const  options = {
+    
+  },[])
+  const handlecalender=async(month)=>{
+      const res=await axios.get(`http://localhost:5000/api/v1/get/${month}`)
+      console.log("Successfully",res.data.Aug);
+      setOneMonth(res.data)
+    setOpen(!open)
+  }
+  
+  const  options = {
    
-          chart: {
+    chart: {
           height: 350,
           type: 'area'
         },
@@ -59,8 +60,8 @@ const handlecalender=()=>{
               //       ]
               //   }
        
-        tooltip: {
-          x: {
+              tooltip: {
+                x: {
             formatter: function(val){
               return val
             }
@@ -68,34 +69,58 @@ const handlecalender=()=>{
         },
     }
 // 👇 Replace your series with this
+
+// 👇 Sabse pehle ye define karo (getSeries se pehle)
 const allSeries = [
   {
     name: 'Sale',
-   data:datamonth.map((item)=>({
-  x:item.month,
-  y:Number(item.sale) || 0,
-  })),
+    data: datamonth.map((item) => ({
+      x: item.month,
+      y: Number(item.sale) || 0,
+    })),
   },
   {
     name: 'Revenu',
-    data:datamonth.map((item)=>({
-  x:item.month,
- y: Number(item.Revenu) || 0,    // safe access
-  })),
-},
+    data: datamonth.map((item) => ({
+      x: item.month,
+      y: Number(item.Revenu) || 0,
+    })),
+  },
 ];
 
-// 👇 Dynamically filter series based on active state
+// 👇 Ab ye function chalega
 const getSeries = () => {
   if (active === "overview") return allSeries;
   if (active === "sale") return [allSeries[0]];
   if (active === "Revenu") return [allSeries[1]];
+
+  // 👇 Agar ek month select hua hai, wo show karo
+  if (onemonth.length > 0) {
+    return [
+      {
+        name: "Sale",
+        data: onemonth.map(item => ({
+          x: item.month,
+          y: Number(item.sale) || 0
+        }))
+      },
+      {
+        name: "Revenu",
+        data: onemonth.map(item => ({
+          x: item.month,
+          y: Number(item.Revenu) || 0
+        }))
+      }
+    ];
+  }
+
   return allSeries;
 };
-console.log("Chart Series", allSeries)
 
-  return (
-   <>
+
+
+return (
+  <>
    <div className='border border-gray bg-white  rounded-xl'>
 
 
@@ -117,7 +142,7 @@ console.log("Chart Series", allSeries)
   </div>
  <div className='relative'>
 
-<button onClick={handlecalender}   className='p-2 rounded-lg  bg-gray hover:bg-gray1' >
+<button onClick={handlecalender} className='p-2 rounded-lg  bg-gray hover:bg-gray1' >
   <SlCalender size={20}/> <p className='text-center text-sm text-gray-500 mt-2'>Selected: {dayjs(date).format("DD MMM YYYY")}</p>
 
 </button>
@@ -129,6 +154,9 @@ onChange={setDate}
 value={date}
 className='rounded-lg'
 />
+{/* <button onClick={()=>{
+  const month=dayjs(date).format(" MMM ")
+  handlecalender(month)}}>click</button> */}
 
 </div>
 )
@@ -146,5 +174,4 @@ className='rounded-lg'
    </>
   )
 }
-
 export default Static
