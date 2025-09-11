@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { HiOutlineMinusSmall } from "react-icons/hi2";
 import { IoArrowUp } from "react-icons/io5";
+import { BsArrowBarUp } from "react-icons/bs";
 const Product = () => {
     const [count ,setCount]=useState(1)
     const handleIncrease=()=>setCount(count+1)
@@ -146,9 +147,22 @@ const Product = () => {
        <div className="bg-white p-6 border border-gray rounded-xl w-full">
         <h1 className="font-semibold text-xl mb-4">Price & Availability</h1>
         <div className="border-b border-gray mb-6"></div>
-        <div className="border-dashed border">
-<IoArrowUp />
-       <input type="file" placeholder="Click to upload or drag and drop SVG, PNG, JPG or GIF (MAX. 800x400px)"  />
+        <div className="border-dashed border hover:border-primary h-52 hover:shadow-[0_2px_8px_rgba(0,0,150,0.4) rounded-lg outline-none transition-all duration-300 ">
+<label className=" items-center text-center justify-center" >
+    <div className="flex items-center justify-center">
+
+    <div className="border rounded-full w-16 h-16 flex m-4 text-center items-center  justify-center">
+
+<BsArrowBarUp  className="text-3xl  mb-2" />
+    </div>
+    </div>
+<span className="block ">Click to Upload or drag and drop</span>
+   <span className="text-sm flex items-center justify-center">
+      SVG, PNG, JPG or GIF (MAX. 800×400px)
+    </span>
+       <input type="file" className="hidden" />
+</label>
+    
         </div>
      
         
@@ -162,8 +176,15 @@ const Product = () => {
 
           
       </div>
+      <div className="flex justify-end gap-2">
+
+
+      <button className="border outline-none bg-white text-black hover:bg-gray border-gray transition-all duration-300 rounded-xl w-20 h-12 ">Draft</button>
+
+          <button className="border outline-none bg-primary text-white hover:bg-hower border-gray transition-all duration-300 rounded-xl w-32 h-12 ">Publish Product</button>
+      </div>
           </form>
-    </section>
+    </section> 
   );
 };
 
