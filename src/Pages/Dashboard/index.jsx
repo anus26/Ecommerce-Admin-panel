@@ -33,7 +33,7 @@ const menuItems=[
 ]
   return (
 <>
-<section className="dashboard bg-gray1 min-h-screen w-full " >
+<section className="dashboard bg-gray3 min-h-screen w-full " >
 <div className='bg-gray-50 m-10 flex gap-10'>
   {/* 1 */}
 <div className='border border-gray  w-72  bg-white rounded-2xl h-52'>
@@ -95,6 +95,7 @@ const menuItems=[
 
   <Orders/>
 </div>
+
 <br /> <br />
 </section>
 </>

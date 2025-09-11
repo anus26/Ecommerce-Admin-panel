@@ -19,7 +19,7 @@ const Layouts= () => {
 
 <Header/> 
   </div>
-<div className='flex-1 mt-[80px] p-4 bg-gray1'>
+<div className='flex-1 mt-[80px] p-4 bg-gray3'>
     <Outlet/>
 </div>
   </div>
