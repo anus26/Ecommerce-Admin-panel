@@ -1,45 +1,31 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { AiOutlineFilter } from "react-icons/ai";
 
 const Orders = () => {
+  const [products,setProdcut]=useState([])
 
-  const menuItems = [
-    {
-      image: './images/flag.png',
-      product: 'Macbook Pro 13"',
-      category: 'Laptop',
-      price: '1200',
-      status: 'Delivered'
-    },
-        {
-      image: './images/flag.png',
-      product: 'Macbook Pro 13"',
-      category: 'Laptop',
-      price: '1200',
-      status: 'Delivered'
-    },
-        {
-      image: './images/flag.png',
-      product: 'Macbook Pro 13"',
-      category: 'Laptop',
-      price: '1200',
-      status: 'Delivered'
-    },
-        {
-      image: './images/flag.png',
-      product: 'Macbook Pro 13"',
-      category: 'Laptop',
-      price: '1200',
-      status: 'Delivered'
-    },
-    {
-      image: './images/bot.png',
-      product: 'iPhone 15 Pro',
-      category: 'Mobile',
-      price: '999',
-      status: 'Pending'
+
+  const fetchData=async()=>{
+    try {
+      
+      const res=await axios.get("http://localhost:5000/api/v1/product",{
+        withCredentials:true,
+      })
+      console.log("Get Data Successfully",res.data);
+      setProdcut(res.data.product)
+      
+    } catch (error) {
+       console.error("❌ Add Data Error:", error.response?.data || error.message);
+  }
+      
     }
-  ];
+    
+  
+  useEffect(()=>{
+    fetchData()
+  },[])
+
 
   return (
     <>
@@ -64,39 +50,43 @@ const Orders = () => {
           <h1 className='w-[40%]'>Product</h1>
           <h1 className='w-[20%]'>Category</h1>
           <h1 className='w-[20%]'>Price</h1>
-          <h1 className='w-[20%]'>Status</h1>
+          <h1 className='w-[20%]'>Brand</h1>
         </div>
 
         <div className='border-b m-7 border-gray'></div>
 
         {/* Table Rows */}
         <div>
-          {menuItems.map((item, index) => (
+          {products.map((product) => (
             <div
-              key={index}
+              key={product._id}
               className='flex justify-between items-center m-5 text-gray-700'
             >
               {/* Image + Product */}
               <div className='flex items-center gap-3 w-[40%]'>
-                <img src={item.image} alt={item.product} className='w-10 h-10 object-cover rounded-lg' />
-                <p className='font-medium'>{item.product}</p>
+                <img src={product.images} alt={product.ProductName} className='w-10 h-10 object-cover rounded-lg' />
+                <div>
+
+                <p className='font-medium'>{product.ProductName}</p>
+                <p>{product.StockQuantity}</p>
+                </div>
               </div>
 
               {/* Category */}
-              <p className='w-[20%]'>{item.category}</p>
+              <p className='w-[20%]'>{product.Category}</p>
 
               {/* Price */}
-              <p className='w-[20%]'>${item.price}</p>
+              <p className='w-[20%]'>${product.Price}</p>
 
               {/* Status */}
               <p
                 className={`w-[20%] font-semibold  ${
-                  item.status === "Delivered"
+                  product.Brand === "Delivered"
                     ? "text-green-700 text-green "
                     : "text-yellow-600"
                 }`}
               >
-                {item.status}
+                {product.Brand}
               </p>
             </div>
           ))}

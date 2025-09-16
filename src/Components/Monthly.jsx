@@ -16,12 +16,13 @@ const   options = {
           type: 'bar',
           height: 200
         },
+        colors: ['#465fff'],
         plotOptions:{
 bar:{
     borderRadius:5,
     borderRadiusApplication:'end',
     horizontal:false,
-    columnWidth:'25%',
+    columnWidth:'20%',
    
 
 }
@@ -106,7 +107,7 @@ data: [{
   <div className="relative">
       <PiDotsThreeVertical onClick={() => setOpen(!open)} />
       {open && (
-        <div className="absolute bg-white w-32 h-20 right-0 top-0 m-4 border border-gray rounded-xl">
+        <div className="absolute bg-white w-42 h-20 right-0 top-0 m-4 border border-gray rounded-xl">
           {menuItems.map((item) => (
             <div key={item.id} className="m-2 font-lg">
               {item.id}
@@ -116,8 +117,8 @@ data: [{
       )}
     </div>
         </div>
-        <div>
-       <Chart options={options} series={series} type='bar' height={190} width={500}  />
+        <div className='w-full'>  
+       <Chart options={options} series={series} type='bar' height={190}   />
     </div>
 </div>
 </>

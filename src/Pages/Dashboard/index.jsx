@@ -82,7 +82,7 @@ const menuItems=[
 </div>
 </div>
 {/* Monthly */}
-  <div className='border border-gray w-[50%] bg-white m-10 rounded-xl  mt-1'>
+  <div className='border border-gray w-[52%] bg-white m-10 rounded-xl  mt-1'>
   <Monthly/>
   </div>
   <div>

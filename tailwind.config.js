@@ -17,6 +17,7 @@ export default {
   line:"#667085",
       gray3: "#f9fafb",
     gray2: "#d0d5dd"
+
   
   
 },
