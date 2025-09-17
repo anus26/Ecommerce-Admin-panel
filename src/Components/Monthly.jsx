@@ -118,7 +118,7 @@ data: [{
     </div>
         </div>
         <div className='w-full'>  
-       <Chart options={options} series={series} type='bar' height={190}   />
+       <Chart options={options} series={series} type='bar' height={240}   />
     </div>
 </div>
 </>

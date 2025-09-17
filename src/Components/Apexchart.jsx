@@ -8,22 +8,25 @@ const ApexChart = () => {
   const options = {
     chart: {
       id: "radialBar",
+      type:"radialBar",
       offsetY: -20,
                 sparkline: {
                   enabled: true
                 }
     },
+    colors: ['#465fff'],
     plotOptions:{
       radialBar:{
-        startAngle:-90,
+        startAngle:-99,
         endAngle:90,
+        columnWidth:"20%",
         hollow:{
           margin:0,
-          size:"70%",
+          size:"80%",
         },
         track:{
           background:"#e7e7e7",
-          strokeWidth:"100%",
+          strokeWidth:"60%",
           margin:5,//margin in pixels
           dropshadow:{
             enabled:true,
@@ -43,11 +46,20 @@ const ApexChart = () => {
             
           },
           value:{
-            offsetY:-2,
-            fontSize:'20px'
-          }
+            offsetY:-25,
+            fontSize:'40px',
+            fontWeight:"bold",
+    
+
+          },
+        
+
         }
       }
+    },
+    stroke:{
+     lineCap:"round",
+     width:3
     },
     grid:{
       padding:{
@@ -67,7 +79,8 @@ const ApexChart = () => {
     },
     labels:['Average Results']
   }
-  const  series=[75.5]
+  const  series=[75.55]
+  // const  series1=[+10]
   const menuItems=[
     {id:'Viewmore'},
     {id:'Delete'}
@@ -76,14 +89,16 @@ const ApexChart = () => {
   return (
     <>
     
-  <div className="bg-white p-4 rounded-xl shadow-md">
+  <div className="bg-gray p-4 rounded-l outline-none shadow-md h-[210%]">
   {/* Top Part - White */}
-  <div className="flex justify-between">
-    <h1 className="text-xl font-semibold">Monthly Target</h1>
+  <div className="bg-whtie rouded-lg oultine-noen border ">
+
+  <div className="flex justify-between m-3">
+    <h1 className="text-xl font-semibold ">Monthly Target</h1>
     <div className="relative">
       <PiDotsThreeVertical onClick={() => setOpen(!open)} />
       {open && (
-        <div className="absolute bg-white w-32 h-20 right-0 top-0 m-4 border rounded-xl">
+        <div className="absolute bg-white w-32 h-32 right-0 top-0 m-4 border rounded-xl">
           {menuItems.map((item) => (
             <div key={item.id} className="m-2 font-lg">
               {item.id}
@@ -92,18 +107,22 @@ const ApexChart = () => {
         </div>
       )}
     </div>
+          </div>
   </div>
 
   {/* Chart */}
-  <div className="mt-2 ">
-    <h1 className="font-medium">Target you've set for each month</h1>
+  <div className=" m-3 ">
+    <h1 className="font-medium text-textt ">Target you've set for each month</h1>
+    <div className="mt-4">
+
     <Chart
       options={options}
       series={series}
       type="radialBar"
-      height={430}
-    />
-    <h1 className="text-center font-semibold mt-2">
+      height={350}
+      />
+      </div>
+    <h1 className="text-center font-semibold text-textt mt-2">
       +10% You earn $3287 today, it's higher than last month. Keep up your good work!
     </h1>
   </div>
@@ -112,8 +131,8 @@ const ApexChart = () => {
 
 {/* Bottom Part - Slate Background */}
 <div className="bg-slate-100 p-4  rounded-b-xl shadow-md">
-  <div className="flex justify-between text-slate-400 text-lg">
-    <h1>Target</h1>
+  <div className="flex justify-between text-textt text-lg">
+    <h1 >Target</h1>
     <h1>Revenue</h1>
     <h1>Today</h1>
   </div>

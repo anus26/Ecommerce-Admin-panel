@@ -16,7 +16,8 @@ export default {
   hower:"#3641f5",
   line:"#667085",
       gray3: "#f9fafb",
-    gray2: "#d0d5dd"
+    gray2: "#d0d5dd",
+    textt:"#667085"
 
   
   
