@@ -44,7 +44,7 @@ setPosition([pos.coords.latitude,pos.coords.longitude])
         </div>
         <p className="ml-5 font-medium ">Number of customer based on country</p>
 
-    <div style={{ height: "30vh", width: "80%" }} className="m-5 rounded-xl border border-gray">
+    <div style={{ height: "30vh", width: "80%" }} className="m-6 rounded-xl border border-gray">
       <MapContainer  center={position || [20,0]} zoom={position? 13:2} style={{ height: "100%", width: "100%" }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a> contributors'

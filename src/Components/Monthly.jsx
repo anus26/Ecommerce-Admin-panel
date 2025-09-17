@@ -41,7 +41,7 @@ bar:{
      
                 group: {
                     style: {
-                        fontSize: '10px',
+                        fontSize: '12px',
                         fontWeight: 700
                     },
                     groups: [
@@ -118,7 +118,7 @@ data: [{
     </div>
         </div>
         <div className='w-full'>  
-       <Chart options={options} series={series} type='bar' height={240}   />
+       <Chart options={options} series={series} type='bar' height={210}   />
     </div>
 </div>
 </>

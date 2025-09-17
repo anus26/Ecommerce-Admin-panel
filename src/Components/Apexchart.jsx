@@ -88,10 +88,11 @@ const ApexChart = () => {
 
   return (
     <>
-    
-  <div className="bg-gray p-4 rounded-l outline-none shadow-md h-[210%]">
+    <div className="bg-gray1 rounded-xl">
+
+  <div className="bg-white p-4 rounded-xl outline-none min-h-[420px] ">
   {/* Top Part - White */}
-  <div className="bg-whtie rouded-lg oultine-noen border ">
+
 
   <div className="flex justify-between m-3">
     <h1 className="text-xl font-semibold ">Monthly Target</h1>
@@ -108,7 +109,6 @@ const ApexChart = () => {
       )}
     </div>
           </div>
-  </div>
 
   {/* Chart */}
   <div className=" m-3 ">
@@ -127,21 +127,23 @@ const ApexChart = () => {
     </h1>
   </div>
 
-</div>
+
+      </div>
 
 {/* Bottom Part - Slate Background */}
-<div className="bg-slate-100 p-4  rounded-b-xl shadow-md">
+<div className=" p-4 bg-slat ">
   <div className="flex justify-between text-textt text-lg">
     <h1 >Target</h1>
     <h1>Revenue</h1>
     <h1>Today</h1>
   </div>
   <div className="flex justify-between mt-2">
-    <h1 className="text-xl">$20k</h1>
-    <h1 className="text-xl">$20k</h1>
-    <h1 className="text-xl">$20k</h1>
+    <h1 className="text-xl flex">$20k <span><img src="./images/arrow.png" alt="arrow" className="w-8" /></span></h1>
+    <h1 className="text-xl flex">$20k <span><img src="./images/arrows.png" alt="arrows" className="w-6" /></span></h1>
+    <h1 className="text-xl flex">$20k <span><img src="./images/arrows.png" alt="arrows" className="w-6" /></span></h1>
   </div>
 </div>
+      </div>
 
     </>
   );

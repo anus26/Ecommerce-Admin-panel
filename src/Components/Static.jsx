@@ -38,12 +38,14 @@ const fetch=async()=>{
           height: 350,
           type: 'area'
         },
+      
         dataLabels: {
           enabled: false
         },
-          colors: ['#008FFB', '#00E396'],
+          colors: ['#465fff', '#3641ff'],
         stroke: {
-          curve: 'smooth'
+          curve: 'smooth',
+          width:3
         },
         xaxis: {
           type: 'category',
@@ -121,7 +123,7 @@ const getSeries = () => {
 
 return (
   <>
-   <div className='border border-gray bg-white  rounded-xl'>
+   <div className='border border-gray bg-white  m-5 w-[95%] rounded-xl'>
 
 
 

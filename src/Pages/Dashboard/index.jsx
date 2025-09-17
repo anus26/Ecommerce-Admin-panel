@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../../Components/Sidebar'
 import Header from '../../Components/Header'
+import "./style.css"
 import { FiUsers } from "react-icons/fi"
 import { IoIosArrowRoundUp } from "react-icons/io";
 import { PiDotsThreeVertical } from "react-icons/pi";
@@ -85,11 +86,11 @@ const menuItems=[
   <div className='border border-gray w-[52%] bg-white m-5 rounded-xl  mt-1'>
   <Monthly/>
   </div>
-  <div >
+  <div className='' >
     <Static/>
   </div>
 
-<div className='flex '>
+<div className='flex gap-5 mt-5 '>
   <Global/>
 
 

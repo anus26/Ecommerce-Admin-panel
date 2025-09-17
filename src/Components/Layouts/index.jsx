@@ -8,7 +8,7 @@ const Layouts= () => {
    <>
      <div className='flex  justify-between'>
 
-  <div className='w-[20%] bg-gray fixed h-full'>
+  <div className='w-[20%] outline-none bg-gray fixed h-full'>
 
 <Sidebar />
   </div>
