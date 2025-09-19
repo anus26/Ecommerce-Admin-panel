@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import   { Link }  from 'react-router-dom'
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoIosAdd } from "react-icons/io";
 import { TbArrowDownToArc } from "react-icons/tb";
 import { LiaFilterSolid } from "react-icons/lia";
@@ -9,6 +9,22 @@ import { CiSearch } from 'react-icons/ci';
 import axios from 'axios';
 const AddProduct = () => {
      const [products,setProdcut]=useState([])
+     const currentpage=[3]
+    //  const previouspage=[3]
+     for (let i = 0; i < 3; i++) {
+  if ( ) {
+    
+  }
+     
+  
+     
+ }
+
+
+
+  
+
+  
 
 
   const fetchData=async()=>{
@@ -18,6 +34,7 @@ const AddProduct = () => {
         withCredentials:true,
       })
       console.log("Get Data Successfully",res.data);
+       
       setProdcut(res.data.product)
       
     } catch (error) {
@@ -81,7 +98,7 @@ const AddProduct = () => {
             </div>
              <div className='border-b mt-2 border-gray'></div>
               <div>
-          {products.map((product) => (
+          {currentpage &&(products.map((product) => (
             <div
               key={product._id}
               className='flex justify-between items-center  text-gray-700 border-b  border-gray2 mt-4'
@@ -115,9 +132,12 @@ const AddProduct = () => {
               <p className='w-[20%]'>{product.StockQuantity}</p>
               <p className='w-[20%]'>{product.createdAt}</p>
             </div>
-          ))}
+)))}
               <div className='flex justify-between'>
                 <p>Showing by <span className='font-semibold'>1</span>to <span className='font-semibold'>7</span >of <span className='font-semibold'> 20</span></p>
+                <div className='flex'>
+                  <h1 className='flex'> <IoIosArrowBack/><IoIosArrowForward/></h1>
+                </div>
 
 
               </div>
