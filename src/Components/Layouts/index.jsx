@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom'
 const Layouts= () => {
   return (
    <>
-     <div className='flex  justify-between'>
+     <div className='flex  justify-between '>
 
   <div className='w-[20%] outline-none bg-gray fixed h-full'>
 

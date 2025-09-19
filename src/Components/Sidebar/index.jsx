@@ -148,7 +148,7 @@ const Sidebar = () => {
    { open3 && (
        <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
 
-            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Product</h1>
+            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to="/addProduct">Product</Link></h1>
     <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to="/Product"  >New Product</Link></h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Billing</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Invoices</h1>

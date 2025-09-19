@@ -8,6 +8,8 @@ import Signup from './Pages/Authentication/Signup'
 import Verification from './Pages/Authentication/Verification'
 import Reset from './Pages/Authentication/Reset'
 import Product from './Components/Products'
+import AddProduct from './Pages/AddProduct'
+
 
 
 export const MyContext = createContext()
@@ -23,6 +25,7 @@ const App = () => {
             <Route index element={<Dashboard />} />
             {/* Other pages */}
             <Route path="home" element={<Home />} />
+            <Route path='addProduct' element={<AddProduct/>}/>
             <Route path='Product' element={<Product/>}/>
           </Route>
             <Route path="signin" element={<Signin />} />

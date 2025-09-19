@@ -171,7 +171,7 @@ className='rounded-lg'
     </div>
     <p className='m-5' > Target you’ve set for each month</p>
     
-        <Chart options={options} series={getSeries()} type="area"   height={350}/>
+        <Chart options={options} series={getSeries()} type="area" width={1100}  height={350}/>
     </div>
    </>
   )
