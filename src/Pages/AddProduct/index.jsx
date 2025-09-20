@@ -9,18 +9,34 @@ import { CiSearch } from 'react-icons/ci';
 import axios from 'axios';
 const AddProduct = () => {
      const [products,setProdcut]=useState([])
-     const currentpage=[3]
-    //  const previouspage=[3]
-     for (let i = 0; i < 3; i++) {
-  if ( ) {
-    
+  const [currentpage,setCurrentPage]=useState(1)
+  const [active ,setActive]=useState(null)
+    const [active1 ,setActive1]=useState(null)
+  const perpage=5
+  const indexofLastpage=currentpage*perpage
+  const indexOfFirstpage=indexofLastpage-perpage
+  const currentproduct=products.slice(indexOfFirstpage,indexofLastpage)
+
+
+
+
+  const next=()=>{
+    if (currentpage <Math.ceil (products.length /perpage)) {
+      setCurrentPage(prev =>prev+1)
+      setActive('1')
+      setActive1('2')
+      
+    }
   }
+  const prevpage=()=>{
+    if (currentpage >1) {
+      setCurrentPage(prev =>prev-1)
+     setActive('1')
+     setActive1('2')
      
-  
-     
- }
-
-
+      
+    }
+  }
 
   
 
@@ -34,7 +50,7 @@ const AddProduct = () => {
         withCredentials:true,
       })
       console.log("Get Data Successfully",res.data);
-       
+     
       setProdcut(res.data.product)
       
     } catch (error) {
@@ -98,7 +114,7 @@ const AddProduct = () => {
             </div>
              <div className='border-b mt-2 border-gray'></div>
               <div>
-          {currentpage &&(products.map((product) => (
+          {currentproduct.length > 0 ? (currentproduct.map((product) => (
             <div
               key={product._id}
               className='flex justify-between items-center  text-gray-700 border-b  border-gray2 mt-4'
@@ -130,13 +146,31 @@ const AddProduct = () => {
                 {product.Brand}
               </p>
               <p className='w-[20%]'>{product.StockQuantity}</p>
-              <p className='w-[20%]'>{product.createdAt}</p>
+              <p className='w-[20%]'>{new Date(product.createdAt).toLocaleDateString()}</p>
             </div>
-)))}
+   ))
+      ) : (
+        <p>No products found</p>
+      )}
               <div className='flex justify-between'>
-                <p>Showing by <span className='font-semibold'>1</span>to <span className='font-semibold'>7</span >of <span className='font-semibold'> 20</span></p>
-                <div className='flex'>
-                  <h1 className='flex'> <IoIosArrowBack/><IoIosArrowForward/></h1>
+                <p className='mt-3 text-lg'>Showing by <span className='font-semibold'>1</span>to <span className='font-semibold'>7</span >of <span className='font-semibold'> 20</span></p>
+                <div className='flex p-3 mt-2'>
+                  <h1 className='flex gap-3 text-lg font-bold'>
+                    <button onClick={prevpage} disabled={currentpage ===1} >
+<IoIosArrowBack className='text-xl font-bold'/>
+                    </button>
+
+                 {[...Array(Math.ceil(products.length / perpage))].map((_, index) => {
+                        const pagenum=index+1
+                        return (
+                      <button key={pagenum} onClick={()=>setCurrentPage(pagenum)} 
+                      className={` border border-gray duration-300 transition-all text-black ${currentpage ===pagenum ?' text-white bg-primary' :' text-black bg-white hover:bg-hower'} cursor-pointer w-12 h-12 rounded-lg text-white`}>{pagenum}</button>
+                  )  })}
+                    {/* <button onClick={next} disabled={currentpage ===Math.ceil(products.length /perpage)}    */}
+                   {/* className={`  border border-gray duration-300 transition-all text-black ${active1 ==='2' ?'bg-primary text-white':'bg-white text-black'} cursor-pointer w-12 h-12 rounded-lg text-white`}>2</button> */}
+
+                    <button onClick={next} disabled={currentpage ===Math.ceil(products.length / perpage)}><IoIosArrowForward  className='text-xl font-bold'/></button>
+                     </h1>
                 </div>
 
 
