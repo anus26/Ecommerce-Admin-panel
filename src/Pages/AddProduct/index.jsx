@@ -10,8 +10,7 @@ import axios from 'axios';
 const AddProduct = () => {
      const [products,setProdcut]=useState([])
   const [currentpage,setCurrentPage]=useState(1)
-  const [active ,setActive]=useState(null)
-    const [active1 ,setActive1]=useState(null)
+  // pangination
   const perpage=5
   const indexofLastpage=currentpage*perpage
   const indexOfFirstpage=indexofLastpage-perpage
@@ -23,17 +22,14 @@ const AddProduct = () => {
   const next=()=>{
     if (currentpage <Math.ceil (products.length /perpage)) {
       setCurrentPage(prev =>prev+1)
-      setActive('1')
-      setActive1('2')
+   
       
     }
   }
   const prevpage=()=>{
     if (currentpage >1) {
       setCurrentPage(prev =>prev-1)
-     setActive('1')
-     setActive1('2')
-     
+ 
       
     }
   }
@@ -42,7 +38,7 @@ const AddProduct = () => {
 
   
 
-
+// fetch all data
   const fetchData=async()=>{
     try {
       
@@ -88,7 +84,16 @@ const AddProduct = () => {
                 </div>
                 <div className='flex gap-3'>
                   <button className='flex gap-2 border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
-                  <button className='flex gap-2 border bg-primary justify-center  items-center font-semibold text-white transition-all duration-300 outline-none hover:bg-hower  w-36 border-gray2 rounded-lg '><span><IoIosAdd className='text-2xl' /></span>Add Product </button>
+<Link 
+  to='/Product' 
+  className='flex gap-2 border bg-primary justify-center items-center font-semibold text-white transition-all duration-300 outline-none hover:bg-hower w-36 border-gray2 rounded-lg ' 
+>
+  <button className='flex'>
+    <span><IoIosAdd className='text-2xl ' /></span>
+    Add Product
+  </button>
+</Link>
+
                 </div>
  
               </div>
@@ -153,7 +158,7 @@ const AddProduct = () => {
         <p>No products found</p>
       )}
               <div className='flex justify-between'>
-                <p className='mt-3 text-lg'>Showing by <span className='font-semibold'>1</span>to <span className='font-semibold'>7</span >of <span className='font-semibold'> 20</span></p>
+                <p className='mt-5 text-md'>Showing by <span className='font-semibold'>1</span>to <span className='font-semibold'>7</span >of <span className='font-semibold'> 20</span></p>
                 <div className='flex p-3 mt-2'>
                   <h1 className='flex gap-3 text-lg font-bold'>
                     <button onClick={prevpage} disabled={currentpage ===1} >
@@ -164,7 +169,7 @@ const AddProduct = () => {
                         const pagenum=index+1
                         return (
                       <button key={pagenum} onClick={()=>setCurrentPage(pagenum)} 
-                      className={` border border-gray duration-300 transition-all text-black ${currentpage ===pagenum ?' text-white bg-primary' :' text-black bg-white hover:bg-hower'} cursor-pointer w-12 h-12 rounded-lg text-white`}>{pagenum}</button>
+                      className={` border border-gray duration-300 transition-all  ${currentpage ===pagenum ?' text-white bg-primary' :' bg-white !text-black hover:bg-hower'} cursor-pointer w-12 h-12 rounded-lg text-white`}>{pagenum}</button>
                   )  })}
                     {/* <button onClick={next} disabled={currentpage ===Math.ceil(products.length /perpage)}    */}
                    {/* className={`  border border-gray duration-300 transition-all text-black ${active1 ==='2' ?'bg-primary text-white':'bg-white text-black'} cursor-pointer w-12 h-12 rounded-lg text-white`}>2</button> */}
