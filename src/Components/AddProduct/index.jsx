@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import   { Link }  from 'react-router-dom'
+import   { Link, useParams }  from 'react-router-dom'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoIosAdd } from "react-icons/io";
 import { TbArrowDownToArc } from "react-icons/tb";
@@ -10,13 +10,23 @@ import axios from 'axios';
 const AddProduct = () => {
      const [products,setProdcut]=useState([])
   const [currentpage,setCurrentPage]=useState(1)
+    const [filteredProducts, setFilteredProducts] = useState([]); // after filter
+     const [showfilter, setShowFilter]=useState('')
+   const { id } = useParams();
+   const [formData,setFormData]=useState({
+    Category:"",
+    ProductName:""
+   })
+   const handlechange=(e)=>{
+    setFormData({...formData,[e.target.name]:e.target.value})
+   }
   // pangination
   const perpage=5
   const indexofLastpage=currentpage*perpage
   const indexOfFirstpage=indexofLastpage-perpage
-  const currentproduct=products.slice(indexOfFirstpage,indexofLastpage)
+  // const currentproduct=products.slice(indexOfFirstpage,indexofLastpage)
 
-
+const currentproduct=filteredProducts.slice(indexOfFirstpage,indexofLastpage)
 
 
   const next=()=>{
@@ -33,11 +43,6 @@ const AddProduct = () => {
       
     }
   }
-
-  
-
-  
-
 // fetch all data
   const fetchData=async()=>{
     try {
@@ -48,17 +53,46 @@ const AddProduct = () => {
       console.log("Get Data Successfully",res.data);
      
       setProdcut(res.data.product)
+            setFilteredProducts(res.data.product); 
       
     } catch (error) {
        console.error("❌ Add Data Error:", error.response?.data || error.message);
   }
       
     }
+
+ const fetchDataproduct = (e) => {
+  e.preventDefault();
+
+  const filtered = products.filter((p) => {
+    return (
+      (formData.Category === "" ||
+        p.Category?.toLowerCase().includes(formData.Category.toLowerCase())) &&
+      (formData.ProductName === "" ||
+        p.ProductName?.toLowerCase().includes(formData.ProductName.toLowerCase()))
+    );
+  });
+
+  setFilteredProducts(filtered);
+  setCurrentPage(1); // reset to first page after filtering
+};
+
+
     
   
   useEffect(()=>{
     fetchData()
+
   },[])
+
+
+// get one product by id
+
+
+
+
+
+
   return (
    <>
    <section>
@@ -104,8 +138,38 @@ const AddProduct = () => {
                 <span><CiSearch className='text-2xl flex mt-2 m-4'/></span>
                 <input type="text"  placeholder='Search' className='border-none outline-none'/>
                 </div>
-                <button className='flex gap-2 border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'> <span><LiaFilterSolid  className='text-lg'/></span>Filter </button>
-              </div>
+
+                <div className='flex gap-2  border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>
+                <button onClick={()=>setShowFilter(prev=>!prev)} className='flex gap-2' > <span><LiaFilterSolid  className='text-lg '/></span>Filter
+                </button>
+
+                {showfilter &&(
+                  
+                  <form onSubmit={fetchDataproduct}   className="absolute mr-28 bg-white border w-52 p-3 border-gray2 text-textt rounded-lg mt-72">
+                    <label  >Category
+
+                   <input type="text" onChange={handlechange} placeholder='EnterCategory' value={formData.Category} name='Category' className='w-40 border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+                    </label>
+                   <label >ProductName
+
+                    <input type="text" onChange={handlechange} placeholder='EnterProduct' value={formData.ProductName} name='ProductName' className='w-40 border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+                   </label>
+                    <button type='submit'className='w-28  mt-2 border border-gray2 bg-primary hover:bg-hower text-white h-10 rounded-lg transition-all duration-300' >Apply</button>
+                
+                </form>
+               ) }
+               </div>
+       </div>
+                {/* {filteredProducts.map((p)=>(
+                  <div key={p._id}>
+                    {p.ProductName}
+                    {p.Category}
+                    </div>
+                  ))} */}
+
+
+
+             
            <div className='border-b-2 border-gray2  mt-3 '></div>
            <br />
            <div className='m-3'>
