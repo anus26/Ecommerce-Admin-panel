@@ -139,7 +139,7 @@ const Sidebar = () => {
   onClick={handleopen3}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><FiShoppingCart className='text-line' /></span>  E-commerce<span className='text-green  bg-dark p-1.5 text-sm rounded-full '>NEW</span>
+        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><FiShoppingCart className='text-line  ' /></span>  E-commerce<span className='text-green  bg-dark p-1.5 text-sm rounded-full '>NEW</span>
     
          </h1>
            <span className='text-2xl ' >{open3?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
@@ -339,10 +339,10 @@ const Sidebar = () => {
    { authentication && (
        <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
 
-            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Sign in </h1>
-    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Sign up</h1>
-         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Resent Password</h1>
-         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Two way Verificatio</h1>
+            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='signin'>Sig in</Link> </h1>
+    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='signup'>Sign up</Link></h1>
+         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='verification'>Resent Password</Link></h1>
+         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='reset'>Two way Verificatio</Link></h1>
 
 
 
