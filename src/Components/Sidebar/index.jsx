@@ -153,7 +153,7 @@ const Sidebar = () => {
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Billing</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Invoices</h1>
             <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Single Invoices</h1>
-    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Create Invoice</h1>
+    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/createinvoice'>Create Invoice</Link></h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Transactions</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Singel Transactions</h1>
 
@@ -216,7 +216,7 @@ const Sidebar = () => {
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Billing</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Invoices</h1>
             <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Single Invoices</h1>
-    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Create Invoice</h1>
+    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/createinvoice'>Create Invoice</Link></h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Transactions</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Singel Transactions</h1>
 

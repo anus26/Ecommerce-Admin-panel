@@ -10,6 +10,7 @@ import Reset from './Pages/Authentication/Reset'
 import Product from './Components/Products'
 import AddProduct from './Components/AddProduct'
 import SingleProduct from './Components/AddProduct/SingleProduct'
+import Invoice from './Pages/Invoice'
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
             <Route path='addProduct' element={<AddProduct/>}/>
               <Route path='singleproduct' element={<SingleProduct/>}/>
             <Route path='Product' element={<Product/>}/>
+            <Route path='createinvoice' element={<Invoice/>}/>
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />
