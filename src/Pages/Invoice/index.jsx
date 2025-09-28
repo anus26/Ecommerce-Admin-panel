@@ -4,6 +4,7 @@ import { HiOutlineMinusSmall } from "react-icons/hi2";
 import { IoArrowUp } from "react-icons/io5";
 import { BsArrowBarUp } from "react-icons/bs";
 import axios from "axios";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Invoice = () => {
     const [count ,setCount]=useState(1)
@@ -265,24 +266,42 @@ fetchData()
                     <br />
                                  <div className="border-b border-gray  "></div>
 
-{products.length > 0 ? (
-  products.map((product) => (
-    <div key={product._id}>
-      <h1>{product.ProductName}</h1>
-        <h1>{product.Price}</h1>  <h1>{product.StockQuantity}</h1>  <h1>{product.Discount}</h1>
+                                 <br />
+                                 <div className=' border rounded-lg border-gray2 '>
+                                    <div className='flex bg-gray1 p-[2%]  font-semibold border-gray1 rounded-xl'>
+                                        <h1 className='w-[10%]'>S.No</h1>
+                                        <h1 className='w-[20%]'>Product</h1>
+                                        <h1 className='w-[20%]'>Quantity</h1>
+                                        <h1 className='w-[20%]'>Unit Cost</h1>
+                                        <h1 className='w-[20%]'>Cost</h1>
+                                           <h1 className="w-[10%]">Action</h1>
+                                    </div>
+
+
+
+{formData. Products.length > 0 ? (
+    formData.Products.map((p,index) => (
+        <div key={p._id} className='flex border-b border-gray m-5  text-textt font-semibold'>
+            
+                                <td className='w-[10%]'> {index + 1}</td> 
+
+      <h1 className='w-[20%] font-semibold text-black'>{pr.ProductName}</h1>
+        <h1 className='w-[20%]'>{p.Price}</h1>  <h1 className='w-[20%]'>{p.StockQuantity}</h1>  <h1 className='w-[20%]'>{p.Discount}</h1><h1 className='w-[10%]'><RiDeleteBin5Line className=' hover:text-red-300 text-lg' />
+</h1>
     </div>
   ))
 ) : (
-  <p>No products found</p>
+    <p>No products found</p>
 )}
-<button 
+</div>
+{/* <button 
   type="button" 
   onClick={() => setShowFilter(!showfilter)}
   className="border outline-none bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
->
-  {showfilter ? "Hide Filter" : "Show Filter"}
-</button>
-{showfilter &&(
+  > 
+  {showfilter ? "Hide Filter" : "Show Filter"} 
+</button> */}
+{filtered &&(
 
 
                                  <div className='flex  gap-5  outline-none  rounded-lg mt-10 p-10 bg-gray1'>
@@ -340,26 +359,26 @@ fetchData()
                       <button  
                       onClick={fetchDataproduct}
                       className="border outline-none bg-primary text-white
-                       hover:bg-hower border-gray 
-                       transition-all duration-300 rounded-xl w-32 h-12 ">
+                      hover:bg-hower border-gray 
+                      transition-all duration-300 rounded-xl w-32 h-12 ">
                         Save Product</button>
             </div>
 
                                  </div>
                          
-                        
-                    )}
-                           {formData.Products.length > 0 ? (
-                formData.Products.map((p, idx) => (
-                  <div key={idx} className="p-2 border rounded my-2">
-                    <p>
-                      {p.ProductName} - Qty: {p.StockQuantity} - Price: ${p.Price} - Discount:${p.Discount}
-                    </p>
+                         
+                        )}
+                        {/* {formData.Products.length > 0 ? (
+                        formData.Products.map((p, idx) => (
+                        <div key={idx} className="p-2 border rounded my-2">
+                        <p>
+                        {p.ProductName} - Qty: {p.StockQuantity} - Price: ${p.Price} - Discount:${p.Discount}
+                        </p>
                   </div>
                 ))
               ) : (
                 <p>No product selected</p>
-              )}
+              )} */}
 
 
 <br />
