@@ -8,14 +8,14 @@ const Layouts= () => {
    <>
      <div className='flex  justify-between '>
 
-  <div className='w-[20%] outline-none bg-gray  fixed h-full  md:hidden lg:block'>
+  <div className='w-[20%]  outline-none bg-gray  fixed h-full  md:hidden lg:block'>
 
 <Sidebar />
   </div>
-  <div className='w-[80%]  ml-[20%] flex flex-col bg-gray1'>
+  <div className='w-[80%]   ml-[20%] flex flex-col bg-gray1'>
 
 
-  <div className=' w-[80%] md:w-full    h-[60px] bg-white shadow fixed  z-10'>
+  <div className=' w-[80%]   md:w-full  h-[60px] bg-white shadow fixed  z-10'>
 
 <Header/> 
   </div>

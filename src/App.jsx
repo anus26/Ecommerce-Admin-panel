@@ -24,6 +24,7 @@ const App = () => {
           {/* Layout parent route */}
           <Route path="/" element={<Layouts />}>
             {/* Default page */}
+            
             <Route index element={<Dashboard />} />
             {/* Other pages */}
             <Route path="home" element={<Home />} />

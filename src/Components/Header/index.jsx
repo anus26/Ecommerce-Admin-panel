@@ -17,7 +17,7 @@ const Header = () => {
 <>
 <section>
   <nav className='nav bg-white border-4  border-slate-50    '>
-    <div className='flex justify-between  m-5  '>
+    <div className='flex justify-between  m-5   '>
       <div className='flex  gap-5 '>
 
       <div>
@@ -41,11 +41,6 @@ const Header = () => {
    
         <Sidebar />
       </div> */}
-   {sidebar && (
-    <div className="lg:hidden md:block">
-      <Sidebar  />
-    </div>
-  )}
 
     
       </div> 
@@ -60,7 +55,12 @@ const Header = () => {
          <button className='border-2 border-gray rounded-full p-3'><CiBellOn  className='text-2xl' /></button>
       </div>
     </div>
-    
+    <div className='border-b'></div>
+   {sidebar && (
+    <div className="lg:hidden md:block  md:w-[20%]">
+      <Sidebar  />
+    </div>
+  )}
 
   </nav> 
 

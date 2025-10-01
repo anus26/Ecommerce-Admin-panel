@@ -28,7 +28,7 @@ const Sidebar = () => {
     const [open6 ,setOpen6]=useState(false)
     const [open7 ,setOpen7]=useState(false)
     const [authentication,setAuthentication]=useState(false)
-   const [sidebar,setSidebar]=useState(false)
+  
     const [activemenu ,setActiveMenu ]=useState(null)
     const handleopen=()=>{
         setOpen(prev=>!prev)
@@ -67,17 +67,17 @@ const Sidebar = () => {
   return (
 <>
 <section>
-    <div className="sidebar  bg-white   border-gray h-screen flex flex-col   " >
-      
+     
+    <div className="sidebar  bg-white  border-r-4  border-gray h-screen flex flex-col   " >
         {/* header */}
+
 <div className='sticky  top-0 bg-white z-10 '>
-  <div className='flex justify-between'>
+
     <h1 className='m-5 font-semibold text-2xl flex gap-1 items-center '><img src="./images/control-panel.png" alt="dashboard"  className='w-10'/>Ecommerce Admin</h1>
    
    
 
-  </div>
-    
+  
 {/* border */}
 <div className='border-b-2 border-gray'></div>
 </div>
@@ -129,7 +129,7 @@ const Sidebar = () => {
 </div>
 {/* drowdown */}
    { open2 && (
-       <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
+     <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Text Generator</h1>
     <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Image Generator</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Code Generator</h1>
@@ -144,7 +144,7 @@ const Sidebar = () => {
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'ecommerce' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
-  `}
+    `}
   onClick={handleopen3}
 >
 
@@ -207,7 +207,7 @@ const Sidebar = () => {
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'tasks' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
-  `}
+    `}
   onClick={handleopen4}
 >
 
@@ -302,7 +302,7 @@ const Sidebar = () => {
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'page' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
-  `}
+    `}
   onClick={handleopen7}
 >
 
