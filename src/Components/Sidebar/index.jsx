@@ -17,6 +17,8 @@ import './Style.css'
 import { CiFolderOn } from 'react-icons/ci';
 import Product from '../Products';
 import { Link } from 'react-router-dom';
+import { RiDeleteBack2Line } from "react-icons/ri";
+import { FaBarsStaggered } from 'react-icons/fa6';
 const Sidebar = () => {
     const [open ,setOpen]=useState(false)
     const [open2 ,setOpen2]=useState(false)
@@ -26,7 +28,7 @@ const Sidebar = () => {
     const [open6 ,setOpen6]=useState(false)
     const [open7 ,setOpen7]=useState(false)
     const [authentication,setAuthentication]=useState(false)
-
+   const [sidebar,setSidebar]=useState(false)
     const [activemenu ,setActiveMenu ]=useState(null)
     const handleopen=()=>{
         setOpen(prev=>!prev)
@@ -65,10 +67,17 @@ const Sidebar = () => {
   return (
 <>
 <section>
-    <div className='sidebar  bg-white   border-gray h-screen flex flex-col '>
+    <div className="sidebar  bg-white   border-gray h-screen flex flex-col   " >
+      
         {/* header */}
-<div className='sticky  top-0 bg-white z-10'>
+<div className='sticky  top-0 bg-white z-10 '>
+  <div className='flex justify-between'>
     <h1 className='m-5 font-semibold text-2xl flex gap-1 items-center '><img src="./images/control-panel.png" alt="dashboard"  className='w-10'/>Ecommerce Admin</h1>
+   
+   
+
+  </div>
+    
 {/* border */}
 <div className='border-b-2 border-gray'></div>
 </div>

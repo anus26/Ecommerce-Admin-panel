@@ -285,7 +285,7 @@ fetchData()
             
                                 <td className='w-[10%]'> {index + 1}</td> 
 
-      <h1 className='w-[20%] font-semibold text-black'>{pr.ProductName}</h1>
+      <h1 className='w-[20%] font-semibold text-black'>{p.ProductName}</h1>
         <h1 className='w-[20%]'>{p.Price}</h1>  <h1 className='w-[20%]'>{p.StockQuantity}</h1>  <h1 className='w-[20%]'>{p.Discount}</h1><h1 className='w-[10%]'><RiDeleteBin5Line className=' hover:text-red-300 text-lg' />
 </h1>
     </div>
