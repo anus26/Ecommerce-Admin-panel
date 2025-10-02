@@ -36,9 +36,20 @@ const fetch=async()=>{
    
     chart: {
           height: 350,
-       
+        
           type: 'area'
         },
+        responsive:[
+
+          {
+            breakpoint:1024,
+            options:{
+              chart:{
+                width:600
+              }
+            }
+          }
+        ],
         
         dataLabels: {
           enabled: false

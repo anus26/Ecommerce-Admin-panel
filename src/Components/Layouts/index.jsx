@@ -7,17 +7,18 @@ const Layouts= () => {
 
   return (
    <>
-     <div className='flex  justify-between '>
+     
 
 
-  <div className='w-[20%]  outline-none bg-gray  fixed h-full  md:hidden lg:block'>
+
+  <div className='w-[20%] outline-none bg-gray  fixed h-full  md:hidden lg:block'>
 
 <Sidebar />
-  </div>
-  <div className='w-[80%]   ml-[20%] flex flex-col bg-gray1'>
+  </div> 
+  <div className='part-2 w-[80%]    lg:ml-[20%]  md:ml-[0%] flex flex-col bg-gray1'>
 
 
-  <div className=' w-[80%]     h-[60px] bg-white shadow fixed  z-10'>
+  <div className=' w-full   h-[60px] bg-white'>
 
 <Header/> 
   </div>
@@ -25,7 +26,8 @@ const Layouts= () => {
     <Outlet/>
 </div>
   </div>
-  </div> 
+
+
    </> 
   )
 }

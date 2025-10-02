@@ -73,7 +73,7 @@ const Sidebar = () => {
 
 <div className='sticky  top-0 bg-white z-10 '>
 
-    <h1 className='m-5 font-semibold text-2xl flex gap-1 items-center '><img src="./images/control-panel.png" alt="dashboard"  className='w-10'/>Ecommerce Admin</h1>
+    <h1 className='m-5 font-semibold text-2xl flex gap-1 items-center '><img src="./images/control-panel.png" alt="dashboard"  className='w-10 '/>Ecommerce Admin</h1>
    
    
 

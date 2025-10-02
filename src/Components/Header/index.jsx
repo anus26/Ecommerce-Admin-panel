@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
 <>
-<section>
+<section >
   <nav className='nav bg-white border-4  border-slate-50    '>
     <div className='flex justify-between  m-5   '>
       <div className='flex  gap-5 '>
@@ -28,7 +28,7 @@ const Header = () => {
           { sidebar&&
           <h1 className='lg:hidden ' > <RiDeleteBack2Line  /></h1>
           ||
-          <FaBarsStaggered className="m-2 text-black relative z-10 "   /> 
+          <FaBarsStaggered className="m-2 text-black relative z-10  "   /> 
         }
         
             
@@ -37,7 +37,7 @@ const Header = () => {
 
           
         </button>
-        {/* <div className="lg:hidden md:block ">
+        {/* <div className=" md:hidden ">
    
         <Sidebar />
       </div> */}
@@ -61,7 +61,7 @@ const Header = () => {
 
 </section>
 {sidebar && (
- <div className="lg:hidden md:block  md:w-[20%]   fixed inset-0  bg-gray-500/75 transition-opacity duration-500 ease-out data-closed:ocpacity-0">
+ <div  className="lg:hidden md:block  md:w-[20%]   fixed inset-0  bg-gray-500/75 transition-opacity duration-500 ease-out data-closed:ocpacity-0">
    <Sidebar   />
  </div>
 )}
