@@ -36,9 +36,10 @@ const fetch=async()=>{
    
     chart: {
           height: 350,
+       
           type: 'area'
         },
-      
+        
         dataLabels: {
           enabled: false
         },
@@ -49,14 +50,15 @@ const fetch=async()=>{
         },
         xaxis: {
           type: 'category',
-         
-          },
-              //  group: {
-              //       style: {
-              //           fontSize: '10px',
-              //           fontWeight: 700
-              //       },
-              //       groups: [
+          
+        },
+        //  group: {
+          //       style: {
+            //           fontSize: '10px',
+            //           fontWeight: 700
+            //       },
+            //       groups: [
+            
               //           { title:'', cols: 12 },
                        
               //       ]
@@ -171,7 +173,7 @@ className='rounded-lg'
     </div>
     <p className='m-5' > Target you’ve set for each month</p>
     
-        <Chart options={options} series={getSeries()} type="area" width={1100}  height={350}/>
+        <Chart options={options} series={getSeries()} type="area" width={1100}    height={350}/>
     </div>
    </>
   )

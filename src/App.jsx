@@ -11,20 +11,24 @@ import Product from './Components/Products'
 import AddProduct from './Components/AddProduct'
 import SingleProduct from './Components/AddProduct/SingleProduct'
 import Invoice from './Pages/Invoice'
+import Header from './Components/Header'
+
 
 
 
 export const MyContext = createContext()
 
 const App = () => {
+  const {sidebar}=Header
   return (
     <BrowserRouter>
       <MyContext.Provider value={{}}>
         <Routes>
           {/* Layout parent route */}
           <Route path="/" element={<Layouts />}>
+          
             {/* Default page */}
-            
+          
             <Route index element={<Dashboard />} />
             {/* Other pages */}
             <Route path="home" element={<Home />} />
@@ -32,6 +36,7 @@ const App = () => {
               <Route path='singleproduct' element={<SingleProduct/>}/>
             <Route path='Product' element={<Product/>}/>
             <Route path='createinvoice' element={<Invoice/>}/>
+        
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />
@@ -43,5 +48,6 @@ const App = () => {
     </BrowserRouter>
   )
 }
+
 
 export default App
