@@ -25,11 +25,10 @@ const Header = () => {
          
 
           
-          { sidebar&&
-          <h1 className='lg:hidden ' > <RiDeleteBack2Line  /></h1>
-          ||
-          <FaBarsStaggered className="m-2 text-black relative z-10  "   /> 
-        }
+          { sidebar
+         ? <h1 className='lg:hidden ' > <RiDeleteBack2Line  /></h1>
+          :<FaBarsStaggered className="m-2 text-black  "   /> 
+                  }
         
             
           
@@ -39,8 +38,8 @@ const Header = () => {
         </button>
         {/* <div className=" md:hidden ">
    
-        <Sidebar />
-      </div> */}
+   <Sidebar />
+   </div> */}
 
     
       </div> 
@@ -60,10 +59,27 @@ const Header = () => {
   </nav> 
 
 </section>
+
+
+
+
+
 {sidebar && (
- <div  className="lg:hidden md:block  md:w-[20%]   fixed inset-0  bg-gray-500/75 transition-opacity duration-500 ease-out data-closed:ocpacity-0">
+<div className='relative z-10 '>
+{/* <div className='fixed inset-0 '> */}
+  
+  
+  
+  
+  <div  className=" lg:hidden md:block  md:w-[30%] fixed inset-5 " >
    <Sidebar   />
  </div>
+
+
+{/* </div> */}
+</div>
+
+
 )}
 </>
   )
