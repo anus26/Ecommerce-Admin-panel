@@ -12,16 +12,20 @@ const Header = () => {
    setSidebar(prev=>!prev)
  
   }
-
+if(sidebar){
+  document.body.classList.add("overflow-hidden")
+}else{
+  document.body.classList.remove("overflow-hidden")
+}
   return (
 <>
 <section >
-  <nav className='nav bg-white border-4  border-slate-50    '>
+  <nav className='nav bg-white border-4 px-4 xl:w-[80%]  md:w-[100%] border-slate-50 fixed top-0   z-50 '>
     <div className='flex justify-between  m-5   '>
       <div className='flex  gap-5 '>
 
       <div>
-        <button className={`w-12 border-2 h-12 border-gray rounded-lg lg:hidden   `} onClick={handleclick} >
+        <button className='w-12 border-2 h-12 border-gray rounded-lg xl:hidden    ' onClick={handleclick} >
          
 
           
@@ -63,22 +67,23 @@ const Header = () => {
 
 
 
-
 {sidebar && (
-<div className='relative z-10 '>
-{/* <div className='fixed inset-0 '> */}
+  <>
+<div className='fixed inset-0  bg-black/50  z-40' onClick={handleclick}>
+
+
   
   
-  
-  
-  <div  className=" lg:hidden md:block  md:w-[30%] fixed inset-5 " >
-   <Sidebar   />
  </div>
+  
+  
+  <div  className=" fixed top-[94px]  left-0  h-[calc(100%-60px)]  shadow-lg z-50 overflow-y-auto xl:hidden lg:block md:block  md:w-[30%] bg-gray   "  onClick={(e)=>e.stopPropagation()} >
+   <Sidebar  />
 
 
-{/* </div> */}
 </div>
 
+</>
 
 )}
 </>
