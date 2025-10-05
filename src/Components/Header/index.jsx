@@ -20,8 +20,8 @@ if(sidebar){
   return (
 <>
 <section >
-  <nav className='nav bg-white border-4 px-4 xl:w-[80%] lg:w-[100%] md:w-[100%] sm:w-[100%] border-slate-50 fixed top-0   z-50 '>
-    <div className='flex justify-between  m-5   '>
+  <nav className={`nav bg-white border-4 px-4 xl:w-[80%] lg:w-[100%] md:w-[100%] sm:w-[100%] border-slate-50 fixed top-0   z-50 `}>
+    <div className={`flex justify-between  m-5  `}>
       <div className='flex  gap-5 '>
 
       <div>
@@ -77,7 +77,7 @@ if(sidebar){
  </div>
   
   
-  <div  className=" fixed top-[94px]  left-0  h-[calc(100%-60px)]  shadow-lg z-50 overflow-y-auto xl:hidden lg:block md:block sm:block md:w-[30%] bg-gray   "  onClick={(e)=>e.stopPropagation()} >
+  <div  className=" fixed top-[94px]  left-0  h-[calc(100%-94px)]   shadow-lg z-50 overflow-y-auto xl:hidden lg:block md:block sm:block md:w-[30%] sm:w-[28%]  "  onClick={(e)=>e.stopPropagation()} >
    <Sidebar  />
 
 
