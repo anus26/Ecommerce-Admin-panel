@@ -68,7 +68,7 @@ const Sidebar = () => {
 <>
 <section>
      
-    <div className="sidebar bg-white  border-r-4  border-gray h-screen flex flex-col   " >
+    <div className="sidebar bg-white  border-r-2  border-gray h-screen flex flex-col   " >
         {/* header */}
 
 <div className='sticky  top-0 bg-white z-10 '>
