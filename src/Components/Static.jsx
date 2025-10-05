@@ -149,11 +149,11 @@ return (
 
 
 
-    <div className='flex  justify-between m-6  '>
+    <div className='flex  justify-between m-6  sm:flex-wrap '>
     <h1 className='font-semibold text-xl'>Statistics </h1>
 
-    <div className='flex'>
-  <div className='flex  gap-4 border border-gray p-2' >
+    <div className='flex '>
+  <div className='flex sm:flex-wrap  gap-4 border border-gray p-2' >
     {['overview','sale','Revenu'].map((btn)=>(
 
       
@@ -192,8 +192,10 @@ className='rounded-lg'
    </div>
     </div>
     <p className='m-5' > Target you’ve set for each month</p>
-    
+    <div className='w-full xl:w-full sm:w-full overflow-auto'>
+
         <Chart options={options} series={getSeries()} type="area" width={1100}    height={350}/>
+    </div>
     </div>
    </>
   )

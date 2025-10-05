@@ -53,7 +53,7 @@ if(sidebar){
       <input type="text"  placeholder='Search or Type Command....' className= ' outline-none w-96'/>
       </div>
       </div>
-      <div className='gap-2 flex'>
+      <div className='gap-2 flex  sm:hidden'>
         <button className='border-2 border-gray rounded-full p-3'><IoMoonOutline className='text-2xl' /></button>
          <button className='border-2 border-gray rounded-full p-3'><CiBellOn  className='text-2xl' /></button>
       </div>
