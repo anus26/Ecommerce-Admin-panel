@@ -77,7 +77,7 @@ if(sidebar){
  </div>
   
   
-  <div  className=" fixed top-[94px]  left-0  h-[calc(100%-94px)]   shadow-lg z-50 overflow-y-auto xl:hidden lg:block md:block sm:block md:w-[30%] sm:w-[28%]  "  onClick={(e)=>e.stopPropagation()} >
+  <div  className=" fixed top-[94px]  left-0  h-[calc(100%-94px)]   shadow-lg z-50 overflow-y-auto xl:hidden lg:block md:block sm:block md:w-[30%] sm:w-[60%]  bg-white "  onClick={(e)=>e.stopPropagation()} >
    <Sidebar  />
 
 

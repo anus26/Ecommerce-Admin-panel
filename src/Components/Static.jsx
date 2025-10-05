@@ -48,7 +48,16 @@ const fetch=async()=>{
                 width:600
               }
             }
+          },
+          {
+            breakpoint:786,
+            options:{
+              chart:{
+                width:500
+              }
+            }
           }
+
         ],
         
         dataLabels: {

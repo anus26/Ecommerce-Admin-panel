@@ -16,6 +16,26 @@ const   options = {
           type: 'bar',
           height: 200
         },
+         responsive:[
+
+          {
+            breakpoint:1024,
+            options:{
+              chart:{
+                width:600
+              }
+            }
+          },
+          {
+            breakpoint:786,
+            options:{
+              chart:{
+                width:500
+              }
+            }
+          }
+
+        ],
         colors: ['#465fff'],
         plotOptions:{
 bar:{
@@ -102,7 +122,7 @@ data: [{
   return (
 <>
 <div className=''>
-    <div className='flex justify-between m-5'>
+    <div className='flex justify-between m-5 '>
 <h1 className='font-semibold text-xl'>Monthly Sales</h1>
   <div className="relative">
       <PiDotsThreeVertical onClick={() => setOpen(!open)} />
@@ -117,7 +137,7 @@ data: [{
       )}
     </div>
         </div>
-        <div className='w-full'>  
+        <div className='w-full md'>  
        <Chart options={options} series={series} type='bar' height={210}   />
     </div>
 </div>

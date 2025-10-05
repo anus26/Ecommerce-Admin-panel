@@ -35,9 +35,9 @@ const menuItems=[
   return (
 <>
 <section className="dashboard bg-gray3 min-h-screen w-full " >
-<div className='bg-gray-50 m-5 flex gap-10'>
+<div className='bg-gray-50 m-5 flex gap-10 md:flex  sm:flex-wrap   '>
   {/* 1 */}
-<div className='border border-gray  w-72  bg-white rounded-2xl h-52'>
+<div className='border border-gray  xl:w-72 lg:w-96 md:w-80  sm:w-full bg-white rounded-2xl h-52'>
 <div className='border-4 border-gray rounded-xl w-12 h-12    bg-gray-200 m-5 '>
 
 <FiUsers className=' h-5  w-10 m-1' />
@@ -56,7 +56,7 @@ const menuItems=[
 
 </div>
 {/* 2 */}
-<div className='border border-gray  w-72  bg-white rounded-2xl h-52'>
+<div className='border border-gray   xl:w-72 lg:w-96 md:w-80  sm:w-full  bg-white rounded-2xl h-52 '>
 <div className='border-4 border-gray rounded-xl w-12 h-12    bg-gray-200 m-5 '>
 
 <FiUsers className=' h-5  w-10 m-1' />
@@ -73,7 +73,7 @@ const menuItems=[
 {/* 3 */}
 
 
-<div className='Apexchart w-[40%] h-52  border border-gray rounded-lg'>
+<div className='Apexchart xl:w-[40%] lg:w-[100%] md:w-[90%]  xl:h-52 lg:h-[40] sm:h-[30] border border-gray rounded-lg'>
 
 
 
