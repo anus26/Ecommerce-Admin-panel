@@ -74,7 +74,7 @@ setFormData({...formData,StockQuality:newValue})
         <div className="border-b border-gray mb-6"></div>
 
           {/* Row 1 */}
-          <div className="flex gap-6 sm:flex-wrap">
+          <div className="xl:flex gap-6 sm:flex-row">
             <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Product Name</label>
               <input
@@ -103,7 +103,7 @@ setFormData({...formData,StockQuality:newValue})
           </div>
 
           {/* Row 2 */}
-          <div className="flex gap-6 sm:flex-wrap">
+          <div className="xl:flex gap-6 sm:flex-row">
             <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Brand</label>
               <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
@@ -132,7 +132,7 @@ setFormData({...formData,StockQuality:newValue})
           </div>
 
           {/* Row 3 */}
-          <div className="flex gap-6 sm:flex-wrap">
+          <div className="xl:flex gap-6 sm:flex-row">
             {[ { label: "Weight (kg)", field: "Weight" },
   { label: "Length (cm)", field: "Length" },
   { label: "Width (cm)", field: "Width" },].map((item, idx) => (
@@ -170,7 +170,7 @@ setFormData({...formData,StockQuality:newValue})
         <h1 className="font-semibold text-xl mb-4">Price & Availability</h1>
         <div className="border-b border-gray mb-6"></div>
 
-        <div className="flex gap-6 sm:flex-wrap">
+        <div className="xl:flex gap-6 sm:flex-row">
           {[    { label: "Price ($)", field: "Price" },
     { label: "Stock Quantity", field: "StockQuantity" },
     { label: "Discount (%)", field: "Discount" },
@@ -190,7 +190,7 @@ setFormData({...formData,StockQuality:newValue})
           ))}
         </div>
         <br />
-        <div className="flex  gap-6 sm:flex-wrap">
+        <div className="xl:flex  gap-6 sm:flex-row">
             <div className="flex flex-col w-1/2 sm:w-full">
 
 

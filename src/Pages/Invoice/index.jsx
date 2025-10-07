@@ -153,8 +153,8 @@ fetchData()
                   <div className="border-b border-gray mb-6"></div>
           
                     {/* Row 1 */}
-                    <div className="flex gap-6">
-                      <div className="flex flex-col w-1/2">
+                    <div className="xl:flex  gap-6 sm:flex-row">
+                      <div className="xl:flex xl:flex-col xl:w-1/2 sm:w-full">
                         <label className="font-semibold text-md mb-2">Invoice Number</label>
                         <input
                           type="number"
@@ -167,7 +167,7 @@ fetchData()
                         />
                       </div>
           
-                      <div className="flex flex-col w-1/2">
+                      <div className="xl:flex xl:flex-col xl:w-1/2 sm:w-full">
                         <label className="font-semibold text-md mb-2">Customer Name</label>
                         <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                            border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] "   value={formData.CustomerName}
@@ -181,7 +181,7 @@ fetchData()
                       </div>
                     </div>
 
-                    <div >
+                    <div className='flex flex-col sm:w-full' >
                         <label  className="font-semibold text-md mb-2">Customer Address </label>
                               <input
                           type="text"
@@ -195,8 +195,8 @@ fetchData()
                     </div>
           
                     {/* Row 2 */}
-                    <div className="flex gap-6">
-                      <div className="flex flex-col w-1/2">
+                    <div className="xl:flex gap-6 sm:flex-row">
+                      <div className="xl;flex xl:flex-col xl:w-1/2 sm:w-full">
                         <label className="font-semibold text-md mb-2">Payment Condition</label>
                         <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                            border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"   value={formData.PaymentCondition}
@@ -209,9 +209,9 @@ fetchData()
                         </select>
                       </div>
           
-                      <div className="flex flex-col w-1/2">
+                      <div className="xl:flex xl:flex-col xl:w-1/2 sm:flex-wrap sm:w-full">
                         <label className="font-semibold text-md mb-2">Currency</label>
-                        <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
+                        <select className="border w-full  h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                            border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"   value={formData.Currency}
                           name="Currency"
                           onChange={handlechange}>
@@ -223,8 +223,8 @@ fetchData()
                       </div>
                     </div>
                     {/* date */}
-                    <div className='flex w-1/2 gap-5'>
-                        <div >
+                    <div className='xl:flex xl:w-1/2 gap-5 sm:flex-row'>
+                        <div className='xl:w-1/2 '>
                             <label >Issue Date</label>
                         <input
                           type="Date"
@@ -232,11 +232,11 @@ fetchData()
                           value={formData.IssueDate}
                           name="IssueDate"
                           onChange={handlechange}
-                          className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
+                          className="border w-full  h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                      border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
                         />
                         </div>
-                            <div>
+                            <div className=''>
                             <label >Due Date</label>
                         <input
                           type="Date"
@@ -281,7 +281,7 @@ fetchData()
 
 {formData. Products.length > 0 ? (
     formData.Products.map((p,index) => (
-        <div key={p._id} className='flex border-b border-gray m-5  text-textt font-semibold'>
+        <div key={p._id} className='flex border-b border-gray m-5  text-textt font-semibold '>
             
                                 <td className='w-[10%]'> {index + 1}</td> 
 
@@ -304,10 +304,10 @@ fetchData()
 {filtered &&(
 
 
-                                 <div className='flex  gap-5  outline-none  rounded-lg mt-10 p-10 bg-gray1'>
+                                 <div className='xl:flex  gap-5  outline-none  rounded-lg mt-10 p-10 bg-gray1 sm:flex-row'>
 
 
-                                    <div className='w-[20%]'>
+                                    <div className='w-[20%]  sm:w-full'>
                                         <label >Product</label>
                                                <input
                           type="text"
@@ -319,7 +319,7 @@ fetchData()
                           border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
                           />
                                     </div>
-                                                  <div className='w-[20%]'>
+                                                  <div className='w-[20%] sm:w-full'>
                                         <label >Price</label>
                                                <input
                           type="number"
@@ -331,7 +331,7 @@ fetchData()
                           border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
                           />
                                     </div>
-                                       <div className="flex flex-col w-[20%]">
+                                       <div className="flex flex-col w-[20%] sm:w-full">
                                     
                                     
                                                 <label >Stock  Quantity</label> 
@@ -343,7 +343,7 @@ fetchData()
                                                <button className="border-l border-gray b " type="button" onClick={handleIncrease}><IoIosAdd className="w-10 h-5 " /></button>
                                               </div>
                                                 </div>
-                                          <div className="flex flex-col w-[20%] ">
+                                          <div className="flex flex-col w-[20%] sm:w-full ">
               <label className="font-semibold text-md">Discount </label>
                                             <input
                           type="number"
