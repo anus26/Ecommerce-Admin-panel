@@ -26,7 +26,7 @@ setPosition([pos.coords.latitude,pos.coords.longitude])
     )
 },[])
   return (
-    <div className="border border-gray bg-white rounded-xl m-5 w-[40%]">
+    <div className="border border-gray bg-white rounded-xl m-5 xl:w-[40%] lg:w-[95%] ">
         <div className="flex justify-between m-5">
    <h1 className="font-semibold text-lg">Customers Demographic</h1>
     <div className="relative">
@@ -44,8 +44,8 @@ setPosition([pos.coords.latitude,pos.coords.longitude])
         </div>
         <p className="ml-5 font-medium ">Number of customer based on country</p>
 
-    <div style={{ height: "30vh", width: "80%" }} className="m-6 rounded-xl border border-gray">
-      <MapContainer  center={position || [20,0]} zoom={position? 13:2} style={{ height: "100%", width: "100%" }}>
+    <div style={{ height: "30vh", width: "80%" }} className="m-6 rounded-xl border border-gray ">
+      <MapContainer  center={position || [20,0]} zoom={position? 13:2} style={{ height: "100%", width: "100%" ,borderRadius:"12px",zIndex:0}}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

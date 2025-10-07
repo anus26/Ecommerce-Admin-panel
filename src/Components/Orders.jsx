@@ -29,7 +29,7 @@ const Orders = () => {
 
   return (
     <>
-      <div className='bg-white border border-gray rounded-xl w-[50%] m-5'>
+      <div className='bg-white border border-gray rounded-xl xl:w-[50%] m-5 lg:w-[95%]  sm:overflow-x-auto'>
         {/* Header */}
         <div className='flex justify-between m-4'>
           <h1 className='font-semibold text-xl'>Recent Orders</h1>
@@ -46,21 +46,21 @@ const Orders = () => {
         <div className='border-b border-gray m-5'></div>
 
         {/* Table Headings */}
-        <div className='flex justify-between m-7 font-semibold text-gray-600'>
-          <h1 className='w-[40%]'>Product</h1>
-          <h1 className='w-[20%]'>Category</h1>
-          <h1 className='w-[20%]'>Price</h1>
+        <div className='flex justify-between m-7 font-semibold text-gray-600 sm:w-full overflow-x-auto'>
+          <h1 className='w-[40%] sm:w-[30%]'>Product</h1>
+          <h1 className='w-[20%] sm:w-[30%]'>Category</h1>
+          <h1 className='w-[20%] '>Price</h1>
           <h1 className='w-[20%]'>Brand</h1>
         </div>
 
         <div className='border-b m-7 border-gray'></div>
 
         {/* Table Rows */}
-        <div>
+        <div className=''>
           {products.map((product) => (
             <div
               key={product._id}
-              className='flex justify-between items-center m-5 text-gray-700'
+              className='flex justify-between items-center m-5 text-gray-700 sm:w-full overflow-x-auto'
             >
               {/* Image + Product */}
               <div className='flex items-center gap-3 w-[40%]'>
@@ -76,7 +76,7 @@ const Orders = () => {
               <p className='w-[20%]'>{product.Category}</p>
 
               {/* Price */}
-              <p className='w-[20%]'>${product.Price}</p>
+              <p className='w-[20%] '>${product.Price}</p>
 
               {/* Status */}
               <p

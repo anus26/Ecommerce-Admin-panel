@@ -96,7 +96,7 @@ const currentproduct=filteredProducts.slice(indexOfFirstpage,indexofLastpage)
   return (
    <>
    <section>
-    <div className='Add Product m-5'>
+    <div className='Add Product m-5 '>
         <div>
           {/* first section */}
             <div className='flex justify-between'>
@@ -110,17 +110,17 @@ const currentproduct=filteredProducts.slice(indexOfFirstpage,indexofLastpage)
       
             </div>
 {/* second section */}
-            <div className='bg-white border border-gray2 rounded-lg outline-none mt-5 '>
-              <div className='flex justify-between m-5'>
+            <div className='bg-white border border-gray2 rounded-lg outline-none mt-5  '>
+              <div className='flex justify-between m-5 sm:flex-wrap'>
                 <div>
                 <h1 className='font-bold text-xl'>Products List</h1>
                  <p className='text-textt'>Track your store's progress to boost your sales.</p>
                 </div>
-                <div className='flex gap-3'>
+                <div className='flex gap-3 '>
                   <button className='flex gap-2 border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
 <Link 
   to='/Product' 
-  className='flex gap-2 border bg-primary justify-center items-center font-semibold text-white transition-all duration-300 outline-none hover:bg-hower w-36 border-gray2 rounded-lg ' 
+  className='flex gap-2 border bg-primary justify-center items-center font-semibold text-white transition-all duration-300 outline-none hover:bg-hower w-36 sm:w-24 border-gray2 rounded-lg ' 
 >
   <button className='flex'>
     <span><IoIosAdd className='text-2xl ' /></span>
@@ -134,9 +134,9 @@ const currentproduct=filteredProducts.slice(indexOfFirstpage,indexofLastpage)
               <div className='border-b-2 border-gray2 '></div>
               <br />
               <div className='flex justify-between ml-5 mr-5'>
-                <div className='flex border border-gray2  outline-none w-[30%] h-12  rounded-lg  gap-2 hover:border-primary transition-all hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] cursor-pointer '>
-                <span><CiSearch className='text-2xl flex mt-2 m-4'/></span>
-                <input type="text"  placeholder='Search' className='border-none outline-none'/>
+                <div className='flex border border-gray2  outline-none xl:w-[30%] md:[50%] sm:w-[50%] h-12  rounded-lg  gap-2 hover:border-primary transition-all hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] cursor-pointer '>
+                <span><CiSearch className='text-2xl flex mt-2 m-4 sm:m-2 '/></span>
+                <input type="text"  placeholder='Search' className='border-none outline-none sm:w-[50%]'/>
                 </div>
 
                 <div className='flex gap-2  border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>
@@ -172,8 +172,8 @@ const currentproduct=filteredProducts.slice(indexOfFirstpage,indexofLastpage)
              
            <div className='border-b-2 border-gray2  mt-3 '></div>
            <br />
-           <div className='m-3'>
-            <div className='flex gap-4 mt-2 ml-2 text-textt'>
+           <div className='m-3 overflow-x-auto'>
+            <div className='flex gap-4 mt-2 ml-2 text-textt overflow-x-auto'>
                   <h1 className='w-[30%]'>Product</h1>
           <h1 className='w-[20%]'>Category</h1>
           <h1 className='w-[20%]'>Price</h1>
@@ -186,7 +186,7 @@ const currentproduct=filteredProducts.slice(indexOfFirstpage,indexofLastpage)
           {currentproduct.length > 0 ? (currentproduct.map((product) => (
             <div
               key={product._id}
-              className='flex justify-between items-center  text-gray-700 border-b  border-gray2 mt-4'
+              className='flex justify-between items-center  text-gray-700 border-b  border-gray2 mt-4  overflow-x-auto'
             >
               {/* Image + Product */}
               <div className='flex items-center gap-3 w-[30%]'>

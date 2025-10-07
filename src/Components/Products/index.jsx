@@ -68,14 +68,14 @@ setFormData({...formData,StockQuality:newValue})
       <h1 className="font-bold text-2xl mb-6">Add Product</h1>
 
       {/* Product Description Section */}
-        <form className="space-y-6" onSubmit={handleclick}>
+        <form className="space-y-6 " onSubmit={handleclick}>
       <div className="bg-white p-6 border border-gray rounded-xl w-full mb-6">
         <h1 className="font-semibold text-xl mb-4">Product Description</h1>
         <div className="border-b border-gray mb-6"></div>
 
           {/* Row 1 */}
-          <div className="flex gap-6">
-            <div className="flex flex-col w-1/2">
+          <div className="flex gap-6 sm:flex-wrap">
+            <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Product Name</label>
               <input
                 type="text"
@@ -83,12 +83,12 @@ setFormData({...formData,StockQuality:newValue})
                 value={formData.ProductName}
                 name="ProductName"
                 onChange={handlechange}
-                className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
+                className="border xl:w-full  h-12 p-2 rounded-lg outline-none transition-all duration-300 
                            border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
               />
             </div>
 
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Category</label>
               <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                  border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] "   value={formData.Category}
@@ -103,8 +103,8 @@ setFormData({...formData,StockQuality:newValue})
           </div>
 
           {/* Row 2 */}
-          <div className="flex gap-6">
-            <div className="flex flex-col w-1/2">
+          <div className="flex gap-6 sm:flex-wrap">
+            <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Brand</label>
               <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                  border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"   value={formData.Brand}
@@ -117,7 +117,7 @@ setFormData({...formData,StockQuality:newValue})
               </select>
             </div>
 
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Color</label>
               <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                  border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"   value={formData.color}
@@ -132,11 +132,11 @@ setFormData({...formData,StockQuality:newValue})
           </div>
 
           {/* Row 3 */}
-          <div className="flex gap-6">
+          <div className="flex gap-6 sm:flex-wrap">
             {[ { label: "Weight (kg)", field: "Weight" },
   { label: "Length (cm)", field: "Length" },
   { label: "Width (cm)", field: "Width" },].map((item, idx) => (
-              <div key={idx} className="flex flex-col w-1/3">
+              <div key={idx} className="flex flex-col w-1/3 sm:w-full">
                 <label className="font-semibold text-md mb-2">{item.label}</label>
                 <input
                   type="number"
@@ -170,12 +170,12 @@ setFormData({...formData,StockQuality:newValue})
         <h1 className="font-semibold text-xl mb-4">Price & Availability</h1>
         <div className="border-b border-gray mb-6"></div>
 
-        <div className="flex gap-6">
+        <div className="flex gap-6 sm:flex-wrap">
           {[    { label: "Price ($)", field: "Price" },
     { label: "Stock Quantity", field: "StockQuantity" },
     { label: "Discount (%)", field: "Discount" },
 ].map((item, idx) => (
-              <div key={idx} className="flex flex-col w-1/3">
+              <div key={idx} className="flex flex-col w-1/3 sm:w-full">
               <label className="font-semibold text-md mb-2">{item.label}</label>
               <input
                 type="number"
@@ -190,8 +190,8 @@ setFormData({...formData,StockQuality:newValue})
           ))}
         </div>
         <br />
-        <div className="flex  gap-6">
-            <div className="flex flex-col w-1/2">
+        <div className="flex  gap-6 sm:flex-wrap">
+            <div className="flex flex-col w-1/2 sm:w-full">
 
 
             <label >Stock Quality</label>
@@ -203,7 +203,7 @@ setFormData({...formData,StockQuality:newValue})
           </div>
             </div>
    
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Availability Status </label>
               <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
                                  border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"    value={formData.Availability}

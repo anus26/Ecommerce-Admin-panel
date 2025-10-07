@@ -90,7 +90,7 @@ const menuItems=[
     <Static/>
   </div>
 
-<div className='flex gap-5 mt-5 '>
+<div className='xl:flex gap-5 mt-5 lg:flex-wrap md:flex-wrap'>
   <Global/>
 
 
