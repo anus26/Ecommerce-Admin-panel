@@ -14,7 +14,7 @@ const Invoice = () => {
   const [Data, setData] = useState({
     ProductName: "",
     Price: "",
-    StockQuantity: "'",
+    StockQuantity: "",
     Discount: "",
   });
 
@@ -51,7 +51,7 @@ const Invoice = () => {
     };
 
 
-    // add products in invoice
+    //  add products in invoice
     setFormData((prev) => ({
       ...prev,
       Products: [...prev.Products, newProduct],
@@ -118,16 +118,7 @@ const Invoice = () => {
         error.response?.data || error.message
       );
     }
-// useEffect(() => {
-//   if (Data.ProductName.trim() !== "") {
-//     const matching = products.filter((p) =>
-//       p.ProductName?.toLowerCase().includes(Data.ProductName.toLowerCase())
-//     );
-//     setFilteredProducts(matching);
-//   } else {
-//     setFilteredProducts([]);
-//   }
-// }, [Data.ProductName, products]);
+
   }
 
   const fetchData = async () => {
@@ -145,6 +136,7 @@ const Invoice = () => {
         error.response?.data || error.message
       );
     }
+  }
     useEffect(() => {
       fetchData();
     }, []);
@@ -171,6 +163,13 @@ const Invoice = () => {
   };
 
 
+const handledelete=(index)=>{
+  setData((prev)=>({
+    ...prev,
+    products:prev.prodcuts.filter((__,i)=>i!==index),
+  }))
+
+}
 
   return (
     <>
@@ -344,7 +343,7 @@ const Invoice = () => {
                         <h1 className="w-[20%]">{p.StockQuantity}</h1>{" "}
                         <h1 className="w-[20%]">{p.Discount}</h1>
                         <h1 className="w-[10%]">
-                          <RiDeleteBin5Line className=" hover:text-red-300 text-lg" />
+                          <RiDeleteBin5Line className=" hover:text-red-300 text-lg" onClick={()=>handledelete(index)}/>
                         </h1>
                       </div>
                     ))
@@ -478,5 +477,6 @@ const Invoice = () => {
     </>
   );
 };
+
 
 export default Invoice;
