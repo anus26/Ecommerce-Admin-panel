@@ -164,9 +164,9 @@ const Invoice = () => {
 
 
 const handledelete=(index)=>{
-  setData((prev)=>({
+  setFormData((prev)=>({
     ...prev,
-    products:prev.prodcuts.filter((__,i)=>i!==index),
+    Products:prev.Products.filter((__,i)=>i!==index),
   }))
 
 }
