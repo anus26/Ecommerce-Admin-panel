@@ -89,6 +89,13 @@ const Invoice = () => {
     setCount(count - 1);
     // setData({...Data,StockQuatity:newValue})
   };
+
+  const totalPrice=formData.Products.reduce((acc,item)=>{
+    return acc+item.Price*item.StockQuantity
+  },0)
+  const totalvat=formData.Products.reduce((acc,item)=>{
+    return acc+item.Price/10
+  },0)
   const handleclick = async (e) => {
     e.preventDefault();
     try {
@@ -170,6 +177,12 @@ const handledelete=(index)=>{
   }))
 
 }
+const handleadd=(index)=>{
+  setFormData((prev)=>({
+    ...prev,
+    Price:(prev.Price+newPrice)
+  }))
+}
 
   return (
     <>
@@ -177,11 +190,11 @@ const handledelete=(index)=>{
         <div className="m-5">
           <div>
             <h1 className="text-2xl font-semibold">Create Invoice</h1>
-            <form className="space-y-6" onSubmit={handleclick}>
               <div className="bg-white p-6 border border-gray rounded-xl w-full mb-6">
                 <h1 className="font-semibold text-xl mb-4">
                   Product Description
                 </h1>
+            <form className="space-y-6" onSubmit={handleclick}>
                 <div className="border-b border-gray mb-6"></div>
 
                 {/* Row 1 */}
@@ -326,7 +339,8 @@ const handledelete=(index)=>{
                     <h1 className="w-[20%]">Quantity</h1>
                     <h1 className="w-[20%]">Unit Cost</h1>
                     <h1 className="w-[20%]">Cost</h1>
-                    <h1 className="w-[10%]">Action</h1>
+                    {/* <h1 className="w-[5%]">Action</h1> */}
+                    <h1 className="w-[5%]">Total</h1>
                   </div>
 
                   {formData.Products.length > 0 ? (
@@ -342,6 +356,7 @@ const handledelete=(index)=>{
                         <h1 className="w-[20%]">{p.Price}</h1>{" "}
                         <h1 className="w-[20%]">{p.StockQuantity}</h1>{" "}
                         <h1 className="w-[20%]">{p.Discount}</h1>
+                        <h1 className="w-[5%]">{p.Price}</h1>
                         <h1 className="w-[10%]">
                           <RiDeleteBin5Line className=" hover:text-red-300 text-lg" onClick={()=>handledelete(index)}/>
                         </h1>
@@ -453,6 +468,19 @@ const handledelete=(index)=>{
                     </div>
                   </div>
               
+
+              <div>
+                <h1>Order summary</h1>
+                <div>
+                  <h1>Sub Total <span>{totalPrice}</span></h1>
+                  <h1>Vat(10%) <span>{totalvat}</span></h1>
+
+                </div>
+                <div className="flex gap-5">
+                  <h1>Total <span>{totalPrice+totalvat}</span></h1>
+                  <h1></h1>
+                </div>
+              </div>
                 </div>
               
                 
@@ -469,8 +497,9 @@ const handledelete=(index)=>{
                     Publish Product
                   </button>
                 </div>
-              </div>
             </form>
+            <button className="border bg-white hover:textt">Preview</button>
+              </div>
           </div>
         </div>
       </section>
