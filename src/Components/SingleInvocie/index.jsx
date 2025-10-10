@@ -1,55 +1,81 @@
-import axios from 'axios'
-import React, { useState } from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const SingleInvocie = () => {
-    const [Data,setFormData]=useState([])
-    const fetchData=async()=>{
+const SingleInvoice = () => {
+  const { _id } = useParams(); // get invoice id from URL
+  const [invoice, setInvoice] = useState(null);
+
+  const fetchData = async () => {
     try {
-        const res=await axios.get('')
+      const res = await axios.get(`http://localhost:5000/api/v1/oneinvoice/${_id}`);
+      console.log("✅ Invoice Data:", res.data.invoice);
+      setInvoice(res.data.invoice);
     } catch (error) {
-        
+      console.error("❌ Fetch Error:", error.message);
     }
-    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [_id]);
+
+  if (!invoice) {
+    return <h2 className="text-center mt-10">Loading Invoice...</h2>;
+  }
+
   return (
-  <>
- <section>
-    <div>
-        
-        <h1 className='font-semibold text-xl'>Invoice</h1>
-    <div className='bg-white rounded-lg border-gray m-5'>
-        <div className='m-5'>
+    <section className="m-10 bg-white p-6 rounded-lg shadow-md">
+      <h1 className="text-2xl font-bold mb-4">Invoice #{invoice.InvoiceNumber}</h1>
 
-        <div className=' flex  justify-between'>
-           <h1 className='font-semibold text-xl'>Invoice</h1>
-           <h1 className='font-semibold '>ID: #</h1>
-
-        </div>
-        <div className='border-b border-gray'></div>
-        <div className='flex  justify-between'>
-            <div>
-                <h1 className='font-bold text-textt'>Form</h1>
-                <h1 className='font-semibold text-lg'>Pimjolino</h1>
-                <h1 className='text-textt'>streets karachi lahore saad</h1>
-                <h1 className='text-textt'>Issued on: <span>11 March 2017</span></h1>
-            </div>
-            <div className='items-end '>
-                <h1 className='font-bold text-textt '>To</h1>
-                <h1 className='font-semibold text-lg'>Albert Word</h1>
-                <h1 className='text-textt'>355, Shobe Lane
-Colorado, Fort Collins - 80543</h1>
-                <h1 className='text-textt'>Due On: <span>11 March 2017</span></h1>
-            </div>
-        </div>
-
-    </div>
+      <div className="flex justify-between mb-4">
         <div>
-
+          <h2 className="font-semibold text-lg">Customer:</h2>
+          <p>{invoice.CustomerName}</p>
+          <p>{invoice.CustomerAddress}</p>
         </div>
+        <div>
+          <h2 className="font-semibold text-lg">Dates:</h2>
+          <p>Issued: {invoice.IssueDate}</p>
+          <p>Due: {invoice.DueDate}</p>
         </div>
-    </div>
- </section>
-  </>  
-  )
-}
+      </div>
 
-export default SingleInvocie
+      <h3 className="font-semibold mt-6 mb-2">Products</h3>
+      <table className="w-full border">
+        <thead className="bg-gray-200">
+          <tr>
+            <th className="p-2 border">S.No</th>
+            <th className="p-2 border">Product</th>
+            <th className="p-2 border">Quantity</th>
+            <th className="p-2 border">Unit Price</th>
+            <th className="p-2 border">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {invoice.Products.map((p, index) => (
+            <tr key={index}>
+              <td className="border p-2">{index + 1}</td>
+              <td className="border p-2">{p.ProductName}</td>
+              <td className="border p-2">{p.Quantity}</td>
+              <td className="border p-2">{p.Price}</td>
+              <td className="border p-2">{p.Price * p.Quantity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div className="mt-6 text-right">
+        <h3 className="font-bold text-xl">
+          Total:{" "}
+          {invoice.Products.reduce(
+            (sum, p) => sum + p.Price * p.Quantity,
+            0
+          )}
+        </h3>
+      </div>
+    </section>
+  );
+};
+
+export default SingleInvoice;

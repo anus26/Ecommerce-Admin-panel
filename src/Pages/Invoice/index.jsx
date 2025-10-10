@@ -5,12 +5,14 @@ import { IoArrowUp } from "react-icons/io5";
 import { BsArrowBarUp } from "react-icons/bs";
 import axios from "axios";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const Invoice = () => {
   const [count, setCount] = useState(1);
   const [products, setProdcut] = useState([]);
   const [filtered, setFilteredProducts] = useState([]);
   const [showfilter, setShowFilter] = useState(false);
+  const navigate=useNavigate()
   const [Data, setData] = useState({
     ProductName: "",
     Price: "",
@@ -106,8 +108,10 @@ const Invoice = () => {
           withCredentials: true,
         }
       );
+      
       setFormData(res.data);
       console.log("✅ Successfully Added Invoice:", res.data);
+      navigate(`/invoice/${res.data.invoice._id}`)
       setFormData({
         InvoiceNumber: "",
         CustomerName: "",
@@ -125,7 +129,7 @@ const Invoice = () => {
         error.response?.data || error.message
       );
     }
-
+    
   }
 
   const fetchData = async () => {
@@ -177,12 +181,7 @@ const handledelete=(index)=>{
   }))
 
 }
-const handleadd=(index)=>{
-  setFormData((prev)=>({
-    ...prev,
-    Price:(prev.Price+newPrice)
-  }))
-}
+
 
   return (
     <>
