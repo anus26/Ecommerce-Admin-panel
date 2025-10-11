@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { SlPrinter } from "react-icons/sl";
 const SingleInvoice = () => {
   const { _id } = useParams(); 
   const [invoice, setInvoice] = useState(null);
@@ -66,7 +66,7 @@ const SingleInvoice = () => {
       
             </div>
           {invoice.Products.map((p, index) => (
-              <div key={index} className="flex border-b p-2">
+              <div key={index} className="flex border-b border-gray p-2">
               <h1 className="w-[5%]">{index + 1}</h1>
               <h1 className="w-[20%]">{p.ProductName}</h1>
               <h1 className="w-[20%]">{p.StockQuantity}</h1>
@@ -79,31 +79,44 @@ const SingleInvoice = () => {
 
    
                           </div>
-                              <div>
-                <h1>Order summary</h1>
-                <div>
-                  <h1>Sub Total <span>{totalPrice}</span></h1>
-                  <h1>Vat(10%) <span>{totalvat}</span></h1>
+<div className="flex justify-end mt-6">
+  <div className="bg-gray-50 p-5 rounded-lg  w-[300px]">
+    <h1 className="text-lg font-semibold mb-3  pb-2 text-left">
+      Order Summary
+    </h1>
 
-                </div>
-                <div className="flex gap-5">
-                  <h1>Total <span>{totalPrice+totalvat}</span></h1>
-                  <h1></h1>
-                </div>
-              </div>
+    <div className="space-y-2 text-sm text-gray-700">
+      <div className="flex justify-between">
+        <span>Sub Total</span>
+        <span className="font-medium">Rs. {totalPrice}</span>
+      </div>
+
+      <div className="flex justify-between">
+        <span>VAT (10%)</span>
+        <span className="font-medium">Rs. {totalvat}</span>
+      </div>
+
+      <div className=" pt-2 mt-2 flex justify-between text-base font-semibold">
+        <span>Total</span>
+        <span className="text-primary">Rs. {totalPrice + totalvat}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div className="flex justify-end gap-4 mt-6">
+  <button className="bg-white hover:bg-gray text-gray-700 font-semibold px-6 py-2 h-12 rounded-lg border border-gray transition-all duration-200">
+    Proceed to Payment
+  </button>
+
+  <button className="flex items-center justify-center gap-2 bg-primary hover:bg-hower text-white font-semibold px-6 py-2 h-12 rounded-lg border border-gray transition-all duration-200">
+    <SlPrinter className="text-lg" />
+    Print
+  </button>
+</div>
+
+
       
 
-      {/* <div className="mt-6 text-right">
-        <h3 className="font-bold text-xl">
-          Total:{" "}
-          {invoice.Products.reduce(
-              (sum, p) => sum + p.Price * p.Quantity,
-              0
-            )}
-        </h3>
-
-
-      </div> */}
               
                           </div>
                       </div>
