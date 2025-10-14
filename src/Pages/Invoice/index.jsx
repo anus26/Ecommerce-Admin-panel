@@ -174,8 +174,8 @@ useEffect(() => {
   }
     useEffect(() => {
       fetchData();
-      fetchDatas()
-    }, [_id]);
+
+    },[]);
     useEffect(()=>{
       if (Data.ProductName.trim()==="") {
         setFilteredProducts([])
@@ -207,15 +207,15 @@ const handledelete=(index)=>{
 
 }
 
-  const fetchDatas = async () => {
-    try {
-      const res = await axios.get(`http://localhost:5000/api/v1/oneinvoice/${_id}`);
-      console.log("✅ Invoice Data:", res.data.invoice);
-      setInvoice(res.data.invoice);
-    } catch (error) {
-      console.error("❌ Fetch Error:", error.message);
-    }
-  };
+  // const fetchDatas = async () => {
+  //   try {
+  //     const res = await axios.get(`http://localhost:5000/api/v1/oneinvoice/${_id}`);
+  //     console.log("✅ Invoice Data:", res.data.invoice);
+  //     setInvoice(res.data.invoice);
+  //   } catch (error) {
+  //     console.error("❌ Fetch Error:", error.message);
+  //   }
+  // };
 
 
 

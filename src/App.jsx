@@ -37,7 +37,7 @@ const App = () => {
               <Route path='singleproduct' element={<SingleProduct/>}/>
             <Route path='Product' element={<Product/>}/>
             <Route path='createinvoice' element={<Invoice/>}/>
-            <Route  path='invoice/:_id' element={<SingleInvocie/>}/>
+            <Route  path='invoice' element={<SingleInvocie/>}/>
         
           </Route>
             <Route path="signin" element={<Signin />} />

@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SlPrinter } from "react-icons/sl";
-const SingleInvocie = () => {
-  const { _id } = useParams(); 
+const SingleInvocie = ({_id}) => {
+  // const { _id } = useParams(); 
   const [invoice, setInvoice] = useState(null);
   const [Products,setProdcut]=useState([])
 
