@@ -6,6 +6,7 @@ import { BsArrowBarUp } from "react-icons/bs";
 import axios from "axios";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import {  useParams } from "react-router-dom";
+import { IoIosClose } from "react-icons/io";
 import SingleInvocie from "../../Components/SingleInvocie";
 
 const Invoice = () => {
@@ -36,11 +37,18 @@ const Invoice = () => {
     Currency: "",
   });
 
-    if(showPreview){
-  document.body.classList.add("overflow-hidden")
-}else{
-  document.body.classList.remove("overflow-hidden")
-}
+useEffect(() => {
+  if (showPreview) {
+    document.body.classList.add("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  return () => {
+    document.body.classList.remove("overflow-hidden");
+  };
+}, [showPreview]);
+
 
   const fetchDataproduct = (e) => {
     e.preventDefault();
@@ -532,10 +540,12 @@ const handledelete=(index)=>{
                                           
 
                                   
-            <button className="border bg-white hover:textt" onClick={()=>setShowPreview(!showPreview)}>{showPreview ? "Hide Preview":"show Preview"}
+            <button className="border bg-white hover:textt overflow-y-auto" onClick={()=>setShowPreview(!showPreview)}>{showPreview ? "Hide Preview":"show Preview"}
                                       </button>
 {showPreview && invoice && (
-  <div className="bg-white border-gray rounded-lg p-6 mt-6 bg-black/50 ">
+  <div className=" fixed inset-0 z-40 backdrop-blur-sm flex items-center justify-center  rounded-lg p-6 mt-6 bg-black/50 ">
+    <div className="bg-white w-[90%] md:w-[60%] lg:w-[50%] rounded-xl shadow-xl relative overflow-y-auto max-h-[90vh]  m-5">
+
     <h1 className="text-xl font-semibold mb-4">Invoice Preview</h1>
     <div className="border-b border-gray mb-4"></div>
 
@@ -543,16 +553,16 @@ const handledelete=(index)=>{
       <div>
         <h2 className="font-semibold text-lg text-textt">From</h2>
         <p>{invoice.CustomerName}</p>
-        {/* <p>{invoice.CustomerAddress}</p>
-        <p>Issued: {invoice.IssueDate}</p> */}
+        <p>{invoice.CustomerAddress}</p>
+        <p>Issued: {invoice.IssueDate}</p>
       </div>
       <div>
         <h2 className="font-semibold text-lg">To</h2>
-        {/* <p>Due: {invoice.DueDate}</p> */}
+        <p>Due: {invoice.DueDate}</p>
       </div>
     </div>
 
-    {/* <div className="border border-gray rounded-lg">
+    <div className="border border-gray rounded-lg">
       <div className="flex bg-gray p-3 font-semibold border-b border-gray">
         <span className="w-[10%]">#</span>
         <span className="w-[30%]">Product</span>
@@ -570,9 +580,9 @@ const handledelete=(index)=>{
           <span className="w-[20%]">{p.Discount}</span>
         </div>
       ))}
-    </div> */}
+    </div>
 
-    {/* <div className="flex justify-end mt-6">
+    <div className="flex justify-end mt-6">
       <div className="bg-gray-50 p-5 rounded-lg w-[300px]">
         <h1 className="text-lg font-semibold mb-3 border-b pb-2">Order Summary</h1>
         <div className="flex justify-between">
@@ -588,8 +598,13 @@ const handledelete=(index)=>{
           <span className="text-primary">Rs. {invoice.TotalPrice + invoice.Vat}</span>
         </div>
       </div>
-    </div> */}
+    </div>
+    <button onClick={()=>setShowPreview(false)}      className="absolute top-3 right-3 text-gray-600 hover:text-black text-2xl">
+ <IoIosClose />
+    </button>
+    </div>
   </div>
+
 )}
           </div>
         </div>
