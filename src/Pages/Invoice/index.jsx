@@ -5,16 +5,18 @@ import { IoArrowUp } from "react-icons/io5";
 import { BsArrowBarUp } from "react-icons/bs";
 import axios from "axios";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
+import SingleInvocie from "../../Components/SingleInvocie";
 
 const Invoice = () => {
   const [count, setCount] = useState(1);
   const [products, setProdcut] = useState([]);
-  const {_id}=useParams
+    const [showPreview, setShowPreview] = useState(false);
+  const {_id}=useParams()
   const [filtered, setFilteredProducts] = useState([]);
     const [invoice, setInvoice] = useState(null);
   const [showfilter, setShowFilter] = useState(false);
-  const navigate=useNavigate()
+  // const navigate=useNavigate()
   const [Data, setData] = useState({
     ProductName: "",
     Price: "",
@@ -33,6 +35,13 @@ const Invoice = () => {
     Products: [],
     Currency: "",
   });
+
+    if(showPreview){
+  document.body.classList.add("overflow-hidden")
+}else{
+  document.body.classList.remove("overflow-hidden")
+}
+
   const fetchDataproduct = (e) => {
     e.preventDefault();
   
@@ -94,10 +103,10 @@ const Invoice = () => {
     // setData({...Data,StockQuatity:newValue})
   };
 
-  const totalPrice=formData.Products.reduce((acc,item)=>{
+  const totalPrice=formData?.Products?.reduce((acc,item)=>{
     return acc+item.Price*item.StockQuantity
   },0)
-  const totalvat=formData.Products.reduce((acc,item)=>{
+  const totalvat=formData?.Products?.reduce((acc,item)=>{
     return acc+item.Price/10
   },0)
   const handleclick = async (e) => {
@@ -111,10 +120,7 @@ const Invoice = () => {
         }
       );
       
-      setFormData(res.data);
-      console.log("✅ Successfully Added Invoice:", res.data);
-      navigate(`/invoice/${res.data.invoice._id}`)
-      setFormData({
+       setFormData({
         InvoiceNumber: "",
         CustomerName: "",
         CustomerAddress: "",
@@ -125,7 +131,15 @@ const Invoice = () => {
         Currency: "",
         Products: [],
       });
-    } catch (error) {
+    
+      console.log("✅ Successfully Added Invoice:", res.data);
+     const invoiceRes = await axios.get(
+      `http://localhost:5000/api/v1/oneinvoice/${res.data.invoice._id}`
+    );
+    setInvoice(invoiceRes.data.invoice);
+    setShowPreview(true);
+      // navigate(`/invoice/${res.data.invoice._id}`)
+   } catch (error) {
       console.error(
         "❌ Add Data Error:",
         error.response?.data || error.message
@@ -189,7 +203,7 @@ const handledelete=(index)=>{
     try {
       const res = await axios.get(`http://localhost:5000/api/v1/oneinvoice/${_id}`);
       console.log("✅ Invoice Data:", res.data.invoice);
-      setFormData(res.data.invoice);
+      setInvoice(res.data.invoice);
     } catch (error) {
       console.error("❌ Fetch Error:", error.message);
     }
@@ -514,84 +528,69 @@ const handledelete=(index)=>{
                   </button>
                 </div>
             </form>
-            <button className="border bg-white hover:textt">Preview
-              {/* {
-             <div className="bg-white border-gray rounded-lg ">
-        
-    
-                  <div className="flex justify-between m-5">
-                    <div>
-                      <h2 className="font-semibold text-lg text-textt">Form</h2>
-                      <p>{invoice.CustomerName}</p>
-                      <p>{invoice.CustomerAddress}</p>
-                         <p>Issued: {invoice.IssueDate}</p>
-                    </div>
-                    <div>
-                      <h2 className="font-semibold text-lg">To:</h2>
-                      <p className="text-textt">Issued: {invoice.IssueDate}</p>
-                      <p className="text-textt">Due: {invoice.DueDate}</p>
-                    </div>
-                  </div>
-            
-            
-               
-                    <div className="border border-gray m-5"> 
-            <div className="flex border-b border-gray bg-gray p-3 rounded-sm" >
-            
-                        <h1 className="w-[5%]">S.No#</h1>
-                        <h1 className="w-[20%] ">Product</h1>
-                        <h1 className=" w-[20%] ">Quantity</h1>
-                        <h1 className="w-[20%] ">Unit Cost</h1>
-                        <h1 className=" w-[20%] ">Discount</h1>
-                        <h1 className=" w-[5%]">Total</h1>
-                     
-                  
-                        </div>
-                      {invoice.Products.map((p, index) => (
-                          <div key={index} className="flex border-b border-gray p-2">
-                          <h1 className="w-[5%]">{index + 1}</h1>
-                          <h1 className="w-[20%]">{p.ProductName}</h1>
-                          <h1 className="w-[20%]">{p.StockQuantity}</h1>
-                          <h1 className="w-[20%]">{p.Price}</h1>
-                          <h1 className="w-[20%]">{p.  Discount}</h1>
-                          <h1 className="w-[5%]">{p.Price*p.StockQuantity/p.Discount}</h1>
-                        </div>
-            
-                      ))}
-            
-               
-                                      </div>
-            <div className="flex justify-end mt-6">
-              <div className="bg-gray-50 p-5 rounded-lg  w-[300px]">
-                <h1 className="text-lg font-semibold mb-3  pb-2 text-left">
-                  Order Summary
-                </h1>
-            
-                <div className="space-y-2 text-sm text-gray-700">
-                  <div className="flex justify-between">
-                    <span>Sub Total</span>
-                    <span className="font-medium">Rs. {totalPrice}</span>
-                  </div>
-            
-                  <div className="flex justify-between">
-                    <span>VAT (10%)</span>
-                    <span className="font-medium">Rs. {totalvat}</span>
-                  </div>
-            
-                  <div className=" pt-2 mt-2 flex justify-between text-base font-semibold">
-                    <span>Total</span>
-                    <span className="text-primary">Rs. {totalPrice + totalvat}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-         
-            
-                  
-            
                           
-                                      </div>} */}
+                                          
+
+                                  
+            <button className="border bg-white hover:textt" onClick={()=>setShowPreview(!showPreview)}>{showPreview ? "Hide Preview":"show Preview"}
                                       </button>
+{showPreview && invoice && (
+  <div className="bg-white border-gray rounded-lg p-6 mt-6 bg-black/50 ">
+    <h1 className="text-xl font-semibold mb-4">Invoice Preview</h1>
+    <div className="border-b border-gray mb-4"></div>
+
+    <div className="flex justify-between mb-6">
+      <div>
+        <h2 className="font-semibold text-lg text-textt">From</h2>
+        <p>{invoice.CustomerName}</p>
+        {/* <p>{invoice.CustomerAddress}</p>
+        <p>Issued: {invoice.IssueDate}</p> */}
+      </div>
+      <div>
+        <h2 className="font-semibold text-lg">To</h2>
+        {/* <p>Due: {invoice.DueDate}</p> */}
+      </div>
+    </div>
+
+    {/* <div className="border border-gray rounded-lg">
+      <div className="flex bg-gray p-3 font-semibold border-b border-gray">
+        <span className="w-[10%]">#</span>
+        <span className="w-[30%]">Product</span>
+        <span className="w-[20%]">Qty</span>
+        <span className="w-[20%]">Price</span>
+        <span className="w-[20%]">Discount</span>
+      </div>
+
+      {invoice.Products?.map((p, i) => (
+        <div key={i} className="flex p-3 border-b border-gray text-gray-700">
+          <span className="w-[10%]">{i + 1}</span>
+          <span className="w-[30%]">{p.ProductName}</span>
+          <span className="w-[20%]">{p.StockQuantity}</span>
+          <span className="w-[20%]">{p.Price}</span>
+          <span className="w-[20%]">{p.Discount}</span>
+        </div>
+      ))}
+    </div> */}
+
+    {/* <div className="flex justify-end mt-6">
+      <div className="bg-gray-50 p-5 rounded-lg w-[300px]">
+        <h1 className="text-lg font-semibold mb-3 border-b pb-2">Order Summary</h1>
+        <div className="flex justify-between">
+          <span>Sub Total</span>
+          <span>Rs. {invoice.TotalPrice}</span>
+        </div>
+        <div className="flex justify-between">
+          <span>VAT (10%)</span>
+          <span>Rs. {invoice.Vat}</span>
+        </div>
+        <div className="flex justify-between font-semibold mt-2">
+          <span>Total</span>
+          <span className="text-primary">Rs. {invoice.TotalPrice + invoice.Vat}</span>
+        </div>
+      </div>
+    </div> */}
+  </div>
+)}
           </div>
         </div>
               </div>

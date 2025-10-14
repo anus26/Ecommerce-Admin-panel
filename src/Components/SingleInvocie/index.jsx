@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SlPrinter } from "react-icons/sl";
-const SingleInvoice = () => {
+const SingleInvocie = () => {
   const { _id } = useParams(); 
   const [invoice, setInvoice] = useState(null);
   const [Products,setProdcut]=useState([])
@@ -24,10 +24,10 @@ const SingleInvoice = () => {
   if (!invoice) {
     return <h2 className="text-center mt-10">Loading Invoice...</h2>;
   }
-  const totalPrice=invoice.Products.reduce((acc,item)=>{
+  const totalPrice=invoice?.Products?.reduce((acc,item)=>{
     return acc+item.Price*item.StockQuantity
   },0)
-  const totalvat=invoice.Products.reduce((acc,item)=>{
+  const totalvat=invoice?.Products?.reduce((acc,item)=>{
     return acc+item.Price/10
   },0)
   return (
@@ -124,4 +124,4 @@ const SingleInvoice = () => {
 );
 };
 
-export default SingleInvoice;
+export default SingleInvocie;
