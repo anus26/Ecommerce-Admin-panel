@@ -13,6 +13,7 @@ import SingleProduct from './Components/AddProduct/SingleProduct'
 import Invoice from './Pages/Invoice'
 import Header from './Components/Header'
 import SingleInvocie from './Components/SingleInvocie'
+import Invoices from './Components/Invoices'
 
 
 
@@ -38,7 +39,7 @@ const App = () => {
             <Route path='Product' element={<Product/>}/>
             <Route path='createinvoice' element={<Invoice/>}/>
             <Route  path='invoice' element={<SingleInvocie/>}/>
-        
+        <Route path='invoices' element={<Invoices/>}/>
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />

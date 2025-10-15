@@ -160,7 +160,7 @@ const Sidebar = () => {
             <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to="/addProduct">Product</Link></h1>
     <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to="/Product"  >New Product</Link></h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Billing</h1>
-         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Invoices</h1>
+         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/invoices'>Invoice</Link></h1>
             <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/invoice'>Single Invoices</Link></h1>
     <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/createinvoice'>Create Invoice</Link></h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Transactions</h1>
