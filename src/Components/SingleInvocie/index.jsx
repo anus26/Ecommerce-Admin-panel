@@ -2,12 +2,24 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SlPrinter } from "react-icons/sl";
-const SingleInvocie = ({_id}) => {
-  // const { _id } = useParams(); 
+const SingleInvocie = () => {
+  const { _id } = useParams(); 
   const [invoice, setInvoice] = useState(null);
   const [Products,setProdcut]=useState([])
 
-  const fetchData = async () => {
+  // const handle=async()=>{
+  //   try {
+  //     const res=await axios.get('http://localhost:5000/api/v1/getinvoice')
+  //     setInvoice(res.data.invoice)
+  //     console.log('Invoice Data :',res.data.invoice );
+      
+  //   } catch (error) {
+  //       console.error("❌ Fetch Error:", error.message);
+  //   }
+  // }
+  
+  const savedId =localStorage.getItem("invoiceid")
+  const fetchData = async (_id) => {
     try {
       const res = await axios.get(`http://localhost:5000/api/v1/oneinvoice/${_id}`);
       console.log("✅ Invoice Data:", res.data.invoice);
@@ -18,8 +30,11 @@ const SingleInvocie = ({_id}) => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, [_id]);
+      if (savedId) {
+      fetchData(savedId);
+    }
+    
+  }, [savedId]);
 
   if (!invoice) {
     return <h2 className="text-center mt-10">Loading Invoice...</h2>;
@@ -113,11 +128,6 @@ const SingleInvocie = ({_id}) => {
     Print
   </button>
 </div>
-
-
-      
-
-              
                           </div>
                       </div>
     </section>

@@ -5,7 +5,7 @@ import { IoArrowUp } from "react-icons/io5";
 import { BsArrowBarUp } from "react-icons/bs";
 import axios from "axios";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import {  useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { IoIosClose } from "react-icons/io";
 import SingleInvocie from "../../Components/SingleInvocie";
 
@@ -17,7 +17,7 @@ const Invoice = () => {
   const [filtered, setFilteredProducts] = useState([]);
     const [invoice, setInvoice] = useState(null);
   const [showfilter, setShowFilter] = useState(false);
-  // const navigate=useNavigate()
+  const navigate=useNavigate()
   const [Data, setData] = useState({
     ProductName: "",
     Price: "",
@@ -146,6 +146,7 @@ useEffect(() => {
     );
     setInvoice(invoiceRes.data.invoice);
     setShowPreview(true);
+    localStorage.setItem("invoiceid" ,res.data.invoice._id)
       // navigate(`/invoice/${res.data.invoice._id}`)
    } catch (error) {
       console.error(
