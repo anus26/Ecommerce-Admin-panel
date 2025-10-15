@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { CiSearch } from 'react-icons/ci';
 import { IoAddSharp } from "react-icons/io5";
 import { LiaFilterSolid } from 'react-icons/lia';
@@ -6,7 +7,44 @@ import { TbArrowDownToArc } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 const Invoices = () => {
     const [active ,setActive]=useState("overview")
-    const [invoice,setInvoice]=useState([])
+    const [invoice,setInvoice]=useState(null)
+    const [currentpage,setCurrentPage]=(1)
+    const [filtered,setFiltered]=useState([])
+     
+    const perpage=5
+    const firstpage=currentpage*perpage
+    const lastpage=firstpage-perpage
+
+    const currentinvoice=filtered.slice(firstpage,lastpage)
+   const next=()=>{
+    if (currentpage <Math.ceil(invoice.length/perpage)) {
+      setCurrentPage(prev=>prev+1)
+         
+    }
+  
+   }
+   const prevpage=()=>{
+    if (currentinvoice > 1) {
+        setCurrentPage(prev=>prev-1)
+        
+    }
+ 
+
+   }
+    
+    const fetchData=async()=>{
+    try {
+      const res=await axios.get('http://localhost:5000/api/v1/getinvoice')
+      setInvoice(res.data.invoice)
+      console.log('Invoice Data :',res.data.invoice );
+      setCurrentPage(1)
+    } catch (error) {
+        console.error("❌ Fetch Error:", error.message);
+    }
+  }
+  useEffect(()=>{
+    fetchData()
+  },[])
   return (
 <>
 <section>
@@ -73,7 +111,7 @@ const Invoices = () => {
                         </button>
                                           <button className='flex gap-2 border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
      </div>
-     <div className='flex m-5'>
+     <div className='flex m-5 text-textt  font-bold'>
         <h1 className='w-[20%]'>Invoice Number</h1>
         <h1  className='w-[20%]'>Customer</h1>
         <h1  className='w-[20%]'>Creation Date</h1>
@@ -81,21 +119,27 @@ const Invoices = () => {
         <h1  className='w-[10%]'>Total </h1>
         <h1  className='w-[10%]'>Status</h1>
 
+
+    
+     </div>
     {invoice && invoice.length > 0 ? (
   invoice.map((inv, index) => (
-    <div key={inv._id} className="border p-4 rounded-lg mb-3">
-      <h2 className="font-semibold">{inv.CustomerName}</h2>
-      <p>Total: Rs. {inv.Amount}</p>
+    <div key={inv._id} className="border-b border-gray p-4 rounded-lg mb-3 flex">
+        <h1 className='w-[20%]'>{inv.InvoiceNumber}</h1>
+      <h2 className="w-[20%]">{inv.CustomerName}</h2>
+      <h1 className='w-[20%]'>{inv.IssueDate}</h1>
+      <h1 className='w-[20%]'>{inv.DueDate}</h1>
+    
+       <h1 className='w-[10%]'></h1>
+
     </div>
   ))
 ) : (
   <p className="text-center text-gray-500 mt-5">No invoices found</p>
 )}
 
-    
-     </div>
-
     </div>
+    <button></button>
     </div>  
 </section>
     
