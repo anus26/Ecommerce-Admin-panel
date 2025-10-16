@@ -35,6 +35,8 @@ const Invoice = () => {
     Additionalinfo: "",
     Products: [],
     Currency: "",
+    Total:0,
+    Status:"",
   });
 
 useEffect(() => {
@@ -111,6 +113,7 @@ useEffect(() => {
     // setData({...Data,StockQuatity:newValue})
   };
 
+
   const totalPrice=formData?.Products?.reduce((acc,item)=>{
     return acc+item.Price*item.StockQuantity
   },0)
@@ -137,6 +140,8 @@ useEffect(() => {
         DueDate: "",
         Additionalinfo: "",
         Currency: "",
+        Status:'',
+        Total:"",
         Products: [],
       });
     
@@ -516,8 +521,9 @@ const handledelete=(index)=>{
 
                 </div>
                 <div className="flex gap-5">
-                  <h1>Total <span>{totalPrice+totalvat}</span></h1>
-                  <h1></h1>
+                  <h1 >Total:<span>{totalPrice+totalvat}</span></h1>
+                   
+                  <h1><input type="text" placeholder="status" value={formData.Status} onChange={handlechange} name="Status" /></h1>
                 </div>
               </div>
                 </div>

@@ -142,31 +142,33 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
 ) : (
     <p className="text-center text-gray-500 mt-5">No invoices found</p>
 )}
-</div>
+<div className='flex justify-end'>
 
     <button onClick={prevpage} disabled={currentpage===1}><IoIosArrowBack className='text-xl font-bold'/></button>
   {[...Array(Math.ceil((dataToDisplay?.length||0) / perpage))].map((_, index) => {
-    const pageNum = index + 1;
-
-    return (
+      const pageNum = index + 1;
+      
+      return (
       <button
-        key={pageNum}
+      key={pageNum}
         onClick={() => setCurrentPage(pageNum)}
         className={`border border-gray duration-300 transition-all w-12 h-12 rounded-lg font-medium
           ${
             currentpage === pageNum
-              ? 'text-white bg-primary'
-              : 'bg-white text-black hover:bg-hower'
-            }`}
-      >
+            ? 'text-white bg-primary'
+            : 'bg-white text-black hover:bg-hower'
+        }`}
+        >
         {pageNum}
       </button>
     );
-  })}
+})}
 
 
 <button onClick={next} disabled={currentpage ===Math.ceil(invoice.length / perpage)}><IoIosArrowForward  className='text-xl font-bold'/></button>
     </div>  
+</div>
+</div>
 </section>
     
 </>
