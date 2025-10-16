@@ -1,21 +1,26 @@
+import { initOnLoad } from 'apexcharts';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { CiSearch } from 'react-icons/ci';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { IoAddSharp } from "react-icons/io5";
 import { LiaFilterSolid } from 'react-icons/lia';
 import { TbArrowDownToArc } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 const Invoices = () => {
     const [active ,setActive]=useState("overview")
-    const [invoice,setInvoice]=useState(null)
-    const [currentpage,setCurrentPage]=(1)
+    const [invoice,setInvoice]=useState([])
     const [filtered,setFiltered]=useState([])
+    const [currentpage,setCurrentPage]=useState(1)
      
-    const perpage=5
-    const firstpage=currentpage*perpage
-    const lastpage=firstpage-perpage
+    const perpage=10
+    const lastpage=currentpage*perpage
+    const firstpage=lastpage-perpage
 
-    const currentinvoice=filtered.slice(firstpage,lastpage)
+  const dataToDisplay = filtered.length > 0 ? filtered : invoice;
+
+
+const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
    const next=()=>{
     if (currentpage <Math.ceil(invoice.length/perpage)) {
       setCurrentPage(prev=>prev+1)
@@ -24,7 +29,7 @@ const Invoices = () => {
   
    }
    const prevpage=()=>{
-    if (currentinvoice > 1) {
+    if (currentpage > 1) {
         setCurrentPage(prev=>prev-1)
         
     }
@@ -122,24 +127,45 @@ const Invoices = () => {
 
     
      </div>
-    {invoice && invoice.length > 0 ? (
-  invoice.map((inv, index) => (
-    <div key={inv._id} className="border-b border-gray p-4 rounded-lg mb-3 flex">
-        <h1 className='w-[20%]'>{inv.InvoiceNumber}</h1>
-      <h2 className="w-[20%]">{inv.CustomerName}</h2>
-      <h1 className='w-[20%]'>{inv.IssueDate}</h1>
-      <h1 className='w-[20%]'>{inv.DueDate}</h1>
+    {currentinvoice && currentinvoice.length > 0 ? (
+  currentinvoice.map((invoice, index) => (
+    <div key={invoice._id} className="border-b border-gray p-4 rounded-lg mb-3 flex">
+        <h1 className='w-[20%]'>{invoice.InvoiceNumber}</h1>
+      <h2 className="w-[20%]">{invoice.CustomerName}</h2>
+      <h1 className='w-[20%]'>{invoice.IssueDate}</h1>
+      <h1 className='w-[20%]'>{invoice.DueDate}</h1>
     
        <h1 className='w-[10%]'></h1>
 
     </div>
   ))
 ) : (
-  <p className="text-center text-gray-500 mt-5">No invoices found</p>
+    <p className="text-center text-gray-500 mt-5">No invoices found</p>
 )}
+</div>
 
-    </div>
-    <button></button>
+    <button onClick={prevpage} disabled={currentpage===1}><IoIosArrowBack className='text-xl font-bold'/></button>
+  {[...Array(Math.ceil((dataToDisplay?.length||0) / perpage))].map((_, index) => {
+    const pageNum = index + 1;
+
+    return (
+      <button
+        key={pageNum}
+        onClick={() => setCurrentPage(pageNum)}
+        className={`border border-gray duration-300 transition-all w-12 h-12 rounded-lg font-medium
+          ${
+            currentpage === pageNum
+              ? 'text-white bg-primary'
+              : 'bg-white text-black hover:bg-hower'
+            }`}
+      >
+        {pageNum}
+      </button>
+    );
+  })}
+
+
+<button onClick={next} disabled={currentpage ===Math.ceil(invoice.length / perpage)}><IoIosArrowForward  className='text-xl font-bold'/></button>
     </div>  
 </section>
     
