@@ -17,7 +17,16 @@ export default {
   line:"#667085",
       gray3: "#f9fafb",
     gray2: "#d0d5dd",
-    textt:"#667085"
+    textt:"#667085",
+    red1:"#d92d20",
+    red2:"#fef3f2",
+    color1:"#e4e7ec",
+    color2:"#475467",
+    color3:"#027a48",
+    color4:"#ecfdf3"
+
+
+
 
   
   

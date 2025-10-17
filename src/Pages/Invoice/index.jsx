@@ -113,13 +113,19 @@ useEffect(() => {
     // setData({...Data,StockQuatity:newValue})
   };
 
-
+  
+  
   const totalPrice=formData?.Products?.reduce((acc,item)=>{
     return acc+item.Price*item.StockQuantity
   },0)
   const totalvat=formData?.Products?.reduce((acc,item)=>{
     return acc+item.Price/10
   },0)
+  useEffect(()=>{
+    const total=totalPrice+totalvat
+    setFormData((prev)=>({...prev,Total:total}))
+  },[totalPrice,totalvat])
+
   const handleclick = async (e) => {
     e.preventDefault();
     try {
@@ -521,9 +527,25 @@ const handledelete=(index)=>{
 
                 </div>
                 <div className="flex gap-5">
-                  <h1 >Total:<span>{totalPrice+totalvat}</span></h1>
+                 <h1>
+  <select
+    name="Status"
+    value={formData.Status}
+    onChange={handlechange}
+    className="border border-gray rounded-md px-3 py-2 w-full outline-none"
+  >
+    <option value="">Select Status</option>
+    <option value="Paid">Paid</option>
+    <option value="Unpaid">Unpaid</option>
+    <option value="Draft">Draft</option>
+  </select>
+</h1>
+
+                  <h1><input  onChange={handlechange} value={formData.Total}  readOnly/>
+                
+            
+                  Total:<span>{totalPrice+totalvat}</span></h1>
                    
-                  <h1><input type="text" placeholder="status" value={formData.Status} onChange={handlechange} name="Status" /></h1>
                 </div>
               </div>
                 </div>

@@ -77,13 +77,14 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
   ].map((item, index) => (
     <div
       key={index}
-      className="flex flex-col items-center justify-center w-[22%] min-w-[180px] border-r-2 last:border-r-0 border-gray py-4"
+      className="flex flex-col items-center justify-center w-[22%] min-w-[180px] border-r-2  last:border-r-0 border-gray py-4"
     >
       <h1 className="text-textt text-sm font-medium">{item.title}</h1>
       <h1 className="font-semibold text-3xl  mt-2">{item.amount}</h1>
     </div>
   ))}
 </div>
+<br />
 
 
                 
@@ -96,7 +97,7 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
         <h1 className='font-semibold text-lg'>Invoices</h1>
         <h1 className='text-textt'>Your most recent invoices list</h1>
         </div>
-          <div className='flex sm:flex-wrap  gap-4 border border-gray p-2' >
+          <div className=' outline-none sm:flex-wrap  gap-4 border h-12 border-gray p-2' >
     {['overview','sale','Revenu'].map((btn)=>(
 
       
@@ -112,9 +113,10 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
         <CiSearch  className='flex items-start m-2 text-2xl '/>
         <input type="text"  placeholder='Search or Type Command....'  className=' w-96  outline-none  border-gray  rounded-lg'/>
         </div>
-         <button  className='flex gap-2 border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg' > <span><LiaFilterSolid  className='text-lg '/></span>Filter
+         <button  className='flex gap-2 border border-gray2 items-center h-12 justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg' > <span><LiaFilterSolid  className='text-lg '/></span>Filter
+
                         </button>
-                                          <button className='flex gap-2 border border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
+                                          <button className='flex gap-2 border  h-12 border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
      </div>
      <div className='flex m-5 text-textt  font-bold'>
         <h1 className='w-[20%]'>Invoice Number</h1>
@@ -134,8 +136,24 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
       <h2 className="w-[20%]">{invoice.CustomerName}</h2>
       <h1 className='w-[20%]'>{invoice.IssueDate}</h1>
       <h1 className='w-[20%]'>{invoice.DueDate}</h1>
+      <h1 className='w-[10%]'>{invoice.Total}</h1>
+     <h1
+  className={`w-[10%] rounded-full font-semibold text-center
+  ${
+    invoice.Status === "Paid"
+      ? "text-color3 bg-color4"
+      : invoice.Status === "Draft"
+      ? "text-color2 bg-color3"
+      : invoice.Status === "Unpaid"
+      ? "text-red1 bg-red2"
+      : "text-gray-600 bg-gray-200" // default style
+  }`}
+>
+  {invoice.Status}
+</h1>
+
     
-       <h1 className='w-[10%]'></h1>
+    
 
     </div>
   ))
