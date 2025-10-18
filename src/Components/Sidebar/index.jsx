@@ -119,38 +119,52 @@ const Sidebar = () => {
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'ai assitant' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'ai assitant' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-primary'}
   `}
   onClick={handleopen2}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><TbPhoneIncoming  className='text-line'/></span> AI Assitant<span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2'>NEW</span>
+        <h1 className='flex gap-1 text-md font-bold items-center justify-between '><span className='text-2xl'><TbPhoneIncoming  className={`text-line ${activemenu==="ai assitant"?"text-primary ":"text-textt hover:text-primary"}`}/></span> AI Assitant<span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2'>NEW</span>
     
          </h1>
            <span className='text-2xl ' >{open2?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
-   { open2 && (
-     <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
-   <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Text Generator</h1>
-    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Image Generator</h1>
-         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Code Generator</h1>
-         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Video Generator</h1>
+ {open2 && (
+  <div className='ml-8 mt-2 space-y-1 text-gray-black'>
+    {[
+      { name: "Text Generator", path: "/text-generator" },
+      { name: "Image Generator", path: "/image-generator" },
+      { name: "Code Generator", path: "/code-generator" },
+      { name: "Video Generator", path: "/video-generator" },
+    ].map((item) => (
+      <h1
+        key={item.name}
+        className={`font-semibold p-2 transition-all duration-300 rounded-lg cursor-pointer ${
+          active === item.name
+            ? "bg-light text-primary font-bold"
+            : "text-black hover:bg-slate-100 hover:text-black"
+        }`}
+        onClick={() => setActive(item.name)}
+      >
+        <Link to={item.path}>{item.name}</Link>
+      </h1>
+    ))}
+  </div>
+)}
 
-          </div>
-        )}
         </div>
         {/* Ecommerce */}
          <div className='m-5'>
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'ecommerce' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'ecommerce' ? 'bg-light text-primary ' : 'text-textt hover:bg-slate-100 hover:text-primary'}
     `}
   onClick={handleopen3}
 >
 
-        <h1 className='flex gap-1 text-md font-sans items-center justify-between '><span className='text-2xl'><FiShoppingCart className='text-line  ' /></span>  E-commerce<span className='text-green  bg-dark p-1.5 text-sm rounded-full '>NEW</span>
+        <h1 className='flex gap-1 text-md font-bold  items-center justify-between '><span className='text-2xl'><FiShoppingCart className='text-line  ' /></span>  E-commerce<span className='text-green  bg-dark p-1.5 text-sm rounded-full '>NEW</span>
     
          </h1>
            <span className='text-2xl ' >{open3?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
