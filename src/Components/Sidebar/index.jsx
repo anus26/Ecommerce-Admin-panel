@@ -30,6 +30,8 @@ const Sidebar = () => {
     const [authentication,setAuthentication]=useState(false)
   
     const [activemenu ,setActiveMenu ]=useState(null)
+    const [active,setActive]=useState(null)
+ 
     const handleopen=()=>{
         setOpen(prev=>!prev)
         setActiveMenu("dashboard")
@@ -152,22 +154,50 @@ const Sidebar = () => {
     
          </h1>
            <span className='text-2xl ' >{open3?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
-</div>
 {/* drowdown */}
-   { open3 && (
+
+
+</div>
+{open3&&(
+      <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
+        {[    { name: "Product", path: "/addProduct" },
+      { name: "NewProduct", path: "/Product" },
+      { name: "Billing", path: "/billing" },
+      { name: "Invoice", path: "/invoices" },
+      { name: "Single Invoice", path: "/invoice" },
+      { name: "Create Invoice", path: "/createinvoice" },
+      { name: "Transactions", path: "/transactions" },
+      { name: "Single Transactions", path: "/singletransactions" },].map((item)=>(
+              <h1
+        key={item.name}
+        className={`font-semibold p-2 transition-all duration-300 rounded-lg cursor-pointer ${
+          active === item.name
+            ? "bg-light text-primary"
+            : "text-black hover:bg-slate-100 hover:text-black"
+        }`}
+        onClick={() => setActive(item.name)}
+      >
+        <Link to={item.path}>{item.name}</Link>
+      </h1>
+      )
+      )}
+      </div>
+)}
+   {/* { open3 && (
        <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
 
-            <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to="/addProduct">Product</Link></h1>
-    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to="/Product"  >New Product</Link></h1>
-         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Billing</h1>
-         <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/invoices'>Invoice</Link></h1>
+            <h1 className={` font-semibold p-2  transition-all duration-300 rounded-lg  ${active === 'Product' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}`} onClick={()=>setActive("Product")}><Link to="/addProduct">Product</Link></h1>
+    <h1 className={`hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg  ${active === 'NewProduct' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}`} onClick={()=>setActive("NewProduct")}><Link to="/Product"  >New Product</Link></h1>
+         <h1 className={`hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg  ${active === 'Billing' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}`} onClick={()=>setActive("Billing")}>Billing</h1>
+         <h1 className={`hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg  ${active === 'Invoice' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}`} onClick={()=>setActive("Invoice")}><Link to='/invoices'>Invoice</Link></h1>
             <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/invoice'>Single Invoices</Link></h1>
-    <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'><Link to='/createinvoice'>Create Invoice</Link></h1>
+    <h1 className={` font-semibold p-2  transition-all duration-300 rounded-lg   ${active === 'createinvoice' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    `} onClick={()=>setActive("createinvoice")}><Link to='/createinvoice'>Create Invoice</Link></h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Transactions</h1>
          <h1 className='hover:bg-slate-50 font-semibold p-2  transition-all duration-300 rounded-lg'>Singel Transactions</h1>
 
           </div>
-        )}
+        )} */}
         </div>
         {/* calendar */}
         <div className='m-5'>
