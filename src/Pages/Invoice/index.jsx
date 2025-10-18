@@ -300,7 +300,7 @@ const handledelete=(index)=>{
 
                 {/* Row 2 */}
                 <div className="xl:flex gap-6 sm:flex-row">
-                  <div className="xl;flex xl:flex-col xl:w-1/2 sm:w-full">
+                  <div className="xl:flex xl:flex-col xl:w-1/2 sm:w-full">
                     <label className="font-semibold text-md mb-2">
                       Payment Condition
                     </label>
@@ -338,7 +338,7 @@ const handledelete=(index)=>{
                 </div>
                 {/* date */}
                 <div className="xl:flex xl:w-1/2 gap-5 sm:flex-row">
-                  <div className="xl:w-1/2 ">
+                  <div className=" w-full">
                     <label>Issue Date</label>
                     <input
                       type="Date"
@@ -350,7 +350,7 @@ const handledelete=(index)=>{
                                      border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"
                     />
                   </div>
-                  <div className="">
+                  <div className="w-full">
                     <label>Due Date</label>
                     <input
                       type="Date"

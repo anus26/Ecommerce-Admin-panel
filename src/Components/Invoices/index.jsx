@@ -143,7 +143,7 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
     invoice.Status === "Paid"
       ? "text-color3 bg-color4"
       : invoice.Status === "Draft"
-      ? "text-color2 bg-color3"
+      ? "text-color2 bg-color1"
       : invoice.Status === "Unpaid"
       ? "text-red1 bg-red2"
       : "text-gray-600 bg-gray-200" // default style
