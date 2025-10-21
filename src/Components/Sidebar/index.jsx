@@ -91,7 +91,7 @@ const Sidebar = () => {
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'dashboard' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'dashboard' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
   onClick={handleopen}
 >
@@ -320,7 +320,7 @@ const Sidebar = () => {
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'forms' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'forms' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
   onClick={handleopen5}
 >
@@ -367,7 +367,7 @@ const Sidebar = () => {
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'tables' ? 'bg-light  text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'tables' ? 'bg-light  text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
   onClick={handleopen6}
 >
@@ -416,7 +416,7 @@ const Sidebar = () => {
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'pages' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'pages' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
     `}
   onClick={handleopen7}
 >
@@ -464,7 +464,7 @@ const Sidebar = () => {
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
-    ${activemenu === 'authentication' ? 'bg-light text-primary' : 'text-black hover:bg-slate-100 hover:text-black'}
+    ${activemenu === 'authentication' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
   onClick={handleauth}
 >

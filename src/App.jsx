@@ -14,6 +14,7 @@ import Invoice from './Pages/Invoice'
 import Header from './Components/Header'
 import SingleInvocie from './Components/SingleInvocie'
 import Invoices from './Components/Invoices'
+import Billing from './Components/Billing'
 
 
 
@@ -40,6 +41,7 @@ const App = () => {
             <Route path='createinvoice' element={<Invoice/>}/>
             <Route  path='invoice' element={<SingleInvocie/>}/>
         <Route path='invoices' element={<Invoices/>}/>
+               <Route path='billing' element={<Billing/>}/>
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />
