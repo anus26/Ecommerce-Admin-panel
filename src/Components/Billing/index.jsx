@@ -8,7 +8,11 @@ const Billing = () => {
     <div className='m-5'>
         <div className=''>
             <h1 className='text-2xl font-semibold text-black '>Billing</h1>
-            <div className='border border-gray  bg-white rounded-xl m-5 w-[60%]'>
+
+            <div className='flex'>
+{/* plan */}
+           
+            <div className='border border-gray  bg-white rounded-xl m-5 w-[65%]'>
                 <h1 className='text-lg  font-semibold m-5 '>Plan Details</h1>
                 <div className='border border-b border-gray'></div>
 {/* plan */}
@@ -81,6 +85,69 @@ const Billing = () => {
                 
 
             </div>
+            {/* billing info */}
+            <div className="border border-gray  bg-white rounded-xl m-5 w-[35%]">
+              <h1 className='font-semibold m-5 text-lg'>Billing Info</h1>
+  <div className='border border-b border-gray'></div>
+ <table class="table-auto m-6 text-textt">
+
+
+  <tbody >
+    <tr>
+      <td>Name</td>
+      <td>Mushafrof Chowdhury</td>
+     
+    </tr>
+      <div className='border border-b border-gray'></div>
+    <tr>
+      <td>Street</td>
+      <td>
+800 E Elcamino Real, suite #400</td>
+   
+    </tr>
+      <div className='border border-b border-gray'></div>
+    <tr>
+      <td>City/State</td>
+      <td>
+Mountain View, CA, 94040</td>
+   
+    </tr>
+      <div className='border border-b border-gray'></div>
+       <tr>
+      <td>Country</td>
+      <td>
+United States of America</td>
+   
+    </tr>
+       <tr>
+          <div className='border border-b border-gray'></div>
+      <td>Zip/Postalcode</td>
+      <td>
+7400</td>
+
+   
+    </tr>
+      <div className='border border-b border-gray'></div>
+           <tr>
+      <td>Town/City</td>
+      <td>
+New York</td>
+
+   
+    </tr>
+      <div className='border border-b border-gray'></div>
+           <tr>
+      <td>VAT Number</td>
+      <td>
+DE4920348</td>
+
+   
+    </tr>
+      <div className='border border-b border-gray'></div>
+  </tbody>
+</table>
+            </div>
+</div>
         </div>
     </div>
 </section>
