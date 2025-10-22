@@ -1,6 +1,8 @@
 import React from 'react'
 import { TiDeleteOutline } from "react-icons/ti";
 import { IoIosCheckmark } from "react-icons/io";
+import { FaPencil } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 const Billing = () => {
   return (
 <>
@@ -8,7 +10,7 @@ const Billing = () => {
     <div className='m-5'>
         <div className=''>
             <h1 className='text-2xl font-semibold text-black '>Billing</h1>
-
+{/* first */}
             <div className='flex'>
 {/* plan */}
            
@@ -93,62 +95,137 @@ const Billing = () => {
 
 
   <tbody >
-    <tr>
-      <td>Name</td>
-      <td>Mushafrof Chowdhury</td>
+    <tr className='border-b border-gray '>
+      <td className='p-2'>Name</td>
+      <td className='p-2'>Mushafrof Chowdhury</td>
      
     </tr>
-      <div className='border border-b border-gray'></div>
-    <tr>
-      <td>Street</td>
-      <td>
+    <tr className='border-b border-gray p-2'>
+      <td className='p-3'>Street</td>
+      <td className='p-3'>
 800 E Elcamino Real, suite #400</td>
    
     </tr>
-      <div className='border border-b border-gray'></div>
-    <tr>
-      <td>City/State</td>
-      <td>
+    <tr className='border-b border-gray '>
+      <td className='p-3'>City/State</td>
+      <td className='p-3'>
 Mountain View, CA, 94040</td>
    
     </tr>
-      <div className='border border-b border-gray'></div>
-       <tr>
-      <td>Country</td>
-      <td>
+       <tr className='border-b border-gray '>
+      <td className='p-3'>Country</td>
+      <td  className='p-3'>
 United States of America</td>
    
     </tr>
-       <tr>
-          <div className='border border-b border-gray'></div>
-      <td>Zip/Postalcode</td>
-      <td>
+       <tr className='border-b border-gray '>
+  
+      <td className='p-3'>Zip/Postalcode</td>
+      <td className='p-3'>
 7400</td>
 
    
     </tr>
-      <div className='border border-b border-gray'></div>
-           <tr>
-      <td>Town/City</td>
-      <td>
+       <tr className='border-b border-gray '>
+         
+      <td className='p-3'>Town/City</td>
+      <td className='p-3'>
 New York</td>
 
    
     </tr>
-      <div className='border border-b border-gray'></div>
-           <tr>
-      <td>VAT Number</td>
-      <td>
+       <tr className='border-b border-gray '>
+        
+      <td className='p-3'>VAT Number</td>
+      <td className='p-3'>
 DE4920348</td>
 
    
     </tr>
-      <div className='border border-b border-gray'></div>
   </tbody>
 </table>
+<div className='flex justify-center'>
+
+<button className='border border-gray bg-white hover:bg-gray1 rounded-xl p-3 w-[80%] font-semibold flex gap-6 justify-center transition-all duration-300 '><span><FaPencil className='text-md' /></span>Update Billing Address</button>
+</div>
             </div>
 </div>
+{/* second */}
+<div className='border border-gray bg-white rounded-xl  m-5'>
+  {/* payment method */}
+  <div className=' flex justify-between m-5'>
+    <h1 className='font-semibold text-lg '>Payment Method </h1>
+    <button className='border-gray p-3 rounded-xl hover:bg-gray1 border transition-all duration-300 flex justify-center gap-3 font-semibold items-center'>
+   <span><FaPlus /></span>   Add New Card
+    </button>
+  </div>
+  <div className='border-b border-gray'></div>
+  {/*cards  */}
+  <div className='flex'>
+
+{/* card */}
+<div className='border border-gray rounded-xl  w-[30%] m-5 p-5'>
+<div className='flex  gap-4 m-5 items-center'>
+  <img src="./images/money.png" alt="card" className='border border-gray w-[18%] h-14 ' />
+  <div>
+
+    
+<h1 className='flex gap-3 text-lg font-semibold '>Mastercard 
+  <span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2 flex'>
+  <IoIosCheckmark className='text-xl'/>Default</span> </h1>
+  <span className='text-textt'>*** **** *** 909</span>
+  </div>
+
+</div>
+<h1 className='flex items-center text-center justify-center text-textt'>Expiry 1/2039</h1>
+<div className='flex justify-center gap-4'>
+  <button className='bg-white border border-gray p-1 w-[18%] hover:bg-gray1 transition-all duration-300 rounded-lg'>Edit</button>
+    <button className='bg-white border border-gray p-1 w-[18%] hover:bg-gray1 transition-all duration-300 rounded-lg'>Delete</button>
+</div>
+</div>
+{/* visa */}
+<div className='border border-gray rounded-xl  w-[30%] m-5 p-5'>
+<div className='flex  gap-4 m-5 items-center'>
+  <img src="./images/money.png" alt="card" className='border border-gray w-[18%] h-14 ' />
+  <div>
+
+    
+<h1 className='flex gap-3 text-lg font-semibold '>Mastercard 
+  <span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2 flex'>
+  <IoIosCheckmark className='text-xl'/>Default</span> </h1>
+  <span className='text-textt'>*** **** *** 909</span>
+  </div>
+
+</div>
+<h1 className='flex items-center text-center justify-center text-textt'>Expiry 1/2039</h1>
+<div className='flex justify-center gap-4'>
+  <button className='bg-white border border-gray p-1 w-[18%] hover:bg-gray1 transition-all duration-300 rounded-lg'>Edit</button>
+    <button className='bg-white border border-gray p-1 w-[18%] hover:bg-gray1 transition-all duration-300 rounded-lg'>Delete</button>
+</div>
+</div>
+{/* paypal */}
+<div className='border border-gray rounded-xl  w-[30%] m-5 p-5'>
+<div className='flex  gap-4 m-5 items-center'>
+  <img src="./images/money.png" alt="card" className='border border-gray w-[18%] h-14 ' />
+  <div>
+
+    
+<h1 className='flex gap-3 text-lg font-semibold '>Mastercard 
+  <span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2 flex'>
+  <IoIosCheckmark className='text-xl'/>Default</span> </h1>
+  <span className='text-textt'>*** **** *** 909</span>
+  </div>
+
+</div>
+<h1 className='flex items-center text-center justify-center text-textt'>Expiry 1/2039</h1>
+<div className='flex justify-center gap-4'>
+  <button className='bg-white border border-gray p-1 w-[18%] hover:bg-gray1 transition-all duration-300 rounded-lg'>Edit</button>
+    <button className='bg-white border border-gray p-1 w-[18%] hover:bg-gray1 transition-all duration-300 rounded-lg'>Delete</button>
+</div>
+</div>
+</div>
         </div>
+  </div>
     </div>
 </section>
 </>
