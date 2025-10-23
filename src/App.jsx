@@ -15,6 +15,7 @@ import Header from './Components/Header'
 import SingleInvocie from './Components/SingleInvocie'
 import Invoices from './Components/Invoices'
 import Billing from './Components/Billing'
+import Transactions from './Components/Transactions'
 
 
 
@@ -42,6 +43,7 @@ const App = () => {
             <Route  path='invoice' element={<SingleInvocie/>}/>
         <Route path='invoices' element={<Invoices/>}/>
                <Route path='billing' element={<Billing/>}/>
+                  <Route path='transactions' element={<Transactions/>}/>
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />
