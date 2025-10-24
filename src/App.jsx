@@ -16,6 +16,7 @@ import SingleInvocie from './Components/SingleInvocie'
 import Invoices from './Components/Invoices'
 import Billing from './Components/Billing'
 import Transactions from './Components/Transactions'
+import SingleTransactions from './Components/SingleTransactions'
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
         <Route path='invoices' element={<Invoices/>}/>
                <Route path='billing' element={<Billing/>}/>
                   <Route path='transactions' element={<Transactions/>}/>
+                   <Route path='singletransactions' element={<SingleTransactions/>}/>
           </Route>
             <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />
