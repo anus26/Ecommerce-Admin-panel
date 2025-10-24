@@ -11,14 +11,7 @@ const Transactions = () => {
       const [filtered,setFiltered]=useState([])
       const [currentpage,setCurrentPage]=useState(1)
       const [product,setProdcut]=useState([])
-      const [formData,setFormData]=useState({
-DueDate
-      })
-const DueDate=7
-const last7days=product.filter((p)=>{
-
-})
-
+const [filterDays, setFilterDays] = useState(7);
 
       const perpage=10
           const lastpage=currentpage*perpage
@@ -60,7 +53,22 @@ const last7days=product.filter((p)=>{
 
 
 
-        const handlefilter
+        const handlefilter=(e)=>{
+    const days=parseInt(e.target.value.replace('Last','').replace('Days',''),10)
+    setFilterDays(days)
+    const now=new Date()
+    const start=new Date()
+    start.setDate(now.getDate()-days)
+
+    const filterData=invoice.filter((inv)=>{
+      const due=new Date(inv.DueDate)
+      return due>= start && due <=now
+    })
+    setFiltered(filterData)
+    setCurrentPage(1)
+
+    }
+        
   return (
   <section>
     <div className='m-5'>
@@ -79,7 +87,7 @@ const last7days=product.filter((p)=>{
                 <CiSearch  className='flex items-start m-2 text-2xl '/>
                 <input type="text"  placeholder='Search or Type Command....'  className=' w-96  outline-none  border-gray  rounded-lg'/>
                 </div>
-                 <select  className='flex gap-2 border border-gray2 items-center h-12 justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-32 rounded-lg' >
+                 <select  className='flex gap-2 border border-gray2 items-center h-12 justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-32 rounded-lg' onChange={handlefilter} >
                 <option >Last 7 Days</option>
                      <option >Last 10 Days</option>
                    <option >Last 15 Days</option>
@@ -91,7 +99,7 @@ const last7days=product.filter((p)=>{
              <div className='flex m-5 text-textt  font-bold'>
                 <h1 className='w-[20%]'>Invoice Number</h1>
                 <h1  className='w-[20%]'>Customer</h1>
-                <h1  className='w-[20%]'>Creation Date</h1>
+                <h1  className='w-[20%]'>Currency</h1>
                 <h1  className='w-[20%]'>Due Date</h1>
                 <h1  className='w-[10%]'>Total </h1>
                 <h1  className='w-[10%]'>Status</h1>
@@ -104,7 +112,7 @@ const last7days=product.filter((p)=>{
             <div key={invoice._id} className="border-b border-gray p-4 rounded-lg mb-3 flex">
                 <h1 className='w-[20%]'>{invoice.InvoiceNumber}</h1>
               <h2 className="w-[20%]">{invoice.CustomerName}</h2>
-              <h1 className='w-[20%]'>{invoice.IssueDate}</h1>
+              <h1 className='w-[20%]'>{invoice.Currency}</h1>
               <h1 className='w-[20%]'>{invoice.DueDate}</h1>
               <h1 className='w-[10%]'>{invoice.Total}</h1>
              <h1
