@@ -33,10 +33,12 @@ const SingleTransactions = () => {
   (acc, item) => acc + item.Price * item.StockQuantity,
   0
 );
+
 const vat=product.reduce(
-(acc,item)=>acc+item.totalPrice/10,
-0
+  (acc,item)=>acc+(item.Price*item.StockQuantity*0.1),
+  0
 )
+
 
       const handledelete=(index)=>{
       const updated=[...product]
@@ -102,11 +104,11 @@ const vat=product.reduce(
                     <p>No products found</p>
                   )}
 
-                </div>
-                <div className='flex items-end justify-end m-5'>
+                </div >
+                <div className='flex items-end justify-end m-5 flex-col gap-3'>
                   <h1 className='font-semibold text-md'>Order Summary</h1>
-                  <h1>Sub Total:{totalPrice}</h1>
-                  <h1>Vat{totalPrice/10}</h1>
+                  <h1 className=''>SubTotal:<span>{totalPrice}</span></h1>
+                  <h1>Vat:{vat}</h1>
                   <h1>Total:{totalPrice+vat}</h1>
                 </div>
 
