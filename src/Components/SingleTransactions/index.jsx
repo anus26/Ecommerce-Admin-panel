@@ -163,7 +163,7 @@ DE4920348</td>
 <div className='border border-gray rounded-xl bg-white w-[30%] h-96'> 
   <div className='m-5'>
     <h1 className='font-semibold text-xl'>Order History</h1>
-    <div className='flex gap-5 '>
+    <div className='flex gap-5 m-2   '>
 
 <div className='flex flex-col items-center   gap-6 relative'>
   <div className="absolute top-0 bottom-0 w-[1px] bg-gray border-gray border-dotted border-2 -translate-x-1/2 left-1/2"></div>
@@ -171,23 +171,42 @@ DE4920348</td>
   <div className='border border-gray rounded-full bg-white w-10 h-10  flex items-center justify-center z-10'><TbCalendarDollar /></div>
   <div className='border border-gray rounded-full bg-white w-10 h-10  flex items-center justify-center z-10'><MdOutlineMail /></div>
 </div>
-  </div>
   <div className='flex flex-col'>
     <div >
       <h1 className='font-semibold text-lg'>Checkout Started</h1>
       <h1 className='text-sm text-textt'>via tailadmin.com</h1>
     </div>
      <div >
-      <h1 className='font-semibold text-lg'>Checkout Started</h1>
+      <h1 className='font-semibold text-lg'>Purchased</h1>
       <h1 className='text-sm text-textt'>via tailadmin.com</h1>
     </div>
      <div >
-      <h1 className='font-semibold text-lg'>Checkout Started</h1>
+      <h1 className='font-semibold text-lg'>Receipt Email Send</h1>
       <h1 className='text-sm text-textt'>via tailadmin.com</h1>
     </div>
   </div>
- 
+ <div className='flex flex-col'>
+    <div >
+      <h1 className='font-semibold text-textt text-sm'>12.54</h1>
+      <h1 className='text-sm text-textt'>12th Apr 28</h1>
     </div>
+     <div >
+     <h1 className='font-semibold text-sm text-textt'>12.54</h1>
+      <h1 className='text-sm text-textt'>12th Apr 28</h1>
+    </div>
+     <div >
+        <h1 className='font-semibold text-sm text-textt'>12.54</h1>
+      <h1 className='text-sm text-textt'>12th Apr 28</h1>
+    </div>
+  </div>
+    </div>
+  <div className='m-5 gap-2 flex'>
+    <button className='bg-white rounded-lg border-gray border text-textt font-semibold text-sm p-2 hover:bg-gray1 transition-all duration-300 '>Resend</button>
+        <button className='bg-white rounded-lg border-gray border text-textt font-semibold text-sm p-2 hover:bg-gray1 transition-all duration-300'>Forward</button>
+            <button className='bg-white rounded-lg border-gray border text-textt font-semibold text-sm p-2 hover:bg-gray1 transition-all duration-300'>Preview</button>
+    
+  </div>
+  </div>
 </div>
 
 
