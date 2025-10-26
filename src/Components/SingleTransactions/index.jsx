@@ -7,7 +7,9 @@ import { MdOutlineMail } from "react-icons/md";
 const SingleTransactions = () => {
   const [product,setProduct]=useState([])
 
-   const fetchData = async () => {
+
+  
+  const fetchData = async () => {
       try {
         const res = await axios.get("http://localhost:5000/api/v1/product", {
           withCredentials: true,
@@ -25,8 +27,17 @@ const SingleTransactions = () => {
     }
       useEffect(() => {
         fetchData();
-  
+        
       },[]);
+     const totalPrice = product.reduce(
+  (acc, item) => acc + item.Price * item.StockQuantity,
+  0
+);
+const vat=product.reduce(
+(acc,item)=>acc+item.totalPrice/10,
+0
+)
+
       const handledelete=(index)=>{
       const updated=[...product]
       updated.splice(index,1)
@@ -90,6 +101,13 @@ const SingleTransactions = () => {
                   ) : (
                     <p>No products found</p>
                   )}
+
+                </div>
+                <div className='flex items-end justify-end m-5'>
+                  <h1 className='font-semibold text-md'>Order Summary</h1>
+                  <h1>Sub Total:{totalPrice}</h1>
+                  <h1>Vat{totalPrice/10}</h1>
+                  <h1>Total:{totalPrice+vat}</h1>
                 </div>
 
 </div>
