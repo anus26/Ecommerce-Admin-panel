@@ -6,6 +6,7 @@ import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import './Style.css'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 axios.defaults.withCredentials = true;
 const Signin = () => {
   const [open , setOpen]=useState(false)
@@ -40,7 +41,7 @@ try {
 <section className='flex h-screen  '>
   <div className='w-[50%]'>
     <div className='m-28'>
-    <h1 className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</h1>
+    <Link to='/' className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</Link>
       <h1 className=' font-semibold text-4xl '>Sign In </h1>
       <p className='mt-3'>Enter your email and password to sign in</p>
       <div className='flex mt-10 gap-5   '>
@@ -81,7 +82,7 @@ try {
    <button type='submit' className='flex justify-center  items-center text-center border mt-10 w-[100%] h-[12%] p-3 rounded-lg bg-primary text-white duration-300 transition-all hover:bg-hower'>
     Sign In
    </button>
-   <p className='mt-5'>Don't have any accoout? <span className='text-primary font-semibold'>Sign Up</span></p>
+   <p className='mt-5'>Don't have any accoout? <Link to='/signup' className='text-primary font-semibold'>Sign Up</Link></p>
 
   </form>
 

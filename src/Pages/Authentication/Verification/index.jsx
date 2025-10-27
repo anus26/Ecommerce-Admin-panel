@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { IoIosArrowBack } from "react-icons/io";
 import './Style.css'
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 const Verification = () => {
    const [email, setEmail] = useState("");
   const [otp , setOtp]=useState(new Array(6).fill(""))
-
+const navigate=useNavigate()
 
 
 
@@ -35,6 +36,7 @@ const Verification = () => {
       { withCredentials:true}
     )
       console.log("OTP Verify",res.data);
+      navigate('/signin')
       
     } catch (error) {
       console.error("OTP Expired:",error.res?.data || error.message);
@@ -62,9 +64,9 @@ const Verification = () => {
   return (
     <>
 <section className='flex h-screen '>
-  <div className='w-[50%]'>
+  <div className='xl:w-[50%] lg:w-[100%] '>
     <div className='m-28'>
-    <h1 className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</h1>
+    <Link to='/' className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</Link>
       <h1 className=' font-semibold text-4xl '>Two Step Verification </h1>
       <p className='mt-3'>A verification code has been sent to your mobile. Please enter it in the field below.</p>
     
@@ -110,9 +112,9 @@ const Verification = () => {
     </div>
   </div>
 <div className='w-[50%]'>
-<div className="  back h-screen  flex items-center justify-center 
+<div className="  back h-screen  xl:block lg:hidden md:hidden sm:hidden flex items-center justify-center  
                 ">
-  <img src="./images/control-panel.png" alt="control" className='w-[12%]'  />
+  <img src="./images/control-panel.png" alt="control" className='w-[12%] xl:hidden lg:block'  />
   <h1 className="text-white text-4xl font-bold  ">AdminPanel</h1>
 </div>
 

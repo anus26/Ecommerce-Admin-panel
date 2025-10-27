@@ -6,9 +6,11 @@ import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import './Style.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Reset = () => {
   const [open , setOpen]=useState(false)
   const [form ,setForm]=useState({email:""})
+  const navigate=useNavigate()
   const handlechange=(e)=>{
     setForm({...form,[e.target.name]:e.target.value })
   }
@@ -19,6 +21,7 @@ const Reset = () => {
         withCredentials:true
       })
 console.log("OTP Send Successfully",res.data);
+navigate("/verification")
 
     } catch (error) {
       console.error("OTP Error:",error.res?.data || error.messages);
@@ -29,7 +32,7 @@ console.log("OTP Send Successfully",res.data);
   return (
     <>
 <section className='flex h-screen  '>
-  <div className='w-[50%]'>
+  <div className='xl:w-[50%] lg:w-[100%]'>
     <div className='m-28'>
     <h1 className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</h1>
       <h1 className=' font-semibold text-4xl '>Forgot Your Password?
@@ -67,7 +70,7 @@ Send Your Link
     </div>
   </div>
 <div className='w-[50%]'>
-<div className="  back h-screen  flex items-center justify-center 
+<div className="  back h-screen  flex items-center justify-center xl:block lg:hidden md:hidden sm:hidden
                 ">
   <img src="./images/control-panel.png" alt="control" className='w-[12%]'  />
   <h1 className="text-white text-4xl font-bold  ">AdminPanel</h1>
