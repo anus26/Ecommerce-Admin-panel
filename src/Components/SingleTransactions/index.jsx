@@ -45,6 +45,7 @@ const vat=product.reduce(
       updated.splice(index,1)
       setProduct(updated)
       }
+   
   return (
 <section>
     <div className='m-5'>
@@ -68,7 +69,7 @@ const vat=product.reduce(
 {/* second */}
 <div className='flex justify-between mt-5 gap-5'>
 
-<div className='border border-gray bg-white rounded-xl w-[70%] '>
+<div className='border border-gray bg-white rounded-xl w-[70%] h-full'>
   <h1 className='font-semibold text-xl m-5'>Order Details</h1>
       <div className=" border rounded-lg border-gray2 w-[90%] m-5 ">
                   <div className="flex bg-gray1 p-[2%]  font-semibold border-gray1 rounded-xl">
@@ -107,16 +108,17 @@ const vat=product.reduce(
                 </div >
                 <div className='flex items-end justify-end m-5 flex-col gap-3'>
                   <h1 className='font-semibold text-md'>Order Summary</h1>
-                  <h1 className=''>SubTotal:<span>{totalPrice}</span></h1>
-                  <h1>Vat:{vat}</h1>
-                  <h1>Total:{totalPrice+vat}</h1>
+                  <h1 className='flex gap-6 text-textt text-md'>SubTotal:<span>{totalPrice}</span></h1>
+                  <h1 className='flex gap-5 text-textt text-md'>Vat(10%): <span>{vat}</span></h1>
+                  <h1 className='flex gap-5 text-lg font-semibold'>Total <span>${totalPrice+vat}</span></h1>
                 </div>
 
 </div>
 {/* coustomer details */}
+<div className='flex flex-col gap-8 '>
 
 
-<div className='w-[30%] bg-white border border-gray rounded-xl h-96'>
+<div className='w-full bg-white border border-gray rounded-xl h-full '>
   <div className='m-5'>
     <h1 className='font-semibold text-xl'>Customer Details</h1>
      <table className="table-auto  text-textt">
@@ -176,11 +178,10 @@ DE4920348</td>
 
 </div>
 
-</div>
 {/* Order History */}
-<div className='flex justify-end '>
 
-<div className='border border-gray rounded-xl bg-white w-[30%] h-96'> 
+
+<div className='border border-gray rounded-xl bg-white w-full h-full '> 
   <div className='m-5'>
     <h1 className='font-semibold text-xl'>Order History</h1>
     <div className='flex gap-5 m-2   '>
@@ -227,13 +228,15 @@ DE4920348</td>
     
   </div>
   </div>
+
+
+
 </div>
-
-
 </div>
 </div>
             </div>
   
+</div>
 </section>
   )
 }
