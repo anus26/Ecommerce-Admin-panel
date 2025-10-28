@@ -39,15 +39,15 @@ try {
   return (
     <>
 <section className='flex flex-col lg:flex-row h-screen  '>
-  <div className='lg:w-full xl:w-[50%]'>
-    <div className='m-5 md:m-lg- lg:m-20 xl:m-28 '>
+  <div className='lg:w-[70%] sm:w-full xl:w-[50%]'>
+    <div className='m-28  sm:m-10 md:m-20'>
     <Link to='/' className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</Link>
       <h1 className=' font-semibold text-4xl '>Sign In </h1>
       <p className='mt-3'>Enter your email and password to sign in</p>
-<div className="xl:flex  md:flex  sm:flex-col   md:gap-5 gap-5">
+<div className="flex lg:flex-row gap-5  md:flex-row sm:flex-col">
 
-        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center  xl:w-[40%] sm:w-full h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><FcGoogle className='text-2xl'/> Sign in With Goolge</button>
-        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center xl:w-[40%] sm:w-full h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><RiTwitterXLine className='text-2xl' />Sign in  with X </button>
+        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center  lg:w-[40%]  sm:w-full h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><FcGoogle className='text-2xl'/> Sign in With Goolge</button>
+        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center  lg:w-[40%] sm:w-full h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><RiTwitterXLine className='text-2xl' />Sign in  with X </button>
 
       </div>
 
@@ -66,7 +66,7 @@ try {
    <div className='mt-5 '>
     <h1 className='font-semibold flex'>Password <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
     <input type={open?"text":"password"} name='password' value={formData.password} onChange={handlechange} placeholder='Enter your password'  className='relative border w-[100%]  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg '   />
-  <span onClick={()=>setOpen(!open)} className='absolute ml-[-2%] z-10 text-center  mt-3'>
+  <span onClick={()=>setOpen(!open)} className='absolute lg:ml-[-2%] sm:ml-[-8%] z-10 text-center  mt-3'>
       {open &&
       <BsEyeSlash /> ||   <BsEye />
     
@@ -92,7 +92,7 @@ try {
 
     </div>
   </div>
-<div className='w-[50%]'>
+<div className='w-[50%] md:hidden xl:block'>
 <div className="  back h-screen  xl:flex items-center justify-center   md:hidden sm:hidden  lg:hidden
                 ">
   <img src="./images/control-panel.png" alt="control" className='w-[12%]'  />
