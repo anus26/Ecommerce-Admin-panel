@@ -31,13 +31,13 @@ navigate("/verification")
 
   return (
     <>
-<section className='flex h-screen  '>
-  <div className='xl:w-[50%] lg:w-[100%]'>
-    <div className='m-28'>
-    <h1 className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</h1>
-      <h1 className=' font-semibold text-4xl '>Forgot Your Password?
+<section className='flex flex-col lg:flex-row h-screen    '>
+  <div className='xl:w-[50%] lg:w-full   '>
+    <div className=' m-5 md:m-10 lg:m-20 xl:m-28'>
+    <h1 className='text-gray-50 mb-3 gap-2 flex items-center '><IoIosArrowBack  className=' h-5 '/>Back to dashboard</h1>
+      <h1 className=' xl:font-semibold xl:text-4xl sm:text-2xl sm:font-bold  '>Forgot Your Password?
  </h1>
-      <p className='mt-3'>Enter the email address linked to your account, and we’ll send you a link to reset your password.
+      <p className='mt-3 xl:font-md lg:font-md md:font-md sm:font-sm'>Enter the email address linked to your account, and we’ll send you a link to reset your password.
 
 </p>
     
@@ -69,9 +69,8 @@ Send Your Link
 
     </div>
   </div>
-<div className='w-[50%]'>
-<div className="  back h-screen  flex items-center justify-center xl:block lg:hidden md:hidden sm:hidden
-                ">
+<div className='w-[50%] '>
+<div className="  back h-screen  xl:flex items-center justify-center md:hidden sm:hidden  lg:hidden ">
   <img src="./images/control-panel.png" alt="control" className='w-[12%]'  />
   <h1 className="text-white text-4xl font-bold  ">AdminPanel</h1>
 </div>

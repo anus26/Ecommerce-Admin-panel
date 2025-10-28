@@ -39,15 +39,15 @@ try {
   }
   return (
     <>
-<section className='flex h-screen outline-none  '>
-  <div className='w-[50%]'>
-    <div className='m-28'>
+<section className='flex flex-col lg:flex-row h-screen outline-none  '>
+  <div className='lg:w-full xl:w-[50%]'>
+    <div className='m-5 md:m-10 lg:m-20 xl:m-28'>
     <Link to='/' className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</Link>
       <h1 className=' font-semibold text-4xl '>Sign Up </h1>
       <p className='mt-3'>Enter your email and password to sign Up!</p>
-      <div className='flex mt-10 gap-5   '>
-        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center w-[40%] h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><FcGoogle className='text-2xl'/> Sign in With Goolge</button>
-        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center w-[40%] h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><RiTwitterXLine className='text-2xl' />Sign in  with X </button>
+      <div className='flex  md:flex  sm:flex-col   md:gap-5 gap-5  '>
+        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center  w-[40%] h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><FcGoogle className='text-2xl'/> Sign in With Goolge</button>
+        <button className="bg-gray1 border flex gap-3 text-center justify-center items-center   w-[40%]  h-12 rounded-lg  outline-none border-none hover:bg-gray cursor-pointer transition-all duration-300"><RiTwitterXLine className='text-2xl' />Sign in  with X </button>
 
       </div>
 
@@ -114,7 +114,7 @@ try {
     </div>
   </div>
 <div className='w-[50%]'>
-<div className="  back h-screen  flex items-center justify-center 
+<div className="  back h-screen  xl:flex items-center justify-center  md:hidden sm:hidden  lg:hidden
                 ">
   <img src="./images/control-panel.png" alt="control" className='w-[12%]'  />
   <h1 className="text-white text-4xl font-bold  ">AdminPanel</h1>
