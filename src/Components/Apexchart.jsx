@@ -14,6 +14,12 @@ const ApexChart = () => {
                   enabled: true
                 }
     },
+     responsive: [
+      { breakpoint: 1280, options: { chart: { width: 500, height: 350 } } },
+      { breakpoint: 1024, options: { chart: { width: 400, height: 350 } } },
+      { breakpoint: 768, options: { chart: { width: 300, height: 350 } } },
+      { breakpoint: 480, options: { chart: { width: 250, height: 200 } } },
+    ],
     colors: ['#465fff'],
     plotOptions:{
       radialBar:{
@@ -24,6 +30,7 @@ const ApexChart = () => {
           margin:0,
           size:"80%",
         },
+
         track:{
           background:"#e7e7e7",
           strokeWidth:"60%",
@@ -88,7 +95,7 @@ const ApexChart = () => {
 
   return (
     <>
-    <div className="bg-gray1 rounded-xl">
+    <div className="bg-gray1 rounded-xl w-full xl:w-full lg:w-full  md:w-full  sm:w-full mx-auto">
 
   <div className="bg-white p-4 rounded-xl outline-none min-h-[420px] ">
   {/* Top Part - White */}
@@ -113,7 +120,7 @@ const ApexChart = () => {
   {/* Chart */}
   <div className=" m-3 ">
     <h1 className="font-medium text-textt ">Target you've set for each month</h1>
-    <div className="mt-4">
+    <div className="mt-4 flex justify-center">
 
     <Chart
       options={options}

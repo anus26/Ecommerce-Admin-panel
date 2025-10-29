@@ -73,7 +73,7 @@ const menuItems=[
 {/* 3 */}
 
 
-<div className='Apexchart xl:w-[40%] lg:w-[100%] md:w-[90%]  xl:h-52 lg:h-[40] sm:h-[30] border border-gray rounded-lg'>
+<div className='Apexchart xl:w-[40%] lg:w-[100%] md:w-[90%]  sm:w-full xl:h-52 lg:h-[40] sm:h-[30] border border-gray rounded-lg'>
 
 
 
