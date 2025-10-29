@@ -23,7 +23,8 @@ export default {
     color1:"#e4e7ec",
     color2:"#475467",
     color3:"#027a48",
-    color4:"#ecfdf3"
+    color4:"#ecfdf3",
+    color5:"#3788d8"
 
 
 

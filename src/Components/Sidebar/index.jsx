@@ -106,7 +106,7 @@ const Sidebar = () => {
    {open && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
-      { name: "eCommerce", path: "/ecommerce" },
+      { name: "eCommerce", path: "/" },
       { name: "Analytics", path: "/analytics" },
       { name: "Marketing", path: "/marketing" },
       { name: "CRM", path: "/crm" },

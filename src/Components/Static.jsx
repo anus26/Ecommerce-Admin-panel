@@ -192,7 +192,7 @@ className='rounded-lg'
    </div>
     </div>
     <p className='m-5' > Target you’ve set for each month</p>
-    <div className='w-full xl:w-full sm:w-full overflow-auto'>
+    <div className='w-full xl:w-full sm:w-full xl:overflow-hidden sm:overflow-auto'>
 
         <Chart options={options} series={getSeries()} type="area" width={1100}    height={350}/>
     </div>
