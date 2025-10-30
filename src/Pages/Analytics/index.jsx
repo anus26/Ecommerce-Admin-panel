@@ -2,6 +2,7 @@ import React from 'react'
 import { CgAdd } from 'react-icons/cg'
 import { IoAdd } from 'react-icons/io5'
 import Analyticsgraph from '../../Components/Analytics/Anaylticsgraph'
+import Channels from '../../Components/Analytics/Channels'
 
 const Analytics = () => {
   return (
@@ -73,6 +74,9 @@ const Analytics = () => {
   <div>
     <div>
       <Analyticsgraph/>
+    </div>
+    <div>
+      <Channels/>
     </div>
   </div>
   </div>
