@@ -1,8 +1,30 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import ReactApexChart from 'react-apexcharts';
 import { FaArrowRightArrowLeft } from 'react-icons/fa6'
 import { IoMdArrowForward } from "react-icons/io";
 const Channels = () => { 
+
+const [Visit,setVisit]=useState([])
+
+const fetch=async()=>{
+    const res=await axios.get("http://localhost:5000/api/v1/getvisit")
+    console.log("Succussfully",res.data);
+    setVisit(res.data.Visit)
+  }
+  useEffect(()=>{
+    fetch()
+    
+  },[])
+
+
+
+
+
+
+
+
+  
          const   options= {
               chart: {
                 type: 'area',
@@ -33,14 +55,10 @@ const Channels = () => {
             const series = [
   {
     name: "Visitors",
-     data: [
-      [1672531200000, 3000],
-      [1675209600000, 4200],
-      [1677628800000, 5000],
-      [1680307200000, 6100],
-      [1682899200000, 7200],
-      [1685577600000, 8500],
-    ],
+     data: Visit.map((item)=>({
+      x:item.ip,
+      y:item.browser
+     }))
   }
 ];
 
