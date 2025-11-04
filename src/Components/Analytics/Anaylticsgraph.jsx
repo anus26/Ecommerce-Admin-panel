@@ -36,7 +36,8 @@ const Analyticsgraph = () => {
 const   options = {
           chart: {
           type: 'bar',
-          height: 300
+          height: 300,
+          toolbar:{show:false}
         },
  responsive: [
     {

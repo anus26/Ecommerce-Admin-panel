@@ -5,17 +5,32 @@ import { FaArrowRightArrowLeft } from 'react-icons/fa6'
 import { IoMdArrowForward } from "react-icons/io";
 const Channels = () => { 
 
-const [Visit,setVisit]=useState([])
+const [visit,setVisit]=useState([])
 
 const fetch=async()=>{
     const res=await axios.get("http://localhost:5000/api/v1/getvisit")
     console.log("Succussfully",res.data);
-    setVisit(res.data.Visit)
+    setVisit(res.data.visit)
   }
   useEffect(()=>{
     fetch()
-    
+    sendVisit()
   },[])
+
+
+const sendVisit = async () => {
+  try {
+    await axios.post("http://localhost:5000/api/v1/visit");
+    console.log("Visit saved ✅");
+  } catch (error) {
+    console.log("Visit error ❌", error);
+  }
+};
+
+const browserCount = visit.reduce((acc, item) => {
+  acc[item.browser] = (acc[item.browser] || 0) + 1;
+  return acc;
+}, {});
 
 
 
@@ -31,34 +46,50 @@ const fetch=async()=>{
                 height: 350,
                 zoom: {
                   enabled: false
-                }
+                },
+               toolbar:{show:false}
               },
-              dataLabels: {
-                enabled: false
-              },
-              stroke: {
-                curve: 'straight'
+               colors: ['#465fff'],
+               dataLabels: {
+                 enabled: false
+                },        
+                stroke:{
+                  curve:"smooth" ,
+                  with:2
+                },
+          
+              fill:{
+               type:"solid",
+               color:['#000'],
+               opacity:0.9
               },
               
          
             //   labels: series.monthDataSeries1.dates,
               xaxis: {
-                type: 'datetime',
+                 categories: Object.keys(browserCount),
+               labels:{show:false},
+               axisBorder:{show:false},
+               axisTicks:{show:false},
               },
-              yaxis: {
-                opposite: true
-              },
+            yaxis: {
+              
+    labels: { show: false },
+    axisBorder: { show: false },
+    axisTicks: { show: false },
+  },
+  grid:{
+show:false
+  },
+
               legend: {
-                horizontalAlign: 'left'
+              show:false
               }
             }
             const series = [
   {
     name: "Visitors",
-     data: Visit.map((item)=>({
-      x:item.ip,
-      y:item.browser
-     }))
+  data: Object.values(browserCount)
   }
 ];
 
