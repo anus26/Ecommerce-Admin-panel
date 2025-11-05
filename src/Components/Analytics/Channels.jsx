@@ -6,6 +6,7 @@ import { IoMdArrowForward } from "react-icons/io";
 const Channels = () => { 
 
 const [visit,setVisit]=useState([])
+const [chartIndex,setChartIndex]=useState(0)
 
 const fetch=async()=>{
     const res=await axios.get("http://localhost:5000/api/v1/getvisit")
@@ -32,10 +33,50 @@ const browserCount = visit.reduce((acc, item) => {
   return acc;
 }, {});
 
+const deviceCount=visit.reduce((acc,item)=>{
+  acc[item.device]=(acc[item.device]||0)+1
+  return acc
+},{})
 
 
+const ipCount=visit.reduce((acc,item)=>{
+  acc[item.ip]=(acc[item.ip]||0)+1
+  return acc
+},{})
 
 
+useEffect(()=>{
+  const interval=setInterval(fetch,500)
+  return()=>clearInterval(interval)
+  return acc
+}) 
+
+  // ✅ Rotate chart every 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setChartIndex(prev => (prev + 1) % ChartData.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+const ChartData=[
+  {
+    title:"Visitor by Browser",
+    categories:Object.keys(browserCount),
+    value:Object.values(browserCount)
+  },
+    {
+    title:"Visitor by Device",
+    categories:Object.keys(deviceCount),
+    value:Object.values(deviceCount)
+  },
+    {
+    title:"Visitor by Ip",
+    categories:Object.keys(ipCount),
+    value:Object.values(ipCount)
+    }
+
+]
 
 
 
@@ -49,31 +90,48 @@ const browserCount = visit.reduce((acc, item) => {
                 },
                toolbar:{show:false}
               },
-               colors: ['#465fff'],
+              //  colors: ['#3788d8'],
                dataLabels: {
                  enabled: false
                 },        
                 stroke:{
                   curve:"smooth" ,
-                  with:2
+                  with:2,
+                  colors: ['#3788d8'],
                 },
           
               fill:{
-               type:"solid",
-               color:['#000'],
-               opacity:0.9
+               type:"gradient",
+              //  color:['#000'],
+              //  opacity:0.4,
+               opacityFrom: 0.4,
+opacityTo: 0.1,
+
+                   gradientToColors: ['#7da7ff'],
+                    colorStops: [
+        {
+          offset: 0,
+          color: "#60A5FA", // Light blue top
+          opacity: 0.5
+        },
+        {
+          offset: 100,
+          color: "#FFFFFF", // White bottom
+          opacity: 0.1
+        },
+      ] 
               },
               
          
             //   labels: series.monthDataSeries1.dates,
               xaxis: {
-                 categories: Object.keys(browserCount),
+                 categories: ChartData[chartIndex]?.categories||[],
+                
                labels:{show:false},
                axisBorder:{show:false},
                axisTicks:{show:false},
               },
             yaxis: {
-              
     labels: { show: false },
     axisBorder: { show: false },
     axisTicks: { show: false },
@@ -88,8 +146,12 @@ show:false
             }
             const series = [
   {
-    name: "Visitors",
-  data: Object.values(browserCount)
+    name: ChartData[chartIndex]?.title,
+  data: 
+    ChartData[chartIndex]?.value||[]
+  
+  
+
   }
 ];
 
