@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { use } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { FaArrowRightArrowLeft } from 'react-icons/fa6'
 import { IoMdArrowForward } from "react-icons/io";
@@ -50,6 +51,12 @@ useEffect(()=>{
   return()=>clearInterval(interval)
   return acc
 }) 
+useEffect(()=>{
+  const interval =setInterval(() => {
+    setChartIndex(prev=>(prev+1)%visit.length)
+  },5000);
+  return ()=>clearInterval(interval)
+},[])
 
   // ✅ Rotate chart every 5s
   useEffect(() => {
@@ -58,6 +65,11 @@ useEffect(()=>{
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+  // const visit=[
+  //   {
+  //     visit.browser
+  //   },{visit.device}
+  // ]
 
 const ChartData=[
   {
@@ -235,9 +247,11 @@ show:false
 
             </div>
            </div>
-           <div>
-             <div className='chart border border-gray rounded-lg m-5  w-[100%] text-left bg-white'>
-                <ReactApexChart   options={options} type='area' series={series} height={350} />
+           <div className='border border-gray rounded-lg m-5 w-[50%]  bg-white'>
+            <h1 className='font-bold text-2xl m-5'>Active Users</h1>
+            <h1>{visit.browser}{visit.device}{visit.ip}Live Visitors</h1>
+             <div className='chart border border-gray rounded-lg m-5  text-left bg-gray3'>
+                <ReactApexChart   options={options} type='area' series={series} height={250} />
               </div>
            </div>
         </div>
