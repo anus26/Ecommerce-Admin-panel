@@ -161,7 +161,7 @@ data: [{
     
   return (
 <>
-<div className='bg-white rounded-lg border border-gray'>
+<div className='bg-white rounded-lg border border-gray m-5'>
     <div className='flex justify-between m-5  '>
 <h1 className='font-semibold text-xl'>Monthly Sales</h1>
 <div className='flex border-gray border bg-gray gap-5 h-12 rounded-lg w-[28%] items-center text-center justify-center'>
