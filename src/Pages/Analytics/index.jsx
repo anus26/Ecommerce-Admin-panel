@@ -4,6 +4,7 @@ import { IoAdd } from 'react-icons/io5'
 import Analyticsgraph from '../../Components/Analytics/Anaylticsgraph'
 import Channels from '../../Components/Analytics/Channels'
 import Acquiction from '../../Components/Analytics/Acquiction'
+import Globalandproduct from '../../Components/Analytics/Globalandproduct'
 
 const Analytics = () => {
   return (
@@ -81,6 +82,9 @@ const Analytics = () => {
     </div>
 <div>
   <Acquiction/>
+</div>
+<div>
+ <Globalandproduct/>
 </div>
   </div>
   </div>
