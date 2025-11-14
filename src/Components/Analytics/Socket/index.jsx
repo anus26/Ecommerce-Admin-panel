@@ -25,6 +25,7 @@ useEffect(()=>{
   </div>
   <h1 className='font-semibold text-2xl'>{visitorcount}</h1>
   <span>Live Visitor</span>
+
 </div>
 
   )

@@ -72,13 +72,18 @@ const options= {
 
   return (
 <>
-<section className='Device'>
-    <div className='device bg-white rounded-xl border-xl m-5'>
-<h1>Sessions by Device</h1>
-                  <div id="chart">
-                <ReactApexChart options={options} series={series} type="donut" width={380} />
+<section className='Device '>
+    <div className='m-5 device bg-white rounded-xl border-xl h-100  w-[100%]'>
+
+    <div className=''>
+      
+
+<h1 className='font-semibold text-xl m-5 p-5'>Sessions by Device</h1>
+                  <div id="chart m-5  ">
+                <ReactApexChart options={options} series={series} type="donut" width={400} height={400} />
               </div>
 
+    </div>
     </div>
 
 </section>

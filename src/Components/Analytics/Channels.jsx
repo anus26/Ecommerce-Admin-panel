@@ -168,8 +168,8 @@ show:false
 <section>
     <div className='Channels flex'>
         {/* channels 1 */}
-        <div className='border border-gray rounded-lg m-5  w-[28%] text-left bg-white '>
-           <div className='m-5 '>
+        <div className='border border-gray rounded-lg m-5  w-[26%] text-left bg-white h-96 '>
+           <div className='m-3 '>
             <h1  className='font-semibold text-lg'>Top Channels</h1>
             
             <table className="min-w-full text-left border-collapse m-3">
@@ -206,8 +206,8 @@ show:false
             </div>
            </div>
      {/* 2 */}
-      <div className='border border-gray rounded-lg m-5  w-[28%] text-left bg-white '>
-           <div className='m-5 '>
+      <div className='border border-gray rounded-lg m-5  w-[26%] text-left bg-white h-96'>
+           <div className='m-3 '>
             <h1  className='font-semibold text-lg'>Top Channels</h1>
             
             <table className="min-w-full text-left border-collapse m-3">
@@ -248,7 +248,26 @@ show:false
             <h1 className='m-5'><Socket/></h1>
              <div className='chart border border-gray rounded-lg m-5  text-left bg-gray3'>
                 <ReactApexChart   options={options} type='area' series={series} height={250} />
-              </div>
+              </div> 
+             <div className='m-5 flex justify-center items-center gap-10'>
+
+  <div className='flex flex-col items-center font-semibold text-xl pr-10 border-r border-textt'>
+    224
+    <span className='text-textt text-sm font-normal'>Avg. Daily</span>
+  </div>
+
+  <div className='flex flex-col items-center font-semibold text-xl pr-10 border-r border-textt'>
+    224
+    <span className='text-textt text-sm font-normal'>Avg. Daily</span>
+  </div>
+
+  <div className='flex flex-col items-center font-semibold text-xl'>
+    224
+    <span className='text-textt text-sm font-normal'>Avg. Daily</span>
+  </div>
+
+</div>
+
            </div>
         </div>
     

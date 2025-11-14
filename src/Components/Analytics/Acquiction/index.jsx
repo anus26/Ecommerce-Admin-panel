@@ -93,7 +93,7 @@ const monthSourceData={}
             
               },
                 yaxis: {
-   show:false
+   show:true
     },
               legend: {
 
@@ -111,17 +111,20 @@ const monthSourceData={}
   return (
     <>
     <section>
-        <div className='Acquiction flex'>
-           <div className='bg-white border rounded-xl border-gray m-5 w-[60%] scroll-y'>
+        <div className='Acquiction flex  '>
+           <div className='bg-white border rounded-xl border-gray w-[55%] m-5 scroll-y'>
             <h1 className='font-bold text-xl m-5'>Acquisition Channels</h1>
 
             
 
              <div id="chart  ">
-                <ReactApexChart options={options} series={series} type="bar" height={350} width={700}/>
+                <ReactApexChart options={options} series={series} type="bar" height={350} width={650}/>
               </div>
            </div>
+     
+
            <Secciondevice/>
+ 
 
         </div>
 
