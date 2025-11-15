@@ -111,14 +111,14 @@ const monthSourceData={}
   return (
     <>
     <section>
-        <div className='Acquiction flex  '>
-           <div className='bg-white border rounded-xl border-gray w-[55%] m-5 scroll-y'>
+        <div className='Acquiction grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 '>
+           <div className='bg-white border rounded-xl border-gray  m-5 scroll-y  lg:col-span-1 md:col-span-1 '>
             <h1 className='font-bold text-xl m-5'>Acquisition Channels</h1>
 
             
 
-             <div id="chart  ">
-                <ReactApexChart options={options} series={series} type="bar" height={350} width={650}/>
+             <div className="chart   ">
+                <ReactApexChart options={options} series={series} type="bar"  width="100%"   height={350}/>
               </div>
            </div>
      
