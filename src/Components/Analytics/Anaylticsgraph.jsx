@@ -3,6 +3,8 @@ import Chart from "react-apexcharts";
 import dayjs from 'dayjs';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear'
 import { PiDotsThreeVertical } from "react-icons/pi";
+
+
 dayjs.extend(quarterOfYear)
 const Analyticsgraph = () => {
      const [selected,setSelected]=useState(null)
@@ -37,8 +39,14 @@ const   options = {
           chart: {
           type: 'bar',
           height: 300,
-          toolbar:{show:false}
+          stacked: true,
+          toolbar:{show:false,
+
+
+          },
+ 
         },
+
  responsive: [
     {
       breakpoint: 1280,
@@ -162,9 +170,9 @@ data: [{
   return (
 <>
 <div className='bg-white rounded-lg border border-gray m-5 '>
-    <div className='flex justify-between m-5  '>
+    <div className='grid grid-cols-1 justify-between m-5 lg:grid-cols-2 md:gird-cols-1   md:gap-5 '>
 <h1 className='font-semibold text-xl'>Monthly Sales</h1>
-<div className='flex border-gray border bg-gray gap-5 h-12 rounded-lg w-[28%] items-center text-center justify-center'>
+<div className='flex border-gray border bg-gray gap-5 h-12 rounded-lg lg:w-full md:w-[50%]  items-center text-center justify-center   '>
   <button className={`bg-gray rounded-md w-[52%] h-11  hover:text-black text-textt font-semibold ${selected==='12month' ?'bg-white border border-gray ':""} `} onClick={handle}>
     12months
   </button>
@@ -178,18 +186,6 @@ data: [{
     24hours
   </button>
 </div>
-  <div className="relative">
-      <PiDotsThreeVertical onClick={() => setOpen(!open)} />
-      {open && (
-        <div className="absolute bg-white w-42 h-20 right-0 top-0 m-4 border border-gray rounded-xl">
-          {menuItems.map((item) => (
-            <div key={item.id} className="m-2 font-lg">
-              {item.id}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
         </div>
         <div className='w-full xl:w-full sm:w-full overflow-x-auto text-textt '>  
        <Chart options={options} series={series} type='bar'  height={410}   />

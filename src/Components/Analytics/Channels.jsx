@@ -166,9 +166,9 @@ show:false
   return (
 <>
 <section>
-    <div className='Channels flex'>
+    <div className='Channels grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
         {/* channels 1 */}
-        <div className='border border-gray rounded-lg m-5  w-[26%] text-left bg-white h-96 '>
+        <div className='border border-gray rounded-lg m-5   text-left bg-white h-96  '>
            <div className='m-3 '>
             <h1  className='font-semibold text-lg'>Top Channels</h1>
             
@@ -206,7 +206,7 @@ show:false
             </div>
            </div>
      {/* 2 */}
-      <div className='border border-gray rounded-lg m-5  w-[26%] text-left bg-white h-96'>
+      <div className='border border-gray rounded-lg m-5   text-left bg-white h-96 '>
            <div className='m-3 '>
             <h1  className='font-semibold text-lg'>Top Channels</h1>
             
@@ -243,9 +243,9 @@ show:false
 
             </div>
            </div>
-           <div className='border border-gray rounded-lg m-5 w-[50%]  bg-white'>
+           <div className='border border-gray rounded-lg m-5 md:col-span-2  bg-white  lg:col-span-1 '>
             <h1 className='font-bold text-2xl m-5'>Active Users</h1>
-            <h1 className='m-5'><Socket/></h1>
+            <h1 className='m-5 '><Socket/></h1>
              <div className='chart border border-gray rounded-lg m-5  text-left bg-gray3'>
                 <ReactApexChart   options={options} type='area' series={series} height={250} />
               </div> 

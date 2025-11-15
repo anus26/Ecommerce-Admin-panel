@@ -11,9 +11,9 @@ const Analytics = () => {
  <>
  <section>
   <div className='Analytics '>
-    <div className='m-5 flex justify-between gap-5'>
+    <div className='m-5 grid justify-between gap-5 lg:grid-cols-4   md:grid-cols-2 grid-cols-1'>
       {/* first 1 */}
-      <div className='bg-white border border-gray rounded-xl w-[25%] h-28'>
+      <div className='bg-white border border-gray rounded-xl  h-28  '>
         <div className='m-5 '>
 
         <h1 className='text-textt '>Unique Visitors</h1>
@@ -28,7 +28,7 @@ const Analytics = () => {
         </div>
       </div>
       {/* 2 */}
-       <div className='bg-white border border-gray rounded-xl w-[25%] h-28'>
+       <div className='bg-white border border-gray rounded-xl  h-28'>
         <div className='m-5 '>
 
         <h1 className='text-textt '>Unique Visitors</h1>
@@ -43,7 +43,7 @@ const Analytics = () => {
         </div>
       </div>
 {/*3 */}
- <div className='bg-white border border-gray rounded-xl w-[25%] h-28'>
+ <div className='bg-white border border-gray rounded-xl  h-28'>
         <div className='m-5 '>
 
         <h1 className='text-textt '>Unique Visitors</h1>
@@ -58,7 +58,7 @@ const Analytics = () => {
         </div>
       </div>
       {/* 4 */}
-      <div className='bg-white border border-gray rounded-xl w-[25%] h-28'>
+      <div className='bg-white border border-gray rounded-xl  h-28'>
         <div className='m-5 '>
 
         <h1 className='text-textt '>Unique Visitors</h1>

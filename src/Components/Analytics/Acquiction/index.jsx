@@ -56,7 +56,7 @@ const monthSourceData={}
                 //   enabled: true
                 // }
               },
-                  colors: ['#465fff',"#3788d8","#3641f5"],
+                  colors: ['#667085',"#3788d8","#3641f5"],
               responsive: [{
                 breakpoint: 480,
                 options: {
