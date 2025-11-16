@@ -26,7 +26,7 @@ setPosition([pos.coords.latitude,pos.coords.longitude])
     )
 },[])
   return (
-    <div className="border border-gray bg-white rounded-xl m-5 xl:w-[40%] lg:w-[95%] ">
+    <div className="border border-gray bg-white rounded-xl m-5  ">
         <div className="flex justify-between m-5">
    <h1 className="font-semibold text-lg">Customers Demographic</h1>
     <div className="relative">

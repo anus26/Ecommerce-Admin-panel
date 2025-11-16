@@ -29,7 +29,7 @@ const Orders = () => {
 
   return (
     <>
-      <div className='bg-white border border-gray rounded-xl xl:w-[50%] m-5 lg:w-[95%]  sm:overflow-x-auto '>
+      <div className='bg-white border border-gray rounded-xl  m-5   sm:overflow-x-auto '>
         {/* Header */}
         <div className='flex justify-between m-4'>
           <h1 className='font-semibold text-xl'>Recent Orders</h1>
