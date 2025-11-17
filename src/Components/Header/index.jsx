@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaBarsStaggered, FaBedPulse } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { IoMoonOutline } from "react-icons/io5";
 import { CiBellOn } from "react-icons/ci";
 import Sidebar from '../Sidebar';
 import { RiDeleteBack2Line } from "react-icons/ri";
+import { AppContext } from '../../Context/AppContext';
 const Header = () => {
   const [sidebar,setSidebar]=useState(false)
   const [close,setclose]=useState(true)
+  const {header,setHeader}=useContext(AppContext)
   const handleclick=()=>{
-   setSidebar(prev=>!prev)
+   setHeader(prev=>!prev)
  
   }
-if(sidebar){
+if(header){
   document.body.classList.add("overflow-hidden")
 }else{
   document.body.classList.remove("overflow-hidden")
@@ -29,7 +31,7 @@ if(sidebar){
          
 
           
-          { sidebar
+          {header
          ? <h1 className='xl:hidden ' > <RiDeleteBack2Line  /></h1>
           :<FaBarsStaggered className="m-2 text-black  "   /> 
                   }
@@ -67,7 +69,7 @@ if(sidebar){
 
 
 
-{sidebar && (
+{header && (
   <>
 <div className='fixed inset-0  bg-black/50  z-40' onClick={handleclick}>
 

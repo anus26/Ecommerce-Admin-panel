@@ -22,13 +22,13 @@ import Analytics from './Pages/Analytics'
 
 
 
-export const MyContext = createContext()
+// export const MyContext = createContext()
 
 const App = () => {
   const {sidebar}=Header
   return (
     <BrowserRouter>
-      <MyContext.Provider value={{}}>
+      {/* <MyContext.Provider value={{}}> */}
         <Routes>
           {/* Layout parent route */}
           <Route path="/" element={<Layouts />}>
@@ -55,7 +55,7 @@ const App = () => {
                   <Route path="verification" element={<Verification />} />
                   <Route path="reset" element={<Reset />} />
         </Routes>
-      </MyContext.Provider>
+      {/* </MyContext.Provider> */}
     </BrowserRouter>
   )
 }
