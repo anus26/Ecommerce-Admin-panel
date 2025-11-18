@@ -9,11 +9,14 @@ import { AppContext } from '../../Context/AppContext';
 const Header = () => {
   const [sidebar,setSidebar]=useState(false)
   const [close,setclose]=useState(true)
-  const {header,setHeader}=useContext(AppContext)
+  const {header,setHeader,logout}=useContext(AppContext)
+
+  
   const handleclick=()=>{
    setHeader(prev=>!prev)
  
   }
+
 if(header){
   document.body.classList.add("overflow-hidden")
 }else{
@@ -59,6 +62,7 @@ if(header){
         <button className='border-2 border-gray rounded-full p-3'><IoMoonOutline className='text-2xl' /></button>
          <button className='border-2 border-gray rounded-full p-3'><CiBellOn  className='text-2xl' /></button>
       </div>
+      <button onClick={logout}>Logout</button>
     </div>
     <div className='border-b-2 border-gray '></div>
 

@@ -32,8 +32,8 @@ const App = () => {
       {/* <MyContext.Provider value={{}}> */}
         <Routes>
           {/* Layout parent route */}
-               <Route path="signup" element={<Signup />} />
                <Route path="signin" element={<Signin />} />
+               <Route path="signup" element={<Signup />} />
                <Route path="verification" element={<Verification />} />
                <Route path="reset" element={<Reset />} />
 

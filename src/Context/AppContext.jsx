@@ -6,7 +6,11 @@ export default function AppProvider({children}){
     const [user ,setUser]=useState(()=>{
         return localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")):null
     })
-    const login =(data)=>{
+    const Signin =(data)=>{
+        setUser(data)
+        localStorage.setItem('user',JSON.stringify(data))
+    }
+        const Signup =(data)=>{
         setUser(data)
         localStorage.setItem('user',JSON.stringify(data))
     }
@@ -15,7 +19,7 @@ export default function AppProvider({children}){
         localStorage.removeItem('user')
     }
     return (
-        <AppContext.Provider  value={{header,setHeader,user,login,logout}}>
+        <AppContext.Provider  value={{header,setHeader,user,Signin,logout,Signup}}>
             {children}
         </AppContext.Provider>
     )
