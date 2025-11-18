@@ -18,6 +18,7 @@ import Billing from './Components/Billing'
 import Transactions from './Components/Transactions'
 import SingleTransactions from './Components/SingleTransactions'
 import Analytics from './Pages/Analytics'
+import ProtectedRoutes from './Components/ProtectedRoutes'
 
 
 
@@ -31,7 +32,17 @@ const App = () => {
       {/* <MyContext.Provider value={{}}> */}
         <Routes>
           {/* Layout parent route */}
-          <Route path="/" element={<Layouts />}>
+               <Route path="signup" element={<Signup />} />
+               <Route path="signin" element={<Signin />} />
+               <Route path="verification" element={<Verification />} />
+               <Route path="reset" element={<Reset />} />
+
+          <Route path="/" element={
+               <ProtectedRoutes>
+            
+            <Layouts />
+               </ProtectedRoutes>
+            }>
           
             {/* Default page */}
           
@@ -49,11 +60,6 @@ const App = () => {
                    <Route path='singletransactions' element={<SingleTransactions/>}/>
                    <Route path='analytics' element={<Analytics/>}/>
           </Route>
-            <Route path="signin" element={<Signin />} />
-               <Route path="signup" element={<Signup />} />
-
-                  <Route path="verification" element={<Verification />} />
-                  <Route path="reset" element={<Reset />} />
         </Routes>
       {/* </MyContext.Provider> */}
     </BrowserRouter>

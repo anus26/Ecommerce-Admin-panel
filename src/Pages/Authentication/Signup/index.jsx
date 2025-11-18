@@ -6,7 +6,7 @@ import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import './Style.css'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 axios.defaults.withCredentials=true //allow  cookies  globaly
 const Signup = () => {
   const [open , setOpen]=useState(false)
@@ -16,6 +16,7 @@ const Signup = () => {
     password: "",
     confirmpassword: ""
   });
+  const navigate=useNavigate()
   const handlechange=(e)=>{
     setFormData({...formData,[e.target.name]:e.target.value})
   }
@@ -28,6 +29,7 @@ try {
  localStorage.setItem('user',JSON.stringify(res.data.user))
 
   console.log('Signup successfully', res.data.user);
+  navigate('/')
   
 } catch (error) {
     console.error("Signup Error:", error.response?.data || error.message);

@@ -6,7 +6,7 @@ import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import './Style.css'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 axios.defaults.withCredentials = true;
 const Signin = () => {
   const [open , setOpen]=useState(false)
@@ -16,6 +16,7 @@ const Signin = () => {
       password:"",
     
     });
+    const navigate=useNavigate()
       const handlechange=(e)=>{
     setFormData({...formData,[e.target.name]:e.target.value})
   }
@@ -27,6 +28,7 @@ try {
  withCredentials:true})
 
   console.log('Signin successfully', res.data);
+  navigate("/")
   
 } catch (error) {
     console.error("Signup Error:", error.response?.data || error.message);
