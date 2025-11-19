@@ -136,7 +136,7 @@ data: [{
       )}
     </div>
         </div>
-        <div className='w-full xl:w-full sm:w-full overflow-x-auto'>  
+        <div className='w-full'>  
        <Chart options={options} series={series} type='bar'  height={210}   />
     </div>
 </div>

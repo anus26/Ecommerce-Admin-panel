@@ -95,7 +95,7 @@ const ApexChart = () => {
 
   return (
     <>
-    <div className="bg-gray1 rounded-xl w-full xl:w-full lg:w-full  md:w-full  sm:w-full mx-auto">
+    <div className="bg-gray1 rounded-xl ">
 
   <div className="bg-white p-4 rounded-xl outline-none min-h-[420px] ">
   {/* Top Part - White */}

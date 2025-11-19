@@ -35,9 +35,12 @@ const menuItems=[
   return (
 <>
 <section className="dashboard bg-gray3 min-h-screen w-full " >
-<div className='bg-gray-50 m-5 flex gap-10 md:flex  sm:flex-wrap   '>
+<div className='bg-gray-50 m-5  grid gap-5 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 '>
   {/* 1 */}
-<div className='border border-gray  xl:w-72 lg:w-96 md:w-80  sm:w-full bg-white rounded-2xl h-52'>
+<div className="grid grid-cols-1 md:grid-cols-1 gap-5">
+<div className='grid grid-cols-1 md:grid-cols-2 gap-5 '>
+
+<div className='border border-gray   bg-white rounded-2xl h-52'>
 <div className='border-4 border-gray rounded-xl w-12 h-12    bg-gray-200 m-5 '>
 
 <FiUsers className=' h-5  w-10 m-1' />
@@ -56,7 +59,7 @@ const menuItems=[
 
 </div>
 {/* 2 */}
-<div className='border border-gray   xl:w-72 lg:w-96 md:w-80  sm:w-full  bg-white rounded-2xl h-52 '>
+<div className='border border-gray     bg-white rounded-2xl h-52 '>
 <div className='border-4 border-gray rounded-xl w-12 h-12    bg-gray-200 m-5 '>
 
 <FiUsers className=' h-5  w-10 m-1' />
@@ -68,12 +71,18 @@ const menuItems=[
 
 </div>
 
+
+</div> 
 </div>
+<div className='border border-gray col-span-2   bg-white  rounded-xl  '>
+  <Monthly/>
+  </div>
  
+</div>
 {/* 3 */}
 
 
-<div className='Apexchart xl:w-[40%] lg:w-[100%] md:w-[90%]  sm:w-full xl:h-52 lg:h-[40] sm:h-[30] border border-gray rounded-lg'>
+<div className='Apexchart    border border-gray rounded-lg'>
 
 
 
@@ -81,11 +90,9 @@ const menuItems=[
 
 
 </div>
-</div>
-{/* Monthly */}
-  <div className='border border-gray xl:w-[52%] lg:w-[95%] md:w-[95%] sm:w-[95%]  bg-white m-5 rounded-xl  mt-1'>
-  <Monthly/>
+ 
   </div>
+{/* Monthly */}
   <div className='' >
     <Static/>
   </div>
