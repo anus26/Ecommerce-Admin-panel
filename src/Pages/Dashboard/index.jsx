@@ -38,7 +38,7 @@ const menuItems=[
 <div className='bg-gray-50 m-5  grid gap-5 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 '>
   {/* 1 */}
 <div className="grid grid-cols-1 md:grid-cols-1 gap-5">
-<div className='grid grid-cols-1 md:grid-cols-2 gap-5 '>
+<div className='grid grid-cols-1 md:grid-cols-2 gap-5 col-span-2 '>
 
 <div className='border border-gray   bg-white rounded-2xl h-52'>
 <div className='border-4 border-gray rounded-xl w-12 h-12    bg-gray-200 m-5 '>

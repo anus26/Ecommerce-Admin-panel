@@ -58,7 +58,7 @@ const monthSourceData={}
               },
                   colors: ['#667085',"#3788d8","#3641f5"],
               responsive: [{
-                breakpoint: 480,
+                breakpoint: 300,
                 options: {
                   legend: {
                     position: 'bottom',

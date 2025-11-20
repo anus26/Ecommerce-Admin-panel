@@ -38,34 +38,55 @@ const sendVisit = async () => {
 const labels=Object.keys(deviceCount)
    const series=Object.values(deviceCount)  
 
-const options= {
-              chart: {
-                // width: 380,
-                type: 'donut',
-              },
-              colors:["#3641f5","#465fff","#667085"],
-              labels,
-            //   dataLabels: {
-            //     enabled: false
-            //   },
-              legend: {
-      position: "bottom",
+const options = {
+  chart: {
+    type: "donut",
+    height:400,
+    width:400
+   
+
+  },
+  colors: ["#3641f5", "#465fff", "#667085"],
+  labels,
+  legend: {
+    position: "bottom",
+  },
+  responsive: [
+    {
+      breakpoint: 1280,
+      options: {
+        chart: {
+          width:400,
+        },
+      },
     },
-              responsive: [{
-                breakpoint: 480,
-                options: {
-                  chart: {
-                    width: 200
-                  },
-              
-                  legend: {
-                    show: false
-                  }
-                }
-              }],
-              
-          
-            }
+    {
+      breakpoint: 768,
+      options: {
+        chart: {
+          width: 300,
+        },
+      },
+    },
+    {
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200,
+        },
+      },
+    },
+    {
+      breakpoint: 360,
+      options: {
+        chart: {
+          width: 300,
+        },
+      },
+    },
+  ],
+};
+
           
           
     
@@ -73,15 +94,22 @@ const options= {
   return (
 <>
 <section className='Device '>
-    <div className='m-5 device bg-white rounded-xl border-xl h-100  '>
+    <div className='m-5 device bg-white rounded-xl border-xl   '>
 
     <div className=''>
       
 
 <h1 className='font-semibold text-xl m-5 p-5'>Sessions by Device</h1>
-                  <div className="chart m-5 md:flex md:justify-center md:items-center ">
-                <ReactApexChart options={options} series={series} type="donut" width={400} height={400} />
-              </div>
+            <div className="chart m-5 flex justify-center items-center">
+  <ReactApexChart 
+    options={options} 
+    series={series} 
+    type="donut"
+    width={400}
+    height={400}
+  />
+</div>
+
 
     </div>
     </div>

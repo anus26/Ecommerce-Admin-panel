@@ -126,7 +126,7 @@ const ApexChart = () => {
       options={options}
       series={series}
       type="radialBar"
-      height={350}
+      height={300}
       />
       </div>
     <h1 className="text-center font-semibold text-textt mt-2">
