@@ -6,6 +6,7 @@ import { CiBellOn } from "react-icons/ci";
 import Sidebar from '../Sidebar';
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { AppContext } from '../../Context/AppContext';
+import {IoMdLogOut }  from "react-icons/io";
 const Header = () => {
   const [sidebar,setSidebar]=useState(false)
   const [close,setclose]=useState(true)
@@ -62,7 +63,7 @@ if(header){
         <button className='border-2 border-gray rounded-full p-3'><IoMoonOutline className='text-2xl' /></button>
          <button className='border-2 border-gray rounded-full p-3'><CiBellOn  className='text-2xl' /></button>
       </div>
-      <button onClick={logout}>Logout</button>
+      <button className='bg-white border flex items-center  justify-center gap-1 text-lg font-semibold border-gray transition-all duration-300 hover:bg-gray1 rounded-lg p-2 text-textt' onClick={logout}><span>< IoMdLogOut className='font-bold text-2xl' /></span>Logout</button>
     </div>
     <div className='border-b-2 border-gray '></div>
 

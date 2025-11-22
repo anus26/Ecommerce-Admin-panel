@@ -50,21 +50,21 @@ const Billing = () => {
   return (
 <>
 <section>
-    <div className='m-5'>
+    <div className='m-1'>
         <div className=''>
             <h1 className='text-2xl font-semibold text-black '>Billing</h1>
 {/* first */}
-            <div className='flex'>
+            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
 {/* plan */}
            
-            <div className='border border-gray  bg-white rounded-xl m-5 w-[65%]'>
+            <div className='border border-gray  bg-white rounded-xl m-5 '>
                 <h1 className='text-lg  font-semibold m-5 '>Plan Details</h1>
                 <div className='border border-b border-gray'></div>
 {/* plan */}
                 
-                <div className='flex '>
+                <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 '>
 
-                <div className='border border-gray rounded-xl bg-white w-[50%] m-5 '>
+                <div className='border border-gray rounded-xl bg-white  m-5 '>
                   <div className='m-5'>
                     <h1 className='text-textt text-md font-semibold'>Current Plan</h1>
                     <h1 className='text-md font-semibold'>Professional</h1>
@@ -92,7 +92,7 @@ const Billing = () => {
 
                </div>
                <br />
-                 <div className="w-56 bg-gray rounded-full h-3">
+                 <div className=" bg-gray rounded-full h-3">
     <div
       className="bg-blue-500 h-3 rounded-full"
       style={{ width: "73%" }}
@@ -103,7 +103,7 @@ const Billing = () => {
                 </div>
                   </div>
                   {/* benefits */}
-                <div className='m-5 text-textt  flex flex-col gap-5'>
+                <div className='m-5 text-textt flex flex-col  gap-5'>
                     <h1 className='font-semibold gap-3 text-xl m-2'>
                         Plan Benefits
                         
@@ -115,12 +115,12 @@ const Billing = () => {
                     <h1 className='flex gap-2 line-through'><span><TiDeleteOutline className='text-xl'/></span>Custom Templates</h1>
                     <h1 className='flex gap-2 line-through'><span><TiDeleteOutline className='text-xl'/></span>Advanced Marketing tool</h1>
 
-                <div className='flex gap-4  items-center'>
-                    <button className='w-[50%] h-20 rounded-xl border text-black font-semibold bg-white  hover:bg-gray transition-all duration-300 
+                <div className='justify-center grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4  items-center'>
+                    <button className=' p-1 rounded-lg border text-black font-semibold bg-white  hover:bg-gray transition-all duration-300 
                     border-gray
                     '>Cancel Subscription</button>
                     <button className='bg-primary border border-gray hover:bg-hower transition-all duration-300
-                    w-[60%] h-10 text-white font-semibold rounded-lg
+                    p-1 text-white font-semibold rounded-lg
                     '>Upgrade to Pro</button>
                 </div>
                 </div>
@@ -131,7 +131,7 @@ const Billing = () => {
 
             </div>
             {/* billing info */}
-            <div className="border border-gray  bg-white rounded-xl m-5 w-[35%]">
+            <div className="border border-gray  bg-white rounded-xl m-5 ">
               <h1 className='font-semibold m-5 text-lg'>Billing Info</h1>
   <div className='border border-b border-gray'></div>
  <table className="table-auto m-6 text-textt">
@@ -204,10 +204,10 @@ DE4920348</td>
   </div>
   <div className='border-b border-gray'></div>
   {/*cards  */}
-  <div className='flex'>
+  <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
 
 {/* card */}
-<div className='border border-gray rounded-xl  w-[30%] m-5 p-5'>
+<div className='border border-gray rounded-xl   m-5 p-5'>
 <div className='flex  gap-4 m-5 items-center'>
   <img src="./images/money.png" alt="card" className='border border-gray w-[18%] h-14 ' />
   <div>
@@ -227,7 +227,7 @@ DE4920348</td>
 </div>
 </div>
 {/* visa */}
-<div className='border border-gray rounded-xl  w-[30%] m-5 p-5'>
+<div className='border border-gray rounded-xl   m-5 p-5'>
 <div className='flex  gap-4 m-5 items-center'>
   <img src="./images/visa.png" alt="card" className='border border-gray w-[18%] h-14 ' />
   <div>
@@ -248,7 +248,7 @@ DE4920348</td>
     <button className=' bg-white border border-gray p-1 w-[18%] hover:bg-gray1 transition-all duration-300 rounded-lg'>Delete</button>
 </div>
 {/* paypal */}
-<div className='border border-gray rounded-xl  w-[30%] m-5 p-5'>
+<div className='border border-gray rounded-xl   m-5 p-5'>
 <div className='flex  gap-4 m-5 items-center'>
   <img src="./images/paypal.png" alt="card" className='border border-gray w-[18%] h-14 ' />
   <div>
@@ -273,7 +273,7 @@ DE4920348</td>
 </div>
         </div>
         {/* Third */}
-            <div className='border-gray border-2 bg-white m-5  '>
+            <div className='border-gray border-2 bg-white m-5  overflow-x-auto'>
              <div className='flex gap-5 m-3' >
                 <div>
         

@@ -27,7 +27,7 @@ const   options = {
     },
     {
       breakpoint: 768,
-      options: { chart: { width: 500 } }
+      options: { chart: { width: 400 } }
     },
     {
       breakpoint: 300,
@@ -136,7 +136,7 @@ data: [{
       )}
     </div>
         </div>
-        <div className='w-full'>  
+        <div className='w-full overflow-x-auto'>  
        <Chart options={options} series={series} type='bar'  height={210}   />
     </div>
 </div>

@@ -28,7 +28,7 @@ try {
   
   const res=await axios.post('http://localhost:5000/api/v1/user/signin',formData,{
  withCredentials:true})
- localStorage.setItem('user',JSON.stringify(res.data.user))
+//  localStorage.setItem('user',JSON.stringify(res.data.user))
   console.log('Signin successfully', res.data);
   navigate("/")
   
