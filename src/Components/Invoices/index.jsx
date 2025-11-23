@@ -62,7 +62,7 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
 
             <h1 className='font-semibold text-lg m-5'>Overview</h1>
              <Link className='bg-primary hover:bg-hower text-white m-5
-             font-semibold text-lg flex w-[18%] gap-2 h-[20%] file p-2 
+             font-semibold text-lg flex gap-2 h-[20%] file p-2 
              duration-300 transition-all
              rounded-lg' to="/createinvoice">
              <span ><IoAddSharp className='text-white
@@ -98,15 +98,18 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
         <h1 className='text-textt'>Your most recent invoices list</h1>
         </div>
   
-   <div className='border-2 border-gray w-96 lg:  h-12 rounded-lg flex  gap-2  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 '>
+   <div className='border-2 border-gray w-96    sm:hidden  h-12 rounded-lg lg:flex  gap-2  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 '>
   
         <CiSearch  className='flex items-start m-2 text-2xl '/>
-        <input type="text"  placeholder='Search or Type Command....'  className=' w-96  outline-none  border-gray  rounded-lg'/>
+        <input type="text"  placeholder='Search or Type Command....'  className=' md-4 w-96  outline-none  border-gray  rounded-lg'/>
         </div>
-         <button  className='flex gap-2 border border-gray2 items-center h-12 justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg' > <span><LiaFilterSolid  className='text-lg '/></span>Filter
+        <div className='lg:flex gap-4   sm:hidden'>
+
+         <button  className='flex gap-2  border border-gray2 items-center h-12 justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg' > <span><LiaFilterSolid  className='text-lg '/></span>Filter
 
                         </button>
                                           <button button className='flex gap-2 border  h-12 border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
+        </div>
      </div>
      <div className='overflow-x-auto w-full '>
       <div className='min-w-[1200px]'>

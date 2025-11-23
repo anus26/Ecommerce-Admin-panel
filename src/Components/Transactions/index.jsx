@@ -75,17 +75,17 @@ const [filterDays, setFilterDays] = useState(7);
       <div >
         <h1 className='font-semibold text-2xl'>Transactions</h1>
            <div className='border-gray border-2 bg-white m-5  '>
-             <div className='flex gap-5 m-3' >
+             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 m-3' >
                 <div>
         
                 <h1 className='font-semibold text-lg'>Transactions</h1>
                 <h1 className='text-textt'>Your most recent Transactions list</h1>
                 </div>
      
-           <div className='border-2 border-gray w-96   h-12 rounded-lg flex  gap-2  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 '>
+           <div className='border-2 border-gray  sm:hidden   h-12 rounded-lg lg:flex  gap-2  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 '>
           
                 <CiSearch  className='flex items-start m-2 text-2xl '/>
-                <input type="text"  placeholder='Search or Type Command....'  className=' w-96  outline-none  border-gray  rounded-lg'/>
+                <input type="text"  placeholder='Search or Type Command....'  className='   outline-none  border-gray  rounded-lg'/>
                 </div>
                  <select  className='flex gap-2 border border-gray2 items-center h-12 justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-32 rounded-lg' onChange={handlefilter} >
                 <option >Last 7 Days</option>
@@ -94,39 +94,42 @@ const [filterDays, setFilterDays] = useState(7);
                         <option >Last 30 Days</option>
 
                                 </select>
-                                                  <button className='flex gap-2 border  h-12 border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
+                                                  <button className='lg:flex sm:hidden gap-2 border  h-12 border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
              </div>
-             <div className='flex m-5 text-textt  font-bold'>
-                <h1 className='w-[20%]'>Invoice Number</h1>
-                <h1  className='w-[20%]'>Customer</h1>
-                <h1  className='w-[20%]'>Currency</h1>
-                <h1  className='w-[20%]'>Due Date</h1>
-                <h1  className='w-[10%]'>Total </h1>
-                <h1  className='w-[10%]'>Status</h1>
+             <div className='overflow-x-auto w-full'>
+              <div className='min-w-[1200px]'>
+
+             <div className='grid grid-cols-7 m-5 text-textt  font-bold'>
+                <h1 className=''>Invoice Number</h1>
+                <h1  className=''>Customer</h1>
+                <h1  className=''>Currency</h1>
+                <h1  className=''>Due Date</h1>
+                <h1  className=''>Total </h1>
+                <h1  className=''>Status</h1>
         
         
             
              </div>
             {currentinvoice && currentinvoice.length > 0 ? (
           currentinvoice.map((invoice, index) => (
-            <div key={invoice._id} className="border-b border-gray p-4 rounded-lg mb-3 flex">
-                <h1 className='w-[20%]'>{invoice.InvoiceNumber}</h1>
-              <h2 className="w-[20%]">{invoice.CustomerName}</h2>
-              <h1 className='w-[20%]'>{invoice.Currency}</h1>
-              <h1 className='w-[20%]'>{invoice.DueDate}</h1>
-              <h1 className='w-[10%]'>{invoice.Total}</h1>
+            <div key={invoice._id} className=" p-4   grid grid-cols-7">
+                <h1 className=''>{invoice.InvoiceNumber}</h1>
+              <h2 className="">{invoice.CustomerName}</h2>
+              <h1 className=''>{invoice.Currency}</h1>
+              <h1 className=''>{invoice.DueDate}</h1>
+              <h1 className=''>{invoice.Total}</h1>
              <h1
-          className={`w-[10%] rounded-full font-semibold text-center
+          className={`w-[50%] rounded-xl font-semibold text-center
           ${
             invoice.Status === "Paid"
-              ? "text-color3 bg-color4"
-              : invoice.Status === "Draft"
-              ? "text-color2 bg-color1"
-              : invoice.Status === "Unpaid"
-              ? "text-red1 bg-red2"
-              : "text-gray-600 bg-gray-200" // default style
+            ? "text-color3 bg-color4"
+            : invoice.Status === "Draft"
+            ? "text-color2 bg-color1"
+            : invoice.Status === "Unpaid"
+            ? "text-red1 bg-red2"
+            : "text-gray-600 bg-gray-200" // default style
           }`}
-        >
+          >
           {invoice.Status}
         </h1>
         
@@ -136,8 +139,11 @@ const [filterDays, setFilterDays] = useState(7);
             </div>
           ))
         ) : (
-            <p className="text-center text-gray-500 mt-5">No invoices found</p>
+          <p className="text-center text-gray-500 mt-5">No invoices found</p>
         )}
+        </div>
+
+       </div>
         <div className='flex justify-end'>
         
             <button onClick={prevpage} disabled={currentpage===1}><IoIosArrowBack className='text-xl font-bold'/></button>
