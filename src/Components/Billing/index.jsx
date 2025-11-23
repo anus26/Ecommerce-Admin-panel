@@ -134,7 +134,7 @@ const Billing = () => {
             <div className="border border-gray  bg-white rounded-xl m-5 ">
               <h1 className='font-semibold m-5 text-lg'>Billing Info</h1>
   <div className='border border-b border-gray'></div>
- <table className="table-auto m-6 text-textt">
+ <table className="table-auto m-1 text-textt w-full">
 
 
   <tbody >
@@ -189,7 +189,7 @@ DE4920348</td>
 </table>
 <div className='flex justify-center'>
 
-<button className='border border-gray bg-white hover:bg-gray1 rounded-xl p-3 w-[80%] font-semibold flex gap-6 justify-center transition-all duration-300 '><span><FaPencil className='text-md' /></span>Update Billing Address</button>
+<button className='border border-gray bg-white hover:bg-gray1 rounded-xl m-2  p-3  w-[80%]  font-semibold flex gap-2 justify-center items-center transition-all duration-300 '><span><FaPencil className='text-md' /></span>Update Billing Address</button>
 </div>
             </div>
 </div>
