@@ -273,7 +273,7 @@ DE4920348</td>
 </div>
         </div>
         {/* Third */}
-            <div className='border-gray border-2 bg-white m-5  overflow-x-auto'>
+            <div className='border-gray border-2 bg-white m-5  '>
              <div className='flex gap-5 m-3' >
                 <div>
         
@@ -287,28 +287,32 @@ DE4920348</td>
                                 </button>
                                                   <button className='flex gap-2 border  h-12 border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
              </div>
-             <div className='flex m-5 text-textt  font-bold'>
-                <h1 className='w-[20%]'>Invoice Number</h1>
-                <h1  className='w-[20%]'>Customer</h1>
-                <h1  className='w-[20%]'>Creation Date</h1>
-                <h1  className='w-[20%]'>Due Date</h1>
-                <h1  className='w-[10%]'>Total </h1>
-                <h1  className='w-[10%]'>Status</h1>
+             <div className='overflow-x-auto w-full'>
+              <div className='min-w-[1000px]'>
+
+
+             <div className='grid grid-cols-7 gap-7 m-5 text-textt font-bold'>
+                <h1 className=''>Invoice Number</h1>
+                <h1  className=''>Customer</h1>
+                <h1  className=''>Creation Date</h1>
+                <h1  className=''>Due Date</h1>
+                <h1  className=''>Total </h1>
+                <h1  className=''>Status</h1>
         
         
             
              </div>
             {currentinvoice && currentinvoice.length > 0 ? (
           currentinvoice.map((invoice, index) => (
-            <div key={invoice._id} className="border-b border-gray p-4 rounded-lg mb-3 flex">
-        <img src={'./images/pdf.png'} alt=""  className='w-[3%]'/>
-                <h1 className='w-[20%]'>{invoice.InvoiceNumber}</h1>
-              <h2 className="w-[20%]">{invoice.CustomerName}</h2>
-              <h1 className='w-[20%]'>{invoice.IssueDate}</h1>
-              <h1 className='w-[20%]'>{invoice.DueDate}</h1>
-              <h1 className='w-[10%]'>{invoice.Total}</h1>
+            <div key={invoice.id} className="border-b border-gray p-4 rounded-lg mb-3 grid grid-cols-7 gap-10">
+        
+                <h1 className='flex'><img src={'./images/pdf.png'} alt=""  className='w-[20%]'/>{invoice.InvoiceNumber}</h1>
+              <h2 className="">{invoice.CustomerName}</h2>
+              <h1 className=''>{invoice.IssueDate}</h1>
+              <h1 className=''>{invoice.DueDate}</h1>
+              <h1 className=''>{invoice.Total}</h1>
              <h1
-          className={`w-[10%] rounded-full font-semibold text-center
+          className={`w-[50%] text-center rounded-full font-semibold
           ${
             invoice.Status === "Paid"
               ? "text-color3 bg-color4"
@@ -334,8 +338,8 @@ DE4920348</td>
         
             <button onClick={prevpage} disabled={currentpage===1}><IoIosArrowBack className='text-xl font-bold'/></button>
           {[...Array(Math.ceil((dataToDisplay?.length||0) / perpage))].map((_, index) => {
-              const pageNum = index + 1;
-              
+            const pageNum = index + 1;
+            
               return (
               <button
               key={pageNum}
@@ -345,7 +349,7 @@ DE4920348</td>
                     currentpage === pageNum
                     ? 'text-white bg-primary'
                     : 'bg-white text-black hover:bg-hower'
-                }`}
+                  }`}
                 >
                 {pageNum}
               </button>
@@ -357,7 +361,9 @@ DE4920348</td>
             </div>  
         </div>
   </div>
+                  </div>
     </div>
+                    </div>
 </section>
 </>
   )
