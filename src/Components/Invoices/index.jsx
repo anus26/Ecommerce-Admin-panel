@@ -68,7 +68,7 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
              <span ><IoAddSharp className='text-white
              ' /></span>Create an Invoice</Link>
             </div>
-             <div className="flex flex-wrap justify-between gap-4 border-2 border-gray rounded-xl p-5 w-[90%] m-5 bg-white shadow-sm">
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  sm:divide-y md:divide-x divide-gray  lg:divide-y  lg:divide-x  text-center justify-center items-center gap-4 border-2 border-gray rounded-xl   m-5 bg-white shadow-sm">
   {[
     { title: "Over Due", amount: "$120.80" },
     { title: "Paid", amount: "$980.50" },
@@ -77,7 +77,7 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
   ].map((item, index) => (
     <div
       key={index}
-      className="flex flex-col items-center justify-center w-[22%] min-w-[180px] border-r-2  last:border-r-0 border-gray py-4"
+      className="  py-4"
     >
       <h1 className="text-textt text-sm font-medium">{item.title}</h1>
       <h1 className="font-semibold text-3xl  mt-2">{item.amount}</h1>
@@ -97,18 +97,8 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
         <h1 className='font-semibold text-lg'>Invoices</h1>
         <h1 className='text-textt'>Your most recent invoices list</h1>
         </div>
-          <div className=' outline-none sm:flex-wrap  gap-4 border h-12 border-gray p-2' >
-    {['overview','sale','Revenu'].map((btn)=>(
-
-      
-      
-      <button key={btn} className={`border border-gray px-2 p-1 rounded-lg ${active ===btn?'bg-white  text-black':""}`} onClick={()=>setActive(btn)} >
- {btn.charAt(0).toUpperCase()+btn.slice(1)}
-     </button>
-    ))}
-
-  </div>
-   <div className='border-2 border-gray w-96   h-12 rounded-lg flex  gap-2  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 '>
+  
+   <div className='border-2 border-gray w-96 lg:  h-12 rounded-lg flex  gap-2  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 '>
   
         <CiSearch  className='flex items-start m-2 text-2xl '/>
         <input type="text"  placeholder='Search or Type Command....'  className=' w-96  outline-none  border-gray  rounded-lg'/>
@@ -116,27 +106,31 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
          <button  className='flex gap-2 border border-gray2 items-center h-12 justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg' > <span><LiaFilterSolid  className='text-lg '/></span>Filter
 
                         </button>
-                                          <button className='flex gap-2 border  h-12 border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
+                                          <button button className='flex gap-2 border  h-12 border-gray2 items-center justify-center font-semibold bg-white text-black transition-all duration-300 outline-none hover:bg-gray1  w-24 rounded-lg'>Export <span><TbArrowDownToArc className='text-lg' /></span></button>
      </div>
-     <div className='flex m-5 text-textt  font-bold'>
-        <h1 className='w-[20%]'>Invoice Number</h1>
-        <h1  className='w-[20%]'>Customer</h1>
-        <h1  className='w-[20%]'>Creation Date</h1>
-        <h1  className='w-[20%]'>Due Date</h1>
-        <h1  className='w-[10%]'>Total </h1>
-        <h1  className='w-[10%]'>Status</h1>
+     <div className='overflow-x-auto w-full '>
+      <div className='min-w-[1200px]'>
+
+
+     <div className='grid grid-cols-7 gap-10 m-5 text-textt  font-bold'>
+        <h1 className=''>Invoice Number</h1>
+        <h1  className=''>Customer</h1>
+        <h1  className=''>Creation Date</h1>
+        <h1  className=''>Due Date</h1>
+        <h1  className=''>Total </h1>
+        <h1  className=''>Status</h1>
 
 
     
      </div>
     {currentinvoice && currentinvoice.length > 0 ? (
-  currentinvoice.map((invoice, index) => (
-    <div key={invoice._id} className="border-b border-gray p-4 rounded-lg mb-3 flex">
-        <h1 className='w-[20%]'>{invoice.InvoiceNumber}</h1>
-      <h2 className="w-[20%]">{invoice.CustomerName}</h2>
-      <h1 className='w-[20%]'>{invoice.IssueDate}</h1>
-      <h1 className='w-[20%]'>{invoice.DueDate}</h1>
-      <h1 className='w-[10%]'>{invoice.Total}</h1>
+      currentinvoice.map((invoice, index) => (
+        <div key={invoice._id} className="border-b border-gray p-4 rounded-lg mb-3 grid grid-cols-7 gap-10">
+        <h1 className=''>{invoice.InvoiceNumber}</h1>
+      <h2 className="">{invoice.CustomerName}</h2>
+      <h1 className=''>{invoice.IssueDate}</h1>
+      <h1 className=''>{invoice.DueDate}</h1>
+      <h1 className=''>{invoice.Total}</h1>
      <h1
   className={`w-[10%] rounded-full font-semibold text-center
   ${
@@ -158,8 +152,10 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
     </div>
   ))
 ) : (
-    <p className="text-center text-gray-500 mt-5">No invoices found</p>
+  <p className="text-center text-gray-500 mt-5">No invoices found</p>
 )}
+</div>
+      </div>
 <div className='flex justify-end'>
 
     <button onClick={prevpage} disabled={currentpage===1}><IoIosArrowBack className='text-xl font-bold'/></button>
@@ -167,15 +163,15 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
       const pageNum = index + 1;
       
       return (
-      <button
-      key={pageNum}
+        <button
+        key={pageNum}
         onClick={() => setCurrentPage(pageNum)}
         className={`border border-gray duration-300 transition-all w-12 h-12 rounded-lg font-medium
           ${
             currentpage === pageNum
             ? 'text-white bg-primary'
             : 'bg-white text-black hover:bg-hower'
-        }`}
+          }`}
         >
         {pageNum}
       </button>
@@ -186,7 +182,7 @@ const currentinvoice = dataToDisplay.slice(firstpage, lastpage);
 <button onClick={next} disabled={currentpage ===Math.ceil(invoice.length / perpage)}><IoIosArrowForward  className='text-xl font-bold'/></button>
     </div>  
 </div>
-</div>
+    </div>
 </section>
     
 </>
