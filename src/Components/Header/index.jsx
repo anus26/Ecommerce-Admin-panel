@@ -6,10 +6,13 @@ import { CiBellOn } from "react-icons/ci";
 import Sidebar from '../Sidebar';
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { AppContext } from '../../Context/AppContext';
-import {IoMdLogOut }  from "react-icons/io";
+import {IoIosArrowDown, IoMdLogOut }  from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+import Profile from '../Account/Profile';
 const Header = () => {
   const [sidebar,setSidebar]=useState(false)
   const [close,setclose]=useState(true)
+  const [open,setopen]=useState(false)
   const {header,setHeader,logout}=useContext(AppContext)
 
   
@@ -63,7 +66,25 @@ if(header){
         <button className='border-2 border-gray rounded-full p-3'><IoMoonOutline className='text-2xl' /></button>
          <button className='border-2 border-gray rounded-full p-3'><CiBellOn  className='text-2xl' /></button>
       </div>
-      <button className='bg-white border flex items-center  justify-center gap-1 text-lg font-semibold border-gray transition-all duration-300 hover:bg-gray1 rounded-lg p-2 text-textt' onClick={logout}><span>< IoMdLogOut className='font-bold text-2xl' /></span>Logout</button>
+      <div>
+      
+<div className="relative">
+  <button onClick={() => setopen(prev=>!prev)} className="bg-white border flex items-center gap-2 px-3 py-2">
+    {open ? <IoIosArrowUp /> : <IoIosArrowDown />}
+  </button>
+
+  {open && (
+    <div className="absolute right-0 mt-2 z-50">
+      <Profile />
+    </div>
+  )}
+</div>
+
+
+
+
+
+      </div>
     </div>
     <div className='border-b-2 border-gray '></div>
 

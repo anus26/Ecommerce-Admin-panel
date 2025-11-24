@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../../Context/AppContext';
 axios.defaults.withCredentials = true;
 const Signin = () => {
-  const {setUser}=useContext(AppContext)
+  const {user}=useContext(AppContext)
   const [open , setOpen]=useState(false)
    const [formData, setFormData] = useState({
    
@@ -28,7 +28,7 @@ try {
   
   const res=await axios.post('http://localhost:5000/api/v1/user/signin',formData,{
  withCredentials:true})
-//  localStorage.setItem('user',JSON.stringify(res.data.user))
+//  localStorage.getItem(user)
   console.log('Signin successfully', res.data);
   navigate("/")
   
