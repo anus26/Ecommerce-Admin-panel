@@ -69,7 +69,7 @@ if(header){
       <div>
       
 <div className="relative">
-  <button onClick={() => setopen(prev=>!prev)} className="bg-white border flex items-center gap-2 px-3 py-2">
+  <button onClick={() => setopen(prev=>!prev)} className="bg-white border flex  gap-2 px-3 py-2">
     {open ? <IoIosArrowUp /> : <IoIosArrowDown />}
   </button>
 

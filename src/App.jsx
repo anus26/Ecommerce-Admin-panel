@@ -19,7 +19,7 @@ import Transactions from './Components/Transactions'
 import SingleTransactions from './Components/SingleTransactions'
 import Analytics from './Pages/Analytics'
 import ProtectedRoutes from './Components/ProtectedRoutes'
-import Profile from './Components/Account/Profile'
+import Profile1 from './Components/Account/Profile1'
 
 
 
@@ -49,7 +49,7 @@ const App = () => {
           
             <Route index element={<Dashboard />} />
             {/* Other pages */}
-            <Route path='profile' element={<Profile/>} />
+            <Route path='profile1' element={<Profile1/>} />
             <Route path="home" element={<Home />} />
             <Route path='addProduct' element={<AddProduct/>}/>
               <Route path='singleproduct' element={<SingleProduct/>}/>
