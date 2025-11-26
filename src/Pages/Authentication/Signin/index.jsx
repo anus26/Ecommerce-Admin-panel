@@ -28,7 +28,16 @@ try {
   
   const res=await axios.post('http://localhost:5000/api/v1/user/signin',formData,{
  withCredentials:true})
-//  localStorage.getItem(user)
+    console.log("Signin successful", res.data);
+
+    // Check if user is already saved from signup
+    const savedUser = localStorage.getItem("user");
+
+    if (savedUser) {
+      console.log("User already exists in localStorage.");
+    } else {
+      console.log("User not found in localStorage.");
+    }
   console.log('Signin successfully', res.data);
   navigate("/")
   

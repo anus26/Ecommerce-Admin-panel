@@ -21,7 +21,7 @@ const Profile1 = () => {
                         <div className='flex justify-between m-5'>
                         <div>
 
-                      <h1 >{user.fullname}</h1>
+                      <h1 >{user.firstname}</h1>
                         </div>
                         <div className='flex gap-4'>
                             <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl items-center cursor-pointer'><SlSocialFacebook /></span>
