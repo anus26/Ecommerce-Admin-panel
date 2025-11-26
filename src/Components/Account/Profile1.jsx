@@ -4,6 +4,7 @@ import { SlSocialFacebook } from "react-icons/sl";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { GoPencil } from "react-icons/go";
 const Profile1 = () => {
     const {user}=useContext(AppContext)
 
@@ -23,10 +24,11 @@ const Profile1 = () => {
                       <h1 >{user.fullname}</h1>
                         </div>
                         <div className='flex gap-4'>
-                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl'><SlSocialFacebook /></span>
-                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl'><FaLinkedinIn /></span>
-                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl'><FaInstagram /></span>
-                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl'><FaXTwitter /></span>
+                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl items-center cursor-pointer'><SlSocialFacebook /></span>
+                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl items-center cursor-pointer'><FaLinkedinIn /></span>
+                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl items-center cursor-pointer'><FaInstagram /></span>
+                            <span className='rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-xl items-center cursor-pointer'><FaXTwitter /></span>
+                            <h1 className='flex rounded-full border border-gray transition-all duration-300 hover:bg-gray1 p-3 text-md items-center gap-3 cursor-pointer'><GoPencil />Edit</h1>
                         </div>
                         </div>
                     </div>

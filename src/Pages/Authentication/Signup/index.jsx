@@ -11,10 +11,16 @@ axios.defaults.withCredentials=true //allow  cookies  globaly
 const Signup = () => {
   const [open , setOpen]=useState(false)
   const [formData, setFormData] = useState({
-    fullname: "",
+    firstname: "",
     email: "",
     password: "",
-    confirmpassword: ""
+    confirmpassword: "",
+    position:"",
+      lastname:"",
+            Telephone:"",
+            City:"",
+            Country:"",
+            Postcode:""
   });
   const navigate=useNavigate()
   const handlechange=(e)=>{
@@ -63,11 +69,24 @@ try {
   <form onSubmit={handleclick}>
    <div>
     <div className='flex justify-between gap-5'>
-      <div>
+      <div className='flex gap-2'>
 
+   <div>
+    
       <h1 className='flex font-semibold '>First Name  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
-      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.fullname} name='fullname' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.firstname} name='firstname' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+   </div>
+   <div>
+
+         
+               <h1 className='flex font-semibold '>last Name  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
+      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.lastname} name='lastname' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+   </div>
+   
       </div>
+
+
+
     </div>
     <h1 className='font-semibold flex'>Email <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
     <input type="email" onChange={handlechange} placeholder='info@gmail.com'  name="email" 
@@ -95,6 +114,50 @@ try {
     }
   </span>
       </div>
+            <div className='flex gap-2'>
+
+   
+    <div>
+      <h1 className='flex font-semibold '>Position  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
+      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.position} name='position' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+
+    </div>
+   
+   
+
+         <div>
+
+               <h1 className='flex font-semibold '>Telephone  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
+      <input type="number" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.Telephone} name='Telephone' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+         </div>
+   
+   
+      </div>
+                  <div className='flex gap-2'>
+
+   
+    <div>
+      <h1 className='flex font-semibold '>Country  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
+      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.City} name='City' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+
+    </div>
+   
+   
+
+         <div>
+
+               <h1 className='flex font-semibold '>City  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
+      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.Country} name='Country' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+         </div>
+   
+   
+      </div>
+           <div>
+
+               <h1 className='flex font-semibold '>Postcode  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
+      <input type="number" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.Postcode} name='Postcode' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+         </div>
+
   <div className='mt-4 flex justify-between'>
     <div>
 
