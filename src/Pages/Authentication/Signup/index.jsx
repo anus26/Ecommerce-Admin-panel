@@ -20,17 +20,27 @@ const Signup = () => {
             Telephone:"",
             City:"",
             Country:"",
-            Postcode:""
+            Postcode:"",
+            image:null
   });
   const navigate=useNavigate()
   const handlechange=(e)=>{
     setFormData({...formData,[e.target.name]:e.target.value})
   }
+  const handleimage=(e)=>{
+    setFormData({...formData,image:e.target.files[0]})
+  }
   const handleclick=async(e)=>{
     e.preventDefault()
+    const data = new FormData();
+      Object.keys(formData).forEach((key) => {
+    data.append(key, formData[key]);
+  });
+
 try {
   
   const res=await axios.post('http://localhost:5000/api/v1/user/signup',formData,{
+     headers: { "Content-Type": "multipart/form-data" },
  withCredentials:true})
  localStorage.setItem('user',JSON.stringify(res.data.user))
 
@@ -152,11 +162,17 @@ try {
    
    
       </div>
+      <div className='flex'>
+        
            <div>
 
                <h1 className='flex font-semibold '>Postcode  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
       <input type="number" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.Postcode} name='Postcode' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
          </div>
+         <div>
+        <input type='file' onChange={handleimage}   name='image'/>
+         </div>
+      </div>
 
   <div className='mt-4 flex justify-between'>
     <div>
