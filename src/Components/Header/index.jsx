@@ -13,7 +13,7 @@ const Header = () => {
   const [sidebar,setSidebar]=useState(false)
   const [close,setclose]=useState(true)
   const [open,setopen]=useState(false)
-  const {header,setHeader,logout}=useContext(AppContext)
+  const {header,setHeader,logout,user}=useContext(AppContext)
 
   
   const handleclick=()=>{
@@ -68,13 +68,29 @@ if(header){
       </div>
       <div>
       
-<div className="relative">
-  <button onClick={() => setopen(prev=>!prev)} className="bg-white border flex  gap-2 px-3 py-2">
+<div className="relative flex items-center gap-3">
+
+  {/* User Image */}
+  <img 
+    src={user.imageUrl} 
+    alt="profile"  
+    className='w-12 h-12 rounded-full object-cover'
+  />
+
+  {/* User Name */}
+  <h1 className='text-lg font-semibold'>{user.firstname}</h1>
+
+  {/* Toggle Button */}
+  <button 
+    onClick={() => setopen(prev => !prev)} 
+    className="bg-white  px-3 py-2 rounded-lg shadow-sm flex items-center"
+  >
     {open ? <IoIosArrowUp /> : <IoIosArrowDown />}
   </button>
 
+  {/* Dropdown Box */}
   {open && (
-    <div className="absolute right-0 mt-2 z-50">
+    <div className="absolute right-20 top-14  rounded-lg p-3 z-50 w-48 ">
       <Profile />
     </div>
   )}
