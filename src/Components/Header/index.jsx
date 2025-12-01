@@ -29,7 +29,7 @@ if(header){
   return (
 <>
 <section >
-  <nav className={`nav bg-white border-4 px-4 xl:w-[80%] lg:w-[100%] md:w-[100%] sm:w-[100%] border-slate-50 fixed top-0   z-50 `}>
+  <nav className={`nav bg-white border-4 px-4 xl:w-[78%] lg:w-[100%] md:w-[100%] sm:w-[100%] border-slate-50 fixed top-0   z-50 `}>
     <div className={`flex justify-between  m-5  `}>
       <div className='flex  gap-5 '>
 
@@ -56,7 +56,7 @@ if(header){
 
     
       </div> 
-      <div className='border-2 border-gray w-96   h-12 rounded-lg flex  gap-2  '>
+      <div className='border-2 border-gray w-96  h-12 rounded-lg flex  gap-2  '>
 
       <CiSearch  className='flex items-start m-2 text-2xl '/>
       <input type="text"  placeholder='Search or Type Command....' className= ' outline-none w-96'/>

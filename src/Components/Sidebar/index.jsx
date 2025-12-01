@@ -82,7 +82,7 @@ const Sidebar = () => {
 
   
 {/* border */}
-<div className='border-b-2 border-gray'></div>
+<div className=' border-gray'></div>
 </div>
 {/* menu */}
     <div className=' flex-1 overflow-y-auto  scroll-hidden'>
@@ -137,19 +137,23 @@ const Sidebar = () => {
 
         </div>
         {/* Ai Assitant */}
-         <div className='m-5'>
+         <div className='m-5  '>
 
        <div
-  className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
+  className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg 
     ${activemenu === 'ai assitant' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-primary'}
   `}
   onClick={handleopen2}
 >
 
-        <h1 className='flex gap-1 text-md font-bold items-center justify-between '><span className='text-2xl'>
-          <TbPhoneIncoming  className={`text-line ${activemenu==="ai assitant"?"text-primary ":"text-textt hover:text-primary"}`}/></span> AI Assitant<span className='text-green  bg-dark p-1.5 text-sm rounded-full gap-2'>NEW</span>
+
+        <h1 className='flex gap-1 text-md font-bold items-center  '><span className='text-2xl'>
+          <TbPhoneIncoming  className={`text-line  ${activemenu==="ai assitant"?"text-primary ":"text-textt hover:text-primary"}`}/>
     
+          </span> AI Assitant
          </h1>
+          <span className='text-green    bg-dark p-1.5 text-xs font-small rounded-xl'>NEW</span>
+
            <span className='text-2xl ' >{open2?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
@@ -181,16 +185,19 @@ const Sidebar = () => {
          <div className='m-5'>
 
        <div
-  className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
+  className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg 
     ${activemenu === 'ecommerce' ? 'bg-light text-primary ' : 'text-textt hover:bg-slate-100 hover:text-primary'}
     `}
   onClick={handleopen3}
 >
 
-        <h1 className='flex gap-1 text-md font-bold  items-center justify-between '><span className='text-2xl'><FiShoppingCart className='text-line  ' />
-        </span>  E-commerce<span className='text-green  bg-dark p-1.5 text-sm rounded-full '>NEW</span>
+
+        <h1 className='flex gap-1 text-md font-bold   '><span className='text-2xl'><FiShoppingCart className='text-line  ' />
+        </span>  E-commerce 
     
          </h1>
+        <span className='text-green  bg-dark p-1.5 text-xs rounded-xl font-small  '>NEW</span>
+
            <span className='text-2xl ' >{open3?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 {/* drowdown */}
 

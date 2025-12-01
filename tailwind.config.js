@@ -32,6 +32,9 @@ export default {
   
   
 },
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+    },
   screens:{
       sm:"150px",
       md:"768px",
