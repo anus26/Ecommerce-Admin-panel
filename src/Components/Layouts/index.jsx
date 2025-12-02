@@ -8,7 +8,7 @@ const Layouts= () => {
   return (
    <>
 
-  <div className='w-[22%]  outline-none bg-gray fixed h-full sm:h-full   md:hidden lg:hidden sm:hidden xl:block '>
+  <div className='w-[22%]  outline-none bg-gray fixed     md:hidden lg:hidden sm:hidden xl:block '>
 
 <Sidebar />
   </div>

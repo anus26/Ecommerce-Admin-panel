@@ -12,7 +12,7 @@ const items=[<SlSocialFacebook />,<FaLinkedinIn />,<FaInstagram />,<FaXTwitter /
   return (
     <>
     <section>
-    <div className="profile1 m-3">
+    <div className="profile1 m-3 font-poppins">
   <h1 className="text-xl font-semibold">Profile</h1>
 {/* name */}
   <div className="bg-white border border-gray rounded-xl mt-5">
@@ -58,7 +58,7 @@ const items=[<SlSocialFacebook />,<FaLinkedinIn />,<FaInstagram />,<FaXTwitter /
       </div>
     </div>
 {/* personal information */}
-<div className="bg-white border border-gray rounded-xl mt-5  m-5" >
+<div className="bg-white border border-gray rounded-xl mt-5  m-5 font-poppins" >
     <div className='flex justify-between m-5'>
 
     <h1 className='font-semibold text-xl font-poppins'>Personal Information</h1>
@@ -68,43 +68,43 @@ const items=[<SlSocialFacebook />,<FaLinkedinIn />,<FaInstagram />,<FaXTwitter /
             </div>
     </div >
     {/* 1 */}
- <div className="grid grid-cols-1">
+<div className="grid grid-cols-1  m-5 gap-6">
 
-  {/* Row 1 - First & Last Name */}
-  <div className="m-5 flex gap-28">
+  {/* Row 1 - First Name + Last Name */}
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
     <div>
-      <p className="text-gray-500 text-sm">First Name</p>
+      <p className="text-gray-500 text-sm font-poppins">First Name</p>
       <p className="font-semibold text-black">{user.firstname}</p>
     </div>
 
     <div>
-      <p className="text-gray-500 text-sm">Last Name</p>
+      <p className="text-gray-500 text-sm font-poppins">Last Name</p>
       <p className="font-semibold text-black">{user.lastname}</p>
     </div>
   </div>
 
-  {/* Row 2 - Email & Phone */}
-  <div className="m-5 flex gap-10">
+  {/* Row 2 - Email + Phone (Phone will come under Last Name in same column alignment) */}
+  <div className="grid  grid-cols-1 lg:grid-cols-2  gap-10">
     <div>
-      <p className="text-gray-500 text-sm">Email Address</p>
-      <p className="font-semibold text-black">{user.email}</p>
+      <p className="text-gray-500 text-sm font-poppins">Email Address</p>
+      <p className="font-semibold text-black font-poppins">{user.email}</p>
     </div>
 
     <div>
-      <p className="text-gray-500 text-sm">Phone</p>
-      <p className="font-semibold text-black">{user.Telephone}</p>
+      <p className="text-gray-500 text-sm font-poppins">Phone</p>
+      <p className="font-semibold text-black font-poppins">{user.Telephone}</p>
     </div>
   </div>
 
   {/* Row 3 - Bio */}
-  <div className="m-5">
-    <div>
-      <p className="text-gray-500 text-sm">Bio</p>
-      <p className="font-semibold text-black">{user.position}</p>
-    </div>
+  <div>
+    <p className="text-gray-500 text-sm font-poppins">Bio</p>
+    <p className="font-semibold text-black font-poppins">{user.position}</p>
   </div>
 
 </div>
+
+
 
 
 
@@ -123,20 +123,20 @@ const items=[<SlSocialFacebook />,<FaLinkedinIn />,<FaInstagram />,<FaXTwitter /
  <div className="grid grid-cols-1">
 
   {/* Row 1 - First & Last Name */}
-  <div className="m-5 flex gap-10">
+  <div className="m-5 grid  grid-cols-1 lg:grid-cols-2  gap-10">
     <div>
-      <p className="text-gray-500 text-sm">Country</p>
-      <p className="font-semibold text-black">{user.Country}</p>
+      <p className="text-gray-500 text-sm font-poppins">Country</p>
+      <p className="font-semibold text-black font-poppins">{user.Country}</p>
     </div>
 
     <div>
-      <p className="text-gray-500 text-sm">City/State</p>
-      <p className="font-semibold text-black">{user.City}</p>
+      <p className="text-gray-500 text-sm font-poppins">City/State</p>
+      <p className="font-semibold text-black font-poppins">{user.City}</p>
     </div>
   </div>
 
   {/* Row 2 - Email & Phone */}
-  <div className="m-5 flex gap-10">
+  <div className="m-5 grid  grid-cols-1 lg:grid-cols-2  gap-10 font-poppins">
     <div>
       <p className="text-gray-500 text-sm">Postal Code </p>
       <p className="font-semibold text-black">{user.Postcode}</p>
