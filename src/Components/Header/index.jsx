@@ -56,7 +56,7 @@ if(header){
 
     
       </div> 
-      <div className='border-2 border-gray w-96  h-12 rounded-lg flex  gap-2  '>
+      <div className='border-2 border-gray w-96  h-12 rounded-lg flex  gap-2  xl:block sm:hidden '>
 
       <CiSearch  className='flex items-start m-2 text-2xl '/>
       <input type="text"  placeholder='Search or Type Command....' className= ' outline-none w-96'/>
@@ -74,11 +74,11 @@ if(header){
   <img 
     src={user.imageUrl} 
     alt="profile"  
-    className='w-12 h-12 rounded-full object-cover'
+    className='w-12 h-12 rounded-full object-cover xl:block sm:hidden'
   />
 
   {/* User Name */}
-  <h1 className='text-lg font-semibold'>{user.firstname}</h1>
+  <h1 className='text-lg font-semibold xl:block sm:hidden'>{user.firstname}</h1>
 
   {/* Toggle Button */}
   <button 
@@ -123,9 +123,11 @@ if(header){
   
       <div
         className="
-          fixed top-[94px] left-0 
-          h-[calc(100vh-94px)]
-          w-[260px]
+        fixed  top-[100px]
+        h-[calc(100vh-94px)]
+    
+          md:w-[300px]
+          sm:w-[400px]
           shadow-lg z-50 
           overflow-y-auto
           bg-white 
