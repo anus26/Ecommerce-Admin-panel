@@ -5,6 +5,7 @@ import { IoMoonOutline } from "react-icons/io5";
 import { CiBellOn } from "react-icons/ci";
 import Sidebar from '../Sidebar';
 import { RiDeleteBack2Line } from "react-icons/ri";
+import { HiBars3CenterLeft } from "react-icons/hi2";
 import { AppContext } from '../../Context/AppContext';
 import {IoIosArrowDown, IoMdLogOut }  from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
@@ -13,13 +14,14 @@ const Header = () => {
   const [sidebar,setSidebar]=useState(false)
   const [close,setclose]=useState(true)
   const [open,setopen]=useState(false)
-  const {header,setHeader,logout,user}=useContext(AppContext)
+  const {header,setHeader,logout,user,form,filter,search,setSearch,filteritems,handle}=useContext(AppContext)
 
-  
+
   const handleclick=()=>{
    setHeader(prev=>!prev)
  
   }
+  
 
 if(header){
   document.body.classList.add("overflow-hidden")
@@ -29,18 +31,19 @@ if(header){
   return (
 <>
 <section >
-  <nav className={`nav bg-white border-4 px-4 xl:w-[78%] lg:w-[100%] md:w-[100%] sm:w-[100%] border-slate-50 fixed top-0   z-50 `}>
+  <nav className={`nav bg-white  border-b-2 px-4 xl:w-[78%] lg:w-[100%] md:w-[100%] sm:w-[100%] border-gray fixed top-0   z-50 `}>
+
     <div className={`flex justify-between  m-5  `}>
       <div className='flex  gap-5 '>
 
       <div>
-        <button className='w-12 border-2 h-12 border-gray rounded-lg xl:hidden    ' onClick={handleclick} >
+        <button className='w-12 text-2xl h-12 border-gray rounded-lg xl:hidden    ' onClick={handleclick} >
          
 
           
           {header
          ? <h1 className='xl:hidden ' > <RiDeleteBack2Line  /></h1>
-          :<FaBarsStaggered className="m-2 text-black  "   /> 
+          :<HiBars3CenterLeft className="m-2 text-black  "   /> 
                   }
         
             
@@ -56,10 +59,10 @@ if(header){
 
     
       </div> 
-      <div className='border-2 border-gray w-96  h-12 rounded-lg flex  gap-2  xl:block sm:hidden '>
+      <div className='border-2 border-gray w-96  h-12 rounded-lg xl:flex  gap-2   sm:hidden ' >
 
       <CiSearch  className='flex items-start m-2 text-2xl '/>
-      <input type="text"  placeholder='Search or Type Command....' className= ' outline-none w-96'/>
+      <input type="text"  placeholder='Search or Type Command....'  value={search}      onChange={(handle)} className= ' outline-none w-96'/>
       </div>
       </div>
       <div className='gap-2 flex  sm:hidden'>
@@ -102,7 +105,6 @@ if(header){
 
       </div>
     </div>
-    <div className='border-b-2 border-gray '></div>
 
   </nav> 
 

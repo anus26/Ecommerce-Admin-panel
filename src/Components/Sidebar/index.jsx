@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { PiSquaresFourLight } from "react-icons/pi";
 import { IoIosArrowDown } from "react-icons/io";
 import { ImPacman } from 'react-icons/im';
@@ -19,6 +19,7 @@ import Product from '../Products';
 import { Link } from 'react-router-dom';
 import { RiDeleteBack2Line } from "react-icons/ri";
 import { FaBarsStaggered } from 'react-icons/fa6';
+import { AppContext } from '../../Context/AppContext';
 const Sidebar = () => {
     const [open ,setOpen]=useState(false)
     const [open2 ,setOpen2]=useState(false)
@@ -28,10 +29,24 @@ const Sidebar = () => {
     const [open6 ,setOpen6]=useState(false)
     const [open7 ,setOpen7]=useState(false)
     const [authentication,setAuthentication]=useState(false)
-    
+    const {search,setSearch}=useContext(AppContext)
+
+
+    // const [form ,setForm]=useState({
+    //   path:''
+    // })
   
     const [activemenu ,setActiveMenu ]=useState(null)
     const [active,setActive]=useState(null)
+  //   const handle=(e)=>{
+  //     setSearch(e.target.value)
+  //   }
+
+  // const filteritems=path.filter(name=>
+  //   name.toLowercase().includes(search.toLowercase())
+  // )
+
+
  
     const handleopen=()=>{
         setOpen(prev=>!prev)
