@@ -18,20 +18,19 @@ const sidebarItems=[
     { name: "Marketing", path: "/marketing" },
       { name: "CRM", path: "/crm" },
       { name: "Stocks", path: "/stocks" },
+        { name: "NewProduct", path: "/Product" },
       { name: "Saas", path: "/saas", isNew: true },
       { name: "Logistics", path: "/logistics", isNew: true },
 ]
-     const handle=(e)=>{
-      setSearch(e.target.value)
-    }
 
-const filteritems = sidebarItems.filter((item) =>
+      const filteritems = sidebarItems.filter((item) =>
   item.name.toLowerCase().includes(search.toLowerCase())
 );
 
-    const Signin =(data)=>{
-        setUser(data)
-        localStorage.setItem('user',JSON.stringify(data))
+const Signin =(data)=>{
+    
+    setUser(data)
+    localStorage.setItem('user',JSON.stringify(data))
     }
         const Signup =(data)=>{
         setUser(data)
@@ -42,7 +41,7 @@ const filteritems = sidebarItems.filter((item) =>
         localStorage.removeItem('user')
     }
     return (
-        <AppContext.Provider  value={{header,setHeader,user,Signin,logout,Signup,search,setSearch,handle,filteritems}}>
+        <AppContext.Provider  value={{header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems}}>
             {children}
         </AppContext.Provider>
     )

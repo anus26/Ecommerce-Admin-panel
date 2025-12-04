@@ -10,12 +10,14 @@ import { AppContext } from '../../Context/AppContext';
 import {IoIosArrowDown, IoMdLogOut }  from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import Profile from '../Account/Profile';
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const [sidebar,setSidebar]=useState(false)
   const [close,setclose]=useState(true)
   const [open,setopen]=useState(false)
-  const {header,setHeader,logout,user,form,filter,search,setSearch,filteritems,handle}=useContext(AppContext)
-
+  const {header,setHeader,logout,user,form,filter,search,setSearch,filteritems,sidebarItems}=useContext(AppContext)
+  const navigate=useNavigate()
+  
 
   const handleclick=()=>{
    setHeader(prev=>!prev)
@@ -28,8 +30,21 @@ if(header){
 }else{
   document.body.classList.remove("overflow-hidden")
 }
-  return (
-<>
+const handle=(e)=>{
+  const value = e.target.value;  
+ setSearch(value)
+ 
+     const match = sidebarItems.find(
+ (item) => item.name.toLowerCase() ===value.toLowerCase()
+);
+
+if (match) {
+ navigate(match.path);
+ setSearch("")
+}
+};
+return (
+  <>
 <section >
   <nav className={`nav bg-white  border-b-2 px-4 xl:w-[78%] lg:w-[100%] md:w-[100%] sm:w-[100%] border-gray fixed top-0   z-50 `}>
 
@@ -59,10 +74,10 @@ if(header){
 
     
       </div> 
-      <div className='border-2 border-gray w-96  h-12 rounded-lg xl:flex  gap-2   sm:hidden ' >
+      <div className='border-2 border-gray w-96  h-12 rounded-lg flex  gap-2    '  >
 
       <CiSearch  className='flex items-start m-2 text-2xl '/>
-      <input type="text"  placeholder='Search or Type Command....'  value={search}      onChange={(handle)} className= ' outline-none w-96'/>
+      <input type="text"  placeholder='Search or Type Command....'  value={search}      onChange={(handle)} className= "  border flex gap-3 text-center justify-center items-center   h-10 rounded-lg  outline-none border-none  cursor-pointer transition-all duration-300"/>
       </div>
       </div>
       <div className='gap-2 flex  sm:hidden'>

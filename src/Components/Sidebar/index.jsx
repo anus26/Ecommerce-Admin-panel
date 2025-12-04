@@ -29,53 +29,59 @@ const Sidebar = () => {
     const [open6 ,setOpen6]=useState(false)
     const [open7 ,setOpen7]=useState(false)
     const [authentication,setAuthentication]=useState(false)
-    const {search,setSearch}=useContext(AppContext)
 
 
-    // const [form ,setForm]=useState({
-    //   path:''
-    // })
+   
   
     const [activemenu ,setActiveMenu ]=useState(null)
     const [active,setActive]=useState(null)
-  //   const handle=(e)=>{
-  //     setSearch(e.target.value)
-  //   }
+    const [openmenu,setOpenMenus]=useState({
+     dashboard:false,
+     aiassitant:false,
+     ecommerce:false,
+     tasks:false,
+     forms:false,
+     tables:false,
+     pages:false
+    })
 
-  // const filteritems=path.filter(name=>
-  //   name.toLowercase().includes(search.toLowercase())
-  // )
+
+    const togglemenu=(menuname)=>{
+      setOpenMenus(prev=>!prev)
+      setActiveMenu(menuname)
+    }
+
 
 
  
-    const handleopen=()=>{
-        setOpen(prev=>!prev)
-        setActiveMenu("dashboard")
-    } 
-        const handleopen2=()=>{
-        setOpen2(prev=>!prev)
-        setActiveMenu("ai assitant")
-    } 
-           const handleopen3=()=>{
-        setOpen3(prev=>!prev)
-        setActiveMenu("ecommerce")
-    } 
-               const handleopen4=()=>{
-        setOpen4(prev=>!prev)
-        setActiveMenu("tasks")
-    } 
-               const handleopen5=()=>{
-        setOpen5(prev=>!prev)
-        setActiveMenu("forms")
-    } 
-                   const handleopen6=()=>{
-        setOpen6(prev=>!prev)
-        setActiveMenu("tables")
-    } 
-                       const handleopen7=()=>{
-        setOpen7(prev=>!prev)
-        setActiveMenu("pages")
-    }
+  //   function handleopen() {
+  //   setOpen(prev => !prev);
+  //   setActiveMenu("dashboard");
+  // } 
+  // const handleopen2=()=>{
+  //   setOpen2(prev=>!prev)
+  //   setActiveMenu("ai assitant")
+  //   } 
+  //          const handleopen3=()=>{
+  //       setOpen3(prev=>!prev)
+  //       setActiveMenu("ecommerce")
+  //   } 
+  //              const handleopen4=()=>{
+  //       setOpen4(prev=>!prev)
+  //       setActiveMenu("tasks")
+  //   } 
+  //              const handleopen5=()=>{
+  //       setOpen5(prev=>!prev)
+  //       setActiveMenu("forms")
+  //   } 
+  //                  const handleopen6=()=>{
+  //       setOpen6(prev=>!prev)
+  //       setActiveMenu("tables")
+  //   } 
+  //                      const handleopen7=()=>{
+  //       setOpen7(prev=>!prev)
+  //       setActiveMenu("pages")
+  //   }
     const handleauth=()=>{
       setAuthentication(prev=>!prev)
       setActiveMenu('authentication')
@@ -109,17 +115,17 @@ const Sidebar = () => {
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'dashboard' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
-  onClick={handleopen}
+  onClick={togglemenu}
 >
 
         <h1 className='flex gap-1 text-md 
          font-bold items-center'><span className='text-3xl '><PiSquaresFourLight    className={`text-line ${activemenu==="dashboard"?"text-primary ":"text-textt hover:text-primary"}`}/></span> Dashboard
     
          </h1>
-           <span className='text-2xl ' >{open?<IoIosArrowUp className='text-line' />:<IoIosArrowDown className='text-line' />}</span>
+           <span className='text-2xl ' >{openmenu?<IoIosArrowUp className='text-line' />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
-   {open && (
+   {openmenu && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
       { name: "eCommerce", path: "/" },
@@ -151,7 +157,7 @@ const Sidebar = () => {
 )}
 
         </div>
-        {/* Ai Assitant */}
+        Ai Assitant
          <div className='m-5  '>
 
        <div
