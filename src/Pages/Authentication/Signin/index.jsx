@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../../Context/AppContext';
 axios.defaults.withCredentials = true;
 const Signin = () => {
-  const {user}=useContext(AppContext)
+  const {user,setUser}=useContext(AppContext)
   const [open , setOpen]=useState(false)
    const [formData, setFormData] = useState({
    
@@ -31,15 +31,12 @@ try {
     console.log("Signin successful", res.data);
 
     // Check if user is already saved from signup
-    const savedUser = localStorage.getItem("user");
+ localStorage.setItem('user',JSON.stringify(res.data.user))
 
-    if (savedUser) {
-      console.log("User already exists in localStorage.");
-    } else {
-      console.log("User not found in localStorage.");
-    }
+ 
   console.log('Signin successfully', res.data);
-  navigate("/")
+  setUser(res.data.user)
+  navigate('/')
   
 } catch (error) {
     console.error("Signup Error:", error.response?.data || error.message);

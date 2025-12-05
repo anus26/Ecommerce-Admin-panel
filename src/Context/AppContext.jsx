@@ -1,4 +1,6 @@
+import axios from "axios";
 import { createContext, useState } from "react";
+
 
 export const AppContext=createContext()
 export default function AppProvider({children}){
@@ -10,6 +12,7 @@ export default function AppProvider({children}){
     const [user ,setUser]=useState(()=>{
         return localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")):null
     })
+   
 
 const sidebarItems=[
 
@@ -32,16 +35,32 @@ const Signin =(data)=>{
     setUser(data)
     localStorage.setItem('user',JSON.stringify(data))
     }
+     const logout=async(e)=>{
+e.preventdefault
+try {
+   const res=await axios.delete("http://localhost:5000/api/v1/user/logout",{},{
+      withCredentials: true
+   })
+   setUser(null)
+   localStorage.removeItem('user') 
+   
+   
+} catch (error) {
+console.log(error);
+
+}
+
+     }
         const Signup =(data)=>{
         setUser(data)
         localStorage.setItem('user',JSON.stringify(data))
     }
-    const logout=()=>{
-        setUser(null)
-        localStorage.removeItem('user')
-    }
+    // const logout=()=>{
+    //     setUser(null)
+    //     localStorage.removeItem('user')
+    // }
     return (
-        <AppContext.Provider  value={{header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems}}>
+        <AppContext.Provider  value={{header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
             {children}
         </AppContext.Provider>
     )
