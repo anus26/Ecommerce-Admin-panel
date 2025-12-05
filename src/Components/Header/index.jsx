@@ -74,9 +74,9 @@ return (
 
     
       </div> 
-      <div className='border-2 border-gray w-96  h-12 rounded-lg flex  gap-2    '  >
+      <div className='border-2 border-gray w-96  h-12 rounded-lg xl:flex  sm:hidden gap-2    '  >
 
-      <CiSearch  className='flex items-start m-2 text-2xl '/>
+      <CiSearch  className='xl:flex items-start m-2 text-2xl  sm:hidden '/>
       <input type="text"  placeholder='Search or Type Command....'  value={search}      onChange={(handle)} className= "  border flex gap-3 text-center justify-center items-center   h-10 rounded-lg  outline-none border-none  cursor-pointer transition-all duration-300"/>
       </div>
       </div>

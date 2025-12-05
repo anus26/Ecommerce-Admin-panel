@@ -21,14 +21,7 @@ import { RiDeleteBack2Line } from "react-icons/ri";
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { AppContext } from '../../Context/AppContext';
 const Sidebar = () => {
-    const [open ,setOpen]=useState(false)
-    const [open2 ,setOpen2]=useState(false)
-    const [open3 ,setOpen3]=useState(false)
-    const [open4 ,setOpen4]=useState(false)
-    const [open5 ,setOpen5]=useState(false)
-    const [open6 ,setOpen6]=useState(false)
-    const [open7 ,setOpen7]=useState(false)
-    const [authentication,setAuthentication]=useState(false)
+    
 
 
    
@@ -42,52 +35,19 @@ const Sidebar = () => {
      tasks:false,
      forms:false,
      tables:false,
-     pages:false
+     pages:false,
+     authentication:false
     })
 
 
     const togglemenu=(menuname)=>{
-      setOpenMenus(prev=>!prev)
+      setOpenMenus(prev=>({
+        ...prev,
+        [menuname]:!prev[menuname],
+      }))
       setActiveMenu(menuname)
     }
-
-
-
- 
-  //   function handleopen() {
-  //   setOpen(prev => !prev);
-  //   setActiveMenu("dashboard");
-  // } 
-  // const handleopen2=()=>{
-  //   setOpen2(prev=>!prev)
-  //   setActiveMenu("ai assitant")
-  //   } 
-  //          const handleopen3=()=>{
-  //       setOpen3(prev=>!prev)
-  //       setActiveMenu("ecommerce")
-  //   } 
-  //              const handleopen4=()=>{
-  //       setOpen4(prev=>!prev)
-  //       setActiveMenu("tasks")
-  //   } 
-  //              const handleopen5=()=>{
-  //       setOpen5(prev=>!prev)
-  //       setActiveMenu("forms")
-  //   } 
-  //                  const handleopen6=()=>{
-  //       setOpen6(prev=>!prev)
-  //       setActiveMenu("tables")
-  //   } 
-  //                      const handleopen7=()=>{
-  //       setOpen7(prev=>!prev)
-  //       setActiveMenu("pages")
-  //   }
-    const handleauth=()=>{
-      setAuthentication(prev=>!prev)
-      setActiveMenu('authentication')
-    } 
     
-
   return (
 <>
 <section>
@@ -115,17 +75,17 @@ const Sidebar = () => {
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'dashboard' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
-  onClick={togglemenu}
+  onClick={()=>togglemenu("dashboard")}
 >
 
         <h1 className='flex gap-1 text-md 
          font-bold items-center'><span className='text-3xl '><PiSquaresFourLight    className={`text-line ${activemenu==="dashboard"?"text-primary ":"text-textt hover:text-primary"}`}/></span> Dashboard
     
          </h1>
-           <span className='text-2xl ' >{openmenu?<IoIosArrowUp className='text-line' />:<IoIosArrowDown className='text-line' />}</span>
+           <span className='text-2xl ' >{openmenu.dashboard?<IoIosArrowUp className='text-line' />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
-   {openmenu && (
+   {openmenu.dashboard && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
       { name: "eCommerce", path: "/" },
@@ -157,28 +117,28 @@ const Sidebar = () => {
 )}
 
         </div>
-        Ai Assitant
+     
          <div className='m-5  '>
 
        <div
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg 
-    ${activemenu === 'ai assitant' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-primary'}
+    ${activemenu === 'aiassitant' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-primary'}
   `}
-  onClick={handleopen2}
+  onClick={()=>togglemenu("aiassitant")}
 >
 
 
         <h1 className='flex gap-1 text-md font-bold items-center  '><span className='text-2xl'>
-          <TbPhoneIncoming  className={`text-line  ${activemenu==="ai assitant"?"text-primary ":"text-textt hover:text-primary"}`}/>
+          <TbPhoneIncoming  className={`text-line  ${activemenu==="aiassitant"?"text-primary ":"text-textt hover:text-primary"}`}/>
     
           </span> AI Assitant
          </h1>
           <span className='text-green    bg-dark p-1.5 text-xs font-small rounded-xl'>NEW</span>
 
-           <span className='text-2xl ' >{open2?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
+           <span className='text-2xl ' >{openmenu.aiassitant?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
- {open2 && (
+ {openmenu.aiassitant && (
   <div className='ml-8 mt-2 space-y-1 text-gray-black'>
     {[
       { name: "Text Generator", path: "/text-generator" },
@@ -209,7 +169,7 @@ const Sidebar = () => {
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg 
     ${activemenu === 'ecommerce' ? 'bg-light text-primary ' : 'text-textt hover:bg-slate-100 hover:text-primary'}
     `}
-  onClick={handleopen3}
+  onClick={()=>togglemenu("ecommerce")}
 >
 
 
@@ -219,12 +179,12 @@ const Sidebar = () => {
          </h1>
         <span className='text-green  bg-dark p-1.5 text-xs rounded-xl font-small  '>NEW</span>
 
-           <span className='text-2xl ' >{open3?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
+           <span className='text-2xl ' >{openmenu.ecommerce?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 {/* drowdown */}
 
 
 </div>
-{open3&&(
+{openmenu.ecommerce&&(
       <div className=' ml-8 mt-2 space-y-1 text-gray-black  ' >
         {[    { name: "Product", path: "/addProduct" },
       { name: "NewProduct", path: "/Product" },
@@ -296,7 +256,7 @@ const Sidebar = () => {
       ? 'bg-light text-primary'
       : 'text-textt hover:bg-slate-100 hover:text-primary'}
   `}
-  onClick={handleopen4}
+  onClick={()=>togglemenu("tasks")}
 >
   <div className="flex items-center gap-2">
     <MdOutlineTask
@@ -310,13 +270,13 @@ const Sidebar = () => {
   </div>
 
   <span className="text-2xl text-line">
-    {open4 ? <IoIosArrowUp /> : <IoIosArrowDown />}
+    {openmenu.tasks ? <IoIosArrowUp /> : <IoIosArrowDown />}
   </span>
 </div>
 
 {/* drowdown */}
  
-        {open4 && (
+        {openmenu.tasks && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
       { name: "Products", path: "/products" },
@@ -351,7 +311,7 @@ const Sidebar = () => {
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'forms' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
-  onClick={handleopen5}
+  onClick={()=>togglemenu("forms")}
 >
      <h1 className='flex gap-1 text-md font-bold items-center justify-between '><span className='text-2xl'>
           <CiFolderOn    className={`text-line ${activemenu==="forms"?"text-primary ":"text-textt hover:text-primary"}`}/></span> Forms
@@ -359,10 +319,10 @@ const Sidebar = () => {
          </h1>
 
         
-           <span className='text-2xl ' >{open5?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line'  />}</span>
+           <span className='text-2xl ' >{openmenu.forms?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line'  />}</span>
 </div>
 {/* drowdown */}
-        {open5 && (
+        {openmenu.forms && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
       { name: "Products", path: "/products" },
@@ -398,7 +358,7 @@ const Sidebar = () => {
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'tables' ? 'bg-light  text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
-  onClick={handleopen6}
+  onClick={()=>togglemenu("tables")}
 >
   
   
@@ -409,10 +369,10 @@ const Sidebar = () => {
                ${activemenu==="tables"?"text-primary ":"text-textt hover:text-primary"}`}/></span>  Tables
     
          </h1>
-           <span className='text-2xl ' >{open6?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
+           <span className='text-2xl ' >{openmenu.tables?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown className='text-line' />}</span>
 </div>
 {/* drowdown */}
-        {open6 && (
+        {openmenu.tables && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
       { name: "Products", path: "/products" },
@@ -447,17 +407,17 @@ const Sidebar = () => {
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'pages' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
     `}
-  onClick={handleopen7}
+  onClick={()=>togglemenu("pages")}
 >
 
         <h1 className='flex gap-1 text-md font-bold items-center justify-between '><span className='text-2xl'>
           <RiPageSeparator    className={`text-line ${activemenu==="pages"?"text-primary ":"text-textt hover:text-primary"}`}/></span> Pages
     
          </h1>
-           <span className='text-2xl ' >{open7?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown  className='text-line' />}</span>
+           <span className='text-2xl ' >{openmenu.pages?<IoIosArrowUp className='text-line'  />:<IoIosArrowDown  className='text-line' />}</span>
 </div>
 {/* drowdown */}
-        {open7 && (
+        {openmenu.pages && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
       { name: "Products", path: "/products" },
@@ -495,16 +455,16 @@ const Sidebar = () => {
   className={`Dashboard flex justify-between items-center cursor-pointer transition-all duration-300 p-2 rounded-lg
     ${activemenu === 'authentication' ? 'bg-light text-primary' : 'text-textt hover:bg-slate-100 hover:text-black'}
   `}
-  onClick={handleauth}
+  onClick={()=>togglemenu("authentication")}
 >
 
         <h1 className='flex gap-1 text-md font-bold items-center justify-between '><span className='text-2xl'><SiWebauthn    className={`text-line ${activemenu==="authentication"?"text-primary ":"text-textt hover:text-primary"}`} /></span> Authentication
     
          </h1>
-           <span className='text-2xl ' >{authentication?<IoIosArrowUp  className='text-line'  />:<IoIosArrowDown  className='text-line' />}</span>
+           <span className='text-2xl ' >{openmenu.authentication?<IoIosArrowUp  className='text-line'  />:<IoIosArrowDown  className='text-line' />}</span>
 </div>
 {/* drowdown */}
-        {authentication && (
+        {openmenu.authentication && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
       { name: "Sig in", path: "/signin" },
