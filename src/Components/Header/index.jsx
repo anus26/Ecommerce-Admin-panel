@@ -23,7 +23,22 @@ const Header = () => {
    setHeader(prev=>!prev)
  
   }
-  
+//    const handellogout=asyanc(e)=>{
+//  e.preventdefault
+//  try {
+//     const res=await axios.delete("http://localhost:5000/api/v1/user/logout",{},{
+//        withCredentials: true
+//     })
+//     setUser(null)
+//     localStorage.removeItem('user') 
+    
+    
+//  } catch (error) {
+//  console.log(error);
+ 
+//  }
+ 
+//       } 
  
 
 if(header){

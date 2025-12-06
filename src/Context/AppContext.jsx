@@ -38,9 +38,11 @@ const Signin =(data)=>{
      const logout=async(e)=>{
 e.preventdefault
 try {
-   const res=await axios.delete("http://localhost:5000/api/v1/user/logout",{},{
+   const res=await axios.delete("http://localhost:5000/api/v1/user/logout",{
       withCredentials: true
    })
+   console.log("logout Successfully",res.data);
+   
    setUser(null)
    localStorage.removeItem('user') 
    
