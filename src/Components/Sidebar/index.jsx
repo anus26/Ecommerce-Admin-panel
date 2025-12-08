@@ -12,7 +12,7 @@ import { SiInstructables } from "react-icons/si";
 import { RiPageSeparator } from "react-icons/ri";
 import { SiWebauthn } from "react-icons/si";
 import { FiShoppingCart } from "react-icons/fi";
-import { BsCalendar2Check } from "react-icons/bs";
+import { BsCalendar2Check, BsChatDots } from "react-icons/bs";
 import './Style.css'
 import { CiFolderOn } from 'react-icons/ci';
 import Product from '../Products';
@@ -36,6 +36,7 @@ const Sidebar = () => {
      forms:false,
      tables:false,
      pages:false,
+     chat:false,
      authentication:false
     })
 
@@ -67,7 +68,7 @@ const Sidebar = () => {
 </div>
 {/* menu */}
     <div className=' flex-1 overflow-y-auto  scroll-hidden'>
-        <h1 className='text-gray '>MENU</h1>
+        <h1 className='text-textt m-5  text-sm '>MENU</h1>
         {/* dashboard */}
         <div className='m-5'>
 
@@ -446,8 +447,17 @@ const Sidebar = () => {
 
 
         </div>
+{/* support  */}
+        <h1 className='m-5 text-textt text-sm'>Support</h1>
+        <div className='m-5'>
+          <div className={`flex  items-center cursor-pointer transition-all duration-300 p-2 rounded-lg ${activemenu === 'chat'?'bg-white text-primary ':'text-textt hover:bg-slate-100 hover:text-black'
+          }`} onClick={()=>togglemenu("chat")}>
+<Link to='/chat' className='flex gap-1 items-center font-semibold '><span className='text-lg'><BsChatDots /></span>Chat</Link>
+          </div>
+
+        </div>
         {/* other */}
-        <h1>Ohter</h1>
+        <h1 className='m-5 text-textt text-sm '>Ohter</h1>
         {/* authenticationn */}
                    <div className='m-5'>
 

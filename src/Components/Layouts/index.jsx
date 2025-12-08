@@ -22,7 +22,7 @@ const Layouts= () => {
   </div>
 
 
-<div className={`flex-1 mt-[80px] p-4 bg-gray3 `}>
+<div className={`flex-1 mt-[80px]  p-4 bg-gray3 `}>
 
     <Outlet/>
 </div>

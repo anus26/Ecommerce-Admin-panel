@@ -20,6 +20,8 @@ import SingleTransactions from './Components/SingleTransactions'
 import Analytics from './Pages/Analytics'
 import ProtectedRoutes from './Components/ProtectedRoutes'
 import Profile1 from './Components/Account/Profile1'
+import { Chart } from 'chart.js'
+import Chat from './Components/Chat'
 
 
 
@@ -61,6 +63,7 @@ const App = () => {
                   <Route path='transactions' element={<Transactions/>}/>
                    <Route path='singletransactions' element={<SingleTransactions/>}/>
                    <Route path='analytics' element={<Analytics/>}/>
+                   <Route path='chat' element={<Chat/>}/>
           </Route>
         </Routes>
       {/* </MyContext.Provider> */}
