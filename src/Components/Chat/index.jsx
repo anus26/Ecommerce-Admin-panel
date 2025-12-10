@@ -6,7 +6,8 @@ import axios from 'axios'
 const Chat = () => {
   const {user}=useContext(AppContext)
   const [alluser,setAllUser]=useState([])
-  const [search,setSearch]=useState(null)
+  const [search,setSearch]=useState("")
+  const [activeuser,setActiveUser]=useState([])
   const userAll=async()=>{
 
     const res=await axios.get('http://localhost:5000/api/v1/user/alluser',{
@@ -19,32 +20,37 @@ const Chat = () => {
     userAll()
   },[])
 
-  const filtersearch=filter.allusers()
+    const filtersearch = alluser.filter((u) =>
+    `${u.firstname} ${u.lastname}`
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
 
       
 
   return (
 <>
-<section className=' '>
-    <div className='h-300 '>
+<section className='h-dvh'>
+   
     <h1 className='font-semibold text-2xl'>Chat</h1>
-    <div className='grid grid-cols-2'>
+    <div className='flex  h-dvh '>
 
-    <div className='bg-white border-gray rounded-2xl w-[50%]   p-2  m-5 '>
+    <div className='bg-white border-gray rounded-2xl w-[25%]   p-2  m-5 '>
      <h1 className='font-semibold text-xl'>Chat</h1>
-     <div className='flex text-center  relative w-[10%] m-1'>
-<span className='absolute mt-3'>
+     <div className='flex text-center  relative w-[10%] m-4 '>
+<span className=' mt-3'>
   
- <CiSearch /> 
+ <CiSearch className='absolute -translate-y-1/5  ' /> 
 </span>
-         <input type="name" placeholder='Search' className=' border pl-5  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
+         <input type="text" onChange={(e)=>setSearch(e.target.value)} value={search}  placeholder='Search' className=' border pl-5  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
      </div>
-     <div className='' >
-  {alluser?.map((user) => (
+     <div className='overflow-y-auto' >
+  {filtersearch?.map((user) => (
     <div 
       key={user._id} 
-      className='flex items-center gap-5 p-2 hover:bg-gray-50 rounded-lg cursor-pointer overflow-y-auto'
+      className={`flex items-center gap-5 p-2 hover:bg-gray-50 rounded-lg cursor-pointer ${activeuser ===user._id? 'text-primary' : 'text-textt group-hover:text-primary'}`}
+      onClick={()=>setActiveUser(user)}
     >
       <img 
         src={user.imageUrl} 
@@ -62,14 +68,34 @@ const Chat = () => {
       </div>
     </div>
   ))}
-</div>
+  {filtersearch.length === 0 && (
+  <p className="text-gray-400 text-sm text-center mt-3">
+    No users found
+  </p>
+)}
+
+  </div>
+
+
 
     </div>
-      {/* <div className='bg-white border-gray rounded-lg w-[75%] h-full'>
-       <h1>{user.firstname}</h1>
-    </div> */}
+      <div className='bg-white border-gray rounded-lg w-[75%]  m-5'>
+       {activeuser ?(
+        <>
+<div>
+<h1>{activeuser.firstname}{activeuser.lastname}</h1>
+</div>
+        </>
+       ):(
+        <div>
+
+        </div>
+       )
+       }
+
     </div>
     </div>
+   
 </section>
 </>
   )
