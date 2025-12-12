@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../Context/AppContext'
 import { CiSearch } from 'react-icons/ci'
+import { BiRightArrow } from "react-icons/bi";
 import axios from 'axios'
 
 const Chat = () => {
@@ -8,6 +9,7 @@ const Chat = () => {
   const [alluser,setAllUser]=useState([])
   const [search,setSearch]=useState("")
   const [activeuser,setActiveUser]=useState([])
+  const {socket ,onlineusers}=useContext(AppContext)
   const userAll=async()=>{
 
     const res=await axios.get('http://localhost:5000/api/v1/user/alluser',{
@@ -26,6 +28,8 @@ const Chat = () => {
       .includes(search.toLowerCase())
   );
 
+const isonline=onlineusers.includes(user._id)
+console.log(isonline);
 
       
 
@@ -52,11 +56,13 @@ const Chat = () => {
       className={`flex items-center gap-5 p-2 hover:bg-gray-50 rounded-lg cursor-pointer ${activeuser ===user._id? 'text-primary' : 'text-textt group-hover:text-primary'}`}
       onClick={()=>setActiveUser(user)}
     >
-      <img 
-        src={user.imageUrl} 
-        alt={user.firstname}
-        className='w-12 h-12 rounded-full object-cover'
-      />
+  <img 
+  src={user.imageUrl} 
+  alt={user.firstname}
+  className={`w-12 h-12 rounded-full object-cover 
+    ${isonline.includes(user._id) ? "bg-blue-500" : "bg-gray-200"}`}
+/>
+
 
       <div className='flex flex-col'>
         <span className='font-medium'>
@@ -79,20 +85,44 @@ const Chat = () => {
 
 
     </div>
-      <div className='bg-white border-gray rounded-lg w-[75%]  m-5'>
+      <div className='bg-white border-gray rounded-xl w-[75%]  m-5 relative'>
+        <div className='border-b border-gray'>
+
        {activeuser ?(
-        <>
-<div>
-<h1>{activeuser.firstname}{activeuser.lastname}</h1>
-</div>
-        </>
+         <>
+<div className='flex gap-3 text-center items-center m-5  '>
+    <img 
+        src={activeuser.imageUrl} 
+        alt={activeuser.firstname}
+        className='w-12 h-12 rounded-full object-cover'
+        />
+      <div className='flex flex-col'>
+        <span className='font-medium'>
+          {activeuser.firstname} {activeuser.lastname}
+        </span>
+        <span className='text-sm text-textt'>
+          {activeuser.position}
+        </span>
+      </div>
+      </div>
+    </>
        ):(
-        <div>
+         <div>
 
         </div>
        )
-       }
+      }
+      </div>
+   
 
+
+        <div className='absolute flex inset-x-0  bottom-0 text-center items-center m-5 border-t border-gray '>
+
+        <input type="text" placeholder='Type here'  className=' flex  h-10 inset-x-0 w-[80%]  bottom-0 overflow-hidden outline-none' />
+        <span><BiRightArrow className='text-xl' /></span>
+       
+
+      </div>
     </div>
     </div>
    

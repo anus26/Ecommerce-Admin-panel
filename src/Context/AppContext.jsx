@@ -1,10 +1,13 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 
 export const AppContext=createContext()
 export default function AppProvider({children}){
     const [header,setHeader]=useState(false)
+    const [socket ,setSocket]=useState(null)
+    const [onlineusers,setOnlineusers]=useState([])
     const [search ,setSearch]=useState("")
     //   const [form ,setForm]=useState({
     //       path:''
@@ -12,6 +15,39 @@ export default function AppProvider({children}){
     const [user ,setUser]=useState(()=>{
         return localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")):null
     })
+    useEffect(()=>{
+        console.log("auth user",user);
+        if (user?._id) {
+            const newsocket=io(
+                "http://localhost:5000"
+                ,{
+                    user:{
+                        userId:user._id
+                    },
+                    withCredentials:true
+                },
+            )
+            setSocket(newsocket)
+
+            newsocket.on("liveVisitors",(user)=>{
+                setOnlineusers(user)
+                console.log("Online user",user);
+                console.log("Socket Id",newsocket.id);
+                
+                
+            })
+            return ()=>{
+                newsocket.disconnect()
+            }
+        }
+        else{
+        if (newsocket) {
+            newsocket.disconnect()
+            setSocket(null)
+            
+        }
+    }
+    },[user])
    
 
 const sidebarItems=[
@@ -62,7 +98,7 @@ console.log(error);
     //     localStorage.removeItem('user')
     // }
     return (
-        <AppContext.Provider  value={{header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
+        <AppContext.Provider  value={{socket,onlineusers,header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
             {children}
         </AppContext.Provider>
     )
