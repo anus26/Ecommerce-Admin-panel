@@ -8,10 +8,21 @@ const Chat = () => {
   const {user}=useContext(AppContext)
   const [alluser,setAllUser]=useState([])
   const [search,setSearch]=useState("")
-  const [activeuser,setActiveUser]=useState([])
+  const [activeuser,setActiveUser]=useState(null)
+  const [sendmessage,setSendMessage]=useState("")
   const {socket ,onlineusers}=useContext(AppContext)
+  const [form, setForm]=useState({
+    message:""
+})
+  console.log(onlineusers);
+  console.log(socket);
+  
+  const handle=(e)=>{
+    setForm({...form,[e.target.name]:e.target.value})
+  }
   const userAll=async()=>{
 
+    
     const res=await axios.get('http://localhost:5000/api/v1/user/alluser',{
       withCredentials:true
     })
@@ -27,11 +38,24 @@ const Chat = () => {
       .toLowerCase()
       .includes(search.toLowerCase())
   );
-
-const isonline=onlineusers.includes(user._id)
-console.log(isonline);
-
+  const message=async(e)=>{
+e.preventDefault()
+    try {
+      const res=await axios.post(`http://localhost:5000/api/v1/send/${user._id}`,form,{
+        withCredentials:true
+      })
+      console.log(res.data);
+      setSendMessage(res.data)
+      setSendMessage("")
       
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
+  
+  
 
   return (
 <>
@@ -52,16 +76,21 @@ console.log(isonline);
      <div className='overflow-y-auto' >
   {filtersearch?.map((user) => (
     <div 
-      key={user._id} 
-      className={`flex items-center gap-5 p-2 hover:bg-gray-50 rounded-lg cursor-pointer ${activeuser ===user._id? 'text-primary' : 'text-textt group-hover:text-primary'}`}
-      onClick={()=>setActiveUser(user)}
+    key={user._id} 
+    className={`flex items-center gap-5 p-2 hover:bg-gray-50 rounded-lg cursor-pointer ${activeuser?._id ===user._id? 'text-primary' : 'text-textt group-hover:text-primary'}`}
+    onClick={()=>setActiveUser(user)}
     >
-  <img 
-  src={user.imageUrl} 
+<img
+  src={user.imageUrl}
   alt={user.firstname}
-  className={`w-12 h-12 rounded-full object-cover 
-    ${isonline.includes(user._id) ? "bg-blue-500" : "bg-gray-200"}`}
+  className={`w-12 h-12 rounded-full object-cover ${
+    Array.isArray(onlineusers) && onlineusers.includes(user._id)
+      ? "ring-2 ring-green"
+      : ""
+  }`}
 />
+
+
 
 
       <div className='flex flex-col'>
@@ -115,14 +144,17 @@ console.log(isonline);
       </div>
    
 
+<form onSubmit={message}>
 
-        <div className='absolute flex inset-x-0  bottom-0 text-center items-center m-5 border-t border-gray '>
+        <div   className='absolute flex inset-x-0  bottom-0 text-center items-center m-5 border-t border-gray '>
 
-        <input type="text" placeholder='Type here'  className=' flex  h-10 inset-x-0 w-[80%]  bottom-0 overflow-hidden outline-none' />
-        <span><BiRightArrow className='text-xl' /></span>
+
+        <input type="text" placeholder='Type here' name='message' value={form.message}  onChange={handle}   className=' flex  h-10 inset-x-0 w-[80%]  bottom-0 overflow-hidden outline-none' />
+        <button type='submit'><BiRightArrow className='text-xl' /></button>
        
 
       </div>
+</form>
     </div>
     </div>
    

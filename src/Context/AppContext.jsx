@@ -9,9 +9,6 @@ export default function AppProvider({children}){
     const [socket ,setSocket]=useState(null)
     const [onlineusers,setOnlineusers]=useState([])
     const [search ,setSearch]=useState("")
-    //   const [form ,setForm]=useState({
-    //       path:''
-    //     })
     const [user ,setUser]=useState(()=>{
         return localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")):null
     })
@@ -21,7 +18,7 @@ export default function AppProvider({children}){
             const newsocket=io(
                 "http://localhost:5000"
                 ,{
-                    user:{
+                    auth:{
                         userId:user._id
                     },
                     withCredentials:true
@@ -41,8 +38,8 @@ export default function AppProvider({children}){
             }
         }
         else{
-        if (newsocket) {
-            newsocket.disconnect()
+        if (socket) {
+            socket.disconnect()
             setSocket(null)
             
         }
