@@ -12,6 +12,7 @@ export default function AppProvider({children}){
     const [user ,setUser]=useState(()=>{
         return localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")):null
     })
+    const messageSound=new Audio  ("/sms-185447.mp3")
     useEffect(()=>{
         console.log("auth user",user);
         if (user?._id) {
@@ -95,7 +96,7 @@ console.log(error);
     //     localStorage.removeItem('user')
     // }
     return (
-        <AppContext.Provider  value={{socket,onlineusers,header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
+        <AppContext.Provider  value={{socket, messageSound,onlineusers,header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
             {children}
         </AppContext.Provider>
     )

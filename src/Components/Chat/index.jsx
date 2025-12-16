@@ -12,14 +12,14 @@ const Chat = () => {
   const [activeuser,setActiveUser]=useState(null)
   const [sendmessage,setSendMessage]=useState("")
   const [getmessages,setGetMessages]=useState([])
-  const {socket ,onlineusers}=useContext(AppContext)
+  const {socket ,onlineusers,messageSound}=useContext(AppContext)
   const [form, setForm]=useState({
     message:""
   })
   console.log(onlineusers);
   console.log(socket);
   
-  const messageSound = new Audio("/sms-185447.mp3")
+  // const messageSound = new Audio("/sms-185447.mp3")
 const handleActiveuser = (selectedUser) => {
   setActiveUser(selectedUser)
   getmessage(selectedUser._id)
@@ -81,7 +81,8 @@ e.preventDefault()
       setGetMessages(prev => [...prev, res.data])
       console.log(res.data);
       setSendMessage(res.data)
-      setSendMessage("")
+      messageSound.play()      
+      setForm({message:""})
       
     } catch (error) {
       console.log(error);
