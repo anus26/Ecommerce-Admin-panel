@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../Context/AppContext'
 import { CiSearch } from 'react-icons/ci'
 import { BiRightArrow } from "react-icons/bi";
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
+
 
 const Chat = () => {
   const {user}=useContext(AppContext)
@@ -10,13 +11,20 @@ const Chat = () => {
   const [search,setSearch]=useState("")
   const [activeuser,setActiveUser]=useState(null)
   const [sendmessage,setSendMessage]=useState("")
+  const [getmessages,setGetMessages]=useState([])
   const {socket ,onlineusers}=useContext(AppContext)
   const [form, setForm]=useState({
     message:""
-})
+  })
   console.log(onlineusers);
   console.log(socket);
   
+  const messageSound = new Audio("/sms-185447.mp3")
+const handleActiveuser = (selectedUser) => {
+  setActiveUser(selectedUser)
+  getmessage(selectedUser._id)
+}
+
   const handle=(e)=>{
     setForm({...form,[e.target.name]:e.target.value})
   }
@@ -31,7 +39,33 @@ const Chat = () => {
   }
   useEffect(()=>{
     userAll()
+
   },[])
+
+  useEffect(()=>{
+    if (!socket) return
+    socket.on("newMessage",(msg)=>{
+      setGetMessages(prev=>[...prev,msg])
+      messageSound.play()
+    })
+    
+  return () => socket.off("newMessage")
+  },[socket])
+
+  const  getmessage=async(receiverId)=>{
+    try {
+      const res=await axios.get(`http://localhost:5000/api/v1/getmessage/${receiverId}`,{
+        withCredentials:true
+      })
+      console.log("All User message",res.data.messages);
+      setGetMessages(res.data.messages)
+       messageSound.play()
+
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
 
     const filtersearch = alluser.filter((u) =>
     `${u.firstname} ${u.lastname}`
@@ -41,9 +75,10 @@ const Chat = () => {
   const message=async(e)=>{
 e.preventDefault()
     try {
-      const res=await axios.post(`http://localhost:5000/api/v1/send/${user._id}`,form,{
+      const res=await axios.post(`http://localhost:5000/api/v1/send/${activeuser._id}`,form,{
         withCredentials:true
       })
+      setGetMessages(prev => [...prev, res.data])
       console.log(res.data);
       setSendMessage(res.data)
       setSendMessage("")
@@ -71,14 +106,15 @@ e.preventDefault()
   
  <CiSearch className='absolute -translate-y-1/5  ' /> 
 </span>
-         <input type="text" onChange={(e)=>setSearch(e.target.value)} value={search}  placeholder='Search' className=' border pl-5  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
+         <input type="text" onChange={(e)=>setSearch(e.target.value)} value={search}  placeholder='Search' 
+         className=' border pl-5  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
      </div>
      <div className='overflow-y-auto' >
   {filtersearch?.map((user) => (
     <div 
     key={user._id} 
     className={`flex items-center gap-5 p-2 hover:bg-gray-50 rounded-lg cursor-pointer ${activeuser?._id ===user._id? 'text-primary' : 'text-textt group-hover:text-primary'}`}
-    onClick={()=>setActiveUser(user)}
+    onClick={()=>handleActiveuser(user)}
     >
 <img
   src={user.imageUrl}
@@ -113,6 +149,7 @@ e.preventDefault()
 
 
 
+
     </div>
       <div className='bg-white border-gray rounded-xl w-[75%]  m-5 relative'>
         <div className='border-b border-gray'>
@@ -133,7 +170,37 @@ e.preventDefault()
           {activeuser.position}
         </span>
       </div>
+      
       </div>
+
+      <div className="p-5 space-y-2 overflow-y-auto h-[70vh]">
+  {getmessages.map((msg) => (
+    <div
+      key={msg._id}
+      className={`max-w-[60%] p-2 rounded-lg ${
+        msg.senderId === user._id
+          ? "ml-auto bg-blue-500 text-white"
+          : "mr-auto bg-gray-200"
+      }`}
+    >
+      {msg.message}
+    </div>
+  ))}
+</div>
+
+      
+<form onSubmit={message}>
+
+        <div   className='absolute flex inset-x-0  bottom-0 text-center items-center m-5 border-t border-gray '>
+
+
+        <input type="text" placeholder='Type here' name='message' value={form.message}  onChange={handle} 
+          className=' flex  h-10 inset-x-0 w-[80%]  bottom-0 overflow-hidden outline-none' />
+        <button type='submit'><BiRightArrow className='text-xl' /></button>
+       
+
+      </div>
+</form>
     </>
        ):(
          <div>
@@ -142,19 +209,10 @@ e.preventDefault()
        )
       }
       </div>
+
+    
    
 
-<form onSubmit={message}>
-
-        <div   className='absolute flex inset-x-0  bottom-0 text-center items-center m-5 border-t border-gray '>
-
-
-        <input type="text" placeholder='Type here' name='message' value={form.message}  onChange={handle}   className=' flex  h-10 inset-x-0 w-[80%]  bottom-0 overflow-hidden outline-none' />
-        <button type='submit'><BiRightArrow className='text-xl' /></button>
-       
-
-      </div>
-</form>
     </div>
     </div>
    
