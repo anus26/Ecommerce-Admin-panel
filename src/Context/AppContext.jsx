@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { io } from "socket.io-client";
+import { io} from "socket.io-client";
 
 
 export const AppContext=createContext()
@@ -26,6 +26,7 @@ export default function AppProvider({children}){
                 },
             )
             setSocket(newsocket)
+         
 
             newsocket.on("liveVisitors",(user)=>{
                 setOnlineusers(user)
@@ -70,7 +71,7 @@ const Signin =(data)=>{
     localStorage.setItem('user',JSON.stringify(data))
     }
      const logout=async(e)=>{
-e.preventdefault
+e.preventDefault()
 try {
    const res=await axios.delete("http://localhost:5000/api/v1/user/logout",{
       withCredentials: true

@@ -81,8 +81,14 @@ e.preventDefault()
       setGetMessages(prev => [...prev, res.data])
       console.log(res.data);
       setSendMessage(res.data)
+    socket.emit("sendMessage", {
+      receiverId: activeuser._id,
+      msg: res.data
+    })
       messageSound.play()      
       setForm({message:""})
+      console.log(socket.connected)
+
       
     } catch (error) {
       console.log(error);
