@@ -4,7 +4,8 @@ import { CiSearch } from 'react-icons/ci'
 import { BiRightArrow } from "react-icons/bi";
 import axios, { AxiosError } from 'axios'
 import { PiChatCircleDots } from "react-icons/pi";
-
+import { Link } from 'react-router-dom';
+import { FaAngleRight } from "react-icons/fa";
 const Chat = () => {
   const {user}=useContext(AppContext)
   const [alluser,setAllUser]=useState([])
@@ -103,7 +104,16 @@ e.preventDefault()
 <>
 <section className=''>
    
+   <div className='flex  justify-between m-4'>
+
     <h1 className='font-semibold text-2xl'>Chat</h1>
+    <div className='flex  text-center items-center  gap-2'>
+      <Link to="/" className='text-textt'>Home</Link>
+      <span><FaAngleRight /></span>
+      <Link>Chat</Link>
+
+    </div>
+   </div>
     <div className='flex   '>
 
     <div className='bg-white border-gray rounded-2xl w-[25%]   p-2  m-5 '>
@@ -111,7 +121,7 @@ e.preventDefault()
      <div className='flex text-center   relative w-[10%] m-4 '>
 <span className=' mt-3'>
   
- <CiSearch className='absolute -translate-y-1/5   ' /> 
+ <CiSearch className='absolute -translate-y-1/5   text-xl  ' /> 
 </span>
          <input type="text" onChange={(e)=>setSearch(e.target.value)} value={search}  placeholder='Search' 
          className=' border pl-5  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
