@@ -3,7 +3,7 @@ import { AppContext } from '../../Context/AppContext'
 import { CiSearch } from 'react-icons/ci'
 import { BiRightArrow } from "react-icons/bi";
 import axios, { AxiosError } from 'axios'
-
+import { PiChatCircleDots } from "react-icons/pi";
 
 const Chat = () => {
   const {user}=useContext(AppContext)
@@ -59,7 +59,7 @@ const handleActiveuser = (selectedUser) => {
       })
       console.log("All User message",res.data.messages);
       setGetMessages(res.data.messages)
-       messageSound.play()
+      //  messageSound.play()
 
     } catch (error) {
       console.log(error);
@@ -85,8 +85,8 @@ e.preventDefault()
       receiverId: activeuser._id,
       msg: res.data
     })
-      messageSound.play()      
-      setForm({message:""})
+    setForm({message:""})
+    messageSound.play()      
       console.log(socket.connected)
 
       
@@ -101,17 +101,17 @@ e.preventDefault()
 
   return (
 <>
-<section className='h-dvh'>
+<section className=''>
    
     <h1 className='font-semibold text-2xl'>Chat</h1>
-    <div className='flex  h-dvh '>
+    <div className='flex   '>
 
     <div className='bg-white border-gray rounded-2xl w-[25%]   p-2  m-5 '>
-     <h1 className='font-semibold text-xl'>Chat</h1>
-     <div className='flex text-center  relative w-[10%] m-4 '>
+     <h1 className='font-semibold text-2xl'>Chats</h1>
+     <div className='flex text-center   relative w-[10%] m-4 '>
 <span className=' mt-3'>
   
- <CiSearch className='absolute -translate-y-1/5  ' /> 
+ <CiSearch className='absolute -translate-y-1/5   ' /> 
 </span>
          <input type="text" onChange={(e)=>setSearch(e.target.value)} value={search}  placeholder='Search' 
          className=' border pl-5  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
@@ -137,7 +137,7 @@ e.preventDefault()
 
 
       <div className='flex flex-col'>
-        <span className='font-medium'>
+        <span className='font-semibold text-black'>
           {user.firstname} {user.lastname}
         </span>
         <span className='text-sm text-textt'>
@@ -159,11 +159,11 @@ e.preventDefault()
 
     </div>
       <div className='bg-white border-gray rounded-xl w-[75%]  m-5 relative'>
-        <div className='border-b border-gray'>
+        <div className=''>
 
        {activeuser ?(
          <>
-<div className='flex gap-3 text-center items-center m-5  '>
+<div className='flex gap-3 text-center items-center m-5   border-b border-gray'>
     <img 
         src={activeuser.imageUrl} 
         alt={activeuser.firstname}
@@ -180,11 +180,11 @@ e.preventDefault()
       
       </div>
 
-      <div className="p-5 space-y-2 overflow-y-auto h-[70vh]">
+      <div className="p-5 space-y-2 h-[50vh] overflow-y-auto">
   {getmessages.map((msg) => (
     <div
       key={msg._id}
-      className={`max-w-[60%] p-2 rounded-lg ${
+      className={`max-w-[60%] p-2 rounded-lg  ${
         msg.senderId === user._id
           ? "ml-auto bg-blue-500 text-white"
           : "mr-auto bg-gray-200"
@@ -196,9 +196,9 @@ e.preventDefault()
 </div>
 
       
-<form onSubmit={message}>
+<form onSubmit={message} className=''>
 
-        <div   className='absolute flex inset-x-0  bottom-0 text-center items-center m-5 border-t border-gray '>
+        <div   className=' flex inset-x-0  bg-white bottom-0 text-center items-center m-5 border-t border-gray '>
 
 
         <input type="text" placeholder='Type here' name='message' value={form.message}  onChange={handle} 
@@ -207,11 +207,14 @@ e.preventDefault()
        
 
       </div>
-</form>
+</form> 
     </>
        ):(
-         <div>
-
+         <div className='  mt-48 font-bold text-2xl underline underline-offset-8'>
+          <span className='flex  justify-center'><PiChatCircleDots className='text-4xl'/></span>
+           <h1 className='flex  justify-center '>Please Select User and  
+            Start Chats
+           </h1>
         </div>
        )
       }
