@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { act, useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../Context/AppContext'
 import { CiSearch } from 'react-icons/ci'
 import { BiRightArrow } from "react-icons/bi";
 import axios, { AxiosError } from 'axios'
 import { PiChatCircleDots } from "react-icons/pi";
-import { Link } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa";
 const Chat = () => {
   const {user}=useContext(AppContext)
@@ -97,7 +97,14 @@ e.preventDefault()
     }
   }
 
-  
+  const formattime=(dataString)=>{
+    const date=new  Date(dataString)
+    return date.toLocaleTimeString("en-Us",{
+      hour:"2-digit",
+      minute:"2-digit",
+      
+    })
+  }
   
 
   return (
@@ -153,6 +160,9 @@ e.preventDefault()
         <span className='text-sm text-textt'>
           {user.position}
         </span>
+           <span className="block text-xs text-right opacity-70 mt-1">
+     
+      </span>
       </div>
     </div>
   ))}
@@ -185,7 +195,11 @@ e.preventDefault()
         </span>
         <span className='text-sm text-textt'>
           {activeuser.position}
+      
         </span>
+           <span className="block text-xs text-right opacity-70 mt-1">
+        {formattime(activeuser.createdAt)}
+      </span>
       </div>
       
       </div>
@@ -197,10 +211,13 @@ e.preventDefault()
       className={`max-w-[60%] p-2 rounded-lg  ${
         msg.senderId === user._id
           ? "ml-auto bg-blue-500 text-white"
-          : "mr-auto bg-gray-200"
+          : "mr-auto bg-gray"
       }`}
     >
       {msg.message}
+   <span className="block text-xs text-right opacity-70 mt-1">
+        {formattime(msg.createdAt)}
+      </span>
     </div>
   ))}
 </div>
