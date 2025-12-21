@@ -17,7 +17,7 @@ const  [onemonth ,setOneMonth]=useState([])
 // calender
 
 const fetch=async()=>{
-    const res=await axios.get("http://localhost:5000/api/v1/get")
+    const res=await axios.get("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/get")
     console.log("Succussfully",res.data);
     setDataMonth(res.data.months)
   }
@@ -26,7 +26,7 @@ const fetch=async()=>{
     
   },[])
   const handlecalender=async(month)=>{
-      const res=await axios.get(`http://localhost:5000/api/v1/get/${month}`)
+      const res=await axios.get(`https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/get/${month}`)
       console.log("Successfully",res.data.Aug);
       setOneMonth(res.data)
     setOpen(!open)

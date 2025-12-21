@@ -17,7 +17,7 @@ const  Dashboard = () => {
 
   const handle=async()=>{
     try {
-      const res=await axios.get("http://localhost:5000/api/v1/coust/get")
+      const res=await axios.get("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/coust/get")
       console.log("Data", res.data.coustomer);
       setCoustomer(res.data.coustomer)
     } catch (error) {

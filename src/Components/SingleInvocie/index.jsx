@@ -21,7 +21,7 @@ const SingleInvocie = () => {
   const savedId =localStorage.getItem("invoiceid")
   const fetchData = async (_id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/v1/oneinvoice/${_id}`);
+      const res = await axios.get(`https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/oneinvoice/${_id}`);
       console.log("✅ Invoice Data:", res.data.invoice);
       setInvoice(res.data.invoice);
     } catch (error) {

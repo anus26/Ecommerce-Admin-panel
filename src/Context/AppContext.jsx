@@ -17,7 +17,7 @@ export default function AppProvider({children}){
         console.log("auth user",user);
         if (user?._id) {
             const newsocket=io(
-                "http://localhost:5000"
+                "https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app"
                 ,{
                     auth:{
                         userId:user._id
@@ -73,7 +73,7 @@ const Signin =(data)=>{
      const logout=async(e)=>{
 e.preventDefault()
 try {
-   const res=await axios.delete("http://localhost:5000/api/v1/user/logout",{
+   const res=await axios.delete("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/logout",{
       withCredentials: true
    })
    console.log("logout Successfully",res.data);

@@ -39,7 +39,7 @@ const [filterDays, setFilterDays] = useState(7);
           
           const fetchData=async()=>{
           try {
-            const res=await axios.get('http://localhost:5000/api/v1/getinvoice')
+            const res=await axios.get('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/getinvoice')
             setInvoice(res.data.invoice)
             console.log('Invoice Data :',res.data.invoice );
             setCurrentPage(1)

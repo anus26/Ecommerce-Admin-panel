@@ -17,7 +17,7 @@ const Reset = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     try {
-      const res=await axios.post(`http://localhost:5000/api/v1/user/forget`,form,{
+      const res=await axios.post(`https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/forget`,form,{
         withCredentials:true
       })
 console.log("OTP Send Successfully",res.data);

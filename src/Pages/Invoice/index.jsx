@@ -130,7 +130,7 @@ useEffect(() => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/v1/invoice",
+        "https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/invoice",
         formData,
         {
           withCredentials: true,
@@ -170,7 +170,7 @@ useEffect(() => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/v1/product", {
+      const res = await axios.get("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/product", {
         withCredentials: true,
       });
       const allProducts=res.data.product || []

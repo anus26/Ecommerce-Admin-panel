@@ -9,7 +9,7 @@ const Orders = () => {
   const fetchData=async()=>{
     try {
       
-      const res=await axios.get("http://localhost:5000/api/v1/product",{
+      const res=await axios.get("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/product",{
         withCredentials:true,
       })
       console.log("Get Data Successfully",res.data);

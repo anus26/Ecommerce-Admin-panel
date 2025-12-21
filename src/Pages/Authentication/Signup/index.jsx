@@ -39,7 +39,7 @@ const Signup = () => {
 
 try {
   
-  const res=await axios.post('http://localhost:5000/api/v1/user/signup',formData,{
+  const res=await axios.post('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/signup',formData,{
      headers: { "Content-Type": "multipart/form-data" },
  withCredentials:true})
  localStorage.setItem('user',JSON.stringify(res.data.user))

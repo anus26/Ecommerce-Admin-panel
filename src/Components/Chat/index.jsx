@@ -32,7 +32,8 @@ const handleActiveuser = (selectedUser) => {
   const userAll=async()=>{
 
     
-    const res=await axios.get('http://localhost:5000/api/v1/user/alluser',{
+    const res=await axios.get('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/alluser',{
+
       withCredentials:true
     })
     console.log("All users",res.data);
@@ -55,7 +56,7 @@ const handleActiveuser = (selectedUser) => {
 
   const  getmessage=async(receiverId)=>{
     try {
-      const res=await axios.get(`http://localhost:5000/api/v1/getmessage/${receiverId}`,{
+      const res=await axios.get(`https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/getmessage/${receiverId}`,{
         withCredentials:true
       })
       console.log("All User message",res.data.messages);
@@ -76,7 +77,7 @@ const handleActiveuser = (selectedUser) => {
   const message=async(e)=>{
 e.preventDefault()
     try {
-      const res=await axios.post(`http://localhost:5000/api/v1/send/${activeuser._id}`,form,{
+      const res=await axios.post(`https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/send/${activeuser._id}`,form,{
         withCredentials:true
       })
       setGetMessages(prev => [...prev, res.data])
@@ -97,14 +98,33 @@ e.preventDefault()
     }
   }
 
-  const formattime=(dataString)=>{
-    const date=new  Date(dataString)
-    return date.toLocaleTimeString("en-Us",{
-      hour:"2-digit",
-      minute:"2-digit",
-      
-    })
+const formattime = (date) => {
+  if (!date) return "";
+
+  const d = new Date(date);
+  const now = new Date();
+
+  const isToday =
+    d.getDate() === now.getDate() &&
+    d.getMonth() === now.getMonth() &&
+    d.getFullYear() === now.getFullYear();
+
+  if (isToday) {
+    return `Last seen at ${d.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    })}`;
   }
+
+  return `Last seen ${d.toLocaleDateString([], {
+    day: "numeric",
+    month: "short",
+  })} at ${d.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  })}`;
+};
+
   
 
   return (
@@ -197,9 +217,14 @@ e.preventDefault()
           {activeuser.position}
       
         </span>
-           <span className="block text-xs text-right opacity-70 mt-1">
-        {formattime(activeuser.createdAt)}
-      </span>
+    {activeuser?.isOnline ? (
+  <span className="text-green-500 text-xs">Online</span>
+) : (
+  <span className="block text-xs text-right opacity-70 mt-1">
+    {formattime(activeuser?.lastSeen)}
+  </span>
+)}
+
       </div>
       
       </div>

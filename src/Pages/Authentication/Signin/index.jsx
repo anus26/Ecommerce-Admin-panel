@@ -26,7 +26,7 @@ const Signin = () => {
     e.preventDefault()
 try {
   
-  const res=await axios.post('http://localhost:5000/api/v1/user/signin',formData,{
+  const res=await axios.post('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/signin',formData,{
  withCredentials:true})
     console.log("Signin successful", res.data);
 

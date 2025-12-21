@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { io } from 'socket.io-client'
-const socket=io('http://localhost:5000', { transports: ["websocket"] })
+const socket=io('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app', { transports: ["websocket"] })
 const Socket = () => {
 const [visitorcount , setVisitorCount]=useState(0)
 

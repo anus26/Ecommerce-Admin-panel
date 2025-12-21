@@ -28,7 +28,7 @@ const navigate=useNavigate()
       const finalOtp = otp.join("");
     try {
       const user=JSON.parse(localStorage.getItem("user"))
-      const res=await axios.post("http://localhost:5000/api/v1/user/verif",
+      const res=await axios.post("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/verif",
         {
         email:user.email,
        otp:finalOtp

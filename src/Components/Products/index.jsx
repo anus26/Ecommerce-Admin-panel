@@ -7,17 +7,21 @@ import axios from "axios";
 const Product = () => {
     const [count ,setCount]=useState(1)
     const [formData,setFormData]=useState({
-      ProductName:"",Category:"",Price:"",Length:"",Weight:"",Width:"",Description:"",Brand:"",StockQuality:"",StockQuantity:"",color:"",Discount:"",Availability:"",image:null
+      ProductName:"",
+      Category:"",Price:"",
+      Length:"",
+      Weight:"",Width:"",Description:"",Brand:"",StockQuality:"",StockQuantity:"",color:"",Discount:"",Availability:"",image:null
 
     })
-    const [images,setImages]=useState([])
+    // const [images,setImages]=useState([])
     
     const handlechange=(e)=>{
       setFormData({...formData,[e.target.name]:e.target.value })
     }
 const handleImage = (e) => {
-  setFormData({ ...formData, images: e.target.files[0] });
+  setFormData({ ...formData, image: e.target.files[0] });
 };
+
 
     
     
@@ -40,21 +44,21 @@ setFormData({...formData,StockQuality:newValue})
 
     // append all text fields
     Object.keys(formData).forEach((key) => {
-      if (key !== "images") {
+      if (key !== "image") {
         data.append(key, formData[key]);
       }
     });
 
     // append image
-    if (formData.images) {
-      data.append("images", formData.images); // 👈 name must match backend multer.single("images")
+    if (formData.image) {
+      data.append("image", formData.image); 
     }
 
-    const res = await axios.post("http://localhost:5000/api/v1/product", data, {
-      withCredentials: true,
+    const res = await axios.post("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/product", data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
+      withCredentials: true,
     });
 
     console.log("✅ Successfully Add Data", res.data.newproduct);
@@ -205,15 +209,16 @@ setFormData({...formData,StockQuality:newValue})
    
             <div className="flex flex-col w-1/2 sm:w-full">
               <label className="font-semibold text-md mb-2">Availability Status </label>
-              <select className="border w-full h-12 p-2 rounded-lg outline-none transition-all duration-300 
-                                 border-gray hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)]"    value={formData.Availability}
-                name="Availability"
-                onChange={handlechange}>
-                <option value="">Select Brand</option>
-                <option value="apple">Apple</option>
-                <option value="samsung">Samsung</option>
-                <option value="dell">Dell</option>
-              </select>
+         <select
+  name="Availability"
+  value={formData.Availability}
+  onChange={handlechange}
+>
+  <option value="">Select Availability</option>
+  <option value="true">Available</option>
+  <option value="false">Out of Stock</option>
+</select>
+
             </div>
             </div>
 <br />
@@ -223,34 +228,44 @@ setFormData({...formData,StockQuality:newValue})
           
       </div>
       <br />
-       <div className="bg-white p-6 border border-gray rounded-xl w-full">
-        <h1 className="font-semibold text-xl mb-4">Price & Availability</h1>
-        <div className="border-b border-gray mb-6"></div>
-        <div className="border-dashed border hover:border-primary h-52 hover:shadow-[0_2px_8px_rgba(0,0,150,0.4) rounded-lg outline-none transition-all duration-300 ">
-<label className=" items-center text-center justify-center" >
-    <div className="flex items-center justify-center">
+    <div className="bg-white p-6 border border-gray rounded-xl w-full">
+  <h1 className="font-semibold text-xl mb-4">Price & Availability</h1>
+  <div className="border-b border-gray mb-6"></div>
 
-    <div className="border rounded-full w-16 h-16 flex m-4 text-center items-center  justify-center">
+  <div className="border-dashed border hover:border-primary h-52 
+                  hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] 
+                  rounded-lg outline-none transition-all duration-300">
 
-<BsArrowBarUp  className="text-3xl  mb-2" />
-    </div>
-    </div>
-<span className="block ">Click to Upload or drag and drop</span>
-   <span className="text-sm flex items-center justify-center">
-      SVG, PNG, JPG or GIF (MAX. 800×400px)
-    </span>
-       <input type="file" className="hidden" 
-        name="images"
-        onChange={handleImage}
-       
-       />
-</label>
-    
-        </div>
-        <br />
-<br />
-                          
+    {/* LABEL */}
+    <label
+      htmlFor="imageUpload"
+      className="cursor-pointer h-full flex flex-col items-center justify-center text-center"
+    >
+      <div className="border rounded-full w-16 h-16 flex items-center justify-center mb-3">
+        <BsArrowBarUp className="text-3xl" />
       </div>
+
+      <span className="block font-medium">
+        Click to Upload or drag and drop
+      </span>
+
+      <span className="text-sm text-gray-500 mt-1">
+        SVG, PNG, JPG or GIF (MAX. 800×400px)
+      </span>
+    </label>
+
+    {/* INPUT */}
+    <input
+      id="imageUpload"
+      type="file"
+      accept="image/*"
+      className="hidden"
+      name="image"
+      onChange={handleImage}
+    />
+  </div>
+</div>
+
       <div className="flex justify-end gap-2">
 
 

@@ -6,7 +6,7 @@ import Secciondevice from './Secciondevice'
 const Acquiction = () => {
 const [visit,setVisit]=useState([])
 const fetch=async()=>{
-    const res=await axios.get("http://localhost:5000/api/v1/getvisit")
+    const res=await axios.get("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/getvisit")
     console.log("Succussfully",res.data);
     setVisit(res.data.visit)
   }
@@ -17,7 +17,7 @@ const fetch=async()=>{
 
   const sendVisit = async () => {
   try {
-    await axios.post("http://localhost:5000/api/v1/visit");
+    await axios.post("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/visit");
     console.log("Visit saved ✅");
   } catch (error) {
     console.log("Visit error ❌", error);
