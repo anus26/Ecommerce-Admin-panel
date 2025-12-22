@@ -8,6 +8,7 @@ export default function AppProvider({children}){
     const [header,setHeader]=useState(false)
     const [socket ,setSocket]=useState(null)
     const [onlineusers,setOnlineusers]=useState([])
+    const  [liveVisitors,setLiveVisitors]=useState(0)
     const [search ,setSearch]=useState("")
     const [user ,setUser]=useState(()=>{
         return localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")):null
@@ -22,21 +23,28 @@ export default function AppProvider({children}){
                     auth:{
                         userId:user._id
                     },
+                      transports: ["websocket"],
                     withCredentials:true
                 },
             )
             setSocket(newsocket)
          
 
-            newsocket.on("liveVisitors",(user)=>{
+            newsocket.on("onlineUsers",(user)=>{
                 setOnlineusers(user)
                 console.log("Online user",user);
                 console.log("Socket Id",newsocket.id);
                 
                 
             })
+            newsocket.on("liveVisitors",(user)=>{
+                setLiveVisitors(user)
+                console.log("live ",user);
+                
+            })
             return ()=>{
                 newsocket.disconnect()
+                setSocket(null)
             }
         }
         else{
@@ -97,7 +105,7 @@ console.log(error);
     //     localStorage.removeItem('user')
     // }
     return (
-        <AppContext.Provider  value={{socket, messageSound,onlineusers,header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
+        <AppContext.Provider  value={{socket, messageSound,onlineusers,liveVisitors, header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
             {children}
         </AppContext.Provider>
     )
