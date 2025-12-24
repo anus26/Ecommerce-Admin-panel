@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CgAdd } from 'react-icons/cg'
 import { IoAdd } from 'react-icons/io5'
 import Analyticsgraph from '../../Components/Analytics/Anaylticsgraph'
 import Channels from '../../Components/Analytics/Channels'
 import Acquiction from '../../Components/Analytics/Acquiction'
 import Globalandproduct from '../../Components/Analytics/Globalandproduct'
+import { AppContext } from '../../Context/AppContext'
+import axios from 'axios'
 
 const Analytics = () => {
+  const {liveVisitors}=useContext(AppContext)
+  const [totalvisit ,setTotalVisit]=useState("")
+  
+  const Visit=async()=>{
+    const res=await axios.get("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/getvisit",{
+      withCredentials:true
+    })
+  setTotalVisit(res.data)
+  console.log("total  visit ",res.data);
+  
+  }
+useEffect(()=>{
+  Visit()
+},[])
   return (
  <>
  <section>
@@ -19,7 +35,7 @@ const Analytics = () => {
         <h1 className='text-textt '>Unique Visitors</h1>
       <br />
          <div className='flex items-center justify-between '>
-          <h1 className='font-bold text-2xl'>24.7k</h1>
+          <h1 className='font-bold text-2xl'>{liveVisitors}</h1>
            <span className=" flex text-green bg-dark px-2 py-1 text-xs rounded-full">
           <IoAdd/>20%
           </span>
@@ -31,10 +47,14 @@ const Analytics = () => {
        <div className='bg-white border border-gray rounded-xl  h-28'>
         <div className='m-5 '>
 
-        <h1 className='text-textt '>Unique Visitors</h1>
+        <h1 className='text-textt '>Total Pageviews</h1>
       <br />
          <div className='flex items-center justify-between '>
-          <h1 className='font-bold text-2xl'>24.7k</h1>
+<h1 className="font-bold text-2xl">
+  {totalvisit.visit?.length || 0}
+</h1>
+
+
            <span className=" flex text-green bg-dark px-2 py-1 text-xs rounded-full">
           <IoAdd/>20%
           </span>
@@ -49,7 +69,13 @@ const Analytics = () => {
         <h1 className='text-textt '>Unique Visitors</h1>
       <br />
          <div className='flex items-center justify-between '>
-          <h1 className='font-bold text-2xl'>24.7k</h1>
+<h1 className="font-bold text-2xl">
+
+  {((totalvisit?.visit?.length || 0) / 100).toFixed(2)}%
+
+
+</h1>
+
            <span className=" flex text-green bg-dark px-2 py-1 text-xs rounded-full">
           <IoAdd/>20%
           </span>
@@ -64,7 +90,7 @@ const Analytics = () => {
         <h1 className='text-textt '>Unique Visitors</h1>
       <br />
          <div className='flex items-center justify-between '>
-          <h1 className='font-bold text-2xl'>24.7k</h1>
+          <h1 className='font-bold text-2xl'>{((totalvisit?.visit?.length||0)*60/100)}</h1>
            <span className=" flex text-green bg-dark px-2 py-1 text-xs rounded-full">
           <IoAdd/>20%
           </span>
