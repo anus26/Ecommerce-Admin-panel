@@ -1,10 +1,22 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { AiOutlineFilter } from "react-icons/ai";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Orders = () => {
   const [products,setProdcut]=useState([])
 
+  const [currentpage,setCurrentPage]=useState(1)
+  
+
+  const perpage=5 
+  const  totalpages=Math.ceil(products.length/perpage)
+  const indexofLastpage=currentpage*perpage
+  const indexOfFirstpage=indexofLastpage-perpage
+  
+
+  const currentproduct=products.slice(indexOfFirstpage,indexofLastpage)
 
   const fetchData=async()=>{
     try {
@@ -25,7 +37,18 @@ const Orders = () => {
   useEffect(()=>{
     fetchData()
   },[])
-
+const nextpage=()=>{
+  if (currentpage < totalpages) {
+    setCurrentPage((prev) =>prev+1)
+    
+  }
+}
+const  prevpage=()=>{
+  if (currentpage > 1) {
+    setCurrentPage((prev) =>prev-1)
+    
+  }
+}
 
   return (
     <>
@@ -57,7 +80,7 @@ const Orders = () => {
 
         {/* Table Rows */}
         <div className=''>
-          {products.map((product) => (
+          {currentproduct.map((product) => (
             <div
               key={product._id}
               className='flex justify-between items-center m-5 text-gray-700 sm:w-full overflow-x-auto'
@@ -90,7 +113,13 @@ const Orders = () => {
               </p>
             </div>
           ))}
+           <button onClick={prevpage} disabled={currentpage===1}><IoIosArrowBack /></button>
+           <span className="font-semibold">
+          Page {currentpage} of {totalpages}
+        </span>
+           <button onClick={nextpage} disabled={currentpage === totalpages}><IoIosArrowForward /></button>
         </div>
+        
       </div>
     </>
   );

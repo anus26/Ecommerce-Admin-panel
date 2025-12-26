@@ -11,6 +11,9 @@ import axios from 'axios'
 const Analytics = () => {
   const {liveVisitors}=useContext(AppContext)
   const [totalvisit ,setTotalVisit]=useState("")
+  const  totalsecond=(totalvisit?.visit?.length||0)*60
+  const  minutes=Math.floor(totalsecond/60)
+  const seconds=totalsecond%60
   
   const Visit=async()=>{
     const res=await axios.get("https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/getvisit",{
@@ -20,6 +23,7 @@ const Analytics = () => {
   console.log("total  visit ",res.data);
   
   }
+
 useEffect(()=>{
   Visit()
 },[])
@@ -35,7 +39,7 @@ useEffect(()=>{
         <h1 className='text-textt '>Unique Visitors</h1>
       <br />
          <div className='flex items-center justify-between '>
-          <h1 className='font-bold text-2xl'>{liveVisitors}</h1>
+          <h1 className='font-bold text-2xl'>{liveVisitors}K</h1>
            <span className=" flex text-green bg-dark px-2 py-1 text-xs rounded-full">
           <IoAdd/>20%
           </span>
@@ -51,7 +55,7 @@ useEffect(()=>{
       <br />
          <div className='flex items-center justify-between '>
 <h1 className="font-bold text-2xl">
-  {totalvisit.visit?.length || 0}
+  {totalvisit.visit?.length || 0}K
 </h1>
 
 
@@ -66,7 +70,7 @@ useEffect(()=>{
  <div className='bg-white border border-gray rounded-xl  h-28'>
         <div className='m-5 '>
 
-        <h1 className='text-textt '>Unique Visitors</h1>
+        <h1 className='text-textt '>Bounce Rate</h1>
       <br />
          <div className='flex items-center justify-between '>
 <h1 className="font-bold text-2xl">
@@ -87,10 +91,10 @@ useEffect(()=>{
       <div className='bg-white border border-gray rounded-xl  h-28'>
         <div className='m-5 '>
 
-        <h1 className='text-textt '>Unique Visitors</h1>
+        <h1 className='text-textt '>visit Duration</h1>
       <br />
-         <div className='flex items-center justify-between '>
-          <h1 className='font-bold text-2xl'>{((totalvisit?.visit?.length||0)*60/100)}</h1>
+         <div className='flex items-center justify-between gap-5'>
+          <h1 className='font-bold text-2xl'>{minutes}m{seconds}s</h1>
            <span className=" flex text-green bg-dark px-2 py-1 text-xs rounded-full">
           <IoAdd/>20%
           </span>

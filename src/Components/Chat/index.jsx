@@ -1,9 +1,9 @@
 import React, { act, useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../Context/AppContext'
 import { CiSearch } from 'react-icons/ci'
-import { BiRightArrow } from "react-icons/bi";
+import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import axios, { AxiosError } from 'axios'
-import { PiChatCircleDots } from "react-icons/pi";
+import { PiAlignCenterVertical, PiChatCircleDots } from "react-icons/pi";
 import { data, Link } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa";
 const Chat = () => {
@@ -141,11 +141,11 @@ const formattime = (date) => {
 
     </div>
    </div>
-    <div className='flex   '>
+    <div className='flex justify-center  '>
 
-    <div className='bg-white border-gray rounded-2xl w-[25%]   p-2  m-5 '>
+    <div className={`bg-white border-gray rounded-2xl xl:w-[25%]   md:w-full    p-2  m-5 ${activeuser?"md:hidden xl:block":""}`}>
      <h1 className='font-semibold text-2xl'>Chats</h1>
-     <div className='flex text-center   relative w-[10%] m-4 '>
+     <div className='flex text-center   relative  w-[10%] m-4 '>
 <span className=' mt-3'>
   
  <CiSearch className='absolute -translate-y-1/5   text-xl  ' /> 
@@ -198,11 +198,12 @@ const formattime = (date) => {
 
 
     </div>
-      <div className='bg-white border-gray rounded-xl w-[75%]  m-5 relative'>
+      <div className={`bg-white border-gray rounded-xl w-[75%]   m-5 relative ${activeuser?"":<BiRightArrow/>}`}>
         <div className=''>
 
        {activeuser ?(
          <>
+         <button onClick={user}><BiLeftArrow/></button>
 <div className='flex gap-3 text-center items-center m-5   border-b border-gray'>
     <img 
         src={activeuser.imageUrl} 
