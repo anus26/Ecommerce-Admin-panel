@@ -91,11 +91,11 @@ const Sidebar = () => {
     {[
       { name: "eCommerce", path: "/" },
       { name: "Analytics", path: "/analytics" },
-      { name: "Marketing", path: "/marketing" },
-      { name: "CRM", path: "/crm" },
-      { name: "Stocks", path: "/stocks" },
-      { name: "Saas", path: "/saas", isNew: true },
-      { name: "Logistics", path: "/logistics", isNew: true },
+      // { name: "Marketing", path: "/marketing" },
+      // { name: "CRM", path: "/crm" },
+      // { name: "Stocks", path: "/stocks" },
+      // { name: "Saas", path: "/saas", isNew: true },
+      // { name: "Logistics", path: "/logistics", isNew: true },
     ].map((item) => (
       <h1
         key={item.name}
@@ -142,10 +142,10 @@ const Sidebar = () => {
  {openmenu.aiassitant && (
   <div className='ml-8 mt-2 space-y-1 text-gray-black'>
     {[
-      { name: "Text Generator", path: "/text-generator" },
-      { name: "Image Generator", path: "/image-generator" },
-      { name: "Code Generator", path: "/code-generator" },
-      { name: "Video Generator", path: "/video-generator" },
+      // { name: "Text Generator", path: "/text-generator" },
+      // { name: "Image Generator", path: "/image-generator" },
+      // { name: "Code Generator", path: "/code-generator" },
+      // { name: "Video Generator", path: "/video-generator" },
     ].map((item) => (
       <h1
         key={item.name}
@@ -280,14 +280,14 @@ const Sidebar = () => {
         {openmenu.tasks && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
-      { name: "Products", path: "/products" },
-      { name: "Add Product", path: "/addProduct" },
-      { name: "Billing", path: "/billing" },
-      { name: "Invoices", path: "/invoices" },
-      { name: "Single Invoices", path: "/invoice" },
-      { name: "Create Invoice", path: "/createinvoice" },
-      { name: "Transactions", path: "/transactions" },
-      { name: "Single Transactions", path: "/singletransactions" },
+      // { name: "Products", path: "/products" },
+      // { name: "Add Product", path: "/addProduct" },
+      // { name: "Billing", path: "/billing" },
+      // { name: "Invoices", path: "/invoices" },
+      // { name: "Single Invoices", path: "/invoice" },
+      // { name: "Create Invoice", path: "/createinvoice" },
+      // { name: "Transactions", path: "/transactions" },
+      // { name: "Single Transactions", path: "/singletransactions" },
     ].map((item) => (
       <h1
         key={item.name}
@@ -326,14 +326,14 @@ const Sidebar = () => {
         {openmenu.forms && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
-      { name: "Products", path: "/products" },
-      { name: "Add Product", path: "/addProduct" },
-      { name: "Billing", path: "/billing" },
-      { name: "Invoices", path: "/invoices" },
-      { name: "Single Invoices", path: "/invoice" },
-      { name: "Create Invoice", path: "/createinvoice" },
-      { name: "Transactions", path: "/transactions" },
-      { name: "Single Transactions", path: "/singletransactions" },
+      // { name: "Products", path: "/products" },
+      // { name: "Add Product", path: "/addProduct" },
+      // { name: "Billing", path: "/billing" },
+      // { name: "Invoices", path: "/invoices" },
+      // { name: "Single Invoices", path: "/invoice" },
+      // { name: "Create Invoice", path: "/createinvoice" },
+      // { name: "Transactions", path: "/transactions" },
+      // { name: "Single Transactions", path: "/singletransactions" },
     ].map((item) => (
       <h1
         key={item.name}
@@ -376,14 +376,14 @@ const Sidebar = () => {
         {openmenu.tables && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
-      { name: "Products", path: "/products" },
-      { name: "Add Product", path: "/addProduct" },
-      { name: "Billing", path: "/billing" },
-      { name: "Invoices", path: "/invoices" },
-      { name: "Single Invoices", path: "/invoice" },
-      { name: "Create Invoice", path: "/createinvoice" },
-      { name: "Transactions", path: "/transactions" },
-      { name: "Single Transactions", path: "/singletransactions" },
+      // { name: "Products", path: "/products" },
+      // { name: "Add Product", path: "/addProduct" },
+      // { name: "Billing", path: "/billing" },
+      // { name: "Invoices", path: "/invoices" },
+      // { name: "Single Invoices", path: "/invoice" },
+      // { name: "Create Invoice", path: "/createinvoice" },
+      // { name: "Transactions", path: "/transactions" },
+      // { name: "Single Transactions", path: "/singletransactions" },
     ].map((item) => (
       <h1
         key={item.name}
@@ -421,14 +421,14 @@ const Sidebar = () => {
         {openmenu.pages && (
   <div className="ml-8 mt-2 space-y-1 text-gray-black">
     {[
-      { name: "Products", path: "/products" },
-      { name: "Add Product", path: "/addProduct" },
-      { name: "Billing", path: "/billing" },
-      { name: "Invoices", path: "/invoices" },
-      { name: "Single Invoices", path: "/invoice" },
-      { name: "Create Invoice", path: "/createinvoice" },
-      { name: "Transactions", path: "/transactions" },
-      { name: "Single Transactions", path: "/singletransactions" },
+      // { name: "Products", path: "/products" },
+      // { name: "Add Product", path: "/addProduct" },
+      // { name: "Billing", path: "/billing" },
+      // { name: "Invoices", path: "/invoices" },
+      // { name: "Single Invoices", path: "/invoice" },
+      // { name: "Create Invoice", path: "/createinvoice" },
+      // { name: "Transactions", path: "/transactions" },
+      // { name: "Single Transactions", path: "/singletransactions" },
     ].map((item) => (
       <h1
         key={item.name}
