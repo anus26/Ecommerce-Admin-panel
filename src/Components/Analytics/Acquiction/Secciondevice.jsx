@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { Colors } from 'chart.js'
 import React, { useEffect, useState } from 'react'
 import ReactApexChart from 'react-apexcharts'
 

@@ -3,8 +3,7 @@ import { io } from 'socket.io-client'
 import { AppContext } from '../../../Context/AppContext'
 // const socket=io('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app', { transports: ["websocket"] })
 const Socket = () => {
-//  const [onlineUsers, setOnlineUsers] = useState({});
-//   const [liveVisitors, setLiveVisitors] = useState(0);
+
 const {liveVisitors}=useContext(AppContext)
 
   // useEffect(() => {

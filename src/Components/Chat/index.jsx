@@ -1,4 +1,4 @@
-import React, { act, useContext, useEffect, useState } from 'react'
+import React, {  useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../Context/AppContext'
 import { CiSearch } from 'react-icons/ci'
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
@@ -143,7 +143,7 @@ Array.isArray(onlineusers) && onlineusers.includes(user._id)
 
     <h1 className='font-semibold text-2xl'>Chat</h1>
     <div className='flex  text-center items-center  gap-2'>
-      <Link to="/" className='text-textt'>Home</Link>
+      <Link to='/' className='text-textt'>Home</Link>
       <span><FaAngleRight /></span>
       <Link>Chat</Link>
 
