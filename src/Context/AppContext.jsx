@@ -20,11 +20,11 @@ export default function AppProvider({children}){
             const newsocket=io(
                 "https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app"
                 ,{
+                    withCredentials:true,
                     auth:{
                         userId:user._id
                     },
                       transports: ["websocket"],
-                    withCredentials:true
                 },
             )
             setSocket(newsocket)

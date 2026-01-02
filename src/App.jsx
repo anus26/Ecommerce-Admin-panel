@@ -1,4 +1,3 @@
-import React, { createContext } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Dashboard from './Pages/Dashboard'
 import Layouts from './Components/Layouts'
@@ -20,21 +19,17 @@ import SingleTransactions from './Components/SingleTransactions'
 import Analytics from './Pages/Analytics'
 import ProtectedRoutes from './Components/ProtectedRoutes'
 import Profile1 from './Components/Account/Profile1'
-import { Chart } from 'chart.js'
 import Chat from './Components/Chat'
 
 
 
 
-// export const MyContext = createContext()
 
 const App = () => {
   const {sidebar}=Header
   return (
     <BrowserRouter>
-      {/* <MyContext.Provider value={{}}> */}
         <Routes>
-          {/* Layout parent route */}
                <Route path="signin" element={<Signin />} />
                <Route path="signup" element={<Signup />} />
                <Route path="verification" element={<Verification />} />
@@ -47,10 +42,8 @@ const App = () => {
                </ProtectedRoutes>
             }>
           
-            {/* Default page */}
           
             <Route index element={<Dashboard />} />
-            {/* Other pages */}
             <Route path='profile1' element={<Profile1/>} />
             <Route path="home" element={<Home />} />
             <Route path='addProduct' element={<AddProduct/>}/>

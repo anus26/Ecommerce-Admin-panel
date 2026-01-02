@@ -34,8 +34,10 @@ const handleActiveuser = (selectedUser) => {
     
     const res=await axios.get('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/alluser',{
 
-      withCredentials:true
+      withCredentials:true,
+
     })
+    
     console.log("All users",res.data);
     setAllUser(res.data)
   }
@@ -130,6 +132,7 @@ const handleBackToUsers = () => {
   setBacke(true)        // users list show
   setActiveUser(null)   // chat close
 }
+Array.isArray(onlineusers) && onlineusers.includes(user._id)
 
 
   return (
@@ -172,7 +175,7 @@ const handleBackToUsers = () => {
                     <img
                       src={user.imageUrl}
                       alt={user.firstname}
-                      className={`w-12 h-12 rounded-full object-cover ${Array.isArray(onlineusers) && onlineusers.includes(user._id)
+                      className={`w-12 h-12 rounded-full object-cover ${ onlineusers?.[user._id]?.online 
                           ? "ring-2 ring-green"
                           : ""}`} />
 

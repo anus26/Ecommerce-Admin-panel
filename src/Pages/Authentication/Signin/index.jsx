@@ -31,6 +31,7 @@ try {
     console.log("Signin successful", res.data);
 
     // Check if user is already saved from signup
+    localStorage.setItem("jwt",res.data.jwt)
  localStorage.setItem('user',JSON.stringify(res.data.user))
 
  
@@ -48,7 +49,7 @@ try {
   }
   return (
     <>
-<section className='flex flex-col lg:flex-row h-screen  '>
+<section className='flex flex-col lg:flex-row h-screen overflow-auto '>
   <div className='lg:w-[70%] sm:w-full xl:w-[50%]'>
     <div className='m-28  sm:m-10 md:m-20'>
     <Link to='/' className='text-gray-50 mb-3 gap-2 flex items-center'><IoIosArrowBack  className=' h-5 '/>Back to dashboard</Link>
