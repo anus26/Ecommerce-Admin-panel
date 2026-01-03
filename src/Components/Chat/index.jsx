@@ -132,7 +132,7 @@ const handleBackToUsers = () => {
   setBacke(true)        // users list show
   setActiveUser(null)   // chat close
 }
-Array.isArray(onlineusers) && onlineusers.includes(user._id)
+
 
 
   return (
@@ -175,7 +175,7 @@ Array.isArray(onlineusers) && onlineusers.includes(user._id)
                     <img
                       src={user.imageUrl}
                       alt={user.firstname}
-                      className={`w-12 h-12 rounded-full object-cover ${ onlineusers?.[user._id]?.online 
+                      className={`w-12 h-12 rounded-full object-cover ${ Array.isArray(onlineusers) && onlineusers.includes(user._id)
                           ? "ring-2 ring-green"
                           : ""}`} />
 
