@@ -7,7 +7,7 @@ export const AppContext=createContext()
 export default function AppProvider({children}){
     const [header,setHeader]=useState(false)
     const [socket ,setSocket]=useState(null)
-    const [onlineusers,setOnlineusers]=useState([])
+    // const [onlineusers,setOnlineusers]=useState([])
     const  [liveVisitors,setLiveVisitors]=useState(0)
     const [search ,setSearch]=useState("")
     const [user ,setUser]=useState(()=>{
@@ -105,7 +105,7 @@ console.log(error);
     //     localStorage.removeItem('user')
     // }
     return (
-        <AppContext.Provider  value={{socket, messageSound,onlineusers,liveVisitors, header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
+        <AppContext.Provider  value={{socket, messageSound,onlineUsers,liveVisitors, header,setHeader,user,Signin,logout,Signup,search,setSearch,filteritems,sidebarItems,setUser}}>
             {children}
         </AppContext.Provider>
     )

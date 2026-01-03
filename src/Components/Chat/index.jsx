@@ -13,7 +13,7 @@ const Chat = () => {
   const [sendmessage,setSendMessage]=useState("")
   const [getmessages,setGetMessages]=useState([])
   const [backe,setBacke]=useState(true)
-  const {socket ,onlineusers,messageSound,user}=useContext(AppContext)
+  const {socket ,onlineUsers,messageSound,user}=useContext(AppContext)
   const [form, setForm]=useState({
     message:""
   })
@@ -175,7 +175,7 @@ const handleBackToUsers = () => {
                     <img
                       src={user.imageUrl}
                       alt={user.firstname}
-                      className={`w-12 h-12 rounded-full object-cover ${ Array.isArray(onlineusers) && onlineusers.includes(user._id)
+                      className={`w-12 h-12 rounded-full object-cover ${ Array.isArray(onlineUsers) && onlineUsers.includes(user._id)
                           ? "ring-2 ring-green"
                           : ""}`} />
 
