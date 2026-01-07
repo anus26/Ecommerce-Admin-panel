@@ -17,7 +17,7 @@ const Chat = () => {
   const [form, setForm]=useState({
     message:""
   })
-  console.log(onlineusers);
+  console.log(onlineUsers);
   console.log(socket);
 
 const handleActiveuser = (selectedUser) => {
@@ -133,7 +133,10 @@ const handleBackToUsers = () => {
   setActiveUser(null)   // chat close
 }
 
+const isOnline = onlineUsers?.[user._id]?.online === true;
 
+const isActiveUserOnline =
+  onlineUsers?.[activeuser?._id]?.online === true;
 
   return (
 <>
@@ -172,12 +175,16 @@ const handleBackToUsers = () => {
                     className={`flex items-center gap-5 p-2 hover:bg-gray-50 rounded-lg cursor-pointer ${activeuser?._id === user._id ? 'text-primary' : 'text-textt group-hover:text-primary'}`}
                     onClick={() => handleActiveuser(user)}
                   >
-                    <img
-                      src={user.imageUrl}
-                      alt={user.firstname}
-                      className={`w-12 h-12 rounded-full object-cover ${ Array.isArray(onlineUsers) && onlineUsers.includes(user._id)
-                          ? "ring-2 ring-green"
-                          : ""}`} />
+               <img
+  src={user?.imageUrl}
+  alt={user?.firstname}
+  className={`w-12 h-12 rounded-full object-cover ${
+     onlineUsers?.[user._id]?.online 
+      ? "ring-2 ring-green-500"
+      : ""
+  }`}
+/>
+
 
 
 
@@ -225,7 +232,7 @@ const handleBackToUsers = () => {
                         <img
                           src={activeuser.imageUrl}
                           alt={activeuser.firstname}
-                          className='w-12 h-12 rounded-full object-cover' />
+                          className={`w-12 h-12 rounded-full object-cover `}/>
                         <div className='flex flex-col'>
                           <span className='font-medium'>
                             {activeuser.firstname} {activeuser.lastname}
@@ -234,11 +241,11 @@ const handleBackToUsers = () => {
                             {activeuser.position}
 
                           </span>
-                          {activeuser?.isOnline ? (
+                          {isActiveUserOnline?(
                             <span className="text-green-500 text-xs">Online</span>
                           ) : (
                             <span className="block text-xs text-right opacity-70 mt-1">
-                              {formattime(activeuser?.lastSeen)}
+                              {formattime(activeuser?.createdAt)}
                             </span>
                           )}
 

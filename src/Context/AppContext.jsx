@@ -7,7 +7,7 @@ export const AppContext=createContext()
 export default function AppProvider({children}){
     const [header,setHeader]=useState(false)
     const [socket ,setSocket]=useState(null)
-    // const [onlineusers,setOnlineusers]=useState([])
+    const [onlineUsers,setOnlineusers]=useState({})
     const  [liveVisitors,setLiveVisitors]=useState(0)
     const [search ,setSearch]=useState("")
     const [user ,setUser]=useState(()=>{
