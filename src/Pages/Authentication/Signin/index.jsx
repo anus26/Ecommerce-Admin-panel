@@ -74,15 +74,15 @@ try {
     <h1 className='font-semibold flex'>Email <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
     <input type="email" placeholder='info@gmail.com'name='email' value={formData.email} onChange={handlechange} className='border w-[100%] hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg'/>
    </div> 
-   <div className='mt-5 '>
+   <div className='mt-5 relative '>
     <h1 className='font-semibold flex'>Password <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
     <input type={open?"text":"password"} name='password' value={formData.password} onChange={handlechange} placeholder='Enter your password'  className='relative border w-[100%]  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg '   />
-  <span onClick={()=>setOpen(!open)} className='absolute lg:ml-[-2%] sm:ml-[-8%] z-10 text-center  mt-3'>
-      {open &&
-      <BsEyeSlash /> ||   <BsEye />
-    
-    }
-  </span>
+   <span onClick={()=>setOpen(!open)} className='absolute lg:ml-[-4%] sm:ml-[-8%] z-10 text-center  mt-3'>
+       {open &&
+       <BsEyeSlash /> ||   <BsEye />
+     
+     }
+   </span>
   <div className='mt-4 flex justify-between'>
     <div>
 
