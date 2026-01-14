@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from '../../Components/Sidebar'
-import Header from '../../Components/Header'
-import "./Style.css"
+import './Style.css';
+
 import { FiUsers } from "react-icons/fi"
 import { IoIosArrowRoundUp } from "react-icons/io";
-import { PiDotsThreeVertical } from "react-icons/pi";
 import Apexchart from '../../Components/Apexchart';
 import Monthly from '../../Components/Monthly';
 import Static from '../../Components/Static';
