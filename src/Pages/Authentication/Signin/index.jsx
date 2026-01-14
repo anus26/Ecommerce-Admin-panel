@@ -105,11 +105,11 @@ try {
   </div>
 <div className='w-[50%] md:hidden xl:block'>
     <div className="back flex  items-center justify-center gap-4">
-      <img
+      {/* <img
         src="/images/control-panel.png"
         alt="control"
         className="w-[12%]"
-      />
+      /> */}
       <h1 className="text-white text-4xl font-bold">
         AdminPanel
       </h1>
