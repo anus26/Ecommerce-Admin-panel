@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { IoIosArrowBack } from "react-icons/io";
-import './style.css'
+import "./style.css"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const Reset = () => {
