@@ -21,7 +21,7 @@ const Signup = () => {
       lastname:"",
             Telephone:"",
             City:"",
-            Country:"",
+            
             Postcode:"",
             image:null
   });
