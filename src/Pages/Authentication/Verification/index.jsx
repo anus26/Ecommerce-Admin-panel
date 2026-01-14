@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IoIosArrowBack } from "react-icons/io";
-import "./style.css"
+import "./Style.css"
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 const Verification = () => {

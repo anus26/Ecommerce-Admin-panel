@@ -10,7 +10,7 @@ import { RiPageSeparator } from "react-icons/ri";
 import { SiWebauthn } from "react-icons/si";
 import { FiShoppingCart } from "react-icons/fi";
 import { BsCalendar2Check, BsChatDots } from "react-icons/bs";
-import './style.css'
+import './Style.css'
 import { CiFolderOn } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
 

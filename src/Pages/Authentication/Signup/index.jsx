@@ -4,7 +4,7 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
-import "./style.css"
+import "./Style.css"
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import axios from 'axios';
