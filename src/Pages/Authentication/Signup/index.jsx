@@ -197,7 +197,7 @@ try {
 <div className='w-[50%] md:hidden xl:block'>
 <div className="  back h-screen  xl:flex items-center justify-center text-center  md:hidden sm:hidden  lg:hidden
                 ">
-  <img src="./images/control-panel.png" alt="control" className='w-[12%]  '  />
+  <img src="/images/control-panel.png" alt="control" className='w-[12%]  '  />
   <h1 className="text-white text-4xl font-bold  ">AdminPanel</h1>
 </div>
 

@@ -114,7 +114,7 @@ const navigate=useNavigate()
 <div className='w-[50%]'>
 <div className="  back h-screen    sm:hidden xl:flex items-center justify-center  
                 ">
-  <img src="./images/control-panel.png" alt="control" className='w-[12%] xl:hidden lg:block'  />
+  <img src="/images/control-panel.png" alt="control" className='w-[12%] xl:hidden lg:block'  />
   <h1 className="text-white text-4xl font-bold  ">AdminPanel</h1>
 </div>
 
