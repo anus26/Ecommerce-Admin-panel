@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './Style.css';
+import "./Style.css"
 import { FiUsers } from "react-icons/fi"
 import { IoIosArrowRoundUp } from "react-icons/io";
 import Apexchart from '../../Components/Apexchart';
@@ -9,7 +9,6 @@ import Global from '../../Components/Global';
 import Orders from '../../Components/Orders';
 import axios from 'axios';
 const  Dashboard = () => {
-  const [open,setOpen]=useState(false)
   const [coustomers,setCoustomer]=useState([])
 
   const handle=async()=>{
