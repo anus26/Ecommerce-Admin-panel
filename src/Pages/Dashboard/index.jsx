@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import "./Style.css"
 import { FiUsers } from "react-icons/fi"
 import { IoIosArrowRoundUp } from "react-icons/io";
 import Apexchart from '../../Components/Apexchart';
