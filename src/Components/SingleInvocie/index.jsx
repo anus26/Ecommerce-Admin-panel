@@ -7,16 +7,7 @@ const SingleInvocie = () => {
   const [invoice, setInvoice] = useState(null);
   const [Products,setProdcut]=useState([])
 
-  // const handle=async()=>{
-  //   try {
-  //     const res=await axios.get('http://localhost:5000/api/v1/getinvoice')
-  //     setInvoice(res.data.invoice)
-  //     console.log('Invoice Data :',res.data.invoice );
-      
-  //   } catch (error) {
-  //       console.error("❌ Fetch Error:", error.message);
-  //   }
-  // }
+ 
   
   const savedId =localStorage.getItem("invoiceid")
   const fetchData = async (_id) => {

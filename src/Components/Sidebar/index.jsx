@@ -1,25 +1,19 @@
 import React, { useContext, useState } from 'react'
 import { PiSquaresFourLight } from "react-icons/pi";
 import { IoIosArrowDown } from "react-icons/io";
-import { ImPacman } from 'react-icons/im';
 import { IoIosArrowUp } from "react-icons/io";
 import { TbPhoneIncoming } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
-import { FaRegCalendarAlt } from "react-icons/fa";
 import { MdOutlineTask } from "react-icons/md";
-import { SiFormspree } from "react-icons/si";
 import { SiInstructables } from "react-icons/si";
 import { RiPageSeparator } from "react-icons/ri";
 import { SiWebauthn } from "react-icons/si";
 import { FiShoppingCart } from "react-icons/fi";
 import { BsCalendar2Check, BsChatDots } from "react-icons/bs";
-import './Style.css'
+import './style.css'
 import { CiFolderOn } from 'react-icons/ci';
-import Product from '../Products';
 import { Link } from 'react-router-dom';
-import { RiDeleteBack2Line } from "react-icons/ri";
-import { FaBarsStaggered } from 'react-icons/fa6';
-import { AppContext } from '../../Context/AppContext';
+
 const Sidebar = () => {
     
 

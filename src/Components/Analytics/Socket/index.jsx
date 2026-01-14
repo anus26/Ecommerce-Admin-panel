@@ -6,7 +6,7 @@ const Socket = () => {
 
 const {liveVisitors}=useContext(AppContext)
 
-  // useEffect(() => {
+ 
   //   socket.on("onlineUsers", (data) => {
   //     setOnlineUsers(data);
   //   });
