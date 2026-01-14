@@ -5,6 +5,8 @@ import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import './style.css'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 axios.defaults.withCredentials=true //allow  cookies  globaly
@@ -138,7 +140,15 @@ try {
          <div>
 
                <h1 className='flex font-semibold '>Telephone  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
-      <input type="number" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.Telephone} name='Telephone' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+<PhoneInput
+    country={formData.Country ? formData.Country : undefined}             // default country code
+  value={formData.Telephone}
+  onChange={(value) =>
+    setFormData({ ...formData, Telephone: value })
+  }
+  placeholder="Enter your phone number"
+  className="w-full border hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg"
+/>
          </div>
    
    
@@ -146,11 +156,11 @@ try {
                   <div className='flex gap-2'>
 
    
-    <div>
+    {/* <div>
       <h1 className='flex font-semibold '>Country  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
       <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.City} name='City' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
 
-    </div>
+    </div> */}
    
    
 
