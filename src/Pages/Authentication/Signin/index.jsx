@@ -5,7 +5,6 @@ import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import './style.css';
-
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../../Context/AppContext';
