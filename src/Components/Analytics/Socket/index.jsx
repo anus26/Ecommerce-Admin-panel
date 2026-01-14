@@ -7,7 +7,7 @@ const Socket = () => {
 const {liveVisitors}=useContext(AppContext)
 
  
-  //   socket.on("onlineUsers", (data) => {
+ 
   //     setOnlineUsers(data);
   //   });
 

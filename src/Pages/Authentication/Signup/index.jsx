@@ -141,7 +141,7 @@ try {
 
                <h1 className='flex font-semibold '>Telephone  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
 <PhoneInput
-    country={formData.Country ? formData.Country : undefined}             // default country code
+   defaultCountry="PK"               // default country code
   value={formData.Telephone}
   onChange={(value) =>
     setFormData({ ...formData, Telephone: value })
