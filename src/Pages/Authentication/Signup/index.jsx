@@ -9,7 +9,7 @@ import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-axios.defaults.withCredentials=true //allow  cookies  globaly
+axios.defaults.withCredentials=true
 const Signup = () => {
   const [open , setOpen]=useState(false)
   const [formData, setFormData] = useState({
@@ -19,10 +19,7 @@ const Signup = () => {
     confirmpassword: "",
     position:"",
       lastname:"",
-            Telephone:"",
-            City:"",
-            
-            Postcode:"",
+            Telephone:"", 
             image:null
   });
   const navigate=useNavigate()
@@ -41,7 +38,7 @@ const Signup = () => {
 
 try {
   
-  const res=await axios.post('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/signup',formData,{
+  const res=await axios.post('https://ashamed-shirlene-anusraza123bm-0a1cc794.koyeb.app/api/v1/user/signup',data,{
      headers: { "Content-Type": "multipart/form-data" },
  withCredentials:true})
  localStorage.setItem('user',JSON.stringify(res.data.user))
@@ -141,10 +138,11 @@ try {
 
                <h1 className='flex font-semibold '>Telephone  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
 <PhoneInput
-   defaultCountry="PK"               // default country code
+   country="PK"               // default country code
   value={formData.Telephone}
+
   onChange={(value) =>
-    setFormData({ ...formData, Telephone: value })
+    setFormData({ ...formData, Telephone: value ||''})
   }
   placeholder="Enter your phone number"
   className="w-full border hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg"
@@ -164,21 +162,21 @@ try {
    
    
 
-         <div>
+         {/* <div>
 
                <h1 className='flex font-semibold '>City  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
-      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.Country} name='Country' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
-         </div>
+      <input type="text" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.City} name='City' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
+         </div> */}
    
    
       </div>
       <div className='flex'>
-        
+{/*         
            <div>
 
                <h1 className='flex font-semibold '>Postcode  <img src="./images/star.png" alt="email-star" className='w-[2%] h-[2%]' /></h1>
       <input type="number" onChange={handlechange} placeholder='Enteryoufirstname' value={formData.Postcode} name='Postcode' className='w-[100%] border  hover:border-primary hover:shadow-[0_2px_8px_rgba(0,0,150,0.4)] transition-all duration-300 outline-none p-2 border-gray rounded-lg' />
-         </div>
+         </div> */}
          <div>
         <input type='file' onChange={handleimage}   name='image'/>
          </div>
